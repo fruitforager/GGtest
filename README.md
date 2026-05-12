@@ -1,7 +1,2 @@
-echo "# GGtest" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/fruitforager/GGtest.git
-git push -u origin main
+# GG2026
+Git Repository GGwebsite 2026

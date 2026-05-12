@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join or Renew — Golden Gate Chapter CRFG</title>
+<meta name="description" content="Join the Golden Gate Chapter of the California Rare Fruit Growers. Connect with Bay Area growers, attend orchard tours, tastings, and scion exchanges.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Join or Renew — Golden Gate Chapter CRFG">
+<meta property="og:description" content="Connect with Bay Area fruit growers. Orchard tours, tastings, scion exchanges, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://goldengate.crfg.org/join-renew.html">
+<meta property="og:image" content="https://goldengate.crfg.org/images/og-cover.jpg">
+<meta name="theme-color" content="#274D31">
+<link rel="canonical" href="https://goldengate.crfg.org/join-renew.html">
+<link rel="preconnect" href="https://api.ultimaps.com">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Golden Gate Chapter — California Rare Fruit Growers",
+  "url": "https://goldengate.crfg.org",
+  "description": "The Golden Gate Chapter of CRFG connects Bay Area fruit growers through orchard tours, tastings, scion exchanges, and community events.",
+  "areaServed": [
+    "Alameda County, CA",
+    "Contra Costa County, CA",
+    "Marin County, CA",
+    "San Francisco, CA",
+    "San Mateo County, CA",
+    "Solano County, CA"
+  ],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "California Rare Fruit Growers",
+    "url": "https://crfg.org"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "golden_gate@crfg.org",
+    "contactType": "customer support"
+  }
+}
+</script>
+<style>
+:root {
+  --bg: #FAF0E6;
+  --text: #222;
+  --green: #274D31;
+  --green-dark: #21452c;
+  --blue: #2f5d8f;
+  --blue-dark: #21425c;
+  --border: #d8ccb6;
+  --sidebar: 220px;
+  --content-width: 1200px;
+  --touch-min: 44px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+strong, b { font-weight: 800; }
+
+/* ── Layout ── */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  max-width: var(--content-width);
+  margin: auto;
+}
+
+/* ── Sidebar ── */
+aside {
+  width: var(--sidebar);
+  flex-shrink: 0;
+  background: var(--green);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 16px 16px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  margin-bottom: 4px;
+  /* hover/focus handled below */
+  transition: background .15s;
+  border-radius: 0;
+}
+.nav-brand:hover { background: rgba(255,255,255,.06); }
+.nav-brand:focus-visible {
+  outline: 3px solid rgba(255,255,255,.65);
+  outline-offset: -3px;
+}
+
+.logo {
+  width: 134px;
+  height: auto;
+  display: block;
+  margin: 0 auto 14px;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,.22));
+}
+
+.site-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1.3;
+  display: block;
+}
+.site-crfg {
+  font-size: .9rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.75);
+  line-height: 1.3;
+  display: block;
+  text-align: center;
+  margin-top: 2px;
+}
+.site-sub {
+  font-size: .78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+  line-height: 1.3;
+  margin-top: 4px;
+  display: block;
+  text-align: center;
+}
+
+/* ── Nav ── */
+nav {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0 120px;
+}
+
+.nav-group { margin-top: 6px; }
+
+.nav-group-label {
+  font-size: .76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.85);
+  padding: 16px 16px 5px;
+  display: block;
+  margin-top: 4px;
+  text-align: left;
+}
+.nav-group:first-child .nav-group-label {
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+nav a {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--bg);
+  text-decoration: none;
+  /* min touch target height */
+  min-height: var(--touch-min);
+  display: flex;
+  align-items: center;
+  padding: 8px 16px 8px 19px;
+  border-left: 3px solid transparent;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 0;
+  transition: background .12s, color .12s, border-color .12s;
+  border-radius: 0 6px 6px 0;
+}
+nav a:hover {
+  background: rgba(255,255,255,.12);
+  color: white;
+}
+nav a:focus-visible {
+  outline: 2px solid rgba(255,255,255,.7);
+  outline-offset: -2px;
+  background: rgba(255,255,255,.1);
+  color: white;
+}
+nav a.active {
+  background: rgba(255,255,255,.16);
+  color: white;
+  border-left-color: rgba(255,255,255,.75);
+}
+
+/* multi-line nav links */
+nav a.wrap {
+  white-space: normal;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+nav a.wrap span {
+  padding-left: 12px;
+  font-size: .78rem;
+  opacity: .85;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+/* ── Mobile header ── */
+.hamburger { display: none; }
+.mobile-header { display: none; }
+
+/* ── Page ── */
+.page {
+  flex: 1;
+  padding: 40px 44px 40px 52px;
+  min-width: 0;
+}
+
+/* ── Hero ── */
+.hero { margin-top: 10px; }
+.hero h1 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.18;
+  margin: 0 0 28px;
+  max-width: 800px;
+  font-weight: 900;
+  letter-spacing: -.005em;
+}
+
+.hero h1 span { display: block; }
+
+h2 {
+  font-size: clamp(1.65rem, 2.65vw, 2.75rem);
+  line-height: 1.05;
+  margin: 44px 0 18px;
+  font-weight: 900;
+  orphans: 3;
+  widows: 3;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.1vw, 2rem);
+  line-height: 1.1;
+  margin: 36px 0 14px;
+  font-weight: 900;
+  orphans: 3;
+  widows: 3;
+}
+
+p {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  orphans: 3;
+  widows: 3;
+}
+
+.small {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.fruit-divider {
+  font-size: clamp(1.65rem, 2.65vw, 2.75rem);
+  line-height: 1.05;
+  margin: 44px 0 18px;
+  user-select: none;
+}
+
+.member-title {
+  font-size: 1.85rem;
+  font-weight: 900;
+  line-height: 1.18;
+  margin: 0 0 12px;
+}
+
+/* ── Steps ── */
+.step {
+  margin: 20px 0;
+  padding-left: 22px;
+  max-width: 46ch;
+}
+.step + .step { margin-top: 30px; }
+
+/* Use CSS instead of <br> for step label spacing */
+.step-label {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+.step-label strong { display: block; margin-bottom: 2px; }
+
+/* ── Button ── */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  background: var(--blue);
+  color: white;
+  text-decoration: none;
+  padding: 13px 18px;
+  min-height: var(--touch-min);
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 1.08rem;
+  letter-spacing: .03em;
+  white-space: nowrap;
+  transition: background .18s, transform .18s, box-shadow .18s;
+}
+.button:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.14);
+}
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,.12);
+}
+.button:focus-visible {
+  outline: 3px solid rgba(47,93,143,.45);
+  outline-offset: 3px;
+}
+
+.step .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 35ch;
+  text-align: center;
+  margin-top: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-image: linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,.10);
+  white-space: normal;
+  line-height: 1.25;
+}
+.step .button:hover {
+  background-image: linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
+}
+
+/* ── Payment logos ── */
+.pay-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  width: 100%;
+  max-width: 35ch;
+  /* single line — no wrap; scroll on extreme narrow */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* match the button's border-radius (8px), not the container edges */
+  border-radius: 8px;
+  background: rgba(0,0,0,.04);
+  /* prevent CLS: explicit height so container doesn't collapse */
+  min-height: 44px;
+}
+.pay-logos img {
+  flex: 0 0 auto;
+  height: 20px;   /* explicit height — eliminates layout shift */
+  width: auto;
+  display: block;
+}
+
+/* ── Visually hidden (screen-reader only) ── */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Pay card ── */
+.pay-card {
+  margin-top: 14px;
+  background: #f6e3d1;
+  border-radius: 7px;
+  padding: 12px 16px;
+  display: block;
+  font-size: .9rem;
+  line-height: 1.45;
+  color: #555;
+  max-width: 48ch;
+  clear: both;
+}
+.pay-card a {
+  color: var(--green);
+  transition: color .18s, text-decoration-color .18s;
+}
+.pay-card a:hover { color: var(--green-dark); text-decoration: underline; }
+.pay-card a:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.pay-card-section + .pay-card-section { margin-top: 8px; }
+
+.mail-line { white-space: nowrap; }
+
+/* ── Responsive iframe ── */
+.map-wrap {
+  width: 60%;
+  aspect-ratio: 3/2;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Lists ── */
+ul {
+  padding-left: 26px;
+  margin: 0;
+}
+li {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  orphans: 3;
+  widows: 3;
+}
+
+/* ── Footer ── */
+footer {
+  margin-top: 60px;
+  font-size: .85rem;
+  line-height: 1.3;
+}
+footer p { font-size: .82rem; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+.bottom-tagline {
+  line-height: 1.35;
+  margin-top: 44px;
+  margin-bottom: 0;
+}
+.bottom-tagline span { display: block; }
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  background: var(--green);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  z-index: 9999;
+  text-decoration: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 750px) {
+  .layout { flex-direction: column; }
+
+  aside {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .nav-brand { display: none; }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    min-height: 56px;
+    gap: 8px;
+  }
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex: 1;
+    min-width: 0;
+    padding: 6px 0;
+  }
+  .mobile-brand:focus-visible {
+    outline: 2px solid rgba(255,255,255,.7);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .mobile-logo { width: 36px; height: auto; flex-shrink: 0; }
+
+  .mobile-title {
+    font-size: .82rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.25;
+    /* allow wrapping on very small screens */
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  nav { display: none; padding: 0 0 12px; }
+  nav.open { display: flex; }
+
+  nav a {
+    padding: 0 20px;
+    min-height: 48px;
+    border-left: none;
+    font-size: .93rem;
+    white-space: normal;
+    border-radius: 0;
+    margin-left: 0;
+  }
+  nav a.wrap { padding: 10px 20px; }
+
+  .nav-group-label {
+    padding: 12px 20px 4px;
+    font-size: .75rem;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 7px;
+    padding: 0 10px;
+    min-height: var(--touch-min);
+    min-width: var(--touch-min);
+    font-size: .8rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    flex-shrink: 0;
+    /* allow label to wrap on very narrow */
+    white-space: nowrap;
+  }
+  .hamburger:focus-visible {
+    outline: 2px solid rgba(255,255,255,.7);
+    outline-offset: 2px;
+  }
+  .hamburger svg {
+    width: 16px;
+    height: 16px;
+    stroke: white;
+    fill: none;
+    flex-shrink: 0;
+  }
+
+  .page { padding: 24px 16px 40px; }
+
+  .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+
+  .step {
+    padding-left: 0;
+    max-width: none;
+  }
+
+  .step .button,
+  .pay-logos,
+  .pay-card {
+    max-width: none;
+    width: 100%;
+  }
+
+  .pay-logos {
+    gap: 10px;
+    justify-content: space-around;
+    padding: 10px 12px;
+    max-width: none;
+  }
+  .pay-logos img { height: 18px; }
+
+  .map-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+  }
+
+  .mail-line { white-space: normal; }
+
+  .bottom-tagline { line-height: 1.42; }
+}
+
+/* Hover-capable devices only (avoids sticky hover on iOS) */
+@media (hover: hover) {
+  .button:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,.14);
+  }
+  .pay-card a:hover { color: var(--green-dark); text-decoration: underline; }
+  nav a:hover { background: rgba(255,255,255,.12); color: white; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="layout">
+
+<aside>
+  <!-- Desktop sidebar logo: hidden on mobile via CSS, so mobile never downloads it lazily.
+       The mobile header uses its own img below. Both point to same src so browser caches once. -->
+  <a href="index.html" class="nav-brand" aria-label="Golden Gate Chapter CRFG — Home">
+    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
+         alt="" width="134" height="134" loading="eager" fetchpriority="high">
+    <span class="site-title">Golden Gate Chapter</span>
+    <span class="site-crfg">CRFG.org</span>
+    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
+  </a>
+
+  <div class="mobile-header">
+    <a href="index.html" class="mobile-brand" aria-label="Golden Gate Chapter CRFG — Home">
+      <!-- Same URL → already in browser cache from sidebar img above -->
+      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
+           alt="" width="36" height="36" loading="eager">
+      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+    </a>
+    <button
+      class="hamburger"
+      aria-controls="navMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation menu"
+      onclick="
+        var nav = document.getElementById('navMenu');
+        var open = nav.classList.toggle('open');
+        this.setAttribute('aria-expanded', open);
+      "
+    >
+      <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <nav id="navMenu" aria-label="primary">
+    <div class="nav-group">
+      <span class="nav-group-label" id="nav-start">🏠 Start Here</span>
+      <a href="index.htm" aria-labelledby="nav-start">About</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label" id="nav-grow">🌿 Grow Fruit</span>
+      <a href="bay-area-zone-favorites.html" class="wrap" aria-labelledby="nav-grow">
+        Bay Area Favorites
+        <span>by Climate Zone</span>
+      </a>
+      <a href="memberguides.html" class="wrap" aria-labelledby="nav-grow">
+        Member Written Guides
+        <span>What Thrives Locally</span>
+      </a>
+      <a href="fruity-resources.html" aria-labelledby="nav-grow">Fruity Resources</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label" id="nav-community">🤝 Community</span>
+      <a href="meetings.htm" aria-labelledby="nav-community">Meetings</a>
+      <a href="online-community.html" aria-labelledby="nav-community">Online Community</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label" id="nav-membership">✨ Membership</span>
+      <a href="join-renew.html" class="active" aria-current="page" aria-labelledby="nav-membership">Join / Renew</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label" id="nav-events">🍋 Events</span>
+      <a href="gg-scionexchange.html" aria-labelledby="nav-events">Scion Exchange</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label" id="nav-plants">🌱 Get Plants</span>
+      <a href="where-to-buy.html" aria-labelledby="nav-plants">Where to Buy</a>
+    </div>
+  </nav>
+</aside>
+
+<div class="page">
+<main id="main-content">
+<section class="hero">
+  <h1><span>Grow better fruit.</span><span>Eat what you grow.</span><span>Share your abundance.</span></h1>
+  <h2 class="member-title">Become a Chapter Member</h2>
+  <p class="small">Join the Golden Gate Chapter of the California Rare Fruit Growers and connect with people who grow, taste, and share unusual fruit across the Bay Area.</p>
+</section>
+
+<div class="fruit-divider" aria-hidden="true">🫐 🍎 🍋 🍇 🍐</div>
+
+<h3>Join in two steps:</h3>
+
+<div class="step">
+  <p class="step-label">
+    <strong>Step 1: Join the California Rare Fruit Growers (CRFG.org)</strong>
+    Required. Includes subscription to the <em>Fruit Gardener</em> magazine.
+    Bring the world of rare fruit growing straight to your door.
+  </p>
+  <a class="button" href="https://shr.pn/CRFGJoinRenew" target="_blank" rel="noopener noreferrer">
+    Join CRFG.org
+    <span class="visually-hidden">(opens in new tab)</span>
+  </a>
+</div>
+
+<div class="step">
+  <p><strong>Step 2: Join the Golden Gate Chapter</strong><br>Experience the simple joy of growing fruit together.</p>
+  <a class="button" href="https://shr.pn/GGJoinRenew" target="_blank">Join the Golden Gate Chapter</a>
+
+  <div class="pay-logos">
+    <img src="https://www.image2url.com/r2/default/images/1778370145085-f24780b1-62fc-4f6e-bc22-37aa52d7372b.svg" alt="Visa and Mastercard" style="height:22px;width:auto;">
+    <img src="https://www.image2url.com/r2/default/images/1778369253805-7c529f08-cf1a-4804-905c-0483ebc5dc3a.svg" alt="American Express" style="height:20px;width:auto;">
+    <img src="https://www.image2url.com/r2/default/images/1778369333135-6a59c66d-4455-443a-8576-3dfbca91676e.svg" alt="Discover" style="height:16px;width:auto;">
+    <img src="https://www.image2url.com/r2/default/images/1778369398953-b33b9332-7bd5-4c04-8b0f-f0d8e6cd51b8.svg" alt="Apple Pay" style="height:20px;width:auto;">
+    <img src="https://www.image2url.com/r2/default/images/1778369442494-c98af60f-014b-4bc2-a53e-53cbea742339.svg" alt="Google Pay" style="height:20px;width:auto;">
+    <img src="https://www.image2url.com/r2/default/images/1778369560180-e0163bf4-be8d-4e63-8ce7-ca818b234be1.svg" alt="Credit Card" style="height:20px;width:auto;">
+  </div>
+
+  <div class="pay-card">
+    <div><strong>Pay by Electronic Check</strong><br>For instructions email <a href="mailto:GGmembership@crfg.org" style="color:var(--blue);">gg.membership@crfg.org</a></div>
+    <div style="margin-top:6px;"><strong>Pay by Check</strong> (or Cash at any meeting)<br>Make check payable to: GG&#8211;CRFG<br><span class="mail-line">Mail to: GG CRFG, 2901 Roosevelt Ave, Richmond CA 94804</span></div>
+  </div>
+</div>
+
+<h3>What We Do 🌳</h3>
+<ul>
+  <li>Learn from guest speakers, workshops, and real-world experience</li>
+  <li>Tour home gardens, orchards, and growing spaces</li>
+  <li>Trade scion wood, seeds, cuttings, and plants</li>
+  <li>Share tips, successes, and lessons learned</li>
+  <li>Taste rare and unusual fruit you won't find in markets</li>
+</ul>
+
+<h3>What You Get 🍊🍒 🥝</h3>
+<ul>
+  <li>Orchard tours and hands-on workshops</li>
+  <li>Seasonal fruit tastings and harvest sharing</li>
+  <li>Direct access to experienced growers</li>
+  <li>Scion Exchange early entry and plant sharing</li>
+  <li>A community of passionate fruit growers</li>
+</ul>
+
+<div class="map-wrap">
+  <iframe
+    src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
+    title="Golden Gate Chapter CRFG member map"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+
+<h3>Who Joins? 🌼</h3>
+<p>Growers from across the Golden Gate region — including <strong>Alameda, Contra Costa, Marin, San Francisco, San Mateo, Solano</strong>, and beyond. We even have members in Colorado and New York!</p>
+<ul>
+  <li>🌱 New growers with no trees</li>
+  <li>🏡 Backyard orchard enthusiasts expanding their plantings</li>
+  <li>🌳 Small orchard and nursery growers sharing expertise</li>
+  <li>🍒 Experienced fruit collectors and experimenters</li>
+</ul>
+
+<h2 class="bottom-tagline"><span>Bring your curiosity.</span><span>Come for the fruit.</span><span>Stay for the community.</span></h2>
+</main>
+
+<footer>
+  <hr>
+  <p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
+  <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
+</footer>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var p = window.location.pathname.split("/").pop() || "index.htm";
+  document.querySelectorAll("#navMenu a").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (href === p && !a.classList.contains("active")) {
+      a.classList.add("active");
+      a.setAttribute("aria-current", "page");
+    }
+  });
+}());
+</script>
+</body>
+</html>
