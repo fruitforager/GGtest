@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join/Renew — Golden Gate Chapter CRFG</title>
+<style>
+:root{
+  --bg:#FAF0E6;
+  --text:#222;
+  --green:#274D31;
+  --green-dark:#21452c;
+  --blue:#2f5d8f;
+  --blue-dark:#21425c;
+  --border:#d8ccb6;
+  --sidebar:220px;
+  --content-width:1200px;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  line-height:1.5;
+  font-size:18px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+strong,b{font-weight:800;}
+
+.layout{
+  display:flex;
+  min-height:100vh;
+  max-width:var(--content-width);
+  margin:auto;
+}
+
+aside{
+  width:var(--sidebar);
+  flex-shrink:0;
+  background:var(--green);
+  display:flex;
+  flex-direction:column;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,0.2) transparent;
+}
+.nav-brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:20px 16px 16px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,0.15);
+  margin-bottom:4px;
+}
+.logo{
+  width:134px;
+  height:auto;
+  display:block;
+  margin:0 auto 14px;
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
+}
+.site-title{
+  font-size:1.05rem;
+  font-weight:800;
+  color:white;
+  line-height:1.3;
+  display:block;
+}
+.site-crfg{
+  font-size:0.9rem;
+  font-weight:700;
+  color:rgba(255,255,255,0.75);
+  line-height:1.3;
+  display:block;
+  text-align:center;
+  margin-top:2px;
+}
+.site-sub{
+  font-size:0.78rem;
+  font-weight:700;
+  color:rgba(255,255,255,0.85);
+  line-height:1.3;
+  margin-top:4px;
+  display:block;
+  text-align:center;
+}
+
+nav{
+  display:flex;
+  flex-direction:column;
+  padding:4px 0 120px;
+}
+.nav-group{margin-top:6px;}
+.nav-group-label{
+  font-size:0.76rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:rgba(255,255,255,0.85);
+  padding:16px 16px 5px;
+  display:block;
+  margin-top:4px;
+  text-align:left;
+}
+.nav-group:first-child .nav-group-label{
+  margin-top:0;
+  padding-top:10px;
+}
+nav a{
+  font-size:0.82rem;
+  font-weight:700;
+  color:var(--bg);
+  text-decoration:none;
+  padding:5px 16px 5px 16px;
+  border-left:3px solid transparent;
+  display:block;
+  line-height:1.3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  transition:background 0.12s,color 0.12s,border-color 0.12s,transform 0.12s;
+  text-align:left;
+  margin-left:18px;
+}
+nav a:hover{
+  background:rgba(255,255,255,0.1);
+  color:white;
+}
+nav a.active{
+  background:rgba(255,255,255,0.14);
+  color:white;
+  border-left-color:rgba(255,255,255,0.75);
+}
+
+.hamburger{display:none;}
+.mobile-header{display:none;}
+
+.page{
+  flex:1;
+  padding:40px 44px 40px 52px;
+  min-width:0;
+}
+.hero{margin-top:10px;}
+.hero h1{
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  line-height:1.18;
+  margin:0 0 28px;
+  max-width:800px;
+  font-weight:900;
+  letter-spacing:-0.005em;
+}
+h2{
+  font-size:clamp(1.65rem,2.65vw,2.75rem);
+  line-height:1.05;
+  margin:44px 0 18px;
+  font-weight:900;
+  orphans:3;
+  widows:3;
+}
+h3{
+  font-size:clamp(1.3rem,2.1vw,2rem);
+  line-height:1.1;
+  margin:36px 0 14px;
+  font-weight:900;
+  orphans:3;
+  widows:3;
+}
+p{
+  margin:0 0 12px;
+  font-size:1.1rem;
+  line-height:1.55;
+  orphans:3;
+  widows:3;
+}
+.small{
+  font-size:1.08rem;
+  line-height:1.6;
+  max-width:52ch;
+}
+.member-title{
+  font-size:1.85rem;
+  font-weight:900;
+  line-height:1.18;
+  margin-bottom:12px;
+}
+.step{
+  margin:20px 0;
+  padding-left:22px;
+  max-width:46ch;
+}
+.step + .step{margin-top:30px;}
+.step p strong{
+  display:inline;
+  margin-bottom:0;
+  line-height:1.4;
+}
+.step p{
+  margin:0;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:14px;
+  background:var(--blue);
+  color:white;
+  text-decoration:none;
+  padding:12px 16px;
+  border-radius:8px;
+  font-weight:900;
+  font-size:1.08rem;
+  letter-spacing:0.03em;
+  white-space:nowrap;
+  transition:background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.button:hover{
+  background:var(--blue-dark);
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.14);
+}
+.button:active{
+  transform:translateY(0);
+  box-shadow:0 3px 8px rgba(0,0,0,0.12);
+}
+.button:focus-visible{
+  outline:3px solid rgba(47,93,143,0.35);
+  outline-offset:2px;
+}
+
+.step .button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:35ch;
+  text-align:center;
+  margin-top:14px;
+  padding-left:12px;
+  padding-right:12px;
+  background-image:linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
+  box-shadow:0 4px 10px rgba(0,0,0,0.10);
+}
+.step .button:hover{
+  background-image:linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
+}
+
+.pay-logos{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:18px;
+  margin-bottom:18px;
+  padding:10px 6px;
+  width:100%;
+  max-width:35ch;
+}
+.pay-logos img{
+  flex:0 0 auto;
+  max-height:22px;
+  width:auto;
+}
+
+.pay-card{
+  margin-top:14px;
+  background:#f6e3d1;
+  border-radius:7px;
+  padding:12px 16px;
+  display:block;
+  font-size:0.9rem;
+  line-height:1.45;
+  color:#555;
+  max-width:48ch;
+  clear:both;
+}
+
+.pay-card a{
+  transition:color 0.18s ease, text-decoration-color 0.18s ease;
+}
+.pay-card a:hover{
+  color:var(--blue-dark);
+  text-decoration:underline;
+}
+
+.mail-line{
+  white-space:nowrap;
+}
+
+ul{
+  padding-left:26px;
+  margin:0;
+}
+li{
+  margin-bottom:6px;
+  font-size:1.05rem;
+  line-height:1.5;
+  orphans:3;
+  widows:3;
+}
+
+footer{
+  margin-top:60px;
+  font-size:0.85rem;
+  line-height:1.3;
+}
+footer p{font-size:0.82rem;}
+hr{
+  border:none;
+  border-top:1px solid var(--border);
+  margin:40px 0;
+}
+
+.bottom-tagline{
+  line-height:1.35;
+  margin-top:44px;
+  margin-bottom:0;
+}
+
+@media(max-width:750px){
+  .layout{flex-direction:column;}
+  aside{width:100%;height:auto;position:relative;}
+  .nav-brand{display:none;}
+  .mobile-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+  }
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+  }
+  .mobile-logo{width:36px;height:auto;}
+  .mobile-title{
+    font-size:0.88rem;
+    font-weight:800;
+    color:white;
+    line-height:1.2;
+  }
+  nav{display:none;padding:0 0 10px;}
+  nav.open{display:flex;}
+  nav a{
+    padding:8px 20px;
+    border-left:none;
+    font-size:0.95rem;
+    margin-left:0;
+  }
+  .nav-group-label{padding:10px 20px 3px;}
+  .hamburger{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:7px;
+    padding:6px 10px;
+    font-size:0.8rem;
+    font-weight:700;
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .hamburger svg{
+    width:16px;
+    height:16px;
+    stroke:white;
+    fill:none;
+  }
+  .page{padding:24px 16px;}
+  .hero h1{font-size:clamp(2rem,8vw,3rem);}
+  .button{
+    display:block;
+    width:100%;
+    max-width:none;
+    text-align:center;
+    white-space:normal;
+    line-height:1.25;
+    padding:12px 14px;
+  }
+  .step{
+    padding-left:0;
+    max-width:none;
+  }
+  .step .button,
+  .pay-logos,
+  .pay-card{
+    max-width:none;
+    width:100%;
+  }
+  .pay-logos{
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:12px 6px;
+  }
+  .pay-logos img{
+    max-height:20px;
+  }
+  .bottom-tagline{
+    line-height:1.42;
+  }
+}
+
+@media (hover:hover){
+  .button:hover{
+    background:var(--blue-dark);
+    transform:translateY(-1px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.14);
+  }
+  .pay-card a:hover{
+    color:var(--blue-dark);
+    text-decoration:underline;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<aside>
+  <a href="index.html" class="nav-brand">
+<img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">    <span class="site-title">Golden Gate Chapter</span>
+    <span class="site-crfg">CRFG.org</span>
+    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
+  </a>
+
+  <div class="mobile-header">
+    <a href="index.html" class="mobile-brand">
+      <img class="mobile-logo" src="image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+    </a>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <nav id="navMenu">
+    <div class="nav-group">
+      <span class="nav-group-label">🏠 Start Here</span>
+      <a href="index.htm">About</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🌿 Grow Fruit</span>
+      <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
+      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+      <a href="fruity-resources.html">Fruity Resources</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🤝 Community</span>
+      <a href="meetings.htm">Meetings</a>
+      <a href="online-community.html">Online Community</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">✨ Membership</span>
+      <a href="join-renew.html">Join / Renew</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🍋 Events</span>
+      <a href="gg-scionexchange.html">Scion Exchange</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🌱 Get Plants</span>
+      <a href="where-to-buy.html">Where to Buy</a>
+    </div>
+  </nav>
+</aside>
+
+<div class="page">
+<main>
+
+<section class="hero">
+<h1>36th Annual Golden Gate<br>Scion Exchange 2026</h1>
+<p>Our biggest event of the year — hundreds of varieties, free classes, expert grafters, fruit tastings, and a community of passionate growers. Rain or shine.</p>
+</section>
+
+<!-- Event Details -->
+<div class="event-card">
+
+<div class="event-detail">
+<span class="label">When</span>
+<span class="value">
+<strong>Sunday, February 22, 2026</strong><br>
+<strong>11:00 am</strong> — CRFG Members Only Early Entry
+<a href="https://shr.pn/CRFGJoinRenew">(Join/Renew before the exchange</a> + buy your <a href="https://shr.pn/2026MemberEarlyEntryTicket">Early Entry Ticket</a>)<br>
+<strong>12:00 – 3:00 pm</strong> — Open to the Public
+(<a href="https://shr.pn/2026GeneralAdmissionFastPass">Fast Pass Ticket</a>)<br>
+<strong>$5 entry</strong> for members and non-members. Exact cash or e-ticket. Accompanying household members 18 and under are free.
+</span>
+</div>
+
+<div class="event-detail">
+<span class="label">Where</span>
+<span class="value">
+<strong>Diablo Valley College, Horticultural Nursery</strong><br>
+321 Golf Club Rd, Pleasant Hill, CA 94523<br>
+<em>Free Parking: Lot 9</em>
+</span>
+</div>
+
+<div class="map-links">
+<a class="map-link" href="https://shr.pn/DVCParkingLot9" target="_blank">🅿️ Google Maps to Parking Lot</a>
+<a class="map-link" href="https://shr.pn/Custom-Map" target="_blank">🗺️ Event Map</a>
+<a class="map-link" href="https://golden-gate.crfg.org/scionex-directions.html" target="_blank">📄 Written Directions</a>
+</div>
+
+</div>
+
+<!-- Tickets -->
+<h2>🎟️ Get Early-Entry Access — Join Now</h2>
+<p>Don't wait until the day of the exchange. Join or renew your CRFG membership for early entry at 11:00 am.</p>
+<ol>
+<li><strong><a href="https://shr.pn/CRFGJoinRenew">Join the California Rare Fruit Growers</a></strong> — help support our mission of educating the public on how to grow rare fruit.</li>
+<li><strong><a href="https://golden-gate.crfg.org/join.htm">Join our Golden Gate Chapter</a></strong> — get access to exclusive orchard tours, grafting classes, fruit tastings, and our online community.</li>
+</ol>
+<div class="ticket-row">
+<a class="button" href="https://shr.pn/CRFGJoinRenew" target="_blank">Join CRFG.org</a>
+<a class="button outline" href="https://shr.pn/2026MemberEarlyEntryTicket" target="_blank">Buy Early Entry Ticket</a>
+<a class="button outline" href="https://shr.pn/2026GeneralAdmissionFastPass" target="_blank">Buy Fast Pass Ticket</a>
+</div>
+<p class="small"><strong><a href="https://shr.pn/2026GGSXposter">Download the 2026 Scion Exchange Poster</a></strong> (pdf) — share it with your community!</p>
+
+<!-- Photo -->
+<img class="event-photo" src="https://golden-gate.crfg.org/images/Scion_Exchange_photos.jpg" alt="Photos from a previous Golden Gate Scion Exchange">
+
+<!-- What's Available -->
+<h2>🌿 What's Available</h2>
+<p>Select from hundreds of varieties to graft onto your trees — almonds, apples, Asian plums, cane berries, cherries, currants &amp; gooseberries, European plums, grapes, kiwis, mulberries, nuts, olives, peaches, pears, persimmons, plumcots, pomegranates, quince, vegetable seeds, and seasonally appropriate seedlings.</p>
+
+<div class="section-card">
+<span class="tag free">Free</span>
+<dl>
+<dt>11:10 am — Pre-Event Newbie/Beginner Class</dt>
+<dd>With John Valenzuela, Chapter chair and CRFG State Board member.</dd>
+<dt>12:30 – 1:45 pm — Grafting Class</dt>
+<dd>Hosted by CRFG member Graham Stott.</dd>
+<dt>Live Grafting Demonstrations</dt>
+<dd>Stop, watch, learn, and ask questions from several expert CRFG grafters.</dd>
+<dt>Fruit Tasting</dt>
+<dd>Discover fresh and unusual fruit as we celebrate seasonal bounty.</dd>
+<dt>Over 600 varieties of cuttings-to-root and scions-to-graft</dt>
+<dd><a href="https://shr.pn/GG-Cultivar-Database2026">Take a sneak peek with descriptions!</a><br>
+<span style="color:#a00;"><strong>Take only what you can graft. Limit 2 sticks per variety per person.</strong></span></dd>
+<dt>Expert Q&amp;A</dt>
+<dd>Get your fruit tree questions answered by experienced growers.</dd>
+</dl>
+</div>
+
+<div class="section-card">
+<span class="tag sale">For Sale</span>
+<dl>
+<dt><a href="https://shr.pn/GGSXShoppingList">2026 Golden Gate Scion Exchange Shopping List</a></dt>
+<dt>Rootstocks</dt>
+<dd>Purchase at our Exchange, or bring your own to get them grafted.</dd>
+<dt>Grafting Supplies</dt>
+<dd>Metal plant labels, grafting tape, Buddy tape, knives, cut-resistant gloves, limb spreaders, safety tape, grafting rubbers, tool cleaners, and more.</dd>
+<dt>Citrus for Sale</dt>
+<dd>Delicious citrus grown in the Sacramento Valley by CRFG member Ray Sheehy.</dd>
+<dt>Plant Sale — <a href="https://shr.pn/DVChorticulture">Diablo Valley College Horticulture Department</a></dt>
+<dd>Vegetables, edibles, annuals, perennial herbs, California natives, pollinator plants, salvias, shrubs, succulents, tender perennials, indoor plants, and soil amendments.</dd>
+<dt>Custom Grafting Service</dt>
+<dd>For a fee. Buy rootstock at our exchange or bring your own bare-root rootstock. Choose your scions and we'll graft it for you.</dd>
+<dt>Pruner, Lopper &amp; Grafting Knife Sharpening</dt>
+<dd>Bring these to have them sharpened for a fee while learning how to do it yourself.</dd>
+</dl>
+</div>
+
+<div class="section-card">
+<span class="tag vendor">Vendors &amp; Community Groups</span>
+<dl>
+<dt><a href="https://anniesgardenscapes.com/" target="_blank">Annies Gardenscapes</a></dt>
+<dd>Rare fruit trees, shrubs, and berry plants for sale.</dd>
+<dt><a href="https://shr.pn/CACitrus">Citrus Pest and Disease Prevention Program, CDFA</a></dt>
+<dd>Pest ID and control, prevention strategies, quarantine info, and regulatory requirements for plant movement.</dd>
+<dt><a href="https://shr.pn/PlantingJustice">Planting Justice Nursery</a></dt>
+<dd>The largest certified organic fruit tree nursery in California, empowering communities with food sovereignty and economic justice.</dd>
+<dt><a href="https://circadiancropsciences.com">Circadian Crop Sciences</a></dt>
+<dd>OMRI certified custom products that protect water and land for generations to come.</dd>
+<dt>The Fig Hunter</dt>
+<dd>Learn all you could ever want to know about growing figs.</dd>
+<dt>Contra Costa County Department of Agriculture</dt>
+<dt>Bay Area Applied Mycology</dt>
+<dt>Grow Baby Grow</dt>
+<dd>Specialty edible plants.</dd>
+<dt><a href="https://diablobees.org/content.aspx?page_id=0&club_id=60513" target="_blank">Mount Diablo Beekeepers Association</a></dt>
+</dl>
+<p style="margin-top:12px;"><strong>Beginners are welcome!</strong> We all have to start somewhere. You are <em>not</em> required to bring scions to attend.</p>
+</div>
+
+<!-- What to Bring -->
+<h2>🎒 What to Bring</h2>
+<ol>
+<li><strong>Scion wish list</strong> — based on tastings, research, your chill hours, pollination, and rootstock compatibility.</li>
+<li><strong>Gallon zip-top plastic bags</strong> to keep scions fresh. Include your name in case you set it down.</li>
+<li><strong>Painters or masking tape</strong> to label your scions.</li>
+<li><strong>Permanent marker</strong> to write on your tape.</li>
+<li><strong>Notebook &amp; pen</strong> to take notes.</li>
+<li><strong>A handled tote</strong> to carry everything (with your name &amp; number on it).</li>
+<li><strong>Scions and plants to share</strong> — divisions, tubers, bare-root plants, seeds of unusual fruits, berries, nuts, vegetables, and herbs. Everything must be labeled. Drop off at the Scion Intake Station near the Welcome Table.</li>
+<li><strong>Grafting knives and pruners</strong> to sharpen for a fee.</li>
+<li>We accept <strong>cash, credit/debit cards, Apple Pay, and Google Pay</strong>.</li>
+</ol>
+
+<div class="section-card">
+<span class="tag warning">Do Not Bring</span>
+<ul>
+<li>NO citrus or relatives (plants or scions/cuttings) — <a href="https://californiacitrusthreat.org/">find out why</a></li>
+<li>NO potted fig plants (cuttings are ok)</li>
+<li>NO <a href="https://ipm.ucanr.edu/PMG/diseases/diseases.fruits.html">diseased</a> or <a href="https://ipm.ucanr.edu/PMG/GARDEN/fruit.html">pest-infected</a> plants</li>
+<li>NO leaf litter from potted plants, or excess soil from roots/tubers</li>
+<li>NO old wood with fruit spurs (two years or older) — bring only last year's tip growth. <a href="https://www.canr.msu.edu/uploads/images/4-11-Fig-2-Bad-WatersproutRON.jpg">See photo</a></li>
+<li>NO non-edible plants</li>
+<li>NO <a href="https://shr.pn/PlantPatentsandTrademarks">currently patented plant varieties</a></li>
+</ul>
+</div>
+
+<!-- Essential Knowledge -->
+<h2>📚 Scion Exchange Essential Knowledge</h2>
+
+<h3>What is a Scion?</h3>
+<p>In a well-pruned orchard, last year's growth (scions) can be 3 feet or longer. Scions for grafting are harvested during the dormant season — clean, one-year-old wood about ¼ inch in diameter (no thinner than a pencil). Also known as fruitwood or budwood, scion wood ensures you get exactly the cultivar you want.</p>
+
+<h3>Cuttings to Root</h3>
+<p>Cuttings are propagated by rooting in soil — no grafting required. This includes figs, grapes, pomegranates, kiwis, mulberries, brambles, vines, and more.</p>
+
+<h3>Harvesting &amp; Preparing Scions</h3>
+<ul class="bullet-links">
+<li><a href="https://www.youtube.com/watch?v=ThpvzdPOAy4">How to Harvest Scions for a Scion Exchange</a> (video)</li>
+<li><a href="https://golden-gate.crfg.org/Healthy_Scion_Wood.pdf">Collecting Healthy Scions</a> (pdf)</li>
+<li><a href="https://golden-gate.crfg.org/scionex_videos.htm">Watch Videos</a> — how to harvest and prepare scions for an exchange</li>
+<li><a href="https://shr.pn/HarvestScionsMSU">How to Collect Scion Wood with Photos</a> — do not use paper towels for storage (causes mold)</li>
+<li><a href="https://shr.pn/CRFGScionBagLabelsToPrint">Labels to Print</a> for the scion bags you bring to the exchange</li>
+<li><a href="https://drive.google.com/file/d/1hS1Aj7_WlXsXP_PYgbCRGeNmFrImDRap/view?usp=drive_link" target="_blank">Collecting and Grafting Evergreen Scion Wood</a> (pdf)</li>
+</ul>
+
+<h3>Compatibility of Scions to Rootstock</h3>
+<ul class="bullet-links">
+<li><a href="https://drive.google.com/file/d/1lMxJvPPFsg-CSpSdnrrJO-HdpW6-aDdA/view?usp=drive_link">Fruit Tree Graft Compatibility Chart</a></li>
+<li><a href="https://shr.pn/StoneFruit-Graft-Compatibility-Chart">Stone Fruit Graft Compatibility Chart</a></li>
+<li><a href="https://shr.pn/PearQuinceCompatibility">Pear &amp; Quince Compatibility</a></li>
+</ul>
+
+<h3>Root or Graft?</h3>
+<ul class="bullet-links">
+<li><a href="https://shr.pn/MulberriesRootGraft" target="_blank">Mulberry: Varieties to Root or Graft</a> (pdf)</li>
+<li><a href="https://drive.google.com/file/d/12yNio2lLxNXOgmS81FDGZydU982bxQZ3/view?usp=drive_link" target="_blank">Olive Varieties: Rooting Ability</a> (pdf)</li>
+<li><a href="https://shr.pn/toRootOrGraft" target="_blank">What Can I Root or Graft?</a> (pdf)</li>
+</ul>
+
+<h3>Grafting</h3>
+<ul class="bullet-links">
+<li><a href="https://golden-gate.crfg.org/class_gf_full.pdf">Grafting Fruit Trees with Graham Stott — Part 1</a> (pdf)</li>
+<li><a href="https://golden-gate.crfg.org/pictures.pdf">Photos &amp; Diagrams for Grafting Fruit Trees — Part 2</a> (pdf)</li>
+<li><a href="https://shr.pn/GraftingWDormantScions">Grafting Dormant Deciduous Fruit Scions with Idell Weydemeyer</a> (pdf)</li>
+<li><a href="https://shr.pn/How-to-Graft-with-Illustrations">How to Graft with Illustrations</a> (pdf)</li>
+<li><a href="https://drive.google.com/file/d/1ZKLIuZaeg9ft9xXHoMjISOIobLpbnDy-/view?usp=drive_link" target="_blank">Inter-Stemming Pear and Quince</a> (pdf)</li>
+<li><a href="https://shr.pn/MakeBestofScionExchange">Making the Best of the CRFG Scion Exchange</a> — Master Guide (pdf)</li>
+</ul>
+
+<h3>Additional Resources</h3>
+<ul class="bullet-links">
+<li><a href="https://www.davewilson.com/img/content/dwn-low-chill-varieties.pdf">Dave Wilson Low Chill Fruit &amp; Nut Varieties</a></li>
+<li><a href="https://shr.pn/Fruit-Ripening-El-Sobrante-Region">Fruit Ripening Times in El Sobrante &amp; Nearby</a></li>
+</ul>
+
+<!-- About the Exchange -->
+<h2>🌳 About the Exchange</h2>
+<p>As the largest amateur fruit-growing organization in the world, our famous annual Scion Exchanges are the most prominent event by which California Rare Fruit Growers serves its mission. Find the best varieties for growing your own fruit.</p>
+<p>We have a limited number of scions — availability depends on what is donated. In the spirit of the exchange, we invite you to harvest scions from your own trees and bring them to share. Even one or two trees is enough. Rare varieties are especially interesting, but beginning growers would love to try their hand at grafting a 'Santa Rosa' plum or 'Fuji' apple. Don't assume someone else will bring what you have. Leftover scions are saved for the next exchange.</p>
+<p><strong>Preserving Our Past. Planting Our Future.</strong></p>
+
+<!-- Donors -->
+<h3>Thank You to Our Scion Donors</h3>
+<p>Your generosity carries orchard history into the gardens of tomorrow and makes this exchange possible:</p>
+<ul class="donor-list">
+<li><a href="https://andysorchard.com">Andy's Orchard</a> — Morgan Hill, CA</li>
+<li>C. Todd Kennedy Orchard — Morgan Hill, CA</li>
+<li><a href="https://filoli.org/about/">Filoli Estate</a> (National Trust for Historic Preservation) — Woodside, CA</li>
+<li>The Heritage Fruit Orchard — Emma Prusch Farm Park, San Jose, CA</li>
+<li>Eden Garden at Crosswinds Church — Livermore, CA</li>
+<li>Fertile Groundworks — Livermore, CA</li>
+<li><a href="https://www.goldennectarfarm.com">Golden Nectar Farm</a> — Windsor, CA</li>
+<li>Luther Burbank Home and Garden — Santa Rosa, CA</li>
+<li>Wolfskill Experimental Farm (USDA National Clonal Germplasm Repository) — Winters, CA</li>
+<li>Bella Ridge Farm — Occidental, CA</li>
+<li><a href="https://shr.pn/PlantingJustice">Planting Justice Nursery</a> — El Sobrante, CA</li>
+<li>Loomis Park — Sacramento, CA</li>
+<li>Shone Farm — Forestville, CA</li>
+<li>Birdsong Orchards — Watsonville, CA</li>
+<li><a href="https://www.thefighunter.shop/">The Fig Hunter</a> — Red Bluff, CA</li>
+<li>The Orchard at Martial Cottle Park — San Jose, CA</li>
+<li><a href="https://www.epicenteravocados.com">Epicenter Nursery</a> — La Selva, CA</li>
+<li><a href="http://www.alan-chadwick.org/html%20pages/gallery/ucsc_garden_today.html">Alan Chadwick Garden at UCSC</a> — Santa Cruz, CA</li>
+<li>And many dozens of personal CRFG member orchards</li>
+</ul>
+
+<p style="margin-top:24px;">• <a href="https://crfg.org/2026-scion-exchanges" target="_blank">Visit other 2026 CRFG Scion Exchanges</a></p>
+
+</main>
+
+<footer>
+<hr>
+<p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
+<hr>
+<p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
+</footer>
+</div>
+<script>(function(){var p=window.location.pathname.split("/").pop()||"index.htm";document.querySelectorAll("#navMenu a").forEach(function(a){if(a.getAttribute("href")===p)a.style.background="rgba(47,93,59,0.13)";});}());</script>
+</body>
+</html>
