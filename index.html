@@ -98,6 +98,10 @@ nav a:hover, nav a.active{background:rgba(255,255,255,0.1); color:white; border-
   font-size:clamp(2rem,3.5vw,3.2rem); line-height:1.18; margin:0 0 28px;
   max-width:800px; font-weight:900; color:var(--blue);
 }
+
+/* BREAK LOGIC: Normal on desktop */
+.responsive-break { display: inline; }
+
 h2, h3{color:var(--blue); font-weight:900; margin-top:36px;}
 p{margin:0 0 12px; font-size:1.1rem;}
 ul{padding-left:26px; margin:12px 0;}
@@ -109,12 +113,12 @@ li{margin-bottom:8px; font-size:1.05rem;}
   color:white; text-decoration:none; padding:12px 22px; border-radius:8px; font-weight:900;
 }
 
-/* THE MAP: 3:4 & Mobile Optimized */
+/* THE MAP */
 .map-wrap {
   width: 100%;
   max-width: 600px;
   aspect-ratio: 3 / 4;
-  margin-top: 45px; /* Added more space above the map */
+  margin-top: 45px; 
   margin-bottom: 24px;
 }
 .map-wrap iframe {
@@ -127,18 +131,16 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
 @media(max-width:750px){
   .layout{flex-direction:column;}
   aside{width:100%; height:auto; position:sticky; top:0; overflow:visible;}
-  
   .nav-brand{display:none;}
   
   .mobile-header{
-    display:flex; align-items:left; justify-content:space-between; 
+    display:flex; align-items:center; justify-content:space-between; 
     padding:12px 16px; background:var(--green); z-index: 102; position:relative;
   }
   .mobile-brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
   .mobile-logo{width:36px; height:auto;}
   .mobile-title{font-size:0.88rem; font-weight:800; color:white;}
 
-  /* Windowshade Menu Dropdown */
   nav{
     display:flex; position:absolute; top:100%; left:0; right:0;
     background:var(--green); transform: scaleY(0); transform-origin: top;
@@ -148,7 +150,6 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
   }
   nav.open{transform: scaleY(1); opacity: 1; pointer-events: auto;}
   nav a{padding:12px 20px; border-left:none; margin-left:0; border-bottom: 1px solid rgba(255,255,255,0.05);}
-  .nav-group-label{padding:10px 20px 4px;}
   
   .hamburger{
     display:flex; align-items:center; gap:6px; background:rgba(255,255,255,0.1);
@@ -158,8 +159,14 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
   .hamburger svg{width:16px; height:16px; stroke:white; fill:none;}
   
   .page{padding:24px 16px;}
-  .map-wrap { width: 90%; margin: 45px auto 24px; } /* Maintained spacing on mobile */
-  .header-block { display: block; }
+  
+  /* BREAK LOGIC: Break on mobile */
+  .responsive-break { display: block; }
+  
+  .region-heading { font-size: 1.8rem; }
+  
+  /* Map aligned left on mobile */
+  .map-wrap { width: 95%; margin: 45px 0 24px 0; } 
 }
 </style>
 </head>
@@ -186,7 +193,7 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
   </div>
 
   <nav id="navMenu">
-    <div class="nav-group"><span class="nav-group-label">🏠 Start Here</span><a href="index.html">About</a></div>
+    <div class="nav-group"><span class="nav-group-label">🏠 Start Here</span><a href="index.html" class="active">About</a></div>
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html">Bay Area Favorites</a>
@@ -202,7 +209,7 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
 
 <main class="page">
 <section class="hero">
-<h1>Rare fruit.<br>Real community.<br>Right here <span class="header-block">in the Bay Area.</span></h1>
+<h1>Rare fruit.<br>Real community.<br>Right here <span class="responsive-break">in the Bay Area.</span></h1>
 <p><strong>California Rare Fruit Growers</strong> (CRFG.org) is a non-profit organization with chapters throughout California and members around the world. Our members &mdash; professionals and amateurs alike &mdash; are dedicated to growing, sharing, and learning about unusual fruits and edible plants.</p>
 <p>Our <strong>Golden Gate Chapter</strong> holds meetings <strong>across the San Francisco Bay Area</strong> featuring guest speakers, fruit tastings, shared potlucks, orchard tours, hands-on learning, and great conversation with people who share your passion for growing.</p>
 </section>
@@ -224,7 +231,7 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
 <p><strong>There&rsquo;s a place for you here.</strong></p>
 <p><a class="button" href="join-renew.html">Join or Renew Membership</a></p>
 
-<h3>About Our Region 🗺️</h3>
+<h3 class="region-heading">About Our Region 🗺️</h3>
 <p>Members come from across the Bay Area and beyond, including <strong>Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo, and neighboring counties</strong> &mdash;with members as far away as Colorado and New York.</p>
 
 <div class="map-wrap">
