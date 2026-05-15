@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join/Renew — Golden Gate Chapter CRFG</title>
+<title>Welcome</title>
 <style>
 :root{
   --bg:#FAF0E6;
@@ -155,22 +155,27 @@ nav a.active{
   max-width:800px;
   font-weight:900;
   letter-spacing:-0.005em;
+  orphans:2;
+  widows:2;
+  color:var(--blue);
 }
 h2{
-  font-size:clamp(1.65rem,2.65vw,2.75rem);
-  line-height:1.05;
+  font-size: clamp(1.85rem, 3vw, 3rem);
+  line-height:1.28;
   margin:44px 0 18px;
   font-weight:900;
-  orphans:3;
-  widows:3;
+  orphans:2;
+  widows:2;
+  color:var(--blue);
 }
 h3{
-  font-size:clamp(1.3rem,2.1vw,2rem);
+  font-size:clamp(1.5rem,2.1vw,2rem);
   line-height:1.1;
   margin:36px 0 14px;
   font-weight:900;
-  orphans:3;
-  widows:3;
+  orphans:2;
+  widows:2;
+  color:var(--blue);
 }
 p{
   margin:0 0 12px;
@@ -211,29 +216,31 @@ p{
   align-items:center;
   justify-content:center;
   margin-top:14px;
-  background:var(--blue);
+  background:linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
   color:white;
   text-decoration:none;
-  padding:12px 16px;
+  padding:12px 22px;
   border-radius:8px;
   font-weight:900;
   font-size:1.08rem;
   letter-spacing:0.03em;
   white-space:nowrap;
-  transition:background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  box-shadow:0 4px 12px rgba(47,93,143,0.28), 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15);
+  transition:transform 0.18s cubic-bezier(.2,.9,.25,1), box-shadow 0.18s ease, filter 0.18s ease;
 }
 .button:hover{
-  background:var(--blue-dark);
-  transform:translateY(-1px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.14);
+  filter:brightness(1.10);
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(47,93,143,0.32), 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 .button:active{
-  transform:translateY(0);
-  box-shadow:0 3px 8px rgba(0,0,0,0.12);
+  transform:translateY(1px);
+  filter:brightness(0.97);
+  box-shadow:0 2px 6px rgba(47,93,143,0.22), inset 0 2px 6px rgba(0,0,0,0.10);
 }
 .button:focus-visible{
-  outline:3px solid rgba(47,93,143,0.35);
-  outline-offset:2px;
+  outline:none;
+  box-shadow:0 0 0 4px rgba(47,93,143,0.28), 0 4px 12px rgba(47,93,143,0.22);
 }
 
 .step .button{
@@ -251,46 +258,8 @@ p{
 }
 .step .button:hover{
   background-image:linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
-}
 
-.pay-logos{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  margin-top:18px;
-  margin-bottom:18px;
-  padding:10px 6px;
-  width:100%;
-  max-width:35ch;
 }
-.pay-logos img{
-  flex:0 0 auto;
-  max-height:22px;
-  width:auto;
-}
-
-.pay-card{
-  margin-top:14px;
-  background:#f6e3d1;
-  border-radius:7px;
-  padding:12px 16px;
-  display:block;
-  font-size:0.9rem;
-  line-height:1.45;
-  color:#555;
-  max-width:48ch;
-  clear:both;
-}
-
-.pay-card a{
-  transition:color 0.18s ease, text-decoration-color 0.18s ease;
-}
-.pay-card a:hover{
-  color:var(--blue-dark);
-  text-decoration:underline;
-}
-
 .mail-line{
   white-space:nowrap;
 }
@@ -305,6 +274,99 @@ li{
   line-height:1.5;
   orphans:3;
   widows:3;
+
+}
+
+.signup-card input[type="submit"]{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  text-align:center;
+  cursor:pointer;
+  border:none;
+  border-radius:12px;
+  padding:15px 18px;
+  font-family:inherit;
+  font-size:1.08rem;
+  font-weight:900;
+  letter-spacing:0.03em;
+  color:white;
+  position:relative;
+  overflow:hidden;
+
+  background-image:linear-gradient(
+    to bottom,
+    #3f76aa 0%,
+    #2f5d8f 50%,
+    #274d75 100%
+  );
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+
+  transition:
+    transform 0.22s cubic-bezier(.2,.9,.25,1),
+    box-shadow 0.22s ease,
+    filter 0.22s ease,
+    background 0.22s ease;
+}
+
+/* glossy highlight */
+.signup-card input[type="submit"]:hover{
+  transform:
+    translateY(-3px)
+    scale(1.015);
+
+  filter:brightness(1.12);
+
+  background-image:linear-gradient(
+    to bottom,
+    #5a8ec0 0%,
+    #4276a8 52%,
+    #35689a 100%
+  );
+
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.16),
+    0 5px 12px rgba(47,93,143,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* animated sheen */
+.signup-card input[type="submit"]:hover::before{
+  left:140%;
+}
+
+/* click / press feeling */
+.signup-card input[type="submit"]:active{
+  transform:
+    translateY(1px)
+    scale(0.985);
+
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.12),
+    inset 0 3px 8px rgba(0,0,0,0.10);
+}
+
+/* keyboard accessibility */
+.signup-card input[type="submit"]:focus-visible{
+  outline:none;
+  box-shadow:
+    0 0 0 4px rgba(47,93,143,0.25),
+    0 8px 18px rgba(0,0,0,0.14);
+}
+
+/* touch devices */
+@media (hover:none){
+  .signup-card input[type="submit"]:hover{
+    transform:none;
+    filter:none;
+    box-shadow:
+      0 4px 10px rgba(0,0,0,0.10),
+      inset 0 1px 0 rgba(255,255,255,0.18);
+  }
 }
 
 footer{
@@ -414,14 +476,28 @@ hr{
 
 @media (hover:hover){
   .button:hover{
-    background:var(--blue-dark);
-    transform:translateY(-1px);
-    box-shadow:0 8px 18px rgba(0,0,0,0.14);
+    filter:brightness(1.10);
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(47,93,143,0.32), 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
   }
   .pay-card a:hover{
     color:var(--blue-dark);
     text-decoration:underline;
   }
+ } 
+  .map-wrap {
+  width: 60%;
+  height: 400px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
 }
 </style>
 </head>
@@ -438,7 +514,7 @@ hr{
 
   <div class="mobile-header">
     <a href="index.html" class="mobile-brand">
-      <img class="mobile-logo" src="image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
     <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
@@ -456,7 +532,7 @@ hr{
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
 
@@ -492,31 +568,57 @@ hr{
 </section>
 <h2>🍋 🍇 🌳 🍒 🥭</h2>
 <h3>What Happens at Meetings 🌿</h3>
-<p>Meetings include a speaker, a seasonal fruit tasting, a raffle of unusual plants, plant swaps, and the chance to connect with local growers.</p>
-<p>Our signature event is our <strong>annual Scion Exchange</strong> &mdash; where you can collect cuttings, seeds, tubers, and rootstocks, learn grafting techniques, and get practical advice from experienced growers.</p>
-<h3>Everyone Is Welcome 🌱</h3>
+<p>Meetings typically include a speaker, a seasonal fruit tasting, the sharing of unusual plants, field trips, and the chance to connect with local growers.</p>
+<p>Our signature event is the <strong>Golden Gate Scion Exchange</strong> &mdash; where you can collect cuttings, seeds, tubers, and rootstocks, learn grafting techniques, and get practical advice from experienced growers.</p>
+<h3>Everyone Is Welcome‎ ‎ 🌱</h3>
 <p>You don't need to be a member to attend &mdash; just show up curious. Membership in CRFG is encouraged, and a Golden Gate Chapter subscription is only <strong>$10/year</strong>.</p>
 <p>Whether you&rsquo;re:</p>
 <ul>
-<li>🌱 New growers with no trees yet</li>
-<li>🏡 Backyard orchard enthusiasts</li>
-<li>🌳 Small orchard and nursery growers</li>
-<li>🍒 Experienced collectors and experimenters</li>
+<li>🌱 ‎ New growers with no trees yet</li>
+<li>🏡 ‎ Backyard orchard enthusiasts</li>
+<li>🌳 ‎ Small orchard and nursery growers</li>
+<li>🍒 ‎ Experienced collectors and experimenters</li>
 </ul>
 <p>There&rsquo;s a place for you here.</p>
 <p><a class="button" href="join.htm">Join or Renew Membership</a></p>
-<h3>Our Region 🗺️</h3>
-<p>Members come from across the Bay Area and beyond, including Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo, Yolo, and neighboring counties &mdash;with members as far away as Colorado and New York.</p>
+<h3>About Our Region 🗺️</h3>
+<p>Members come from across the Bay Area and beyond, including <strong>Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo</strong>, and neighboring counties &mdash;with members as far away as Colorado and New York.</p>
+<p><br>
+<div class="map-wrap">
+  <iframe
+    src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
+    title="Golden Gate Chapter CRFG member map"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+
 <h2>Come for the fruit.<br />Stay for the community.</h2>
+
 </main>
 
+
 <footer>
-<hr>
-<p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
-<hr>
-<p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
+  <hr>
+  <p>Questions or comments? Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+  <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
 </footer>
-</div>
-<script>(function(){var p=window.location.pathname.split("/").pop()||"index.htm";document.querySelectorAll("#navMenu a").forEach(function(a){if(a.getAttribute("href")===p)a.style.background="rgba(47,93,59,0.13)";});}());</script>
+</div><!-- /.page -->
+
+</div><!-- /.layout -->
+
+<script>
+(function () {
+  var p = window.location.pathname.split("/").pop() || "index.htm";
+  document.querySelectorAll("#navMenu a").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (href === p && !a.classList.contains("active")) {
+      a.classList.add("active");
+      a.setAttribute("aria-current", "page");
+    }
+  });
+}());
+</script>
 </body>
 </html>
