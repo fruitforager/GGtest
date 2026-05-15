@@ -114,7 +114,7 @@ li{margin-bottom:8px; font-size:1.05rem;}
   width: 100%;
   max-width: 600px;
   aspect-ratio: 3 / 4;
-  margin-top: 25px; 
+  margin-top: 45px; /* Added more space above the map */
   margin-bottom: 24px;
 }
 .map-wrap iframe {
@@ -128,11 +128,10 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
   .layout{flex-direction:column;}
   aside{width:100%; height:auto; position:sticky; top:0; overflow:visible;}
   
-  /* CRITICAL FIX: Hide Desktop Branding */
   .nav-brand{display:none;}
   
   .mobile-header{
-    display:flex; align-items:center; justify-content:space-between; 
+    display:flex; align-items:left; justify-content:space-between; 
     padding:12px 16px; background:var(--green); z-index: 102; position:relative;
   }
   .mobile-brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
@@ -159,7 +158,7 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
   .hamburger svg{width:16px; height:16px; stroke:white; fill:none;}
   
   .page{padding:24px 16px;}
-  .map-wrap { width: 90%; margin: 25px auto 24px; }
+  .map-wrap { width: 90%; margin: 45px auto 24px; } /* Maintained spacing on mobile */
   .header-block { display: block; }
 }
 </style>
@@ -241,8 +240,10 @@ hr{border:none; border-top:1px solid var(--border); margin:40px 0;}
 
 <footer>
   <hr>
-  <p>Questions or comments? <br>Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
-  <p>Copyright &copy; 2026, <br>California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
+  <p>Questions or comments? <br>
+  Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+  <p>Copyright &copy; 2026 <br>
+  California Rare Fruit Growers Inc. | <a href="https://crfg.org">CRFG.org</a></p>
 </footer>
 </main>
 </div>
