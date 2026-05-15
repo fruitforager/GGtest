@@ -143,16 +143,20 @@ nav a{
   font-weight:700;
   color:var(--bg);
   text-decoration:none;
-  padding:5px 16px 5px 16px;
+  padding:6px 16px;
   border-left:3px solid transparent;
   display:block;
   line-height:1.3;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
   transition:background 0.12s,color 0.12s,border-color 0.12s;
   text-align:left;
   margin-left:18px;
+}
+nav a .sub-label {
+  display:block;
+  font-size:0.75rem;
+  opacity:0.8;
+  font-weight:400;
+  padding-top:2px;
 }
 nav a:hover{
   background:rgba(255,255,255,0.1);
@@ -199,6 +203,7 @@ h2{
   margin:44px 0 22px;
   font-weight:900;
   color:var(--blue);
+  text-wrap: balance;
 }
 h3{
   font-size:clamp(1.15rem,1.8vw,1.5rem);
@@ -389,7 +394,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 @media(max-width:750px){
   .layout{flex-direction:column;}
   
-  /* Sidebar wraps the header bar tightly, leaving the maps accessible */
   aside{
     width:100%;
     height:auto;
@@ -425,7 +429,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     line-height:1.2;
   }
   
-  /* NEW: High performance rollup system via CSS transforms */
   nav{
     display:flex; 
     flex-direction:column;
@@ -440,25 +443,22 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     border-top:1px solid rgba(255,255,255,0.1);
     box-shadow:0 8px 16px rgba(0,0,0,0.2);
     
-    /* Starts flat against the ceiling, invisible to pointers */
     transform: scaleY(0);
     transform-origin: top;
     opacity: 0;
     pointer-events: none;
     
-    /* Ultra-smooth rollup speed curve */
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease-out;
   }
   
-  /* NEW: Gentle vertical rollup execution */
   nav.open{
     transform: scaleY(1);
     opacity:1;
     pointer-events: auto;
   }
   
-  nav a{padding:10px 20px;border-left:none;font-size:0.95rem;margin-left:0;}
-  .nav-group-label{padding:14px 20px 3px;}
+  nav a{padding:12px 20px;border-left:none;font-size:0.95rem;margin-left:0;}
+  .nav-group-label{padding:16px 20px 4px;}
   
   .hamburger{
     display:flex;
@@ -514,36 +514,28 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 
   <nav id="navMenu">
     <div class="nav-group">
-      <span class="nav-group-label">🏠 Start Here</span>
-      <a href="index.html">About</a>
+      <span class="nav-group-label">🏡 Home</span>
+      <a href="index.html">About Us<span class="sub-label">Who we are & what we do</span></a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html" class="active" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
-      <a href="fruity-resources.html">Fruity Resources</a>
+      <span class="nav-group-label">🍏 Learn & Grow</span>
+      <a href="bay-area-zone-favorites.html" class="active">Zone Favorites<br><span class="sub-label">Fruit by microclimate</span></a>
+      <a href="member-guides.html">Grower Guides<br><span class="sub-label">What thrives locally</span></a>
+      <a href="fruity-resources.html">Resources<br><span class="sub-label">Charts, links & advice</span></a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label">🤝 Community</span>
-      <a href="meetings.html">Meetings</a>
-      <a href="online-community.html">Online Community</a>
+      <span class="nav-group-label">📅 Attend & Participate</span>
+      <a href="meetings.html">Chapter Meetings<span class="sub-label">Monthly speaker series</span></a>
+      <a href="gg-scionexchange.html">Scion Exchange<span class="sub-label">Our signature annual event</span></a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label">✨ Membership</span>
-      <a href="join-renew.html">Join / Renew</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🍋 Events</span>
-      <a href="gg-scionexchange.html">Scion Exchange</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🌱 Get Plants</span>
-      <a href="where-to-buy.html">Where to Buy</a>
+      <span class="nav-group-label">👥 Join the Community</span>
+      <a href="join-renew.html">Join / Renew<span class="sub-label">Support your local chapter</span></a>
+      <a href="online-community.html">Online Forum<span class="sub-label">Talk shop with local growers</span></a>
+      <a href="where-to-buy.html">Where to Buy<span class="sub-label">Recommended fruit nurseries</span></a>
     </div>
   </nav>
 </aside>
@@ -553,7 +545,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   <section class="hero">
     <h1>Bay Area Fruit Favorites by Climate Zone</h1>
     <p>The following lists come from a poll of Golden Gate Chapter members, who were asked to recommend their favorite fruits and varieties.</p>
-    <p>Since <strong>the Golden Gate Chapter spans three distinct microclimate zones</strong>, there are three separate lists — find yours below.</p>
+    <p>Since <strong>the Golden Gate Chapter spans three distinct climate zones</strong>, there are three separate lists — find yours below.</p>
   </section>
 
   <h2>🌦️ Find Your Microclimate&nbsp;Zone</h2>
@@ -565,7 +557,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 1</div>
       <h3>🌫️ Fog Zone</h3>
       <p class="zone-chill"><strong>‎ ‎ ‎❄️‎ ‎  100–400 Chill hours</strong></p>
-      <!-- ULTIMAPS.COM Interactive Map -->
       <div class="map-frame">
         <iframe src="https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
@@ -585,7 +576,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 2</div>
       <h3>🌊 Facing the Bay</h3>
       <p class="zone-chill"><strong>‎ ‎ ❄️‎  ‎ 400–900 Chill hours</strong></p>
-      <!-- ULTIMAPS.COM Interactive Map -->
       <div class="map-frame">
         <iframe src="https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
@@ -605,7 +595,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 3</div>
       <h3>☀️ Inland</h3>
       <p class="zone-chill"><strong>‎ ‎ ‎❄️‎‎  ‎   600–1,500 Chill hours</strong></p>
-      <!-- ULTIMAPS.COM Interactive Map -->
       <div class="map-frame">
         <iframe src="https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
