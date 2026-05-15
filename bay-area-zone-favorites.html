@@ -195,23 +195,25 @@ p{
 }
 
 /* ── Map Wrap ── */
-.map-frame {
+map-frame {
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 3 / 4; /* Fixed proportions to 3:4 */
+  aspect-ratio: 3 / 4; /* Forces the container into a 3:4 aspect ratio */
   border: 1px solid var(--border);
   border-radius: 7px;
   box-shadow: 0 2px 4px rgba(71,101,80,.08);
   overflow: hidden;
-  position: relative;
+  position: relative; /* Allows the map to anchor perfectly to the container's edges */
 }
 
 .map-frame iframe {
-  width: 100%;
-  height: 100%;
+  position: absolute; /* Decouples it from inherent browser iframe sizing */
+  top: 0;
+  left: 0;
+  width: 100%; /* Forces map to fill the 3:4 width */
+  height: 100%; /* Forces map to fill the 3:4 height */
   border: 0;
   display: block;
-  object-fit: cover; /* Ensures content fills container completely */
 }
 
 /* ── Zone cards ── */
