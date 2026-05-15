@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zone 2 Fruit Favorites · Golden Gate Chapter CRFG</title>
+<style>
+:root {
+  --bg: #FAF0E6;
+  --text: #222;
+  --green: #274D31;
+  --green-light: #3a6b47;
+  --blue: #2f5d8f;
+  --blue-dark: #21425c;
+  --gg-orange: #c0362c;
+  --border: #d8ccb6;
+  --card-bg: #fff;
+  --burgandy: #6b4c6e;
+  --muted: #666;
+  --tag-bg: #eef3f0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page shell ── */
+.page-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+/* ── Header ── */
+.page-header {
+  margin-bottom: 36px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: var(--green);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--blue); }
+.back-link svg { width: 15px; height: 15px; stroke-width: 2.5; }
+
+.page-title {
+  margin: 0 0 18px;
+  padding: 0;
+}
+.page-title-main {
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.125rem, 1.2vw, 1.3rem); 
+  font-weight: 900;
+  color: rgba(107,76,110,0.88);
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 0.01em;
+}
+.page-title-zone {
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-weight: 900;
+  color: var(--blue);
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  margin-top: 50px;
+}
+.page-title-sub {
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.5rem, 1.8vw, 1.2rem);
+  font-weight: 800;
+  color: rgba(107,76,110,0.88);
+  line-height: 1.25;
+  letter-spacing: 0.0em;
+  white-space: nowrap;
+  min-width: 0;
+  margin-top: 8px;
+}
+
+.zone-emoji {
+  font-size: 0.99em;
+  line-height: 1;
+  display: inline;
+  vertical-align: text-top;
+  margin-left: 10px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.badge-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 2px;
+  margin-bottom: 10px;
+}
+
+.zone-badge {
+  display: inline-block;
+  background: linear-gradient(145deg, #3a6b47 0%, #274D31 100%);
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  padding: 4px 11px;
+  margin-bottom: 0;
+  margin-left: 0;
+  box-shadow: 0 3px 8px rgba(39,77,49,0.32), 0 1px 2px rgba(39,77,49,0.2), inset 0 1px 0 rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: default;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.zone-badge:hover {
+  box-shadow: 0 5px 14px rgba(39,77,49,0.38), 0 2px 4px rgba(39,77,49,0.2), inset 0 1px 0 rgba(255,255,255,0.18);
+  transform: translateY(-1px);
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 14px;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.meta-item strong {
+  color: var(--text);
+  font-weight: 700;
+}
+.meta-climate {
+  font-family: system-ui, sans-serif;
+  font-size: 1.52rem;
+  font-weight: 800;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.emoji-shadow {
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+}
+.meta-chill {
+  font-family: system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+.meta-chill strong {
+  color: var(--blue);
+  font-size: 1.4rem;
+}
+.header-left {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
+.header-with-map {
+  margin-bottom: 28px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 24px;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  .header-with-map {
+  margin-bottom: 28px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 24px;
+  width: 100%;
+}
+  }
+
+/* ── Controls ── */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+  align-items: center;
+}
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+.search-wrap svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  stroke: var(--muted);
+  fill: none;
+  pointer-events: none;
+}
+#searchInput {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+#searchInput:focus { border-color: var(--blue); }
+
+.filter-select {
+  font-family: system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 900;
+  color: #fff;
+  background-color: #6b4c6e;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 36px 10px 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  min-width: 190px;
+  box-shadow: 0 3px 10px rgba(107,76,110,0.28), inset 0 1px 0 rgba(255,255,255,0.12);
+  transition: background-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.filter-select:hover {
+  background-color: #7f5c82;
+  box-shadow: 0 5px 16px rgba(107,76,110,0.38), inset 0 1px 0 rgba(255,255,255,0.12);
+  transform: translateY(-1px);
+}
+.filter-select:focus {
+  background-color: #7f5c82;
+  box-shadow: 0 0 0 3px rgba(107,76,110,0.22);
+}
+
+.results-count {
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* ── Fruit sections ── */
+.fruit-section {
+  margin-bottom: 36px;
+}
+.fruit-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--border);
+}
+.fruit-name {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.fruit-total {
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ── Variety rows ── */
+.variety-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.variety-row {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 0 8px;
+  align-items: baseline;
+  padding: 3px 0;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.v-vote-left {
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 400;
+  text-align: right;
+  white-space: nowrap;
+  padding-left: 19px;
+}
+.variety-inline {
+  font-family: system-ui, sans-serif;
+  font-size: 0.93rem;
+  color: var(--text);
+}
+.variety-inline .v-name {
+  font-weight: 700;
+}
+.variety-inline .v-votes {
+  font-weight: 400;
+  color: var(--muted);
+}
+.variety-inline .v-comment {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.subgroup-label {
+  font-family: system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 10px 0 3px 19px;
+}
+.subgroup-label:first-child { margin-top: 2px; }
+.meta-cities {
+  display: grid;
+  grid-template-columns: 1.2em 1fr;
+  align-items: start;
+  gap: 0 4px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  width: 100%;
+}
+.meta-cities .pin-icon {
+  padding-top: 0.1em;
+}
+.meta-cities .city-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+}
+.city {
+  white-space: nowrap;
+}
+
+.no-results {
+  display: none;
+  text-align: center;
+  padding: 48px 24px;
+  font-family: system-ui, sans-serif;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ── Footer note ── */
+.data-note {
+  margin-top: 48px;
+  padding: 16px 20px;
+  background: #f0ebe3;
+  border-radius: 8px;
+  border-left: 3px solid var(--border);
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .page-wrap { padding: 28px 16px 60px; }
+
+}
+
+/* ── Sidebar / Layout ── */
+.layout{
+  display:flex;
+  min-height:100vh;
+  max-width:1200px;
+  margin:auto;
+}
+aside{
+  width:220px;
+  flex-shrink:0;
+  background:var(--green);
+  display:flex;
+  flex-direction:column;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,0.2) transparent;
+}
+.nav-brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:20px 16px 16px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,0.15);
+  margin-bottom:4px;
+}
+.logo{
+  width:134px;
+  height:auto;
+  display:block;
+  margin:0 auto 14px;
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
+}
+.site-title{
+  font-size:1.05rem;
+  font-weight:800;
+  color:white;
+  line-height:1.3;
+  display:block;
+}
+.site-crfg{
+  font-size:0.9rem;
+  font-weight:700;
+  color:rgba(255,255,255,0.75);
+  line-height:1.3;
+  display:block;
+  text-align:center;
+  margin-top:2px;
+}
+.site-sub{
+  font-size:0.78rem;
+  font-weight:700;
+  color:rgba(255,255,255,0.85);
+  line-height:1.3;
+  margin-top:4px;
+  display:block;
+  text-align:center;
+}
+nav{
+  display:flex;
+  flex-direction:column;
+  padding:4px 0 120px;
+}
+.nav-group{margin-top:6px;}
+.nav-group-label{
+  font-size:0.76rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:rgba(255,255,255,0.85);
+  padding:16px 16px 5px;
+  display:block;
+  margin-top:4px;
+  text-align:left;
+}
+.nav-group:first-child .nav-group-label{
+  margin-top:0;
+  padding-top:10px;
+}
+nav a{
+  font-size:0.82rem;
+  font-weight:700;
+  color:#FAF0E6;
+  text-decoration:none;
+  padding:5px 16px 5px 16px;
+  border-left:3px solid transparent;
+  display:block;
+  line-height:1.3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  transition:background 0.12s,color 0.12s,border-color 0.12s;
+  text-align:left;
+  margin-left:18px;
+}
+nav a:hover{
+  background:rgba(255,255,255,0.1);
+  color:white;
+}
+nav a.active{
+  background:rgba(255,255,255,0.14);
+  color:white;
+  border-left-color:rgba(255,255,255,0.75);
+}
+.hamburger{display:none;}
+.mobile-header{display:none;}
+
+@media(max-width:750px){
+  .layout{flex-direction:column;}
+  aside{width:100%;height:auto;position:relative;}
+  .nav-brand{display:none;}
+  .mobile-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+  }
+  position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures it stays above the fruit list content */
+    background: var(--green); /* Matches the sidebar color to prevent transparency */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Optional: adds depth during scroll */
+  }
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+  }
+  .mobile-logo{width:36px;height:auto;}
+  .mobile-title{
+    font-size:0.88rem;
+    font-weight:800;
+    color:white;
+    line-height:1.2;
+  }
+  nav{display:none;padding:0 0 10px;}
+  nav.open{display:flex;}
+  nav a{
+    padding:12px 20px;
+    border-left:none;
+    font-size:0.95rem;
+    margin-left:0;
+  }
+  .nav-group-label{padding:10px 20px 3px;}
+  .hamburger{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:7px;
+    padding:6px 10px;
+    font-size:0.8rem;
+    font-weight:700;
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .hamburger svg{width:16px;height:16px;stroke:white;fill:none;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<aside>
+  <a href="index.html" class="nav-brand">
+    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
+    <span class="site-title">Golden Gate Chapter</span>
+    <span class="site-crfg">CRFG.org</span>
+    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
+  </a>
+
+  <div class="mobile-header">
+    <a href="index.html" class="mobile-brand">
+      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+    </a>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <nav id="navMenu">
+    <div class="nav-group">
+      <span class="nav-group-label">🏠 Start Here</span>
+      <a href="index.html">About</a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-group-label">🌿 Grow Fruit</span>
+      <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
+      <a href="zone2-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
+      <a href="zone1-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
+      <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
+      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+      <a href="fruity-resources.html">Fruity Resources</a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-group-label">🤝 Community</span>
+      <a href="meetings.html">Meetings</a>
+      <a href="online-community.html">Online Community</a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-group-label">✨ Membership</span>
+      <a href="join-renew.html">Join / Renew</a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-group-label">🍋 Events</span>
+      <a href="gg-scionexchange.html">Scion Exchange</a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-group-label">🌱 Get Plants</span>
+      <a href="where-to-buy.html">Where to Buy</a>
+    </div>
+  </nav>
+</aside>
+
+<div class="page-wrap" style="flex:1;min-width:0;">
+
+  <header>
+    <a class="back-link" href="bay-area-zone-favorites.html">
+      <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      All Climate Zones
+    </a>
+    <div class="header-with-map">
+      <div class="header-left">
+        <div class="badge-title-row">
+          <div class="zone-badge">Zone 2</div>
+          <div class="page-title-main">MEMBER FAVORITES</div>
+        </div>
+        <div class="page-title">
+          <div class="page-title-zone">Valleys Facing the Bay <span class="zone-emoji">🌊</span></div>
+          <div class="page-title-sub">Cultivars for Warm Summers &amp; Mild Winters</div>
+        </div>
+        <div class="meta-row">
+          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>400–900</strong></span>
+          <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">Berkeley</span> · <span class="city">Oakland</span> · <span class="city">Richmond</span> · <span class="city">El Cerrito</span> · <span class="city">El Sobrante</span> · <span class="city">Hayward</span> · <span class="city">San Leandro</span> · <span class="city">San Mateo</span> · <span class="city">San Rafael</span> · <span class="city">Novato</span></span></span>
+        </div>
+      </div>
+</div>
+  </header>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search varieties or comments…" oninput="filterAll()">
+    </div>
+    <select class="filter-select" id="filterSelect" onchange="setFilter(this.value)"></select>
+  </div>
+  <div class="results-count" id="resultsCount"></div>
+
+  <!-- Fruit sections -->
+  <div id="fruitList"></div>
+  <div class="no-results" id="noResults">No varieties match your search.</div>
+
+  <div class="data-note">
+    <strong>About this data:</strong> Compiled from a member poll of the Golden Gate Chapter, CRFG. Vote counts reflect member recommendations. Comments are attributed by member initials. Last revised 12/28/14. To add data, edit the <code>FRUITS</code> array in this page's script.
+  </div>
+
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// DATA — edit this array to add / update entries
+// Each fruit has a name and an array of varieties.
+// Each variety: { name, votes, comment (optional) }
+// ─────────────────────────────────────────────
+const FRUITS = [
+  {
+    "fruit": "Almond",
+    "varieties": [
+      {
+        "name": "Ne Plus Ultra",
+        "votes": 1,
+        "comment": "Birds get them all (IW)"
+      },
+      {
+        "name": "Nonpareil",
+        "votes": 1,
+        "comment": "Birds get them all (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Apple",
+    "varieties": [
+      {
+        "name": "Arkansas Black",
+        "votes": 1
+      },
+      {
+        "name": "Braeburn",
+        "votes": 3,
+        "comment": "Excellent (DM)"
+      },
+      {
+        "name": "Cinnamon Spice",
+        "votes": 2,
+        "comment": "For drying (AJ)"
+      },
+      {
+        "name": "Elstar",
+        "votes": 1,
+        "comment": "Excellent (DM)"
+      },
+      {
+        "name": "Fameuse / Snow Apple",
+        "votes": 1,
+        "comment": "Great flavor and always sets fruit for me (IW)"
+      },
+      {
+        "name": "Fuji",
+        "votes": 3
+      },
+      {
+        "name": "Gala",
+        "votes": 1
+      },
+      {
+        "name": "Goldrush",
+        "votes": 2,
+        "comment": "Always sets lots of fruit, late, delicious apple (IW)"
+      },
+      {
+        "name": "Golden Delicious",
+        "votes": 4
+      },
+      {
+        "name": "Granny Smith",
+        "votes": 1
+      },
+      {
+        "name": "Gravenstein",
+        "votes": 3,
+        "comment": "Excellent for cooking (DM)"
+      },
+      {
+        "name": "Hudson's Golden Gem",
+        "votes": 2,
+        "comment": "Graft produced many fruits on a single branch this year — very productive and excellent quality fruits — highly recommended (MO)"
+      },
+      {
+        "name": "Lady",
+        "votes": 1
+      },
+      {
+        "name": "Macoun",
+        "votes": 1
+      },
+      {
+        "name": "Melrose",
+        "votes": 1,
+        "comment": "Excellent (DM)"
+      },
+      {
+        "name": "Mutsu",
+        "votes": 1
+      },
+      {
+        "name": "Newtown Pippin",
+        "votes": 1
+      },
+      {
+        "name": "Northern Spy",
+        "votes": 1
+      },
+      {
+        "name": "Pink Pearl",
+        "votes": 1
+      },
+      {
+        "name": "Red Delicious",
+        "votes": 1
+      },
+      {
+        "name": "Red Jona Prince",
+        "votes": 1,
+        "comment": "Very large and excellent (DM)"
+      },
+      {
+        "name": "Royal Gala",
+        "votes": 1
+      },
+      {
+        "name": "Sierra Beauty",
+        "votes": 1,
+        "comment": "Late, great flavor (IW)"
+      },
+      {
+        "name": "Spitzenberg",
+        "votes": 2,
+        "comment": "Late, great flavor (IW)"
+      },
+      {
+        "name": "White Winter Pearmain",
+        "votes": 2,
+        "comment": "Excellent but late ripening (DM)"
+      },
+      {
+        "name": "Wickson",
+        "votes": 1
+      },
+      {
+        "name": "Yellow Delicious",
+        "votes": 2,
+        "comment": "It does very well; lots of fruit; very tasty (ET)"
+      },
+      {
+        "name": "Yellow Transparent",
+        "votes": 1
+      }
+    ]
+  },
+  {
+    "fruit": "Apricot",
+    "varieties": [
+      {
+        "name": "Blenheim",
+        "votes": 4
+      },
+      {
+        "name": "Katy",
+        "votes": 2,
+        "comment": "Doesn't produce much (IW)"
+      },
+      {
+        "name": "Katy EZ-Pick",
+        "votes": 1
+      },
+      {
+        "name": "Lorna",
+        "votes": 1,
+        "comment": "Doesn't produce much (IW)"
+      },
+      {
+        "name": "Moorpark",
+        "votes": 1,
+        "comment": "Produces well (AJ)"
+      }
+    ]
+  },
+  {
+    "fruit": "Aprium",
+    "varieties": [
+      {
+        "name": "Mesch Mesh",
+        "votes": 1,
+        "comment": "Wild apricot plum cross; grafted on apricot and always produces some (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Avocado",
+    "varieties": [
+      {
+        "name": "Bacon",
+        "votes": 2,
+        "comment": "Did not freeze (DM)"
+      },
+      {
+        "name": "Bacon or Hass",
+        "votes": 1,
+        "comment": "Light green to black when fully ripe (TB)"
+      },
+      {
+        "name": "Hass",
+        "votes": 3,
+        "comment": "Does very well (IW)"
+      },
+      {
+        "name": "Gwen",
+        "votes": 1
+      },
+      {
+        "name": "Mexicola",
+        "votes": 2
+      },
+      {
+        "name": "Stewart",
+        "votes": 1,
+        "comment": "Tastes good but little production (IW)"
+      },
+      {
+        "name": "Zutano",
+        "votes": 1,
+        "comment": "Froze last year and month ago (DM)"
+      },
+      {
+        "name": "Unknown Variety",
+        "votes": 1,
+        "comment": "Bush variety. Harvested 2 tasty fruits in March/April 2014. Fits desc. for Stewart in Sunset Western Garden book. Apparently self-fertile (MO)"
+      }
+    ]
+  },
+  {
+    "fruit": "Berry",
+    "varieties": [
+      {
+        "name": "Fremont",
+        "votes": 1,
+        "comment": "Have good berries (IW)",
+        "subgroup": "Barberry"
+      },
+      {
+        "name": "Nevinii",
+        "votes": 1,
+        "comment": "Have good berries (IW)",
+        "subgroup": "Barberry"
+      },
+      {
+        "name": "Himalayan",
+        "votes": 2,
+        "comment": "Looks like Himalayan Berry; does pretty well (ET) · Invasive only (KA)",
+        "subgroup": "Blackberry"
+      },
+      {
+        "name": "Marion",
+        "votes": 1,
+        "subgroup": "Blackberry"
+      },
+      {
+        "name": "Wild blackberries",
+        "votes": 1,
+        "comment": "Took over our raspberries several years ago and we had to take all of them out and start over (JG)",
+        "subgroup": "Blackberry"
+      },
+      {
+        "name": "Berkeley",
+        "votes": 2,
+        "comment": "In pots, do well (ET)",
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Blue Crop",
+        "votes": 1,
+        "comment": "In pots, do well (ET)",
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Chandler",
+        "votes": 1,
+        "comment": "Very large (DM)",
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Misty",
+        "votes": 1,
+        "comment": "Struggling, not doing well (MO)",
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Olympia",
+        "votes": 1,
+        "comment": "Best of flavor (DM)",
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Princess",
+        "votes": 1,
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Sunshine Blue",
+        "votes": 1,
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Prickly type",
+        "votes": 5,
+        "subgroup": "Boysenberry"
+      },
+      {
+        "name": "Thornless type",
+        "votes": 1,
+        "comment": "Produces lots over a very long season, good flavor (IW)",
+        "subgroup": "Boysenberry"
+      },
+      {
+        "name": "Mexican",
+        "votes": 1,
+        "subgroup": "Elderberry"
+      },
+      {
+        "name": "Native blue ones",
+        "votes": 1,
+        "subgroup": "Elderberry"
+      },
+      {
+        "name": "Native huckleberries",
+        "votes": 1,
+        "comment": "They have great berries and I have several plants but none are named varieties (IW)",
+        "subgroup": "Huckleberry"
+      },
+      {
+        "name": "Un-named variety",
+        "votes": 2,
+        "comment": "Yummy (IW)",
+        "subgroup": "Olallie"
+      },
+      {
+        "name": "Amity",
+        "votes": 1,
+        "comment": "Taken out due to fruit flies (AJ)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Anne",
+        "votes": 1,
+        "comment": "Unusually sweet, gold berry (IW)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Bababerry",
+        "votes": 1,
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Canby Thornless",
+        "votes": 2,
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Dinkum",
+        "votes": 1,
+        "comment": "Excellent flavor (IW)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Fall Gold",
+        "votes": 2,
+        "comment": "Gold; excellent flavor; very early and productive, some crumble (IW)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Golden West",
+        "votes": 1,
+        "comment": "June bearing, gold; excellent flavor (IW)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Indian Summer",
+        "votes": 1,
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Roseanne",
+        "votes": 1,
+        "comment": "Unusual great flavor (IW)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Tulameen",
+        "votes": 3,
+        "comment": "Fruit all summer (DM)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Unknown varieties",
+        "votes": 0,
+        "comment": "Do very well (JG)",
+        "subgroup": "Raspberry"
+      },
+      {
+        "name": "Idell's Dwarf",
+        "votes": 1,
+        "comment": "Lots of fruit (AJ)",
+        "subgroup": "Serviceberry"
+      },
+      {
+        "name": "Jennybelle",
+        "votes": 1,
+        "subgroup": "Serviceberry"
+      },
+      {
+        "name": "Timm and Success",
+        "votes": 1,
+        "subgroup": "Serviceberry"
+      }
+    ]
+  },
+  {
+    "fruit": "Cape Gooseberry",
+    "varieties": [
+      {
+        "name": "Un-named varieties",
+        "votes": 2,
+        "comment": "Cape Gooseberries grow like a weed (JG)"
+      }
+    ]
+  },
+  {
+    "fruit": "Che",
+    "varieties": [
+      {
+        "name": "Un-named female",
+        "votes": 1,
+        "comment": "Lots of fruit but only ripen well in a hot summer (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Cherimoya",
+    "varieties": [
+      {
+        "name": "Booth",
+        "votes": 1,
+        "comment": "Fruit reasonably well but freeze unless covered (IW)"
+      },
+      {
+        "name": "Fino-de-Jete",
+        "votes": 1,
+        "comment": "For making large fruit without hand pollination (KP)"
+      },
+      {
+        "name": "White",
+        "votes": 2,
+        "comment": "For flavor (KP) · Fruit reasonably well but freeze unless covered (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Cherry",
+    "varieties": [
+      {
+        "name": "Leroy",
+        "votes": 1,
+        "subgroup": "Capulin"
+      },
+      {
+        "name": "Fausto",
+        "votes": 1,
+        "comment": "Always produces lots of fruit (IW)",
+        "subgroup": "Capulin"
+      },
+      {
+        "name": "Pineapple Cossack",
+        "votes": 1,
+        "subgroup": "Ground"
+      },
+      {
+        "name": "Un-named variety",
+        "votes": 1,
+        "subgroup": "Nanking"
+      },
+      {
+        "name": "Seedlings, 3 named varieties",
+        "votes": 0,
+        "comment": "Little fruit lately (IW)",
+        "subgroup": "Surinam"
+      },
+      {
+        "name": "Bing",
+        "votes": 1,
+        "subgroup": "Sweet"
+      },
+      {
+        "name": "Coe's Transparent",
+        "votes": 1,
+        "comment": "Very sweet, very soft red-gold cherry (IW)",
+        "subgroup": "Sweet"
+      },
+      {
+        "name": "Cristobalina",
+        "votes": 1,
+        "subgroup": "Sweet"
+      },
+      {
+        "name": "Lapins",
+        "votes": 3,
+        "subgroup": "Sweet"
+      },
+      {
+        "name": "Ranier",
+        "votes": 1,
+        "subgroup": "Sweet"
+      },
+      {
+        "name": "Royal Ranier",
+        "votes": 1,
+        "comment": "Lower chill so usually get some cherries (IW)",
+        "subgroup": "Sweet"
+      },
+      {
+        "name": "Stella",
+        "votes": 1,
+        "comment": "Grafted with Lapins, Coe's Transparent (KA)",
+        "subgroup": "Sweet"
+      },
+      {
+        "name": "Montana seedling",
+        "votes": 1,
+        "subgroup": "Tart"
+      },
+      {
+        "name": "Montmorency",
+        "votes": 1,
+        "subgroup": "Tart"
+      }
+    ]
+  },
+  {
+    "fruit": "Chokecherry",
+    "varieties": [
+      {
+        "name": "Native",
+        "votes": 0,
+        "comment": "Good for jelly (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Citrus",
+    "varieties": [
+      {
+        "name": "Melogold",
+        "votes": 1,
+        "comment": "Do very well; taste good (JG)",
+        "subgroup": "Grapefruit"
+      },
+      {
+        "name": "Oro Blanco",
+        "votes": 2,
+        "comment": "Do very well; taste good (JG)",
+        "subgroup": "Grapefruit"
+      },
+      {
+        "name": "Star Ruby",
+        "votes": 1,
+        "comment": "Do very well; taste good (JG)",
+        "subgroup": "Grapefruit"
+      },
+      {
+        "name": "Indio Mandarinquat",
+        "votes": 1,
+        "subgroup": "Kumquat"
+      },
+      {
+        "name": "Meiwa",
+        "votes": 1,
+        "subgroup": "Kumquat"
+      },
+      {
+        "name": "Eureka",
+        "votes": 5,
+        "comment": "Not a Meyer, but better for baking for tart flavor (CB)",
+        "subgroup": "Lemon"
+      },
+      {
+        "name": "Lisbon",
+        "votes": 1,
+        "comment": "Froze this year (JG)",
+        "subgroup": "Lemon"
+      },
+      {
+        "name": "Meyer",
+        "votes": 7,
+        "comment": "Oranges and lemons do very well here; lots of fruit (ET)",
+        "subgroup": "Lemon"
+      },
+      {
+        "name": "Meyer Improved",
+        "votes": 1,
+        "subgroup": "Lemon"
+      },
+      {
+        "name": "Meyer New Improved",
+        "votes": 1,
+        "comment": "Huge fruit, thick peels, not as sweet (CB)",
+        "subgroup": "Lemon"
+      },
+      {
+        "name": "Bearss",
+        "votes": 3,
+        "comment": "Very good. A 4-month season or so; unlike the lemons (CB)",
+        "subgroup": "Lime"
+      },
+      {
+        "name": "Kaffir",
+        "votes": 2,
+        "subgroup": "Lime"
+      },
+      {
+        "name": "Algerian Clementine",
+        "votes": 1,
+        "comment": "Heavy producer of sweet fruit in my climate (IW)",
+        "subgroup": "Mandarin"
+      },
+      {
+        "name": "Gold Nugget",
+        "votes": 1,
+        "subgroup": "Mandarin"
+      },
+      {
+        "name": "Nova",
+        "votes": 1,
+        "subgroup": "Mandarin"
+      },
+      {
+        "name": "Page",
+        "votes": 2,
+        "subgroup": "Mandarin"
+      },
+      {
+        "name": "Satsuma",
+        "votes": 1,
+        "comment": "Excellent (DM)",
+        "subgroup": "Mandarin"
+      },
+      {
+        "name": "Wilking",
+        "votes": 1,
+        "comment": "Exceptional flavor, lots of fruit (IW)",
+        "subgroup": "Mandarin"
+      },
+      {
+        "name": "Cara Cara",
+        "votes": 2,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Late Lane",
+        "votes": 1,
+        "comment": "Excellent (DM)",
+        "subgroup": "Orange"
+      },
+      {
+        "name": "MidKnight Valencia",
+        "votes": 1,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Moro Blood",
+        "votes": 2,
+        "comment": "Does not always sweeten (IW)",
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Shamouti",
+        "votes": 1,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Skaggs Bonanza Navel",
+        "votes": 1,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Tarocco Blood Orange",
+        "votes": 1,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Trovita",
+        "votes": 3,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Valencia",
+        "votes": 3,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Washington Navel",
+        "votes": 4,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Seville (Sour Orange)",
+        "votes": 1,
+        "subgroup": "Other"
+      },
+      {
+        "name": "Minneola Tangelo",
+        "votes": 1,
+        "subgroup": "Other"
+      },
+      {
+        "name": "Dancy Tangerine",
+        "votes": 1,
+        "comment": "Produces heavy crop but it usually freezes and drops (JG)",
+        "subgroup": "Other"
+      },
+      {
+        "name": "Sudachi",
+        "votes": 1,
+        "subgroup": "Other"
+      },
+      {
+        "name": "Yuzu",
+        "votes": 1,
+        "subgroup": "Other"
+      }
+    ]
+  },
+  {
+    "fruit": "Crabapple",
+    "varieties": [
+      {
+        "name": "Siberian White",
+        "votes": 1
+      },
+      {
+        "name": "Wickson Crab",
+        "votes": 1
+      },
+      {
+        "name": "Flowering type",
+        "votes": 1,
+        "comment": "Makes beautiful red crabapple jelly (JG)"
+      }
+    ]
+  },
+  {
+    "fruit": "Currants",
+    "varieties": [
+      {
+        "name": "White Imperial",
+        "votes": 1
+      },
+      {
+        "name": "Gloire des Sablons",
+        "votes": 1
+      },
+      {
+        "name": "Golden Currant (native)",
+        "votes": 1
+      }
+    ]
+  },
+  {
+    "fruit": "Fig",
+    "varieties": [
+      {
+        "name": "Armenian",
+        "votes": 1
+      },
+      {
+        "name": "Black Jack",
+        "votes": 3,
+        "comment": "Very productive and sweet (AJ)"
+      },
+      {
+        "name": "Black Mission",
+        "votes": 4
+      },
+      {
+        "name": "Brown Turkey",
+        "votes": 3,
+        "comment": "Must protect roots from gophers with 1 inch chicken wire (DM)"
+      },
+      {
+        "name": "Conadria",
+        "votes": 2
+      },
+      {
+        "name": "Desert King",
+        "votes": 2
+      },
+      {
+        "name": "Jurupa",
+        "votes": 1
+      },
+      {
+        "name": "K-6-5",
+        "votes": 1
+      },
+      {
+        "name": "Mission",
+        "votes": 1
+      },
+      {
+        "name": "Panache",
+        "votes": 1,
+        "comment": "Fruits infrequently, not enough heat (JH)"
+      },
+      {
+        "name": "Violette de Bordeaux",
+        "votes": 3,
+        "comment": "Successfully rooted Jurupa from K. Pyle January 2014 (MO)"
+      },
+      {
+        "name": "White Adriatic",
+        "votes": 2
+      }
+    ]
+  },
+  {
+    "fruit": "Goumi",
+    "varieties": [
+      {
+        "name": "Ebbingel",
+        "votes": 1,
+        "comment": "Not sure if it is Ebbingel — unusually large tasty fruit (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Grape",
+    "varieties": [
+      {
+        "name": "Black Manukka",
+        "votes": 1,
+        "comment": "Gophers seem to get some grapes (IW)"
+      },
+      {
+        "name": "Buffalo",
+        "votes": 1
+      },
+      {
+        "name": "Emeryville Pink",
+        "votes": 1
+      },
+      {
+        "name": "Fantasy",
+        "votes": 1
+      },
+      {
+        "name": "Glenora",
+        "votes": 1
+      },
+      {
+        "name": "Himrod",
+        "votes": 1
+      },
+      {
+        "name": "Irene",
+        "votes": 1
+      },
+      {
+        "name": "Pearl de Csaba",
+        "votes": 1,
+        "comment": "Very early sweet grape (IW)"
+      },
+      {
+        "name": "Pearlette",
+        "votes": 1
+      },
+      {
+        "name": "Red-seeded Surtus Heirloom",
+        "votes": 1
+      },
+      {
+        "name": "Suffolk Red",
+        "votes": 1
+      },
+      {
+        "name": "Summer Royal Seedless",
+        "votes": 1,
+        "comment": "Excellent (DM)"
+      }
+    ]
+  },
+  {
+    "fruit": "Guava",
+    "varieties": [
+      {
+        "name": "Un-named varieties",
+        "votes": 3,
+        "comment": "1 roundish leaf, other pointed leaf (IW)",
+        "subgroup": "Chilean"
+      },
+      {
+        "name": "See comment",
+        "votes": 0,
+        "comment": "Have good fruit if ripen in October, but if none til November are very tart (IW)",
+        "subgroup": "Lemon"
+      },
+      {
+        "name": "Albert's Supreme",
+        "votes": 1,
+        "subgroup": "Pineapple (Feijoa)"
+      },
+      {
+        "name": "Edenvale Supreme",
+        "votes": 1,
+        "subgroup": "Pineapple (Feijoa)"
+      },
+      {
+        "name": "Mammoth",
+        "votes": 1,
+        "subgroup": "Pineapple (Feijoa)"
+      },
+      {
+        "name": "Nazemetz",
+        "votes": 3,
+        "subgroup": "Pineapple (Feijoa)"
+      },
+      {
+        "name": "See comment",
+        "votes": 0,
+        "comment": "Have good fruit if ripen in October, but if none til November are very tart (IW)",
+        "subgroup": "Strawberry"
+      }
+    ]
+  },
+  {
+    "fruit": "Hazelnut",
+    "varieties": [
+      {
+        "name": "Barcelona",
+        "votes": 1,
+        "comment": "When have a cold winter get quite a lot of nuts (IW)"
+      },
+      {
+        "name": "Daviana",
+        "votes": 1,
+        "comment": "When have a cold winter get quite a lot of nuts (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Jujube",
+    "varieties": [
+      {
+        "name": "Li",
+        "votes": 1,
+        "comment": "Does ripen for me, El Sobrante (IW)"
+      },
+      {
+        "name": "Lang",
+        "votes": 1,
+        "comment": "Does not ripen here, El Sobrante (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Kiwi",
+    "varieties": [
+      {
+        "name": "DG's Delight",
+        "votes": 1,
+        "comment": "Self fertile fuzzy kiwi; extra sweet, late (IW)"
+      },
+      {
+        "name": "Un-named variety",
+        "votes": 3,
+        "comment": "It took years but had first crop last year — now loaded with blossoms and fruit (JG)"
+      }
+    ]
+  },
+  {
+    "fruit": "Loquat",
+    "varieties": [
+      {
+        "name": "Big Jim",
+        "votes": 1
+      },
+      {
+        "name": "Champagne seedling",
+        "votes": 1
+      },
+      {
+        "name": "Gold Nugget",
+        "votes": 2,
+        "comment": "Died after fruiting a few years, but I like the flavor of the bird-planted loquats better (CB)"
+      }
+    ]
+  },
+  {
+    "fruit": "Macadamia",
+    "varieties": [
+      {
+        "name": "Beaumont",
+        "votes": 1,
+        "comment": "Lots of nuts (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Mulberry",
+    "varieties": [
+      {
+        "name": "Illinois Everbearing",
+        "votes": 1
+      },
+      {
+        "name": "Noir de Spain",
+        "votes": 1,
+        "comment": "Fabulous flavor (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Nectarine",
+    "varieties": [
+      {
+        "name": "Liz's Late",
+        "votes": 1,
+        "comment": "Take more chill than I generally have so wonderful taste but not a lot of fruit (IW)"
+      },
+      {
+        "name": "Snow Queen",
+        "votes": 1
+      }
+    ]
+  },
+  {
+    "fruit": "Olive",
+    "varieties": [
+      {
+        "name": "Arbequina",
+        "votes": 1,
+        "comment": "Took out Arbequina — not enough heat to ripen early but very productive (IW)"
+      },
+      {
+        "name": "Dolce de Napoli",
+        "votes": 1
+      },
+      {
+        "name": "Florence Strange",
+        "votes": 2,
+        "comment": "Excellent. Must protect from birds (DM)",
+        "subgroup": "Autumn"
+      }
+    ]
+  },
+  {
+    "fruit": "Passion Fruit",
+    "varieties": [
+      {
+        "name": "Passiflora edulis Frederick",
+        "votes": 1,
+        "comment": "Very prolific (MM)"
+      }
+    ]
+  },
+  {
+    "fruit": "Pawpaw",
+    "varieties": [
+      {
+        "name": "See comment",
+        "votes": 0,
+        "comment": "Mine have never fruited (IW)"
+      }
+    ]
+  },
+  {
+    "fruit": "Peach",
+    "varieties": [
+      {
+        "name": "Baby Crawford",
+        "votes": 1
+      },
+      {
+        "name": "CO Smith",
+        "votes": 1
+      },
+      {
+        "name": "Frost",
+        "votes": 1
+      },
+      {
+        "name": "O'Henry",
+        "votes": 1
+      },
+      {
+        "name": "Red Haven",
+        "votes": 1
+      },
+      {
+        "name": "Rich May",
+        "votes": 1
+      },
+      {
+        "name": "Rio Oso Gem",
+        "votes": 1,
+        "comment": "Fabulous flavor (IW)"
+      },
+      {
+        "name": "Un-named variety",
+        "votes": 1,
+        "comment": "Looks and smells great but is surprisingly tasteless and not sweet (ET)"
+      }
+    ]
+  },
+  {
+    "fruit": "Pear",
+    "varieties": [
+      {
+        "name": "Chojuro",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Hosui",
+        "votes": 2,
+        "comment": "Produced well too — excellent quality (MO)",
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Kikisui",
+        "votes": 1,
+        "comment": "Graft succumbed to fireblight and we had to cut it off (MO)",
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Mien Suan Li",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Shinko",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Shinseiki",
+        "votes": 3,
+        "comment": "Is best (JG)",
+        "subgroup": "Asian"
+      },
+      {
+        "name": "20th Century",
+        "votes": 2,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Ya Li",
+        "votes": 1,
+        "comment": "Graft produced very well but it was not that sweet (MO)",
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Abbe Fetel",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Belle Lucrative",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Blutbirne",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Bosc",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Butirra Precoce Morettini",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Clapp's Favorite",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Clapp's Red",
+        "votes": 1,
+        "comment": "Very early pear (IW)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Concorde",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Comice",
+        "votes": 3,
+        "comment": "Excellent (DM)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Dana Hovey",
+        "votes": 1,
+        "comment": "Excellent flavor (IW)",
+        "subgroup": "European"
+      },
+      {
+        "name": "D'Anjou",
+        "votes": 4,
+        "subgroup": "European"
+      },
+      {
+        "name": "Dr. Jules Guyotte",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Epargne",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Magness",
+        "votes": 1,
+        "comment": "Did not produce; minimum fireblight (AJ)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Moonglow",
+        "votes": 1,
+        "comment": "Always produces; very good flavor, resistant to fire blight (IW)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Paul Popenoe's Duchess",
+        "votes": 1,
+        "comment": "Blight resistant (KB)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Red Bartlett",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Seckel",
+        "votes": 6,
+        "subgroup": "European"
+      },
+      {
+        "name": "Tyson",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Warren",
+        "votes": 1,
+        "comment": "Did not produce; minimum fireblight (AJ)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Winter Nellis",
+        "votes": 1,
+        "subgroup": "European"
+      }
+    ]
+  },
+  {
+    "fruit": "Persimmon",
+    "varieties": [
+      {
+        "name": "Fuyu",
+        "votes": 9,
+        "comment": "Bigger and later than Hachiya; good (KB) · Excellent (DM)"
+      },
+      {
+        "name": "Giant Fuyu",
+        "votes": 1
+      },
+      {
+        "name": "Hachiya",
+        "votes": 7,
+        "comment": "Bigger and later than Soji; good (KB)"
+      },
+      {
+        "name": "Saijo",
+        "votes": 2,
+        "comment": "Best Flavor (KB)"
+      }
+    ]
+  },
+  {
+    "fruit": "Plum",
+    "varieties": [
+      {
+        "name": "Cherry Wild Plum",
+        "votes": 1,
+        "comment": "Does great (ET)",
+        "subgroup": "American"
+      },
+      {
+        "name": "Kalamath Native plum",
+        "votes": 1,
+        "subgroup": "American"
+      },
+      {
+        "name": "Beauty",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Burgundy",
+        "votes": 2,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Golden Nectar",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Howard's Miracle",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Inca",
+        "votes": 2,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Laroda",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Mariposa",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Nubiana",
+        "votes": 2,
+        "comment": "Very good flavor, late plum (IW)",
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Santa Rosa",
+        "votes": 2,
+        "comment": "Does well (JG)",
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Sorriso di Primavera",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Vesuvius",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Bavay's Gage",
+        "votes": 2,
+        "comment": "Did not produce. A lot of aphids on prunes (AJ)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Early Italian",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Fellenberg",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "French Prune",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Golden Transparent Gage",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Green Gage",
+        "votes": 1,
+        "comment": "Does well (JG)",
+        "subgroup": "European"
+      },
+      {
+        "name": "Imperial Epineuse",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Silver Prune",
+        "votes": 1,
+        "comment": "Generally produces some (IW)",
+        "subgroup": "European"
+      },
+      {
+        "name": "St. Catherine",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Sugar Plum",
+        "votes": 2,
+        "subgroup": "European"
+      },
+      {
+        "name": "Unknown variety",
+        "votes": 1,
+        "comment": "Golden Green Plum (SJ)",
+        "subgroup": "European"
+      }
+    ]
+  },
+  {
+    "fruit": "Pluot",
+    "varieties": [
+      {
+        "name": "Dapple Dandy",
+        "votes": 1,
+        "comment": "Always produces some large good fruit (IW)"
+      },
+      {
+        "name": "Flavor King",
+        "votes": 1
+      },
+      {
+        "name": "Flavor Queen",
+        "votes": 5,
+        "comment": "Excellent. Patent has expired (DM) · Great, super sweet flavor (IW)"
+      },
+      {
+        "name": "Splash",
+        "votes": 1,
+        "comment": "Great in hot years, otherwise not as sweet (IW)"
+      },
+      {
+        "name": "Un-named variety",
+        "votes": 1,
+        "comment": "Does well (JG)"
+      }
+    ]
+  },
+  {
+    "fruit": "Pomegranate",
+    "varieties": [
+      {
+        "name": "Beautiful",
+        "votes": 1
+      },
+      {
+        "name": "Cloud",
+        "votes": 1
+      },
+      {
+        "name": "Eve",
+        "votes": 1,
+        "comment": "Sweeter than some (IW)"
+      },
+      {
+        "name": "Gold",
+        "votes": 1,
+        "comment": "Sweeter than most in cooler climate (IW)"
+      },
+      {
+        "name": "Mae",
+        "votes": 1,
+        "comment": "Sweeter than some (IW)"
+      },
+      {
+        "name": "Parfianka",
+        "votes": 1
+      },
+      {
+        "name": "Sue",
+        "votes": 1,
+        "comment": "Always produces fruit (IW)"
+      },
+      {
+        "name": "Sweet",
+        "votes": 1,
+        "comment": "No fruit yet (MO)"
+      },
+      {
+        "name": "Wonderful",
+        "votes": 2,
+        "comment": "Grows well, but seeds are too hard to eat (JG) · Excellent; does well in El Sobrante climate (DM)"
+      }
+    ]
+  },
+  {
+    "fruit": "Strawberry",
+    "varieties": [
+      {
+        "name": "Chandler",
+        "votes": 1
+      },
+      {
+        "name": "Frais de Bois",
+        "votes": 1
+      },
+      {
+        "name": "Sequoia",
+        "votes": 1,
+        "comment": "Came with house in 1983, surviving on slow leak from hose bib. Indestructible, with true strawberry flavor seldom matched by farmers market fruit (CB)"
+      },
+      {
+        "name": "Alpine CA native groundcover",
+        "votes": 1
+      },
+      {
+        "name": "White Delight",
+        "votes": 2,
+        "comment": "Produces almost year round (IW)"
+      },
+      {
+        "name": "Un-named red",
+        "votes": 0,
+        "comment": "Produces almost year-round from seedlings (IW)"
+      },
+      {
+        "name": "Wild Alpine",
+        "votes": 1
+      }
+    ]
+  },
+  {
+    "fruit": "White Sapote",
+    "varieties": [
+      {
+        "name": "Subelle",
+        "votes": 1
+      }
+    ]
+  }
+];
+
+// ─────────────────────────────────────────────
+// RENDER// ─────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────
+let activeFilter = "All";
+
+function buildFilterButtons() {
+  const select = document.getElementById("filterSelect");
+  const categories = ["All fruits", ...FRUITS.map(f => f.fruit)];
+  select.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join("");
+}
+
+function setFilter(cat) {
+  activeFilter = cat === "All fruits" ? "All" : cat;
+  filterAll();
+}
+
+function filterAll() {
+  const q = document.getElementById("searchInput").value.trim().toLowerCase();
+  const list = document.getElementById("fruitList");
+  let totalVisible = 0;
+
+  list.querySelectorAll(".fruit-section").forEach(section => {
+    const fruitName = section.dataset.fruit;
+    if (activeFilter !== "All" && fruitName !== activeFilter) {
+      section.style.display = "none";
+      return;
+    }
+    let sectionVisible = 0;
+    section.querySelectorAll(".variety-row").forEach(row => {
+      const text = row.dataset.search;
+      const show = !q || text.includes(q);
+      row.style.display = show ? "" : "none";
+      if (show) sectionVisible++;
+    });
+    section.style.display = sectionVisible > 0 ? "" : "none";
+    totalVisible += sectionVisible;
+  });
+
+  document.getElementById("noResults").style.display = totalVisible === 0 ? "block" : "none";
+  document.getElementById("resultsCount").textContent =
+    totalVisible === 0 ? "" :
+    `Showing ${totalVisible} variet${totalVisible === 1 ? "y" : "ies"}`;
+}
+
+function render() {
+  const list = document.getElementById("fruitList");
+
+  list.innerHTML = FRUITS.map(({ fruit, varieties }) => {
+    const totalVotes = varieties.reduce((s, v) => s + v.votes, 0);
+
+    // Group by subgroup, preserving insertion order
+    const sgMap = {};
+    const sgOrder = [];
+    varieties.forEach(v => {
+      const sg = v.subgroup || "__none__";
+      if (!sgMap[sg]) { sgMap[sg] = []; sgOrder.push(sg); }
+      sgMap[sg].push(v);
+    });
+
+    const rows = sgOrder.map(sg => {
+      const label = sg !== "__none__"
+        ? `<div class="subgroup-label">${sg}</div>`
+        : "";
+
+      const varRows = sgMap[sg].map(v => {
+        const search = `${fruit} ${sg} ${v.name} ${v.comment || ""}`.toLowerCase();
+        const voteTxt = v.votes > 0 ? `${v.votes}` : "";
+        const commentTxt = v.comment
+          ? ` <span class="v-comment">“${v.comment}”</span>`
+          : "";
+        return `
+        <div class="variety-row" data-search="${search.replace(/"/g, "&quot;")}">
+          <span class="v-vote-left">${voteTxt}</span>
+          <span class="variety-inline"><span class="v-name">‘${v.name}’</span>${commentTxt}</span>
+        </div>`;
+      }).join("");
+
+      return label + varRows;
+    }).join("");
+
+    return `
+      <div class="fruit-section" data-fruit="${fruit}">
+        <div class="fruit-section-header">
+          <span class="fruit-name">${fruit}</span>
+          <span class="fruit-total">${varieties.length} variet${varieties.length === 1 ? "y" : "ies"} · ${totalVotes} vote${totalVotes !== 1 ? "s" : ""}</span>
+        </div>
+        <div class="variety-list">${rows}</div>
+      </div>`;
+  }).join("");
+
+  filterAll();
+}
+
+buildFilterButtons();
+render();
+</script>
+</div><!-- /.layout -->
+</body>
+</html>
