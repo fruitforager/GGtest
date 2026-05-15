@@ -12,7 +12,8 @@
   --green-dark:#21452c;
   --blue:#2f5d8f;
   --blue-dark:#21425c;
-  --burgundy: #6b4c6e;
+  --burgundy:#6b4c6e;
+  --burgundy-dark:#573b59;
   --border:#d8ccb6;
   --sidebar:220px;
   --content-width:1200px;
@@ -166,7 +167,10 @@ nav a.active{
   font-size:1.1rem;
   line-height:1.55;
   margin:0 0 10px;
-  max-width:68ch;
+  max-width:62ch;
+  text-wrap:pretty;
+  orphans:3;
+  widows:3;
 }
 
 h2{
@@ -216,7 +220,7 @@ p{
 .zone-card{
   background:#fff;
   border:1.5px solid var(--border);
-  border-radius:14px;
+  border-radius:24px;
   padding:28px 26px 24px;
   display:flex;
   flex-direction:column;
@@ -253,13 +257,18 @@ p{
 }
 .zone-desc-title{
   margin:0 0 10px;
-  font-size:1.20rem;
+  font-size:1.30rem;
   line-height:1.30;
-  color:var(--burgandy);
+  color:var(--blue);
   font-weight:900;
   padding-top: 14px;
 }
-
+.zone-rule{
+  border:none;
+  border-top:3px solid var(--burgundy);
+  opacity:0.43;
+  margin:4px 0 6px;
+}
 .zone-desc-title span{
   display:block;
 }
@@ -293,16 +302,22 @@ p{
   widows:3;
   text-wrap:pretty;
 }
+.zone-examples .star-bullet{
+  font-size:1.3em;
+  line-height:1;
+  vertical-align:-0.05em;
+  color:var(--burgundy);
+}
 .zone-card a.card-link{
   display:inline-flex;
   align-items:center;
   gap:6px;
   margin-top:auto;
-  background:var(--burgandy);
+  background:var(--burgundy);
   color:#fff;
   text-decoration:none;
   padding:10px 16px;
-  border-radius:8px;
+  border-radius:5px;
   font-weight:800;
   font-size:0.92rem;
   letter-spacing:0.02em;
@@ -310,7 +325,7 @@ p{
   width:fit-content;
 }
 .zone-card a.card-link:hover{
-  background:var(--burgandy-dark);
+  background:var(--burgundy-dark);
   transform:translateY(-1px);
   box-shadow:0 6px 16px rgba(0,0,0,0.14);
 }
@@ -320,18 +335,18 @@ p{
   align-items:center;
   justify-content:center;
   margin-top:14px;
-  background:var(--burgandy);
+  background:var(--burgundy);
   color:white;
   text-decoration:none;
   padding:12px 16px;
-  border-radius:8px;
+  border-radius:5px;
   font-weight:900;
   font-size:1.08rem;
   letter-spacing:0.03em;
   transition:background 0.18s, transform 0.18s, box-shadow 0.18s;
 }
 .button:hover{
-  background:var(--burgandy-dark);
+  background:var(--burgundy-dark);
   transform:translateY(-1px);
   box-shadow:0 8px 18px rgba(0,0,0,0.14);
 }
@@ -461,7 +476,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   </section>
 
   <h2>🌦️ Find Your Climate Zone</h2>
-  <p style="margin:-8px 0 24px;font-size:1rem;color:#555;max-width:62ch;">The Bay Area's microclimates vary dramatically over short distances. <strong>Pick the zone that best matches</strong> where you garden — <strong>your chill hours and summer heat will shape almost every fruit decision you make.</strong></p>
+  <p style="margin:-8px 0 24px;font-size:1rem;color:#555;max-width:62ch;text-wrap:pretty;">The Bay Area's microclimates vary dramatically over short distances. <strong>Pick the zone that best matches</strong> where you garden — <strong>your chill hours and summer heat will shape almost every fruit decision you make.</strong></p>
 
   <div class="zone-cards">
 
@@ -477,10 +492,11 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   <span>Cool summers.</span>
   <span>Mild winters.</span>
 </h4>
-
-<p class="zone-desc-short">Heavy ocean influence. Includes San Francisco, Daly City, Pacifica, Half Moon Bay, and foggy pockets of Berkeley (Alameda County).</p>
+<hr class="zone-rule">
+<p class="zone-desc-short">📍 Heavy ocean influence. Includes San Francisco, Daly City, Pacifica, Half Moon Bay, and foggy pockets of Berkeley (Alameda County).</p>
+<hr class="zone-rule">
       <p class="zone-detail"><strong>The marine layer dominates — foggy mornings that linger, rarely much heat.</strong> Winters stay frost-light and mild. Chill hours are low 100–400. So most standard deciduous fruit that needs cold winters to set fruit won't perform here. Focus on low-chill and evergreen fruiting plants that ripen on mild temperatures rather than summer heat.</p>
-      <p class="zone-examples">✦ Members love: feijoas, loquats, figs (Desert King, White Ischia), Bearss lime, Eureka lemon, passion fruit, Asian pears</p>
+      <p class="zone-examples"><span class="star-bullet">✦</span> Members love: Asian pears, Bearss lime, Eureka lemon, feijoas, figs ('Desert King', 'White Ischia'), loquats, passion fruit.</p>
       <a class="card-link" href="climate-zone-1-fog-zone-favorites.html">Member's Fog Zone Favorites →</a>
     </div>
 
@@ -496,10 +512,11 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   <span>Warm summers.</span>
   <span>Mild winters.</span>
 </h4>
-
-<p class="zone-desc-short">Includes Berkeley, Oakland, Richmond, El Cerrito, Hayward, San Leandro (Alameda County); San Mateo, San Rafael, and Novato (Marin County).</p>
+<hr class="zone-rule">
+<p class="zone-desc-short">📍 Includes Berkeley, Oakland, Richmond, El Cerrito, Hayward, San Leandro (Alameda County); San Mateo, San Rafael, and Novato (Marin County).</p>
+<hr class="zone-rule">
       <p class="zone-detail"><strong>More sun than the coast but still tempered by Bay breezes — summers are warm without being brutal, winters are mild but real.</strong> Chill hours run 400–900, enough for the vast majority of deciduous fruits without demanding the deep cold inland winters bring. This zone gives chapter members the broadest selection of anything they want to grow.</p>
-      <p class="zone-examples">✦ Members love: apples, Asian pears, plums, pluots, persimmons, pomegranates, figs, Meyer lemon</p>
+      <p class="zone-examples"><span class="star-bullet">✦</span> Members love: apples, Asian pears, figs, Meyer lemon, persimmons, plums, pluots, pomegranates</p>
       <a class="card-link" href="climate-zone-2-bay-facing-zone-favorites.html">Member's Bay-Facing Favorites →</a>
     </div>
 
@@ -516,10 +533,11 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   <span>Hot summers.</span>
   <span>Mild winters.</span>
 </h4>
-
-<p class="zone-desc-short">Includes Concord, Walnut Creek, Lafayette, Danville, San Ramon, and Pleasanton (Contra Costa and inland Alameda County).</p>
+<hr class="zone-rule">
+<p class="zone-desc-short">📍 Includes Concord, Walnut Creek, Lafayette, Danville, San Ramon, and Pleasanton (Contra Costa and inland Alameda County).</p>
+<hr class="zone-rule">
       <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> Chill hours run 600–1,500, the highest in the chapter, meaning standard and high-chill deciduous varieties that struggle on the coast genuinely thrive. Summer heat fully ripens stone fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
-      <p class="zone-examples">✦ Members love: peaches, cherries, apricots, grapes, figs, persimmons, pomegranates, jujubes</p>
+      <p class="zone-examples"><span class="star-bullet">✦</span> Members love: apricots, cherries, figs, grapes, jujubes, peaches, persimmons, pomegranates</p>
       <a class="card-link" href="climate-zone-3-inland-zone-favorites.html">Member's Inland Favorites →</a>
     </div>
 
