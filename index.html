@@ -3,43 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golden Gate Chapter | California Rare Fruit Growers (CRFG)</title>
+<title>Golden Gate Chapter | California Rare Fruit Growers</title>
 
-<meta name="description" content="Discover rare fruits and edible plants in the San Francisco Bay Area. Join the Golden Gate Chapter of CRFG for meetings, scion exchanges, and local growing advice.">
-<meta name="keywords" content="CRFG, Golden Gate Chapter, California Rare Fruit Growers, rare fruit Bay Area, scion exchange, urban orchard, San Francisco gardening, fruit tree grafting">
-<link rel="canonical" href="https://yourdomain.com/index.html">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Golden Gate Chapter | California Rare Fruit Growers">
-<meta property="og:description" content="Growing unusual edibles in the San Francisco Bay Area. Join our community for fruit tastings and expert grower tips.">
-<meta property="og:image" content="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg">
-<meta property="og:url" content="https://yourdomain.com/index.html">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "NGO",
-  "name": "Golden Gate Chapter, California Rare Fruit Growers",
-  "description": "A non-profit organization dedicated to growing and sharing information about rare and unusual fruits in the SF Bay Area.",
-  "url": "https://yourdomain.com",
-  "logo": "https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "San Francisco Bay Area",
-    "addressRegion": "CA",
-    "addressCountry": "US"
-  }
-}
-</script>
+<meta name="description" content="Discover rare fruits and edible plants in the San Francisco Bay Area. Join the Golden Gate Chapter of CRFG for meetings and scion exchanges.">
 
 <style>
 :root{
   --bg:#FAF0E6;
   --text:#222;
   --green:#274D31;
-  --green-dark:#21452c;
   --blue:#2f5d8f;
-  --blue-dark:#21425c;
   --border:#d8ccb6;
   --sidebar:220px;
   --content-width:1200px;
@@ -53,9 +26,7 @@ body{
   line-height:1.5;
   font-size:18px;
   -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
 }
-strong,b{font-weight:800;}
 
 .layout{
   display:flex;
@@ -64,6 +35,7 @@ strong,b{font-weight:800;}
   margin:auto;
 }
 
+/* Sidebar / Desktop Nav */
 aside{
   width:var(--sidebar);
   flex-shrink:0;
@@ -74,11 +46,8 @@ aside{
   top:0;
   height:100vh;
   overflow-y:auto;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(255,255,255,0.2) transparent;
   z-index: 100;
 }
-
 .nav-brand{
   display:flex;
   flex-direction:column;
@@ -87,164 +56,142 @@ aside{
   padding:20px 16px 16px;
   text-decoration:none;
   border-bottom:1px solid rgba(255,255,255,0.15);
-  margin-bottom:4px;
 }
-.logo{
-  width:134px;
-  height:auto;
-  display:block;
-  margin:0 auto 14px;
-  filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
-}
-.site-title{font-size:1.05rem; font-weight:800; color:white; line-height:1.3;}
-.site-crfg{font-size:0.9rem; font-weight:700; color:rgba(255,255,255,0.75); display:block; margin-top:2px;}
-.site-sub{font-size:0.78rem; font-weight:700; color:rgba(255,255,255,0.85); margin-top:4px; text-align:center;}
+.logo{ width:134px; height:auto; margin-bottom:14px; filter:drop-shadow(0 3px 8px rgba(0,0,0,.22)); }
+.site-title{ font-size:1.05rem; font-weight:800; color:white; }
 
-nav{display:flex; flex-direction:column; padding:4px 0 120px;}
-.nav-group-label{
-  font-size:0.76rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em;
-  color:rgba(255,255,255,0.85); padding:16px 16px 5px;
-}
-nav a{
-  font-size:0.82rem; font-weight:700; color:var(--bg); text-decoration:none;
-  padding:5px 16px; border-left:3px solid transparent; display:block;
-  transition: background 0.12s; margin-left:18px;
-}
-nav a:hover{background:rgba(255,255,255,0.1); color:white;}
-nav a.active{background:rgba(255,255,255,0.14); color:white; border-left-color:rgba(255,255,255,0.75);}
+nav{ display:flex; flex-direction:column; padding:10px 0; }
+.nav-group-label{ font-size:0.76rem; font-weight:800; text-transform:uppercase; color:rgba(255,255,255,0.8); padding:16px 16px 5px; }
+nav a{ font-size:0.82rem; font-weight:700; color:var(--bg); text-decoration:none; padding:8px 16px; border-left:3px solid transparent; margin-left:18px; transition: 0.2s; }
+nav a:hover, nav a.active{ background:rgba(255,255,255,0.1); color:white; border-left-color:white; }
 
-.page{flex:1; padding:40px 44px 40px 52px; min-width:0;}
-.hero h1{
-  font-size:clamp(2rem,3.5vw,3.2rem); line-height:1.18; margin:0 0 28px;
-  font-weight:900; color:var(--blue);
+/* Main Content Area */
+.page{ flex:1; padding:40px 44px; min-width:0; }
+h1{ font-size:clamp(2.2rem, 4vw, 3.2rem); line-height:1.1; color:var(--blue); font-weight:900; margin-bottom:28px; }
+h2, h3{ color:var(--blue); font-weight:900; }
+
+/* The Map Fixes */
+.map-wrap {
+  width: 100%;             /* Widened to align with "Stay for the community" */
+  max-width: 800px;        /* Limits size on very large screens */
+  aspect-ratio: 3 / 4;     /* Forced 3:4 Vertical Ratio */
+  margin-top: -15px;       /* Pulled closer to previous paragraph */
+  margin-bottom: 30px;
+  background: #eee;
 }
-h2, h3{color:var(--blue); font-weight:900;}
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: block;
+}
 
 .button{
-  display:inline-flex; align-items:center; justify-content:center;
-  margin-top:14px; background:linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
-  color:white; text-decoration:none; padding:12px 22px; border-radius:8px; font-weight:900;
-  box-shadow:0 4px 12px rgba(47,93,143,0.28); transition: transform 0.18s;
+  display:inline-flex; background:var(--blue); color:white; text-decoration:none; 
+  padding:14px 28px; border-radius:8px; font-weight:800; margin-top:10px;
 }
-
-.map-wrap {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 3 / 4;
-  margin-top: -10px;
-  margin-bottom: 24px;
-}
-.map-wrap iframe { width: 100%; height: 100%; border: 1px solid var(--border); border-radius: 6px; display: block; }
 
 @media(max-width:750px){
-  .layout{flex-direction:column;}
-  aside{ width:100%; height:auto; position:sticky; top:0; background:var(--green); overflow:visible; }
-  .nav-brand{display:none;}
+  .layout{ flex-direction:column; }
+  aside{ width:100%; height:auto; position:sticky; top:0; overflow:visible; }
+  .nav-brand{ display:none; }
+  
   .mobile-header{
-    display:flex; align-items:center; justify-content:space-between; padding:12px 16px;
-    z-index: 101; background:var(--green); position:relative;
+    display:flex; align-items:center; justify-content:space-between; 
+    padding:12px 16px; background:var(--green); z-index: 102; position:relative;
   }
-  .mobile-brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
-  .mobile-logo{width:36px; height:auto;}
-  .mobile-title{font-size:0.88rem; font-weight:800; color:white;}
+  .mobile-brand{ display:flex; align-items:center; gap:8px; text-decoration:none; color:white; font-weight:800; font-size:0.9rem; }
+  .mobile-logo{ width:32px; height:auto; }
 
-  /* Windowshade Effect */
+  /* Windowshade Dropdown */
   nav {
-    display: flex; background: var(--green);
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--green);
     transform: scaleY(0); transform-origin: top;
     opacity: 0; pointer-events: none;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-    position: absolute; top: 100%; left: 0; right: 0; z-index: 100;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    z-index: 101;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    padding-bottom: 30px;
   }
   nav.open { transform: scaleY(1); opacity: 1; pointer-events: auto; }
-  nav a{ padding:12px 20px; margin-left:0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  nav a { margin-left: 0; padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
   
   .hamburger{
-    display:flex; align-items:center; gap:6px; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.3); border-radius:7px; padding:6px 10px;
-    color:white; cursor:pointer; font-weight:700;
+    background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3);
+    color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:700;
   }
-  .hamburger svg{width:16px; height:16px; stroke:white; fill:none;}
-  .page{padding:24px 16px;}
+  .page{ padding:20px 20px; }
+  
+  /* Heading Line-Break Logic */
+  .break-line { display: block; margin-top: 5px; }
 }
 </style>
 </head>
 <body>
 
 <div class="layout">
-<aside>
-  <a href="index.html" class="nav-brand">
-    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
-    <span class="site-title">Golden Gate Chapter</span>
-    <span class="site-crfg">CRFG.org</span>
-    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
-  </a>
-
-  <div class="mobile-header">
-    <a href="index.html" class="mobile-brand">
-      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
-      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+  <aside>
+    <a href="index.html" class="nav-brand">
+      <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+      <span class="site-title">Golden Gate Chapter</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <span>Menu</span>
-    </button>
-  </div>
 
-  <nav id="navMenu">
-    <div class="nav-group"><span class="nav-group-label">🏠 Start Here</span><a href="index.html">About</a></div>
-    <div class="nav-group">
-      <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html">Bay Area Favorites</a>
-      <a href="member-guides.html">Member Written Guides</a>
-      <a href="fruity-resources.html">Fruity Resources</a>
+    <div class="mobile-header">
+      <a href="index.html" class="mobile-brand">
+        <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+        <span>Golden Gate Chapter • CRFG</span>
+      </a>
+      <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')">MENU</button>
     </div>
-    <div class="nav-group"><span class="nav-group-label">🤝 Community</span><a href="meetings.html">Meetings</a><a href="online-community.html">Online Community</a></div>
-    <div class="nav-group"><span class="nav-group-label">✨ Membership</span><a href="join-renew.html">Join / Renew</a></div>
-  </nav>
-</aside>
 
-<main class="page">
-  <section class="hero">
-    <h1>Rare fruit.<br>Real community.<br><span style="white-space: nowrap;">Right here in the Bay Area.</span></h1>
-    <p>The <strong>Golden Gate Chapter</strong> of the California Rare Fruit Growers (CRFG.org) is a vibrant community of professionals and amateurs dedicated to growing unusual fruits in the San Francisco Bay Area.</p>
-  </section>
+    <nav id="navMenu">
+      <div class="nav-group"><span class="nav-group-label">🏠 Start Here</span><a href="index.html" class="active">About</a></div>
+      <div class="nav-group"><span class="nav-group-label">🌿 Grow Fruit</span><a href="#">Favorites</a><a href="#">Guides</a></div>
+      <div class="nav-group"><span class="nav-group-label">🤝 Community</span><a href="#">Meetings</a><a href="#">Join</a></div>
+    </nav>
+  </aside>
 
-  <h3>What Happens at Meetings 🌿</h3>
-  <p>Our meetings include guest speakers, seasonal fruit tastings, orchard tours, and hands-on learning.</p>
+  <main class="page">
+    <section class="hero">
+      <h1>Rare fruit.<br>Real community.<br>
+        Right here <span class="break-line">in the Bay Area.</span>
+      </h1>
+      <p>The Golden Gate Chapter of the CRFG is your local home for unusual edibles and expert growing advice.</p>
+    </section>
 
-  <div class="map-wrap">
-    <iframe
-      src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
-      title="Golden Gate Chapter CRFG member map"
-      loading="lazy"
-      allowfullscreen
-    ></iframe>
-  </div>
+    <h3>Our Member Map 🌿</h3>
+    <p>Find fellow growers and see what thives in your specific microclimate.</p>
 
-  <h2>Come for the fruit.<br />Stay for the community.</h2>
-  
-  <p><a class="button" href="join-renew.html">Join or Renew Membership</a></p>
+    <div class="map-wrap">
+      <iframe
+        src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
+        title="Golden Gate Chapter CRFG member map"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-  <footer>
-    <hr>
-    <p>Questions? Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
-    <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
-  </footer>
-</main>
+    <h2>Come for the fruit.<br />Stay for the community.</h2>
+    
+    <p><a class="button" href="#">Join or Renew</a></p>
+
+    <footer style="margin-top:80px; font-size: 0.8rem; opacity: 0.7;">
+      <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 20px;">
+      <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc.</p>
+    </footer>
+  </main>
 </div>
 
 <script>
-(function () {
-  var p = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("#navMenu a").forEach(function (a) {
-    if (a.getAttribute("href") === p) a.classList.add("active");
+  // Close menu when clicking outside or on a link
+  document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navMenu').classList.remove('open');
+    });
   });
-  document.querySelectorAll("#navMenu a").forEach(link => {
-    link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('open'));
-  });
-}());
 </script>
+
 </body>
 </html>
