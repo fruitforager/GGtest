@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +36,7 @@
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "golden_gate@crfg.org",
+    "email": "golden.gate@crfg.org",
     "contactType": "customer support"
   }
 }
@@ -50,6 +49,7 @@
   --green-dark: #21452c;
   --blue: #2f5d8f;
   --blue-dark: #21425c;
+  --burgandy: #5B4A73;
   --border: #d8ccb6;
   --sidebar: 220px;
   --content-width: 1200px;
@@ -102,9 +102,7 @@ aside {
   text-decoration: none;
   border-bottom: 1px solid rgba(255,255,255,.15);
   margin-bottom: 4px;
-  /* hover/focus handled below */
   transition: background .15s;
-  border-radius: 0;
 }
 .nav-brand:hover { background: rgba(255,255,255,.06); }
 .nav-brand:focus-visible {
@@ -127,6 +125,8 @@ aside {
   line-height: 1.3;
   display: block;
 }
+
+/* CRFG.org — display text, part of the unified brand link */
 .site-crfg {
   font-size: .9rem;
   font-weight: 700;
@@ -136,12 +136,14 @@ aside {
   text-align: center;
   margin-top: 2px;
 }
+
 .site-sub {
   font-size: .78rem;
   font-weight: 700;
   color: rgba(255,255,255,.85);
   line-height: 1.3;
   margin-top: 4px;
+  padding-bottom: 4px;
   display: block;
   text-align: center;
 }
@@ -176,7 +178,6 @@ nav a {
   font-weight: 700;
   color: var(--bg);
   text-decoration: none;
-  /* min touch target height */
   min-height: var(--touch-min);
   display: flex;
   align-items: center;
@@ -189,10 +190,6 @@ nav a {
   margin-left: 0;
   transition: background .12s, color .12s, border-color .12s;
   border-radius: 0 6px 6px 0;
-}
-nav a:hover {
-  background: rgba(255,255,255,.12);
-  color: white;
 }
 nav a:focus-visible {
   outline: 2px solid rgba(255,255,255,.7);
@@ -242,8 +239,9 @@ nav a.wrap span {
   max-width: 800px;
   font-weight: 900;
   letter-spacing: -.005em;
-}
+  color:var(--burgandy);
 
+}
 .hero h1 span { display: block; }
 
 h2 {
@@ -251,8 +249,8 @@ h2 {
   line-height: 1.05;
   margin: 44px 0 18px;
   font-weight: 900;
-  orphans: 3;
-  widows: 3;
+  orphans: 2;
+  widows: 2;color:var(--blue);
 }
 
 h3 {
@@ -260,8 +258,9 @@ h3 {
   line-height: 1.1;
   margin: 36px 0 14px;
   font-weight: 900;
-  orphans: 3;
-  widows: 3;
+  orphans: 2;
+  widows: 2;
+  color:var(--blue);
 }
 
 p {
@@ -278,6 +277,7 @@ p {
   max-width: 52ch;
 }
 
+/* ── Fruit divider ── */
 .fruit-divider {
   font-size: clamp(1.65rem, 2.65vw, 2.75rem);
   line-height: 1.05;
@@ -285,11 +285,18 @@ p {
   user-select: none;
 }
 
+/* ── Member title — button medium blue ── */
 .member-title {
   font-size: 1.85rem;
   font-weight: 900;
   line-height: 1.18;
   margin: 0 0 12px;
+  color: var(--blue);
+}
+
+/* ── Steps heading — button medium blue ── */
+.steps-heading {
+  color: var(--blue);
 }
 
 /* ── Steps ── */
@@ -300,7 +307,6 @@ p {
 }
 .step + .step { margin-top: 30px; }
 
-/* Use CSS instead of <br> for step label spacing */
 .step-label {
   font-size: 1.1rem;
   line-height: 1.55;
@@ -326,11 +332,6 @@ p {
   white-space: nowrap;
   transition: background .18s, transform .18s, box-shadow .18s;
 }
-.button:hover {
-  background: var(--blue-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0,0,0,.14);
-}
 .button:active {
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(0,0,0,.12);
@@ -355,50 +356,38 @@ p {
   white-space: normal;
   line-height: 1.25;
 }
-.step .button:hover {
-  background-image: linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
-}
 
-/* ── Payment logos ── */
+/* ── Payment logos ──
+   Sits directly beneath the button which has padding-left/right: 12px and border-radius: 8px.
+   We match that horizontal inset exactly so the first logo aligns with the button's left
+   inner-edge curve and the last logo aligns with the right inner-edge curve.
+   space-between then distributes the remaining logos evenly between them.
+── */
 .pay-logos {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-top: 10px;
-  margin-bottom: 18px;
-  padding: 10px 14px;
-  width: 100%;
-  max-width: 35ch;
-  /* single line — no wrap; scroll on extreme narrow */
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  /* match the button's border-radius (8px), not the container edges */
-  border-radius: 8px;
-  background: rgba(0,0,0,.04);
-  /* prevent CLS: explicit height so container doesn't collapse */
-  min-height: 44px;
+  gap: 0;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  /* 12px matches the button's inner padding so logos sit inside its curve */
+  padding: 6px 12px;
+  width: 100%;
+  max-width: 39ch;
+  background: transparent;
+  min-height: 36px;
 }
 .pay-logos img {
   flex: 0 0 auto;
-  height: 20px;   /* explicit height — eliminates layout shift */
-  width: auto;
   display: block;
+  width: auto;
+  height: 22px;
 }
-
-/* ── Visually hidden (screen-reader only) ── */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
+/* Discover */
+.pay-logos img[alt="Discover"] { height: 13px; }
 
 /* ── Pay card ── */
 .pay-card {
@@ -408,14 +397,14 @@ p {
   padding: 12px 16px;
   display: block;
   font-size: .9rem;
-  line-height: 1.45;
+  line-height: 1.6;
   color: #555;
   max-width: 48ch;
   clear: both;
 }
 .pay-card a {
   color: var(--green);
-  transition: color .18s, text-decoration-color .18s;
+  transition: color .18s;
 }
 .pay-card a:hover { color: var(--green-dark); text-decoration: underline; }
 .pay-card a:focus-visible {
@@ -423,22 +412,25 @@ p {
   outline-offset: 2px;
   border-radius: 2px;
 }
-
 .pay-card-section + .pay-card-section { margin-top: 8px; }
 
 .mail-line { white-space: nowrap; }
 
-/* ── Responsive iframe ── */
+/* ── Responsive map iframe ──
+   Desktop: fixed 400px tall, 60% wide
+   Mobile: full width, aspect-ratio fallback
+── */
 .map-wrap {
   width: 60%;
-  aspect-ratio: 3/2;
+  height: 400px;
   margin-top: 8px;
   margin-bottom: 8px;
 }
 .map-wrap iframe {
   width: 100%;
   height: 100%;
-  border: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
 }
 
 /* ── Lists ── */
@@ -454,6 +446,14 @@ li {
   widows: 3;
 }
 
+/* ── Bottom tagline ── */
+.bottom-tagline {
+  line-height: 1.35;
+  margin-top: 44px;
+  margin-bottom: 0;
+}
+.bottom-tagline span { display: block; }
+
 /* ── Footer ── */
 footer {
   margin-top: 60px;
@@ -467,13 +467,6 @@ hr {
   border-top: 1px solid var(--border);
   margin: 40px 0;
 }
-
-.bottom-tagline {
-  line-height: 1.35;
-  margin-top: 44px;
-  margin-bottom: 0;
-}
-.bottom-tagline span { display: block; }
 
 /* ── Skip link ── */
 .skip-link {
@@ -496,6 +489,19 @@ hr {
   font-weight: 700;
   z-index: 9999;
   text-decoration: none;
+}
+
+/* ── Visually hidden (screen-reader only) ── */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ── Mobile ── */
@@ -541,7 +547,6 @@ hr {
     font-weight: 800;
     color: white;
     line-height: 1.25;
-    /* allow wrapping on very small screens */
     white-space: normal;
     word-break: break-word;
   }
@@ -582,7 +587,6 @@ hr {
     cursor: pointer;
     font-family: inherit;
     flex-shrink: 0;
-    /* allow label to wrap on very narrow */
     white-space: nowrap;
   }
   .hamburger:focus-visible {
@@ -613,17 +617,17 @@ hr {
     width: 100%;
   }
 
+  /* Mobile logos: same 12px side padding to align with button curves */
   .pay-logos {
-    gap: 10px;
-    justify-content: space-around;
-    padding: 10px 12px;
-    max-width: none;
+    padding: 6px 12px;
   }
-  .pay-logos img { height: 18px; }
+  /* Discover even smaller on mobile */
+  .pay-logos img[alt="Discover"] { height: 11px; }
 
   .map-wrap {
     width: 100%;
-    aspect-ratio: 4/3;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .mail-line { white-space: normal; }
@@ -638,6 +642,9 @@ hr {
     transform: translateY(-1px);
     box-shadow: 0 8px 18px rgba(0,0,0,.14);
   }
+  .step .button:hover {
+    background-image: linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
+  }
   .pay-card a:hover { color: var(--green-dark); text-decoration: underline; }
   nav a:hover { background: rgba(255,255,255,.12); color: white; }
 }
@@ -650,20 +657,27 @@ hr {
 <div class="layout">
 
 <aside>
-  <!-- Desktop sidebar logo: hidden on mobile via CSS, so mobile never downloads it lazily.
-       The mobile header uses its own img below. Both point to same src so browser caches once. -->
+  <!-- Unified brand block: entire area is one link to index.html.
+       CRFG.org text is a separate small accessible link below, outside the brand block. -->
   <a href="index.html" class="nav-brand" aria-label="Golden Gate Chapter CRFG — Home">
-    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
+    <img class="logo"
+         src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
          alt="" width="134" height="134" loading="eager" fetchpriority="high">
     <span class="site-title">Golden Gate Chapter</span>
     <span class="site-crfg">CRFG.org</span>
     <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
   </a>
+  <!-- Invisible (visually hidden) link to crfg.org for SEO and keyboard users -->
+  <a href="https://crfg.org"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="visually-hidden"
+     aria-label="Visit CRFG.org (opens in new tab)">CRFG.org</a>
 
   <div class="mobile-header">
     <a href="index.html" class="mobile-brand" aria-label="Golden Gate Chapter CRFG — Home">
-      <!-- Same URL → already in browser cache from sidebar img above -->
-      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
+      <img class="mobile-logo"
+           src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
            alt="" width="36" height="36" loading="eager">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
@@ -695,7 +709,7 @@ hr {
         Bay Area Favorites
         <span>by Climate Zone</span>
       </a>
-      <a href="memberguides.html" class="wrap" aria-labelledby="nav-grow">
+      <a href="member-guides.html" class="wrap" aria-labelledby="nav-grow">
         Member Written Guides
         <span>What Thrives Locally</span>
       </a>
@@ -727,21 +741,25 @@ hr {
 
 <div class="page">
 <main id="main-content">
+
 <section class="hero">
-  <h1><span>Grow better fruit.</span><span>Eat what you grow.</span><span>Share your abundance.</span></h1>
+  <h1>
+    <span>Grow better fruit.</span>
+    <span>Eat what you grow.</span>
+    <span>Share your abundance.</span>
+  </h1>
   <h2 class="member-title">Become a Chapter Member</h2>
   <p class="small">Join the Golden Gate Chapter of the California Rare Fruit Growers and connect with people who grow, taste, and share unusual fruit across the Bay Area.</p>
 </section>
 
 <div class="fruit-divider" aria-hidden="true">🫐 🍎 🍋 🍇 🍐</div>
 
-<h3>Join in two steps:</h3>
+<h2 class="steps-heading">Join in two steps:</h2>
 
 <div class="step">
   <p class="step-label">
     <strong>Step 1: Join the California Rare Fruit Growers (CRFG.org)</strong>
-    Required. Includes subscription to the <em>Fruit Gardener</em> magazine.
-    Bring the world of rare fruit growing straight to your door.
+    Required. Includes subscription to the <em>Fruit Gardener</em> magazine for exclusive, member-tested insider secrets on cultivating rare, exotic, and delicious homegrown fruit.
   </p>
   <a class="button" href="https://shr.pn/CRFGJoinRenew" target="_blank" rel="noopener noreferrer">
     Join CRFG.org
@@ -750,21 +768,40 @@ hr {
 </div>
 
 <div class="step">
-  <p><strong>Step 2: Join the Golden Gate Chapter</strong><br>Experience the simple joy of growing fruit together.</p>
-  <a class="button" href="https://shr.pn/GGJoinRenew" target="_blank">Join the Golden Gate Chapter</a>
+  <p class="step-label">
+    <strong>Step 2: Join the Golden Gate Chapter</strong>
+    Become a part of a community rooted in curiosity, generosity, and the simple pleasure of growing something delicious.
+  </p>
+  <a class="button" href="https://shr.pn/GGJoinRenew" target="_blank" rel="noopener noreferrer">
+    Join the Golden Gate Chapter
+    <span class="visually-hidden">(opens in new tab)</span>
+  </a>
 
-  <div class="pay-logos">
-    <img src="https://www.image2url.com/r2/default/images/1778370145085-f24780b1-62fc-4f6e-bc22-37aa52d7372b.svg" alt="Visa and Mastercard" style="height:22px;width:auto;">
-    <img src="https://www.image2url.com/r2/default/images/1778369253805-7c529f08-cf1a-4804-905c-0483ebc5dc3a.svg" alt="American Express" style="height:20px;width:auto;">
-    <img src="https://www.image2url.com/r2/default/images/1778369333135-6a59c66d-4455-443a-8576-3dfbca91676e.svg" alt="Discover" style="height:16px;width:auto;">
-    <img src="https://www.image2url.com/r2/default/images/1778369398953-b33b9332-7bd5-4c04-8b0f-f0d8e6cd51b8.svg" alt="Apple Pay" style="height:20px;width:auto;">
-    <img src="https://www.image2url.com/r2/default/images/1778369442494-c98af60f-014b-4bc2-a53e-53cbea742339.svg" alt="Google Pay" style="height:20px;width:auto;">
-    <img src="https://www.image2url.com/r2/default/images/1778369560180-e0163bf4-be8d-4e63-8ce7-ca818b234be1.svg" alt="Credit Card" style="height:20px;width:auto;">
+  <div class="pay-logos" aria-label="Accepted payment methods">
+    <img src="https://www.image2url.com/r2/default/images/1778370145085-f24780b1-62fc-4f6e-bc22-37aa52d7372b.svg"
+         alt="Visa and Mastercard" width="60" height="20" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369253805-7c529f08-cf1a-4804-905c-0483ebc5dc3a.svg"
+         alt="American Express" width="36" height="20" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369333135-6a59c66d-4455-443a-8576-3dfbca91676e.svg"
+         alt="Discover" width="52" height="13" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369398953-b33b9332-7bd5-4c04-8b0f-f0d8e6cd51b8.svg"
+         alt="Apple Pay" width="46" height="20" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369442494-c98af60f-014b-4bc2-a53e-53cbea742339.svg"
+         alt="Google Pay" width="50" height="20" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369560180-e0163bf4-be8d-4e63-8ce7-ca818b234be1.svg"
+         alt="Credit Card" width="30" height="20" loading="lazy">
   </div>
 
   <div class="pay-card">
-    <div><strong>Pay by Electronic Check</strong><br>For instructions email <a href="mailto:GGmembership@crfg.org" style="color:var(--blue);">gg.membership@crfg.org</a></div>
-    <div style="margin-top:6px;"><strong>Pay by Check</strong> (or Cash at any meeting)<br>Make check payable to: GG&#8211;CRFG<br><span class="mail-line">Mail to: GG CRFG, 2901 Roosevelt Ave, Richmond CA 94804</span></div>
+    <div class="pay-card-section">
+      <strong>Pay by Electronic Check</strong><br>
+      For instructions email <a href="mailto:gg.membership@crfg.org">gg.membership@crfg.org</a>
+    </div>
+    <div class="pay-card-section">
+      <strong>Pay by Check</strong> (or Cash at any meeting)<br>
+      Make check payable to: GG&#8211;CRFG<br>
+      <span class="mail-line">Mail to: GG CRFG, 2901 Roosevelt Ave, Richmond CA 94804</span>
+    </div>
   </div>
 </div>
 
@@ -785,7 +822,7 @@ hr {
   <li>Scion Exchange early entry and plant sharing</li>
   <li>A community of passionate fruit growers</li>
 </ul>
-
+<p><br>
 <div class="map-wrap">
   <iframe
     src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
@@ -805,17 +842,22 @@ hr {
   <li>🍒 Experienced fruit collectors and experimenters</li>
 </ul>
 
-<h2 class="bottom-tagline"><span>Bring your curiosity.</span><span>Come for the fruit.</span><span>Stay for the community.</span></h2>
+<h2 class="bottom-tagline">
+  <span>Bring your curiosity.</span>
+  <span>Come for the fruit.</span>
+  <span>Stay for the community.</span>
+</h2>
+
 </main>
 
 <footer>
   <hr>
-  <p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
+  <p>Questions or comments? Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
   <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
 </footer>
-</div>
+</div><!-- /.page -->
 
-</div>
+</div><!-- /.layout -->
 
 <script>
 (function () {
