@@ -700,7 +700,7 @@ hr {
   <nav id="navMenu" aria-label="primary">
     <div class="nav-group">
       <span class="nav-group-label" id="nav-start">🏠 Start Here</span>
-      <a href="index.htm" aria-labelledby="nav-start">About</a>
+      <a href="index.html" aria-labelledby="nav-start">About</a>
     </div>
 
     <div class="nav-group">
@@ -718,7 +718,7 @@ hr {
 
     <div class="nav-group">
       <span class="nav-group-label" id="nav-community">🤝 Community</span>
-      <a href="meetings.htm" aria-labelledby="nav-community">Meetings</a>
+      <a href="meetings.html" aria-labelledby="nav-community">Meetings</a>
       <a href="online-community.html" aria-labelledby="nav-community">Online Community</a>
     </div>
 
@@ -861,7 +861,7 @@ hr {
 
 <script>
 (function () {
-  var p = window.location.pathname.split("/").pop() || "index.htm";
+  var p = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("#navMenu a").forEach(function (a) {
     var href = a.getAttribute("href");
     if (href === p && !a.classList.contains("active")) {
