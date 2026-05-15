@@ -126,7 +126,6 @@ aside {
   display: block;
 }
 
-/* CRFG.org — display text, part of the unified brand link */
 .site-crfg {
   font-size: .9rem;
   font-weight: 700;
@@ -158,7 +157,7 @@ nav {
 .nav-group { margin-top: 6px; }
 
 .nav-group-label {
-  font-size: .76rem;
+  font-size: .86rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .12em;
@@ -203,7 +202,6 @@ nav a.active {
   border-left-color: rgba(255,255,255,.75);
 }
 
-/* multi-line nav links */
 nav a.wrap {
   white-space: normal;
   flex-direction: column;
@@ -240,7 +238,7 @@ nav a.wrap span {
   font-weight: 900;
   letter-spacing: -.005em;
   color:var(--burgandy);
-
+  orphans: 3; widows: 3;
 }
 .hero h1 span { display: block; }
 
@@ -249,8 +247,8 @@ h2 {
   line-height: 1.05;
   margin: 44px 0 18px;
   font-weight: 900;
-  orphans: 2;
-  widows: 2;color:var(--blue);
+  color:var(--blue);
+  orphans: 3; widows: 3;
 }
 
 h3 {
@@ -258,17 +256,15 @@ h3 {
   line-height: 1.1;
   margin: 36px 0 14px;
   font-weight: 900;
-  orphans: 2;
-  widows: 2;
   color:var(--blue);
+  orphans: 3; widows: 3;
 }
 
 p {
   margin: 0 0 12px;
   font-size: 1.1rem;
   line-height: 1.55;
-  orphans: 3;
-  widows: 3;
+  orphans: 3; widows: 3;
 }
 
 .small {
@@ -285,18 +281,14 @@ p {
   user-select: none;
 }
 
-/* ── Member title — button medium blue ── */
+/* ── Member title ── */
 .member-title {
-  font-size: 1.85rem;
+  font-size: clamp(2.05rem, 3.4vw, 3.25rem) !important;
   font-weight: 900;
-  line-height: 1.18;
+  line-height: 1.1;
   margin: 0 0 12px;
   color: var(--blue);
-}
-
-/* ── Steps heading — button medium blue ── */
-.steps-heading {
-  color: var(--blue);
+  orphans: 2; widows: 3;
 }
 
 /* ── Steps ── */
@@ -304,6 +296,7 @@ p {
   margin: 20px 0;
   padding-left: 22px;
   max-width: 46ch;
+  break-inside: avoid;
 }
 .step + .step { margin-top: 30px; }
 
@@ -311,6 +304,7 @@ p {
   font-size: 1.1rem;
   line-height: 1.55;
   margin: 0 0 8px;
+  orphans: 3; widows: 3;
 }
 .step-label strong { display: block; margin-bottom: 2px; }
 
@@ -332,23 +326,11 @@ p {
   white-space: nowrap;
   transition: background .18s, transform .18s, box-shadow .18s;
 }
-.button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(0,0,0,.12);
-}
-.button:focus-visible {
-  outline: 3px solid rgba(47,93,143,.45);
-  outline-offset: 3px;
-}
 
 .step .button {
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   max-width: 35ch;
-  text-align: center;
-  margin-top: 14px;
   padding-left: 12px;
   padding-right: 12px;
   background-image: linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
@@ -362,28 +344,24 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; /* Requirement 4: Changed from nowrap to wrap */
-  gap: 8px; /* Added gap for wrapped rows */
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 6px;
   margin-bottom: 18px;
   padding: 6px 12px;
   width: 100%;
   max-width: 39ch;
-  background: transparent;
-  min-height: 36px;
 }
 .pay-logos img {
   flex: 0 0 auto;
   display: block;
-  width: auto;
-  height: 22px;
+  height: 28px;
 }
-/* Discover */
-.pay-logos img[alt="Discover"] { height: 13px; }
+.pay-logos img[alt="Discover"] { height: 15px; }
 
 /* ── Pay card ── */
 .pay-card {
-  margin-top: 14px;
+  margin-top: 24px;
   background: #f6e3d1;
   border-radius: 7px;
   padding: 12px 16px;
@@ -394,32 +372,20 @@ p {
   max-width: 48ch;
   clear: both;
 }
-.pay-card a {
-  color: var(--green);
-  transition: color .18s;
-}
-.pay-card a:hover { color: var(--green-dark); text-decoration: underline; }
-.pay-card a:focus-visible {
-  outline: 2px solid var(--green);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
 .pay-card-section + .pay-card-section { margin-top: 8px; }
-
-.mail-line { white-space: nowrap; }
 
 /* ── Responsive square map iframe ── */
 .map-wrap {
-  width: min(100%, 420px);
-  margin: 16px 0;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 36ch;
+  margin: -16px 0 16px 4%;
+  aspect-ratio: 3 / 4;
   background: #FBF5E8;
   border: 1px solid var(--border);
   border-radius: 7px;
   overflow: hidden;
-  box-shadow:0 2px 4px rgba(71,101,80,.08);
+  box-shadow: 0 2px 4px rgba(71,101,80,.08);
 }
-
 .map-wrap iframe {
   width: 100%;
   height: 100%;
@@ -427,17 +393,36 @@ p {
   display: block;
 }
 
-/* ── Lists ── */
 ul {
-  padding-left: 26px;
-  margin: 0;
+  padding-left: 1.6rem;
+  margin: 0 0 16px;
 }
+
 li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 1.05rem;
   line-height: 1.5;
-  orphans: 3;
-  widows: 3;
+}
+.what-we-do-list li {
+  orphans: 2;
+  widows: 2;
+  break-inside: avoid;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+/* ── Lists & Hanging Indents ── */
+.who-joins-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.who-joins-list li {
+  padding-left: 1.4rem;
+  text-indent: -0.2rem;
+  margin: 0 0 6px;
+  line-height: 1.5;
 }
 
 /* ── Bottom tagline ── */
@@ -445,6 +430,7 @@ li {
   line-height: 1.35;
   margin-top: 44px;
   margin-bottom: 0;
+  orphans: 3; widows: 3;
 }
 .bottom-tagline span { display: block; }
 
@@ -452,9 +438,8 @@ li {
 footer {
   margin-top: 60px;
   font-size: .85rem;
-  line-height: 1.3;
 }
-footer p { font-size: .82rem; }
+footer p { font-size: .82rem; orphans: 3; widows: 3; }
 
 hr {
   border: none;
@@ -466,7 +451,6 @@ hr {
 .skip-link {
   position: absolute;
   left: -9999px;
-  top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -479,13 +463,9 @@ hr {
   background: var(--green);
   color: white;
   padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: 700;
   z-index: 9999;
-  text-decoration: none;
 }
 
-/* ── Visually hidden (screen-reader only) ── */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -502,7 +482,6 @@ hr {
 @media (max-width: 750px) {
   .layout { flex-direction: column; }
 
-  /* Requirement 1: Stick the menu for mobile */
   aside {
     width: 100%;
     height: auto;
@@ -510,6 +489,8 @@ hr {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    /* Allow the absolutely-positioned nav to overflow */
+    overflow: visible;
   }
 
   .nav-brand { display: none; }
@@ -520,7 +501,6 @@ hr {
     justify-content: space-between;
     padding: 0 12px;
     min-height: 56px;
-    gap: 8px;
   }
 
   .mobile-brand {
@@ -528,51 +508,68 @@ hr {
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    flex: 1;
-    min-width: 0;
-    padding: 6px 0;
-  }
-  .mobile-brand:focus-visible {
-    outline: 2px solid rgba(255,255,255,.7);
-    outline-offset: 2px;
-    border-radius: 4px;
   }
 
-  .mobile-logo { width: 36px; height: auto; flex-shrink: 0; }
+  .mobile-logo { width: 36px; height: auto; }
 
   .mobile-title {
     font-size: .82rem;
     font-weight: 800;
     color: white;
-    line-height: 1.25;
-    white-space: normal;
-    word-break: break-word;
   }
 
-  nav { display: none; padding: 0 0 12px; background: var(--green); }
-  nav.open { display: flex; }
+  /* Requirement: Become a chapter member slightly smaller in mobile */
+  .member-title {
+    font-size: 1.55rem;
+    line-height: 1.2;
+  }
+
+  /* ── Animated dropdown nav ── */
+  nav {
+    /* Float above page content */
+    position: absolute;
+    top: 56px;   /* height of mobile header bar */
+    left: 0;
+    right: 0;
+    background: var(--green);
+    flex-direction: column;
+    padding: 0 0 8px;
+
+    /* Hidden state */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    overflow: hidden;
+
+    /* Animation */
+    transition:
+      max-height 0.35s ease,
+      opacity    0.25s ease,
+      transform  0.35s ease;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  nav.open {
+    max-height: 70vh;
+    opacity: 1;
+    transform: translateY(0);
+    overflow-y: auto;
+  }
 
   nav a {
     padding: 0 20px;
     min-height: 48px;
-    border-left: none;
     font-size: .93rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     white-space: normal;
-    border-radius: 0;
-    margin-left: 0;
   }
-  
-  /* Requirement 2: Active state indicator on mobile nav */
+  nav a:last-child { border-bottom: none; }
+
   nav a.active {
     background: rgba(255, 255, 255, 0.2);
     font-weight: 900;
-  }
-
-  nav a.wrap { padding: 10px 20px; }
-
-  .nav-group-label {
-    padding: 12px 20px 4px;
-    font-size: .75rem;
   }
 
   .hamburger {
@@ -585,62 +582,24 @@ hr {
     border-radius: 7px;
     padding: 0 10px;
     min-height: var(--touch-min);
-    min-width: var(--touch-min);
-    font-size: .8rem;
-    font-weight: 700;
     color: white;
-    cursor: pointer;
-    font-family: inherit;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-  .hamburger:focus-visible {
-    outline: 2px solid rgba(255,255,255,.7);
-    outline-offset: 2px;
-  }
-  .hamburger svg {
-    width: 16px;
-    height: 16px;
-    stroke: white;
-    fill: none;
-    flex-shrink: 0;
   }
 
   .page { padding: 24px 16px 40px; }
 
   .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
 
-  .step {
-    padding-left: 0;
-    max-width: none;
-  }
+  .step { padding-left: 0; max-width: none; }
 
-  .step .button,
-  .pay-logos,
-  .pay-card {
-    max-width: none;
-    width: 100%;
-  }
+  .step .button, .pay-logos, .pay-card { max-width: none; width: 100%; }
 
-  .pay-logos {
-    padding: 6px 12px;
-    justify-content: center; /* Center them on mobile for cleaner wrap look */
-  }
-  .pay-logos img[alt="Discover"] { height: 11px; }
+  .pay-logos { padding: 6px 12px; justify-content: center; }
 
-/* Requirement 3: Mobile aspect-ratio 3:4 */
-.map-wrap {
-  width: 100%;
-  max-width: none;
-  aspect-ratio: 3 / 4;
-  }
+  .map-wrap { width: 100%; aspect-ratio: 3 / 4; }
 
   .mail-line { white-space: normal; }
-
-  .bottom-tagline { line-height: 1.42; }
 }
 
-/* Hover-capable devices only (avoids sticky hover on iOS) */
 @media (hover: hover) {
   .button:hover {
     background: var(--blue-dark);
@@ -650,7 +609,6 @@ hr {
   .step .button:hover {
     background-image: linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
   }
-  .pay-card a:hover { color: var(--green-dark); text-decoration: underline; }
   nav a:hover { background: rgba(255,255,255,0.12); color: white; }
 }
 </style>
@@ -685,58 +643,54 @@ hr {
     </a>
     <button
       class="hamburger"
+      id="hamburgerBtn"
       aria-controls="navMenu"
       aria-expanded="false"
       aria-label="Toggle navigation menu"
-      onclick="
-        var nav = document.getElementById('navMenu');
-        var open = nav.classList.toggle('open');
-        this.setAttribute('aria-expanded', open);
-      "
     >
-      <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg viewBox="0 0 24 24" stroke-width="2" width="16" height="16" stroke="white" fill="none"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       <span>Menu</span>
     </button>
   </div>
 
   <nav id="navMenu" aria-label="primary">
     <div class="nav-group">
-      <span class="nav-group-label" id="nav-start">🏠 Start Here</span>
-      <a href="index.html" aria-labelledby="nav-start">About</a>
+      <span class="nav-group-label">🏠 Start Here</span>
+      <a href="index.html">About</a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label" id="nav-grow">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html" class="wrap" aria-labelledby="nav-grow">
+      <span class="nav-group-label">🌿 Grow Fruit</span>
+      <a href="bay-area-zone-favorites.html" class="wrap">
         Bay Area Favorites
         <span>by Climate Zone</span>
       </a>
-      <a href="member-guides.html" class="wrap" aria-labelledby="nav-grow">
+      <a href="member-guides.html" class="wrap">
         Member Written Guides
         <span>What Thrives Locally</span>
       </a>
-      <a href="fruity-resources.html" aria-labelledby="nav-grow">Fruity Resources</a>
+      <a href="fruity-resources.html">Fruity Resources</a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label" id="nav-community">🤝 Community</span>
-      <a href="meetings.html" aria-labelledby="nav-community">Meetings</a>
-      <a href="online-community.html" aria-labelledby="nav-community">Online Community</a>
+      <span class="nav-group-label">🤝 Community</span>
+      <a href="meetings.html">Meetings</a>
+      <a href="online-community.html">Online Community</a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label" id="nav-membership">✨ Membership</span>
-      <a href="join-renew.html" class="active" aria-current="page" aria-labelledby="nav-membership">Join / Renew</a>
+      <span class="nav-group-label">✨ Membership</span>
+      <a href="join-renew.html" class="active" aria-current="page">Join / Renew</a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label" id="nav-events">🍋 Events</span>
-      <a href="gg-scionexchange.html" aria-labelledby="nav-events">Scion Exchange</a>
+      <span class="nav-group-label">🍋 Events</span>
+      <a href="gg-scionexchange.html">Scion Exchange</a>
     </div>
 
     <div class="nav-group">
-      <span class="nav-group-label" id="nav-plants">🌱 Get Plants</span>
-      <a href="where-to-buy.html" aria-labelledby="nav-plants">Where to Buy</a>
+      <span class="nav-group-label">🌱 Get Plants</span>
+      <a href="where-to-buy.html">Where to Buy</a>
     </div>
   </nav>
 </aside>
@@ -750,7 +704,9 @@ hr {
     <span>Eat what you grow.</span>
     <span>Share your abundance.</span>
   </h1>
-  <h2 class="member-title">Become a Chapter Member</h2>
+<h2 class="member-title">
+  Become a <wbr>Chapter&nbsp;Member
+</h2>
   <p class="small">Join the Golden Gate Chapter of the California Rare Fruit Growers and <strong>connect with people who grow, taste, and share unusual fruit across the Bay Area</strong>.</p>
 </section>
 
@@ -807,9 +763,10 @@ hr {
   </div>
 </div>
 
+
 <h3>What We Do 🌳</h3>
-<ul>
-  <li>Learn from guest speakers, workshops, and real-world experience</li>
+<ul class="what-we-do-list">
+  <li>Learn from guest speakers, workshops, and <span class="nowrap">real-world experience</span></li>
   <li>Tour home gardens, orchards, and growing spaces</li>
   <li>Trade scion wood, seeds, cuttings, and plants</li>
   <li>Share tips, successes, and lessons learned</li>
@@ -824,7 +781,7 @@ hr {
   <li>Scion Exchange early entry and plant sharing</li>
   <li>A community of passionate fruit growers</li>
 </ul>
-<p><br>
+<p><br></p>
 <div class="map-wrap">
   <iframe
     src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
@@ -839,11 +796,11 @@ hr {
 
 <h3>Who Joins? 🌼</h3>
 <p>Growers from across the Golden Gate region — including <strong>Alameda, Contra Costa, Marin, San Francisco, San Mateo, Solano</strong>, and beyond. We even have members in Colorado and New York!</p>
-<ul>
-  <li>🌱 New growers with no trees</li>
-  <li>🏡 Backyard orchard enthusiasts expanding their plantings</li>
-  <li>🌳 Small orchard and nursery growers sharing expertise</li>
-  <li>🍒 Experienced fruit collectors and experimenters</li>
+<ul class="who-joins-list">
+  <li>🌱 ‎ New growers with no trees</li>
+  <li>🏡 ‎ Backyard orchard enthusiasts expanding their&nbsp;plantings</li>
+  <li>🌳 ‎ Small orchard and nursery growers sharing&nbsp;expertise</li>
+  <li>🍒 ‎  Experienced fruit collectors and&nbsp;experimenters</li>
 </ul>
 
 <h2 class="bottom-tagline">
@@ -859,7 +816,12 @@ hr {
   <p>Questions or comments? Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
   <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
 </footer>
-</div></div><script>
+</div>
+
+</div>
+
+<script>
+/* ── Active nav link ── */
 (function () {
   var p = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("#navMenu a").forEach(function (a) {
@@ -867,6 +829,34 @@ hr {
     if (href === p && !a.classList.contains("active")) {
       a.classList.add("active");
       a.setAttribute("aria-current", "page");
+    }
+  });
+}());
+
+/* ── Animated hamburger toggle ── */
+(function () {
+  var btn = document.getElementById("hamburgerBtn");
+  var nav = document.getElementById("navMenu");
+  if (!btn || !nav) return;
+
+  btn.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open);
+  });
+
+  /* Close menu when a nav link is tapped on mobile */
+  nav.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  /* Close menu on outside click */
+  document.addEventListener("click", function (e) {
+    if (!nav.contains(e.target) && !btn.contains(e.target)) {
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
     }
   });
 }());
