@@ -416,21 +416,23 @@ p {
 
 .mail-line { white-space: nowrap; }
 
-/* ── Responsive map iframe ──
-   Desktop: fixed 400px tall, 60% wide
-   Mobile: full width, aspect-ratio fallback
-── */
+/* ── Responsive square map iframe ── */
 .map-wrap {
-  width: 60%;
-  height: 400px;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  width: min(100%, 680px);
+  margin: 16px auto;
+  aspect-ratio: 1 / 1;
+  background: #FBF5E8;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
 }
+
 .map-wrap iframe {
   width: 100%;
   height: 100%;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: 0;
+  display: block;
 }
 
 /* ── Lists ── */
@@ -624,10 +626,9 @@ hr {
   /* Discover even smaller on mobile */
   .pay-logos img[alt="Discover"] { height: 11px; }
 
-  .map-wrap {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+.map-wrap {
+  width: 100%;
+  max-width: none;
   }
 
   .mail-line { white-space: normal; }
