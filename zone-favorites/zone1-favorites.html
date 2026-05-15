@@ -57,9 +57,9 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 8px;
-  transition: color 0.15s;
+  transition: color 0.2s, letter-spacing 0.2s;
 }
-.back-link:hover { color: var(--blue); }
+.back-link:hover { color: var(--blue); letter-spacing: 0.09em; }
 .back-link svg { width: 15px; height: 15px; stroke-width: 2.5; }
 
 .page-title {
@@ -67,18 +67,16 @@ body {
   padding: 0;
 }
 .page-title-main {
-  font-family: system-ui, sans-serif;
   font-size: clamp(1.125rem, 1.2vw, 1.3rem); 
   font-weight: 900;
   color: rgba(107,76,110,0.88);
   line-height: 1.5;
   margin-top: 0;
   margin-bottom: 0;
-  letter-spacing: 0.0em;
 }
 .page-title-zone {
   font-family: system-ui, sans-serif;
-  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
   font-weight: 900;
   color: var(--blue);
   line-height: 1.18;
@@ -86,12 +84,10 @@ body {
   margin-top: 50px;
 }
 .page-title-sub {
-  font-family: system-ui, sans-serif;
   font-size: clamp(1.5rem, 1.8vw, 1.2rem);
   font-weight: 800;
-  color: rgba(107,76,110,0.88);
+  color: rgba(107,76,110,0.97);
   line-height: 1.25;
-  letter-spacing: 0.0em;
   white-space: nowrap;
   min-width: 0;
   margin-top: 8px;
@@ -142,7 +138,7 @@ body {
   flex-wrap: wrap;
   gap: 8px 24px;
   margin-top: 14px;
-  padding: 0;
+  margin-bottom: 28px;
   font-family: system-ui, sans-serif;
   font-size: 0.88rem;
   color: var(--muted);
@@ -191,27 +187,59 @@ body {
 
 
 .header-with-map {
-  margin-bottom: 28px;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 24px;
-  width: 100%;
+  max-width: 100%;
 }
-@media (max-width: 700px) {
-  .header-with-map {
-  margin-bottom: 28px;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 24px;
-  width: 100%;
+
+.page-title-zone,
+.page-title-sub,
+.page-title-main {
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
+
+@media (max-width: 600px) {
+  .page-title-zone {
+    font-size: 1.6rem;
+    line-height: 1.2;
   }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search-wrap {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 4px;
+  }
+
+  .page-title-sub {
+    white-space: normal; /* prevents overflow */
+  }
+}
+
+p, .page-title-sub, .data-note, .variety-inline {
+  orphans: 2;
+  widows: 2;
+  text-wrap: pretty;
+}
 
 /* ── Controls ── */
 .controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px 18px;
   margin-bottom: 28px;
   align-items: center;
+  padding: 6px 0;
 }
 .search-wrap {
   position: relative;
@@ -277,7 +305,8 @@ body {
   font-family: system-ui, sans-serif;
   font-size: 0.82rem;
   color: var(--muted);
-  margin-bottom: 16px;
+  margin-top: 10px;
+  margin-bottom: 14px;
 }
 
 /* ── Fruit sections ── */
@@ -406,6 +435,9 @@ body {
 @media (max-width: 600px) {
   .page-wrap { padding: 28px 16px 60px; }
 
+  .results-count {
+    margin-top: 14px;
+  }
 }
 
 /* ── Sidebar / Layout ── */
@@ -521,7 +553,7 @@ nav a.active{
 
 @media(max-width:750px){
   .layout{flex-direction:column;}
-  aside{width:100%;height:auto;position:relative;}
+  aside{width:100%;height:auto;position:sticky;top:0;z-index:100;}
   .nav-brand{display:none;}
   .mobile-header{
     display:flex;
@@ -601,7 +633,7 @@ nav a.active{
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="zone1-favorites.html" class="active" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
+      <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
       <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
       <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
       <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
@@ -646,7 +678,7 @@ nav a.active{
         </div>
         <div class="meta-row">
           <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong></span>
-          <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">San Francisco</span> · <span class="city">Daly City</span> · <span class="city">Pacifica</span> · <span class="city">Half Moon Bay</span> · <span class="city">Berkeley (foggy areas)</span></span></span></span>
+          <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">San Francisco</span> · <span class="city">Daly City</span> · <span class="city">Pacifica</span> · <span class="city">Half Moon Bay</span> · <span class="city">Berkeley (foggy areas)</span></span></span>
         </div>
       </div>
 </div>
@@ -931,19 +963,18 @@ const FRUITS = [
 ];
 
 // ─────────────────────────────────────────────
-// RENDER// ─────────────────────────────────────────────
 // RENDER
 // ─────────────────────────────────────────────
 let activeFilter = "All";
 
 function buildFilterButtons() {
   const select = document.getElementById("filterSelect");
-  const categories = ["All fruits", ...FRUITS.map(f => f.fruit)];
+  const categories = ["Filter by fruit…", ...FRUITS.map(f => f.fruit)];
   select.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join("");
 }
 
 function setFilter(cat) {
-  activeFilter = cat === "All fruits" ? "All" : cat;
+  activeFilter = cat === "Filter by fruit…" ? "All" : cat;
   filterAll();
 }
 
