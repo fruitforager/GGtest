@@ -357,23 +357,15 @@ p {
   line-height: 1.25;
 }
 
-/* ── Payment logos ──
-   Sits directly beneath the button which has padding-left/right: 12px and border-radius: 8px.
-   We match that horizontal inset exactly so the first logo aligns with the button's left
-   inner-edge curve and the last logo aligns with the right inner-edge curve.
-   space-between then distributes the remaining logos evenly between them.
-── */
+/* ── Payment logos ── */
 .pay-logos {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  gap: 0;
+  flex-wrap: wrap; /* Requirement 4: Changed from nowrap to wrap */
+  gap: 8px; /* Added gap for wrapped rows */
   margin-top: 6px;
   margin-bottom: 18px;
-  /* 12px matches the button's inner padding so logos sit inside its curve */
   padding: 6px 12px;
   width: 100%;
   max-width: 39ch;
@@ -510,10 +502,14 @@ hr {
 @media (max-width: 750px) {
   .layout { flex-direction: column; }
 
+  /* Requirement 1: Stick the menu for mobile */
   aside {
     width: 100%;
     height: auto;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
 
   .nav-brand { display: none; }
@@ -553,7 +549,7 @@ hr {
     word-break: break-word;
   }
 
-  nav { display: none; padding: 0 0 12px; }
+  nav { display: none; padding: 0 0 12px; background: var(--green); }
   nav.open { display: flex; }
 
   nav a {
@@ -565,6 +561,13 @@ hr {
     border-radius: 0;
     margin-left: 0;
   }
+  
+  /* Requirement 2: Active state indicator on mobile nav */
+  nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 900;
+  }
+
   nav a.wrap { padding: 10px 20px; }
 
   .nav-group-label {
@@ -619,16 +622,17 @@ hr {
     width: 100%;
   }
 
-  /* Mobile logos: same 12px side padding to align with button curves */
   .pay-logos {
     padding: 6px 12px;
+    justify-content: center; /* Center them on mobile for cleaner wrap look */
   }
-  /* Discover even smaller on mobile */
   .pay-logos img[alt="Discover"] { height: 11px; }
 
+/* Requirement 3: Mobile aspect-ratio 3:4 */
 .map-wrap {
   width: 100%;
   max-width: none;
+  aspect-ratio: 3 / 4;
   }
 
   .mail-line { white-space: normal; }
@@ -647,7 +651,7 @@ hr {
     background-image: linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
   }
   .pay-card a:hover { color: var(--green-dark); text-decoration: underline; }
-  nav a:hover { background: rgba(255,255,255,.12); color: white; }
+  nav a:hover { background: rgba(255,255,255,0.12); color: white; }
 }
 </style>
 </head>
@@ -658,8 +662,6 @@ hr {
 <div class="layout">
 
 <aside>
-  <!-- Unified brand block: entire area is one link to index.html.
-       CRFG.org text is a separate small accessible link below, outside the brand block. -->
   <a href="index.html" class="nav-brand" aria-label="Golden Gate Chapter CRFG — Home">
     <img class="logo"
          src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
@@ -668,7 +670,6 @@ hr {
     <span class="site-crfg">CRFG.org</span>
     <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
   </a>
-  <!-- Invisible (visually hidden) link to crfg.org for SEO and keyboard users -->
   <a href="https://crfg.org"
      target="_blank"
      rel="noopener noreferrer"
@@ -831,7 +832,9 @@ hr {
     loading="lazy"
     allowfullscreen
     referrerpolicy="no-referrer-when-downgrade"
-  ></iframe>
+  >
+    <p>Your browser does not support iframes. You can view the <a href="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf" target="_blank" rel="noopener">Golden Gate Chapter member map directly here</a>.</p>
+  </iframe>
 </div>
 
 <h3>Who Joins? 🌼</h3>
@@ -856,11 +859,7 @@ hr {
   <p>Questions or comments? Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
   <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
 </footer>
-</div><!-- /.page -->
-
-</div><!-- /.layout -->
-
-<script>
+</div></div><script>
 (function () {
   var p = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("#navMenu a").forEach(function (a) {
