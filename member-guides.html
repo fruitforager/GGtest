@@ -225,8 +225,84 @@ h2{
 @media(max-width:750px){
   .layout{flex-direction:column;}
   aside{width:100%;height:auto;position:relative;}
+  .nav-brand{display:none;}
+  .mobile-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+  }
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+  }
+  .mobile-logo{width:36px;height:auto;}
+  .mobile-title{
+    font-size:0.88rem;
+    font-weight:800;
+    color:white;
+    line-height:1.2;
+  }
+  nav{display:none;padding:0 0 10px;}
+  nav.open{display:flex;}
+  nav a{
+    padding:8px 20px;
+    border-left:none;
+    font-size:0.95rem;
+    margin-left:0;
+  }
+  .nav-group-label{padding:10px 20px 3px;}
+  .hamburger{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:7px;
+    padding:6px 10px;
+    font-size:0.8rem;
+    font-weight:700;
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .hamburger svg{
+    width:16px;
+    height:16px;
+    stroke:white;
+    fill:none;
+  }
   .page{padding:24px 16px;}
-  .resource-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:clamp(2rem,8vw,3rem);}
+  .resource-list{
+    grid-template-columns:1fr;
+  }
+  .resource-list li{
+    padding:15px 16px;
+  }
+  .button{
+    display:block;
+    width:100%;
+    max-width:none;
+    text-align:center;
+    white-space:normal;
+    line-height:1.25;
+    padding:12px 14px;
+  }
+}
+
+@media (hover:hover){
+  .button:hover{
+    background:var(--blue-dark);
+    transform:translateY(-1px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.14);
+  }
+  .resource-list a:hover{
+    color:var(--blue-dark);
+    text-decoration:underline;
+  }
 }
 </style>
 </head>
