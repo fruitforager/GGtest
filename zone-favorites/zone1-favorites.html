@@ -84,7 +84,7 @@ body {
   margin-top: 50px;
 }
 .page-title-sub {
-  font-size: clamp(1.5rem, 1.8vw, 1.2rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.05rem);
   font-weight: 800;
   color: rgba(107,76,110,0.97);
   line-height: 1.25;
@@ -266,6 +266,7 @@ p, .page-title-sub, .data-note, .variety-inline {
   font-family: system-ui, sans-serif;
   font-size: 0.92rem;
   color: var(--text);
+  letter-spacing: 0.03em;
   outline: none;
   transition: border-color 0.15s;
 }
@@ -276,6 +277,7 @@ p, .page-title-sub, .data-note, .variety-inline {
   font-size: 0.88rem;
   font-weight: 900;
   color: #fff;
+  letter-spacing: 0.04em;
   background-color: #6b4c6e;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -394,7 +396,7 @@ p, .page-title-sub, .data-note, .variety-inline {
   grid-template-columns: 1.2em 1fr;
   align-items: start;
   gap: 0 4px;
-  font-size: 0.86rem;
+  font-size: 0.93rem;
   line-height: 1.5;
   width: 100%;
 }
@@ -673,7 +675,7 @@ nav a.active{
           <div class="page-title-main">MEMBER FAVORITES</div>
         </div>
         <div class="page-title">
-          <div class="page-title-zone">Fog Zone — Ocean Influence <span class="zone-emoji">🌫️</span></div>
+          <div class="page-title-zone">Fog Zone ⬅ Ocean Influence <span class="zone-emoji">🌫️</span></div>
           <div class="page-title-sub">Cultivars for Cool Summers &amp; Mild Winters</div>
         </div>
         <div class="meta-row">
@@ -969,12 +971,12 @@ let activeFilter = "All";
 
 function buildFilterButtons() {
   const select = document.getElementById("filterSelect");
-  const categories = ["Filter by fruit…", ...FRUITS.map(f => f.fruit)];
+  const categories = ["Filter by Fruit", ...FRUITS.map(f => f.fruit)];
   select.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join("");
 }
 
 function setFilter(cat) {
-  activeFilter = cat === "Filter by fruit…" ? "All" : cat;
+  activeFilter = cat === "Filter by Fruit" ? "All" : cat;
   filterAll();
 }
 
