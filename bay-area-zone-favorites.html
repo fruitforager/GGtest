@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bay Area Fruit Favorites by Microclimate Zone | CRFG Golden Gate</title>
+<title>Bay Area Fruit Favorites by Climate Zone | CRFG Golden Gate</title>
 
 <!-- Standard SEO Metadata -->
 <meta name="description" content="Discover the best fruit varieties to grow in the San Francisco Bay Area. Recommended varieties chosen by CRFG members across the Fog Zone, Bay-Facing, and Inland microclimates.">
@@ -14,7 +14,7 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://crfg.org/chapters/golden-gate/bay-area-zone-favorites.html">
-<meta property="og:title" content="Bay Area Fruit Favorites by Microclimate Zone | CRFG Golden Gate">
+<meta property="og:title" content="Bay Area Fruit Favorites by Climate Zone | CRFG Golden Gate">
 <meta property="og:description" content="Find the perfect fruit varieties for your specific Bay Area microclimate. Verified recommendations from local amateur and professional growers.">
 <meta property="og:image" content="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg">
 
@@ -389,15 +389,20 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 @media(max-width:750px){
   .layout{flex-direction:column;}
   
-  /* Sticks the full menu system block to the top of the viewport */
+  /* FIXED: Changed to only occupy full viewport height when .open is present */
   aside{
     width:100%;
     height:auto;
+    max-height:60px; /* Locks header size when menu is closed */
     position:sticky;
     top:0;
     z-index:9999;
     box-shadow:0 4px 12px rgba(0,0,0,0.15);
-    overflow-y:visible; 
+    overflow:visible; 
+    transition:max-height 0.4s ease-in-out;
+  }
+  aside.open {
+    max-height:100vh; /* Allows layout growth only when expanded */
   }
   .nav-brand{display:none;}
   
@@ -409,6 +414,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     background:var(--green);
     position:relative;
     z-index:10;
+    height:60px;
   }
   .mobile-brand{
     display:flex;
@@ -464,7 +470,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   }
   .hamburger svg{width:16px;height:16px;stroke:white;fill:none;}
   
-  /* Extra top space prevents content from snapping underneath frozen menu layout */
   .page{padding:24px 16px;}
   .hero h1{font-size:clamp(2rem,8vw,3rem);}
   
@@ -482,7 +487,8 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 
 <div class="layout">
 
-<aside>
+<!-- FIXED: Script now applies the toggle state to both the navigation menu AND the parent aside tag -->
+<aside id="mainSidebar">
   <a href="index.html" class="nav-brand">
     <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
     <span class="site-title">Golden Gate Chapter</span>
@@ -495,7 +501,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open'); document.getElementById('mainSidebar').classList.toggle('open')" aria-label="Toggle navigation">
       <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       <span>Menu</span>
     </button>
@@ -509,7 +515,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html" class="active" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Microclimate Zone</span></a>
+      <a href="bay-area-zone-favorites.html" class="active" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
       <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
@@ -540,12 +546,12 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 <div class="page">
 <main>
   <section class="hero">
-    <h1>Bay Area Fruit Favorites by Microclimate Zone</h1>
+    <h1>Bay Area Fruit Favorites by Climate Zone</h1>
     <p>The following lists come from a poll of Golden Gate Chapter members, who were asked to recommend their favorite fruits and varieties.</p>
     <p>Since <strong>the Golden Gate Chapter spans three distinct climate zones</strong>, there are three separate lists — find yours below.</p>
   </section>
 
-  <h2>🌦️ Find Your Microclimate Zone</h2>
+  <h2>🌦️ Find Your Climate Zone</h2>
   <p style="margin:-8px 0 24px;font-size:1rem;color:#555;max-width:62ch;text-wrap:pretty;">The Bay Area's microclimates vary dramatically over short distances. <strong>Pick the zone that best matches</strong> where you garden — <strong>your chill hours and summer heat will shape almost every fruit decision you make.</strong></p>
 
   <div class="zone-cards">
