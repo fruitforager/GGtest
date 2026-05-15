@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join/Renew — Golden Gate Chapter CRFG</title>
+<title>Where to Buy</title>
 <style>
 :root{
   --bg:#FAF0E6;
@@ -151,26 +151,29 @@ nav a.active{
 .hero h1{
   font-size:clamp(2rem,3.5vw,3.2rem);
   line-height:1.18;
-  margin:0 0 28px;
+  margin:0 0 24px;
   max-width:800px;
   font-weight:900;
   letter-spacing:-0.005em;
+  color:var(--blue);
 }
 h2{
   font-size:clamp(1.65rem,2.65vw,2.75rem);
   line-height:1.05;
   margin:44px 0 18px;
   font-weight:900;
-  orphans:3;
-  widows:3;
+  orphans:2;
+  widows:2;
+  color:var(--blue);
 }
 h3{
   font-size:clamp(1.3rem,2.1vw,2rem);
   line-height:1.1;
   margin:36px 0 14px;
   font-weight:900;
-  orphans:3;
-  widows:3;
+  orphans:2;
+  widows:2;
+  color:var(--blue);
 }
 p{
   margin:0 0 12px;
@@ -189,21 +192,6 @@ p{
   font-weight:900;
   line-height:1.18;
   margin-bottom:12px;
-}
-.step{
-  margin:20px 0;
-  padding-left:22px;
-  max-width:46ch;
-}
-.step + .step{margin-top:30px;}
-.step p strong{
-  display:inline;
-  margin-bottom:0;
-  line-height:1.4;
-}
-.step p{
-  margin:0;
-  line-height:1.5;
 }
 
 .button{
@@ -236,75 +224,49 @@ p{
   outline-offset:2px;
 }
 
-.step .button{
+.resource-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:16px;
+}
+.resource-list li{
+  background:#F1F5F8;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px 18px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
   display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  max-width:35ch;
-  text-align:center;
-  margin-top:14px;
-  padding-left:12px;
-  padding-right:12px;
-  background-image:linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
-  box-shadow:0 4px 10px rgba(0,0,0,0.10);
+  gap:10px;
+  align-items:flex-start;
 }
-.step .button:hover{
-  background-image:linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
-}
-
-.pay-logos{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  margin-top:18px;
-  margin-bottom:18px;
-  padding:10px 6px;
-  width:100%;
-  max-width:35ch;
-}
-.pay-logos img{
+.resource-list .icon{
   flex:0 0 auto;
-  max-height:22px;
-  width:auto;
+  font-size:1.15rem;
+  line-height:1.2;
+  margin-top:1px;
 }
-
-.pay-card{
-  margin-top:14px;
-  background:#f6e3d1;
-  border-radius:7px;
-  padding:12px 16px;
-  display:block;
-  font-size:0.9rem;
-  line-height:1.45;
-  color:#555;
-  max-width:48ch;
-  clear:both;
+.resource-list .content{
+  min-width:0;
+  flex:1;
 }
-
-.pay-card a{
-  transition:color 0.18s ease, text-decoration-color 0.18s ease;
+.resource-list a{
+  font-weight:800;
+  color:var(--blue);
+  text-decoration:none;
 }
-.pay-card a:hover{
+.resource-list a:hover{
   color:var(--blue-dark);
   text-decoration:underline;
 }
-
-.mail-line{
-  white-space:nowrap;
-}
-
-ul{
-  padding-left:26px;
-  margin:0;
-}
-li{
-  margin-bottom:6px;
-  font-size:1.05rem;
+.resource-list .desc{
+  display:block;
+  margin-top:6px;
+  color:#555;
+  font-size:0.95rem;
   line-height:1.5;
-  orphans:3;
-  widows:3;
 }
 
 footer{
@@ -379,6 +341,12 @@ hr{
   }
   .page{padding:24px 16px;}
   .hero h1{font-size:clamp(2rem,8vw,3rem);}
+  .resource-list{
+    grid-template-columns:1fr;
+  }
+  .resource-list li{
+    padding:15px 16px;
+  }
   .button{
     display:block;
     width:100%;
@@ -388,28 +356,6 @@ hr{
     line-height:1.25;
     padding:12px 14px;
   }
-  .step{
-    padding-left:0;
-    max-width:none;
-  }
-  .step .button,
-  .pay-logos,
-  .pay-card{
-    max-width:none;
-    width:100%;
-  }
-  .pay-logos{
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    padding:12px 6px;
-  }
-  .pay-logos img{
-    max-height:20px;
-  }
-  .bottom-tagline{
-    line-height:1.42;
-  }
 }
 
 @media (hover:hover){
@@ -418,7 +364,7 @@ hr{
     transform:translateY(-1px);
     box-shadow:0 8px 18px rgba(0,0,0,0.14);
   }
-  .pay-card a:hover{
+  .resource-list a:hover{
     color:var(--blue-dark);
     text-decoration:underline;
   }
@@ -431,14 +377,15 @@ hr{
 
 <aside>
   <a href="index.html" class="nav-brand">
-<img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">    <span class="site-title">Golden Gate Chapter</span>
+    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
+    <span class="site-title">Golden Gate Chapter</span>
     <span class="site-crfg">CRFG.org</span>
     <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
   </a>
 
   <div class="mobile-header">
     <a href="index.html" class="mobile-brand">
-      <img class="mobile-logo" src="image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
     <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
@@ -456,7 +403,7 @@ hr{
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
 
@@ -485,34 +432,98 @@ hr{
 
 <div class="page">
 <main>
+  <section class="hero">
+    <h1>Where to Buy</h1>
+    <p class="small">Looking for rare fruit trees, berries, seeds, or edible plants? Here are nurseries and mail-order sources recommended by Golden Gate Chapter members.</p>
+  </section>
 
-<main>
-<section class="hero">
-<h1>Where to Buy</h1>
-<p class="small">Looking for rare fruit trees, berries, seeds, or edible plants? Here are nurseries and mail-order sources recommended by Golden Gate Chapter members.</p>
-</section>
-
-<h2>🛒 Commercial Nurseries &amp; Mail Order</h2>
-<ul class="resource-list">
-<li><span class="icon">🍋</span><a href="http://www.fourwindsgrowers.com">Four Winds Citrus</a><span class="desc">Mail-order specialists in citrus. Includes heat-to-ripen information by variety.</span></li>
-<li><span class="icon">🌱</span><a href="http://www.berkeleyhort.com/index.html">Berkeley Horticultural Nursery</a><span class="desc">A beloved local retail nursery — one of the last with a deep expertise in how to handle bare root fruit trees.</span></li>
-<li><span class="icon">🌳</span><a href="http://www.plantingjustice.org">Planting Justice</a><span class="desc">One of the most biodiverse organic fruit tree nurseries in the country, a valuable source for uncommon and climate-adapted fruit varieties, with a focus on regenerative growing and food justice.</span></li>
-<li><span class="icon">🌾</span><a href="http://www.baylaurelnursery.com">Bay Laurel Nursery</a><span class="desc">Reliable mail-order source for bare root temperate fruit trees and berries, including selections grown by Dave Wilson Nursery.</span></li>
-<li><span class="icon">🍎</span><a href="http://www.treesofantiquity.com">Trees of Antiquity</a><span class="desc">Specializes in heirloom fruit trees and berries, with many uncommon and historic varieties available by mail order.</span></li>
-<li><span class="icon">🌧️</span><a href="http://www.raintreenursery.com/">Raintree Nursery</a><span class="desc">Extensive selection of fruit trees, berries, vines, and edible plants suited to home orchards.</span></li>
-<li><span class="icon">🌍</span><a href="http://www.onegreenworld.com">One Green World</a><span class="desc">Well-known source for unusual, climate-adapted, and hard-to-find edible plants.</span></li>
-<li><span class="icon">🌰</span><a href="http://www.seedman.com">The Seedman</a><span class="desc">Offers rare and unusual seeds, including tropical and subtropical fruits..</span></li>
-<li><span class="icon">🌾</span><a href="http://www.territorial-seed.com/">Territorial Seed Company</a><span class="desc">Trusted source for vegetable, herb, and fruit seeds selected for Pacific Coast growing conditions.</span></li>
-<li><span class="icon">🌿</span><a href="http://www.davewilson.com">Dave Wilson Nursery</a><span class="desc">Major grower of bare root fruit trees with excellent educational resources on chill hours, ripening times, rootstocks, and backyard orchard culture.</span></li>
-<li><span class="icon">🌴</span><a href="http://www.desert-tropicals.com">Phoenix Tropical Gardens</a><span class="desc">Source for tropical and subtropical plants suited to warm Bay Area microclimates and protected growing areas.</span></li>
-</ul>
+  <h2>Commercial Nurseries &amp; Mail Order</h2>
+  <ul class="resource-list">
+    <li>
+      <span class="icon">🍋</span>
+      <div class="content">
+        <a href="http://www.fourwindsgrowers.com">Four Winds Citrus</a>
+        <span class="desc">Mail-order specialists in citrus. Includes heat-to-ripen information by variety.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌱</span>
+      <div class="content">
+        <a href="http://www.berkeleyhort.com/index.html">Berkeley Horticultural Nursery</a>
+        <span class="desc">A beloved local retail nursery — one of the last with a deep expertise in how to handle bare root fruit trees.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌳</span>
+      <div class="content">
+        <a href="http://www.plantingjustice.org">Planting Justice</a>
+        <span class="desc">One of the most biodiverse organic fruit tree nurseries in the country, a valuable source for uncommon and climate-adapted fruit varieties, with a focus on regenerative growing and food justice.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌾</span>
+      <div class="content">
+        <a href="http://www.baylaurelnursery.com">Bay Laurel Nursery</a>
+        <span class="desc">Reliable mail-order source for bare root temperate fruit trees and berries, including selections grown by Dave Wilson Nursery.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🍎</span>
+      <div class="content">
+        <a href="http://www.treesofantiquity.com">Trees of Antiquity</a>
+        <span class="desc">Specializes in heirloom fruit trees and berries, with many uncommon and historic varieties available by mail order.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌧️</span>
+      <div class="content">
+        <a href="http://www.raintreenursery.com/">Raintree Nursery</a>
+        <span class="desc">Extensive selection of fruit trees, berries, vines, and edible plants suited to home orchards.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌍</span>
+      <div class="content">
+        <a href="http://www.onegreenworld.com">One Green World</a>
+        <span class="desc">Well-known source for unusual, climate-adapted, and hard-to-find edible plants.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌰</span>
+      <div class="content">
+        <a href="http://www.seedman.com">The Seedman</a>
+        <span class="desc">Offers rare and unusual seeds, including tropical and subtropical fruits..</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌾</span>
+      <div class="content">
+        <a href="http://www.territorial-seed.com/">Territorial Seed Company</a>
+        <span class="desc">Trusted source for vegetable, herb, and fruit seeds selected for Pacific Coast growing conditions.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌿</span>
+      <div class="content">
+        <a href="http://www.davewilson.com">Dave Wilson Nursery</a>
+        <span class="desc">Major grower of bare root fruit trees with excellent educational resources on chill hours, ripening times, rootstocks, and backyard orchard culture.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🌴</span>
+      <div class="content">
+        <a href="http://www.desert-tropicals.com">Phoenix Tropical Gardens</a>
+        <span class="desc">Source for tropical and subtropical plants suited to warm Bay Area microclimates and protected growing areas.</span>
+      </div>
+    </li>
+  </ul>
 </main>
 
 <footer>
-<hr>
-<p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
-<hr>
-<p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
+  <hr>
+  <p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
+  <hr>
+  <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
 </footer>
 </div>
 <script>(function(){var p=window.location.pathname.split("/").pop()||"index.htm";document.querySelectorAll("#navMenu a").forEach(function(a){if(a.getAttribute("href")===p)a.style.background="rgba(47,93,59,0.13)";});}());</script>

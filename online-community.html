@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join/Renew — Golden Gate Chapter CRFG</title>
+<title>Online Community Golden Gate CRFG Chapter</title>
+
 <style>
 :root{
   --bg:#FAF0E6;
@@ -15,18 +16,31 @@
   --border:#d8ccb6;
   --sidebar:220px;
   --content-width:1200px;
+  --lavender:#d7d0ea;
+  --lavender-soft:#eeeaf7;
+  --lavender-warm:#f6f2fb;
+  --sage-soft:#eef4ee;
+  --cream-card:#fbf6ef;
+  --cream-card-2:#f7f1e8;
+  --accent:#6b4c6e;
+  --accent-soft:#f1e8f4;
 }
+
 *{box-sizing:border-box;}
+
 body{
   margin:0;
-  background:var(--bg);
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 30%),
+    linear-gradient(180deg, #fbf4ee 0%, var(--bg) 38%, #f7efe3 100%);
   color:var(--text);
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  line-height:1.5;
-  font-size:18px;
+  font-size:17px;
+  line-height:1.52;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
+
 strong,b{font-weight:800;}
 
 .layout{
@@ -57,38 +71,20 @@ aside{
   padding:20px 16px 16px;
   text-decoration:none;
   border-bottom:1px solid rgba(255,255,255,0.15);
-  margin-bottom:4px;
 }
 .logo{
   width:134px;
-  height:auto;
-  display:block;
-  margin:0 auto 14px;
+  margin-bottom:14px;
   filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
 }
 .site-title{
-  font-size:1.05rem;
-  font-weight:800;
   color:white;
-  line-height:1.3;
-  display:block;
+  font-weight:800;
 }
-.site-crfg{
-  font-size:0.9rem;
-  font-weight:700;
-  color:rgba(255,255,255,0.75);
-  line-height:1.3;
-  display:block;
-  text-align:center;
-  margin-top:2px;
-}
+.site-crfg,
 .site-sub{
-  font-size:0.78rem;
-  font-weight:700;
-  color:rgba(255,255,255,0.85);
-  line-height:1.3;
-  margin-top:4px;
-  display:block;
+  color:rgba(255,255,255,0.8);
+  font-size:0.85rem;
   text-align:center;
 }
 
@@ -97,7 +93,6 @@ nav{
   flex-direction:column;
   padding:4px 0 120px;
 }
-.nav-group{margin-top:6px;}
 .nav-group-label{
   font-size:0.76rem;
   font-weight:800;
@@ -105,38 +100,23 @@ nav{
   letter-spacing:0.12em;
   color:rgba(255,255,255,0.85);
   padding:16px 16px 5px;
-  display:block;
-  margin-top:4px;
-  text-align:left;
-}
-.nav-group:first-child .nav-group-label{
-  margin-top:0;
-  padding-top:10px;
 }
 nav a{
-  font-size:0.82rem;
+  font-size:0.85rem;
   font-weight:700;
   color:var(--bg);
   text-decoration:none;
-  padding:5px 16px 5px 16px;
-  border-left:3px solid transparent;
+  padding:6px 16px;
+  margin-left:18px;
   display:block;
-  line-height:1.3;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  transition:background 0.12s,color 0.12s,border-color 0.12s,transform 0.12s;
-  text-align:left;
-  margin-left:18px;
+  transition:background 0.12s,color 0.12s,border-color 0.12s;
 }
 nav a:hover{
   background:rgba(255,255,255,0.1);
   color:white;
-}
-nav a.active{
-  background:rgba(255,255,255,0.14);
-  color:white;
-  border-left-color:rgba(255,255,255,0.75);
 }
 
 .hamburger{display:none;}
@@ -144,171 +124,291 @@ nav a.active{
 
 .page{
   flex:1;
-  padding:40px 44px 40px 52px;
+  padding:42px 48px;
   min-width:0;
 }
-.hero{margin-top:10px;}
+
+.hero{
+  background:linear-gradient(135deg, rgba(255,255,255,0.34), var(--lavender-warm));
+  border:1px solid rgba(215,204,182,0.9);
+  border-radius:16px;
+  padding:24px 24px 22px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.05);
+}
 .hero h1{
-  font-size:clamp(2rem,3.5vw,3.2rem);
-  line-height:1.18;
-  margin:0 0 28px;
-  max-width:800px;
-  font-weight:900;
-  letter-spacing:-0.005em;
-}
-h2{
-  font-size:clamp(1.65rem,2.65vw,2.75rem);
-  line-height:1.05;
-  margin:44px 0 18px;
-  font-weight:900;
-  orphans:3;
-  widows:3;
-}
-h3{
-  font-size:clamp(1.3rem,2.1vw,2rem);
-  line-height:1.1;
-  margin:36px 0 14px;
-  font-weight:900;
-  orphans:3;
-  widows:3;
-}
-p{
+  font-size:clamp(1.9rem,3.2vw,3.1rem);
   margin:0 0 12px;
-  font-size:1.1rem;
-  line-height:1.55;
-  orphans:3;
-  widows:3;
-}
-.small{
-  font-size:1.08rem;
-  line-height:1.6;
-  max-width:52ch;
-}
-.member-title{
-  font-size:1.85rem;
+  color:var(--blue);
   font-weight:900;
-  line-height:1.18;
+  line-height:1.12;
+  letter-spacing:-0.015em;
+}
+.hero .eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.75rem;
+  font-weight:900;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  background:var(--accent-soft);
+  border:1px solid rgba(107,76,110,0.14);
+  border-radius:999px;
+  padding:5px 11px;
   margin-bottom:12px;
 }
-.step{
-  margin:20px 0;
-  padding-left:22px;
-  max-width:46ch;
+.hero p{
+  max-width:64ch;
+  color:#4a423c;
+  margin:0 0 9px;
+  font-size:1rem;
 }
-.step + .step{margin-top:30px;}
-.step p strong{
-  display:inline;
-  margin-bottom:0;
-  line-height:1.4;
+
+.section{
+  margin-top:30px;
+  max-width:70ch;
 }
-.step p{
+h2{
+  color:var(--blue);
+  font-size:clamp(1.55rem,2.2vw,2.2rem);
+  margin:30px 0 12px;
+  font-weight:900;
+  line-height:1.08;
+}
+.section-intro{
+  font-size:0.98rem;
+  color:#544d46;
+  max-width:62ch;
+  margin:0 0 16px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+  gap:14px;
+  margin:16px 0 20px;
+}
+.feature{
+  background:linear-gradient(180deg, var(--lavender-soft), var(--sage-soft));
+  border:1px solid rgba(215,204,182,0.8);
+  border-radius:14px;
+  padding:15px 15px 14px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.04);
+}
+.feature .icon{
+  display:inline-flex;
+  width:34px;
+  height:34px;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:rgba(107,76,110,0.10);
+  margin-bottom:10px;
+  font-size:1rem;
+}
+.feature h3{
+  margin:0 0 8px;
+  color:var(--green);
+  font-size:0.98rem;
+  line-height:1.22;
+}
+.feature p{
   margin:0;
+  font-size:0.9rem;
+  color:#57534f;
   line-height:1.5;
 }
 
-.button{
+.card-row{
+  display:grid;
+  grid-template-columns:1.25fr 0.78fr;
+  gap:16px;
+  align-items:start;
+  margin-top:16px;
+}
+
+.card{
+  background:linear-gradient(180deg, var(--cream-card), var(--cream-card-2));
+  border:1px solid rgba(215,204,182,0.95);
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow:0 8px 22px rgba(0,0,0,0.05);
+}
+.card h3{
+  margin:0 0 10px;
+  color:var(--blue);
+  font-size:1.12rem;
+  line-height:1.2;
+}
+.card p{
+  margin:0 0 11px;
+  color:#4c4c4c;
+  font-size:0.95rem;
+}
+
+ol{
+  padding-left:20px;
+  margin:12px 0 0;
+}
+ol li{
+  margin:9px 0;
+  color:#45413d;
+  font-size:0.94rem;
+}
+
+.small{
+  margin-top:13px;
+  font-size:0.94rem;
+  color:#555;
+}
+.small a{
+  color:var(--blue);
+  font-weight:800;
+  text-decoration:none;
+}
+.small a:hover{
+  text-decoration:underline;
+}
+
+.signup-card{
+  background:linear-gradient(180deg, var(--lavender-warm), #f7f2fb);
+  border:1px solid rgba(215,204,182,0.95);
+  border-radius:14px;
+  padding:18px 18px 17px;
+  box-shadow:0 10px 22px rgba(0,0,0,0.06);
+  position:sticky;
+  top:18px;
+}
+.signup-card .label{
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-  margin-top:14px;
-  background:var(--blue);
-  color:white;
-  text-decoration:none;
-  padding:12px 16px;
-  border-radius:8px;
+  gap:8px;
+  margin-bottom:10px;
+  color:var(--accent);
+  font-size:0.74rem;
   font-weight:900;
-  font-size:1.08rem;
-  letter-spacing:0.03em;
-  white-space:nowrap;
-  transition:background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  background:var(--accent-soft);
+  border:1px solid rgba(107,76,110,0.14);
+  border-radius:999px;
+  padding:5px 11px;
 }
-.button:hover{
-  background:var(--blue-dark);
+.signup-card h3{
+  margin:0 0 8px;
+  color:var(--blue);
+  font-size:1.15rem;
+  line-height:1.12;
+}
+.signup-card p{
+  margin:0 0 12px;
+  color:#555;
+  font-size:0.92rem;
+}
+
+.signup-card form{
+  margin-top:6px;
+}
+
+.signup-card label{
+  display:block;
+  font-weight:900;
+  color:var(--blue);
+  margin-bottom:9px;
+  font-size:0.95rem;
+}
+
+.signup-card input[type="email"]{
+  width:100%;
+  padding:11px 13px;
+  border-radius:9px;
+  border:1px solid rgba(215,204,182,0.95);
+  margin-bottom:11px;
+  font-size:0.98rem;
+  background:#fffdf9;
+  transition:border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.signup-card input[type="email"]:focus{
+  outline:none;
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(47,93,143,0.14);
+}
+
+.signup-card input[type="submit"]{
+  width:100%;
+  border:none;
+  border-radius:9px;
+  padding:12px 14px;
+  font-weight:900;
+  font-size:1rem;
+  color:white;
+  cursor:pointer;
+  background:linear-gradient(to bottom,#3a6f9f,#2f5d8f,#2b547f);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.signup-card input[type="submit"]:hover{
   transform:translateY(-1px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.14);
+  box-shadow:0 10px 18px rgba(0,0,0,0.12);
+  filter:saturate(1.05);
 }
-.button:active{
-  transform:translateY(0);
-  box-shadow:0 3px 8px rgba(0,0,0,0.12);
-}
-.button:focus-visible{
+.signup-card input[type="submit"]:focus-visible{
   outline:3px solid rgba(47,93,143,0.35);
   outline-offset:2px;
 }
 
-.step .button{
+.steps{
+  margin-top:14px;
+  display:grid;
+  gap:10px;
+}
+.step{
   display:flex;
+  gap:10px;
+  align-items:flex-start;
+  background:linear-gradient(180deg, rgba(238,234,247,0.75), rgba(238,244,238,0.8));
+  border:1px solid rgba(215,204,182,0.7);
+  border-radius:12px;
+  padding:12px 13px;
+}
+.step .num{
+  flex:0 0 auto;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:100%;
-  max-width:35ch;
-  text-align:center;
-  margin-top:14px;
-  padding-left:12px;
-  padding-right:12px;
-  background-image:linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
-  box-shadow:0 4px 10px rgba(0,0,0,0.10);
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  font-size:0.82rem;
+  font-weight:900;
+  line-height:1;
 }
-.step .button:hover{
-  background-image:linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
-}
-
-.pay-logos{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  margin-top:18px;
-  margin-bottom:18px;
-  padding:10px 6px;
-  width:100%;
-  max-width:35ch;
-}
-.pay-logos img{
-  flex:0 0 auto;
-  max-height:22px;
-  width:auto;
-}
-
-.pay-card{
-  margin-top:14px;
-  background:#f6e3d1;
-  border-radius:7px;
-  padding:12px 16px;
-  display:block;
+.step p{
+  margin:0;
   font-size:0.9rem;
-  line-height:1.45;
-  color:#555;
-  max-width:48ch;
-  clear:both;
+  color:#4d4945;
 }
 
-.pay-card a{
-  transition:color 0.18s ease, text-decoration-color 0.18s ease;
+.footer-note{
+  margin-top:16px;
+  padding-top:13px;
+  border-top:1px solid rgba(215,204,182,0.7);
+  font-size:0.9rem;
+  color:#5b534d;
 }
-.pay-card a:hover{
-  color:var(--blue-dark);
+.footer-note a{
+  color:var(--blue);
+  font-weight:800;
+  text-decoration:none;
+}
+.footer-note a:hover{
   text-decoration:underline;
 }
 
-.mail-line{
-  white-space:nowrap;
-}
-
-ul{
-  padding-left:26px;
-  margin:0;
-}
-li{
-  margin-bottom:6px;
-  font-size:1.05rem;
-  line-height:1.5;
-  orphans:3;
-  widows:3;
-}
-
 footer{
-  margin-top:60px;
+  margin-top:54px;
   font-size:0.85rem;
   line-height:1.3;
 }
@@ -317,12 +417,6 @@ hr{
   border:none;
   border-top:1px solid var(--border);
   margin:40px 0;
-}
-
-.bottom-tagline{
-  line-height:1.35;
-  margin-top:44px;
-  margin-bottom:0;
 }
 
 @media(max-width:750px){
@@ -346,7 +440,7 @@ hr{
     font-size:0.88rem;
     font-weight:800;
     color:white;
-    line-height:1.2;
+    line-height:1.18;
   }
   nav{display:none;padding:0 0 10px;}
   nav.open{display:flex;}
@@ -378,136 +472,182 @@ hr{
     fill:none;
   }
   .page{padding:24px 16px;}
-  .hero h1{font-size:clamp(2rem,8vw,3rem);}
-  .button{
-    display:block;
-    width:100%;
-    max-width:none;
-    text-align:center;
-    white-space:normal;
-    line-height:1.25;
-    padding:12px 14px;
+  .hero{
+    padding:20px 17px 18px;
+    border-radius:14px;
   }
-  .step{
-    padding-left:0;
-    max-width:none;
+  .hero h1{font-size:clamp(2rem,8vw,2.8rem);}
+  .hero p{font-size:0.96rem;}
+  .section{max-width:none;}
+  .feature-grid{
+    grid-template-columns:1fr;
   }
-  .step .button,
-  .pay-logos,
-  .pay-card{
-    max-width:none;
-    width:100%;
+  .card-row{
+    grid-template-columns:1fr;
   }
-  .pay-logos{
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    padding:12px 6px;
-  }
-  .pay-logos img{
-    max-height:20px;
-  }
-  .bottom-tagline{
-    line-height:1.42;
-  }
-}
-
-@media (hover:hover){
-  .button:hover{
-    background:var(--blue-dark);
-    transform:translateY(-1px);
-    box-shadow:0 8px 18px rgba(0,0,0,0.14);
-  }
-  .pay-card a:hover{
-    color:var(--blue-dark);
-    text-decoration:underline;
+  .signup-card{
+    position:relative;
+    top:auto;
+    max-width:28rem;
+    justify-self:start;
   }
 }
 </style>
 </head>
-<body>
 
+<body>
 <div class="layout">
 
-<aside>
-  <a href="index.html" class="nav-brand">
-<img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">    <span class="site-title">Golden Gate Chapter</span>
-    <span class="site-crfg">CRFG.org</span>
-    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
-  </a>
-
-  <div class="mobile-header">
-    <a href="index.html" class="mobile-brand">
-      <img class="mobile-logo" src="image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
-      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+  <aside>
+    <a href="index.html" class="nav-brand">
+      <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Logo">
+      <span class="site-title">Golden Gate Chapter</span>
+      <span class="site-crfg">CRFG.org</span>
+      <span class="site-sub">Bay Area fruit growers</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <span>Menu</span>
-    </button>
+
+    <div class="mobile-header">
+      <a href="index.html" class="mobile-brand">
+        <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+        <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+      </a>
+      <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span>Menu</span>
+      </button>
+    </div>
+
+    <nav id="navMenu">
+      <div class="nav-group">
+        <span class="nav-group-label">Start Here</span>
+        <a href="index.htm">About</a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Grow Fruit</span>
+        <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
+        <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+        <a href="fruity-resources.html">Fruity Resources</a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Community</span>
+        <a href="meetings.htm">Meetings</a>
+        <a href="online-community.html">Online Community</a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Membership</span>
+        <a href="join-renew.html">Join Renew</a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Events</span>
+        <a href="gg-scionexchange.html">Scion Exchange</a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Get Plant</span>
+        <a href="where-to-buy.html">Where to Buy</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="page">
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Online community</div>
+        <h1>Connect Between Meetings</h1>
+        <p>
+          Stay connected with Golden Gate Chapter members and Bay Area fruit growers.
+          Share experiences, ask questions, and continue conversations between meetings.
+        </p>
+        <p>
+          Tell your story, compare notes on what is thriving, and learn from the successes and surprises of other local growers.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>💬 Join the Conversation</h2>
+        <p class="section-intro">
+          Membership requests are reviewed to keep the community active and spam-free.
+          Once you join, you can ask questions, share photos, and learn from other local growers.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon">🌿</div>
+            <h3>Local growing tips</h3>
+            <p>Learn what works in Bay Area microclimates, from foggy coast to inland heat, and hear how others adapt their orchards over time.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">💬</div>
+            <h3>Member questions</h3>
+            <p>Ask about fruit trees, varieties, pests, pruning, and seasonal timing, and compare your results with growers who have tried the same plants.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">📷</div>
+            <h3>Share photos</h3>
+            <p>Post blossoms, harvests, and problem plants so others can help identify and advise, and so everyone can see what is happening in real gardens.</p>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card">
+            <h3>How it works</h3>
+            <ol>
+              <li>Share a brief note about your interest in fruit growing.</li>
+              <li>Complete the signup and verification process.</li>
+              <li>Email us if you need help getting started.</li>
+            </ol>
+
+            <p class="small">
+              Questions? Email
+              <a href="mailto:golden_gate@crfg.org">golden_gate@crfg.org</a>
+            </p>
+
+            <div class="footer-note">
+              New here? Start with the <a href="member-guides.html">member guides</a> or browse <a href="bay-area-zone-favorites.html">Bay Area fruit favorites</a>.
+            </div>
+          </div>
+
+          <div class="signup-card">
+            <div class="label">Join the community</div>
+            <h3>Request access</h3>
+            <p>
+              Fill out the form below to request membership in the Golden Gate Chapter online community.
+            </p>
+
+            <form action="https://groups.io/g/goldengatecrfg/signup?u=7714720136544229230"
+                  method="post"
+                  target="_blank">
+
+              <label for="email">Email address</label>
+              <input id="email"
+                     name="email"
+                     type="email"
+                     required
+                     placeholder="your@email.com">
+
+              <div style="position:absolute; left:-5000px;">
+                <input tabindex="-1" name="b_7714720136544229230" type="text" value="">
+              </div>
+
+              <input type="submit" value="Request to Join">
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <hr>
+      <p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
+      <hr>
+      <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
+    </footer>
   </div>
-
-  <nav id="navMenu">
-    <div class="nav-group">
-      <span class="nav-group-label">🏠 Start Here</span>
-      <a href="index.htm">About</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
-      <a href="fruity-resources.html">Fruity Resources</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🤝 Community</span>
-      <a href="meetings.htm">Meetings</a>
-      <a href="online-community.html">Online Community</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">✨ Membership</span>
-      <a href="join-renew.html">Join / Renew</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🍋 Events</span>
-      <a href="gg-scionexchange.html">Scion Exchange</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🌱 Get Plants</span>
-      <a href="where-to-buy.html">Where to Buy</a>
-    </div>
-  </nav>
-</aside>
-
-<div class="page">
-<main><section class="hero">
-<h1>Connect Between Meetings</h1>
-<p>Stay connected with Golden Gate Chapter members and Bay Area fruit growers through our Groups.io discussion list. Share experiences, ask questions, swap growing tips, and continue the conversation between meetings.</p>
-</section>
-<h2>💬 Join the Conversation</h2>
-<p>To help keep the group active and relevant, membership is reviewed. When you apply::</p>
-<ol>
-<li>Share a brief note about your interest in fruit growing.</li>
-<li>Complete all enrollment steps, including the verification process that confirms you&rsquo;re not a spam bot.</li>
-<li>Need help getting started? Email the Golden Gate Chapter &mdash; we&rsquo;re happy to assist.</li>
-</ol>
-<p class="small">Have questions before applying? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a> and we'll help you get set up.</p>
-<div class="signup-card"><form action="https://groups.io/g/goldengatecrfg/signup?u=7714720136544229230" method="post" target="_blank"><label for="email">Subscribe to our Group.IO list</label> <input id="email" name="email" required="" type="email" placeholder="your@email.com" />
-<div style="position: absolute; left: -5000px;"><input tabindex="-1" name="b_7714720136544229230" type="text" value="" /></div>
-<input name="subscribe" type="submit" value="Apply to Subscribe" /></form></div>
-</main>
-
-<footer>
-<hr>
-<p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
-<hr>
-<p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
-</footer>
 </div>
-<script>(function(){var p=window.location.pathname.split("/").pop()||"index.htm";document.querySelectorAll("#navMenu a").forEach(function(a){if(a.getAttribute("href")===p)a.style.background="rgba(47,93,59,0.13)";});}());</script>
+
 </body>
 </html>

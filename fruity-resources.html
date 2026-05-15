@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join/Renew — Golden Gate Chapter CRFG</title>
+<title>Fruity Resources</title>
 <style>
 :root{
   --bg:#FAF0E6;
@@ -204,6 +204,65 @@ p{
 .step p{
   margin:0;
   line-height:1.5;
+}
+
+.resource-list{
+  list-style:none;
+  padding:0;
+  margin-top:26px;
+  display:grid;
+  gap:14px;
+}
+
+.resource-item{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  padding:18px 20px;
+  background:#FBF6EA;
+  border:1px solid #E7DCC8;
+  border-radius:14px;
+  transition:
+    transform .14s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.resource-item:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
+  border-color:#d8ccb6;
+}
+
+.resource-icon{
+  font-size:1.5rem;
+  line-height:1;
+  flex-shrink:0;
+  margin-top:2px;
+}
+
+.resource-content{
+  min-width:0;
+}
+
+.resource-title{
+  display:inline-block;
+  color:var(--green);
+  font-size:1.08rem;
+  font-weight:800;
+  text-decoration:none;
+  line-height:1.25;
+}
+
+.resource-title:hover{
+  color:var(--blue);
+}
+
+.resource-desc{
+  margin-top:6px;
+  font-size:1rem;
+  line-height:1.5;
+  color:#4b4b4b;
 }
 
 .button{
@@ -487,21 +546,111 @@ hr{
 <main>
 
 <section class="hero">
-<h1>How To &amp;<br>Fruity Resources</h1>
-<p class="small">Fruit-growing information sites and guides recommended by Golden Gate Chapter members.</p>
-</section>
+<h2>Favorite Fruit-Growing Resources</h2>
 
-<h2>🌐 Fruit Growing Information</h2>
-<ul class="resource-list">
-<li><span class="icon">🍊</span> <a href="http://www.crfg.org">California Rare Fruit Growers (CRFG.org)</a><span class="desc">The main website for the international CRFG organization.</span></li>
-<li><span class="icon">🌎</span> <a href="http://www.nafex.org/">North American Fruit Explorers (NAFEX)</a><span class="desc">An organization dedicated to finding, growing, and appreciating superior fruits and nuts.</span></li>
-<li><span class="icon">🏡</span> <a href="http://www.homeorchardsociety.org/">Home Orchard Society</a><span class="desc">Resources and community for home orchard enthusiasts.</span></li>
-<li><span class="icon">🔬</span> <a href="http://fruitsandnuts.ucdavis.edu/">UC Fruit and Nut Research and Information Center</a><span class="desc">University of California research and growing guides for fruits and nuts.</span></li>
-<li><span class="icon">🌿</span> <a href="https://www.kysu.edu/academics/college-ahnr/school-of-anr/pawpaw/index.php">Pawpaw Information</a><span class="desc">Kentucky State University's comprehensive pawpaw research program.</span></li>
-<li><span class="icon">🌸</span> <a href="http://www.passiflora-uk.co.uk">UK Passiflora Site</a><span class="desc">Detailed information on passionfruit and passiflora species.</span></li>
-<li><span class="icon">🍎</span> <a href="https://pomiferous.com">Pomiferous</a><span class="desc">Information on over 7,000 apple varieties, including pollination groups and harvest periods.</span></li>
-<li><span class="icon">✂️</span> <a href="SummerPruning_wht1.pdf">Summer Pruning Guide</a><span class="desc">A PDF guide to summer pruning techniques for fruit trees.</span></li>
-</ul>
+<p class="small">
+A collection of websites, research tools, pruning guides, and fruit-growing references recommended by Golden Gate Chapter members.
+</p>
+
+<div class="resource-list">
+
+  <div class="resource-item">
+    <div class="resource-icon">🍊</div>
+    <div class="resource-content">
+      <a class="resource-title" href="https://www.crfg.org">
+        California Rare Fruit Growers (CRFG)
+      </a>
+      <div class="resource-desc">
+        The main CRFG website with articles, fruit information, publications, and resources for rare fruit growers.
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-icon">🌎</div>
+    <div class="resource-content">
+      <a class="resource-title" href="https://nafex.org">
+        North American Fruit Explorers (NAFEX)
+      </a>
+      <div class="resource-desc">
+        A longtime organization for people passionate about finding, growing, and sharing exceptional fruit and nut varieties.
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-icon">🏡</div>
+    <div class="resource-content">
+      <a class="resource-title" href="https://www.homeorchardsociety.org">
+        Home Orchard Society
+      </a>
+      <div class="resource-desc">
+        Excellent practical advice for backyard orchardists, including pruning, espalier, and fruit tree care.
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-icon">🔬</div>
+    <div class="resource-content">
+      <a class="resource-title" href="https://fruitsandnuts.ucdavis.edu">
+        UC Fruit &amp; Nut Research Center
+      </a>
+      <div class="resource-desc">
+        University of California research, growing guides, and science-based information for fruit and nut crops.
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-icon">🌿</div>
+    <div class="resource-content">
+      <a class="resource-title" href="https://www.kysu.edu/academics/college-ahnr/school-of-anr/pawpaw/index.php">
+        Pawpaw Research Program
+      </a>
+      <div class="resource-desc">
+        Kentucky State University's leading source for pawpaw research, cultivars, and growing information.
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-icon">🌸</div>
+    <div class="resource-content">
+      <a class="resource-title" href="http://www.passiflora-uk.co.uk">
+        Passiflora UK
+      </a>
+      <div class="resource-desc">
+        Detailed information about passionfruit and ornamental Passiflora species from enthusiasts and collectors.
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-icon">🍎</div>
+    <div class="resource-content">
+      <a class="resource-title" href="https://pomiferous.com">
+        Pomiferous
+      </a>
+      <div class="resource-desc">
+        Explore thousands of apple varieties, harvest timing, pollination groups, and growing characteristics.
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-icon">✂️</div>
+    <div class="resource-content">
+      <a class="resource-title" href="SummerPruning_wht1.pdf">
+        Summer Pruning Guide (PDF)
+      </a>
+      <div class="resource-desc">
+        A practical reference for timing and techniques when pruning fruit trees during the growing season.
+      </div>
+    </div>
+  </div>
+
+</div>
 </main>
 
 <footer>
