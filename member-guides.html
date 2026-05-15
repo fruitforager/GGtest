@@ -237,24 +237,56 @@ h2{
 
 <aside>
   <a href="index.html" class="nav-brand">
-    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg">
+    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
     <span class="site-title">Golden Gate Chapter</span>
     <span class="site-crfg">CRFG.org</span>
-    <span class="site-sub">Growing unusual edibles in the Bay Area</span>
+    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
   </a>
 
-  <nav>
-    <span class="nav-group-label">Grow Fruit</span>
-    <a href="bay-area-zone-favorites.html">Bay Area Favorites</a>
-    <a href="member-guides.html">Member Guides</a>
-    <a href="fruity-resources.html">Fruity Resources</a>
+  <div class="mobile-header">
+    <a href="index.html" class="mobile-brand">
+      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
+      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+    </a>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span>Menu</span>
+    </button>
+  </div>
 
-    <span class="nav-group-label">Community</span>
-    <a href="meetings.html">Meetings</a>
-    <a href="online-community.html">Online</a>
+  <nav id="navMenu">
+    <div class="nav-group">
+      <span class="nav-group-label">🏠 Start Here</span>
+      <a href="index.html">About</a>
+    </div>
 
-    <span class="nav-group-label">Membership</span>
-    <a href="join-renew.html">Join / Renew</a>
+    <div class="nav-group">
+      <span class="nav-group-label">🌿 Grow Fruit</span>
+      <a href="bay-area-zone-favorites.html" class="active" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
+      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+      <a href="fruity-resources.html">Fruity Resources</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🤝 Community</span>
+      <a href="meetings.html">Meetings</a>
+      <a href="online-community.html">Online Community</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">✨ Membership</span>
+      <a href="join-renew.html">Join / Renew</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🍋 Events</span>
+      <a href="gg-scionexchange.html">Scion Exchange</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🌱 Get Plants</span>
+      <a href="where-to-buy.html">Where to Buy</a>
+    </div>
   </nav>
 </aside>
 
