@@ -3,7 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bay Area Zone Favorites</title>
+<title>Bay Area Fruit Favorites by Microclimate Zone | CRFG Golden Gate</title>
+
+<!-- Standard SEO Metadata -->
+<meta name="description" content="Discover the best fruit varieties to grow in the San Francisco Bay Area. Recommended varieties chosen by CRFG members across the Fog Zone, Bay-Facing, and Inland microclimates.">
+<meta name="keywords" content="CRFG, California Rare Fruit Growers, Golden Gate Chapter, Bay Area gardening, fruit trees, microclimates, climate zones, urban farming, growing fruit San Francisco">
+<meta name="author" content="California Rare Fruit Growers, Inc. - Golden Gate Chapter">
+<link rel="canonical" href="https://crfg.org/chapters/golden-gate/bay-area-zone-favorites.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crfg.org/chapters/golden-gate/bay-area-zone-favorites.html">
+<meta property="og:title" content="Bay Area Fruit Favorites by Microclimate Zone | CRFG Golden Gate">
+<meta property="og:description" content="Find the perfect fruit varieties for your specific Bay Area microclimate. Verified recommendations from local amateur and professional growers.">
+<meta property="og:image" content="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg">
+
+<!-- Twitter Card Data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bay Area Fruit Favorites by Climate Zone | CRFG Golden Gate">
+<meta name="twitter:description" content="Explore interactive maps and fruit profiles broken down across three distinct Bay Area microclimates.">
+<meta name="twitter:image" content="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg">
+
 <style>
 :root{
   --bg:#FAF0E6;
@@ -195,23 +215,24 @@ p{
 }
 
 /* ── Map Wrap ── */
-map-frame {
+.map-frame {
   width: 100%;
-  max-width: 100%;
-  aspect-ratio: 3 / 4; /* Forces the container into a 3:4 aspect ratio */
+  max-width: 100%; 
+  aspect-ratio: 3 / 4; 
   border: 1px solid var(--border);
   border-radius: 7px;
   box-shadow: 0 2px 4px rgba(71,101,80,.08);
   overflow: hidden;
-  position: relative; /* Allows the map to anchor perfectly to the container's edges */
+  position: relative;
+  margin: 0 0 20px 0; 
 }
 
 .map-frame iframe {
-  position: absolute; /* Decouples it from inherent browser iframe sizing */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Forces map to fill the 3:4 width */
-  height: 100%; /* Forces map to fill the 3:4 height */
+  width: 100%;
+  height: 100%;
   border: 0;
   display: block;
 }
@@ -367,13 +388,27 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 /* ── Mobile ── */
 @media(max-width:750px){
   .layout{flex-direction:column;}
-  aside{width:100%;height:auto;position:relative;}
+  
+  /* Sticks the full menu system block to the top of the viewport */
+  aside{
+    width:100%;
+    height:auto;
+    position:sticky;
+    top:0;
+    z-index:9999;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    overflow-y:visible; 
+  }
   .nav-brand{display:none;}
+  
   .mobile-header{
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:12px 16px;
+    background:var(--green);
+    position:relative;
+    z-index:10;
   }
   .mobile-brand{
     display:flex;
@@ -388,10 +423,31 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     color:white;
     line-height:1.2;
   }
-  nav{display:none;padding:0 0 10px;}
-  nav.open{display:flex;}
-  nav a{padding:8px 20px;border-left:none;font-size:0.95rem;margin-left:0;}
-  .nav-group-label{padding:10px 20px 3px;}
+  
+  /* Gentle Slide Down Animation Setup */
+  nav{
+    display:flex; 
+    max-height:0;
+    opacity:0;
+    visibility:hidden;
+    overflow-y:auto; 
+    padding:0;
+    background:var(--green-dark);
+    border-top:1px solid rgba(255,255,255,0.1);
+    transition:max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.4s ease-in-out;
+  }
+  
+  /* Expands the panel beautifully when open */
+  nav.open{
+    max-height:75vh; 
+    opacity:1;
+    visibility:visible;
+    padding:0 0 24px;
+  }
+  
+  nav a{padding:10px 20px;border-left:none;font-size:0.95rem;margin-left:0;}
+  .nav-group-label{padding:14px 20px 3px;}
+  
   .hamburger{
     display:flex;
     align-items:center;
@@ -407,13 +463,14 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     font-family:inherit;
   }
   .hamburger svg{width:16px;height:16px;stroke:white;fill:none;}
+  
+  /* Extra top space prevents content from snapping underneath frozen menu layout */
   .page{padding:24px 16px;}
   .hero h1{font-size:clamp(2rem,8vw,3rem);}
   
-  /* Mobile-friendly aspect ratio constraints for smaller screens */
   .map-frame {
     aspect-ratio: 3 / 4; 
-    max-height: 70vh; /* Prevents the 3:4 layout from creating excessive vertical scrolling on long mobile viewports */
+    max-height: 60vh; 
   }
   
   .zone-cards{grid-template-columns:1fr;}
@@ -452,7 +509,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html" class="active" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
+      <a href="bay-area-zone-favorites.html" class="active" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Microclimate Zone</span></a>
       <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
@@ -483,12 +540,12 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 <div class="page">
 <main>
   <section class="hero">
-    <h1>Bay Area Fruit Favorites by Climate Zone</h1>
+    <h1>Bay Area Fruit Favorites by Microclimate Zone</h1>
     <p>The following lists come from a poll of Golden Gate Chapter members, who were asked to recommend their favorite fruits and varieties.</p>
     <p>Since <strong>the Golden Gate Chapter spans three distinct climate zones</strong>, there are three separate lists — find yours below.</p>
   </section>
 
-  <h2>🌦️ Find Your Climate Zone</h2>
+  <h2>🌦️ Find Your Microclimate Zone</h2>
   <p style="margin:-8px 0 24px;font-size:1rem;color:#555;max-width:62ch;text-wrap:pretty;">The Bay Area's microclimates vary dramatically over short distances. <strong>Pick the zone that best matches</strong> where you garden — <strong>your chill hours and summer heat will shape almost every fruit decision you make.</strong></p>
 
   <div class="zone-cards">
@@ -498,16 +555,16 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <h3>🌫️ Fog Zone</h3>
       <p class="zone-chill"><strong>‎ ‎ ‎❄️‎ ‎  100–400 Chill hours</strong></p>
       <!-- ULTIMAPS.COM Interactive Map -->
-<div class="map-frame">
-<iframe src="https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+      <div class="map-frame">
+        <iframe src="https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
       <h4 class="zone-desc-title">
-  <span>Cool summers.</span>
-  <span>Mild winters.</span>
-</h4>
-<hr class="zone-rule">
-<p class="zone-desc-short">📍 Heavy ocean influence. Includes Western San Francisco, Daly City, Pacifica, Half Moon Bay, Emeryville/Berkeley, Bolinas/Stinson Beach, Sausalito, El Cerrito, Richmond, Alameda.</p>
-<hr class="zone-rule">
+        <span>Cool summers.</span>
+        <span>Mild winters.</span>
+      </h4>
+      <hr class="zone-rule">
+      <p class="zone-desc-short">📍 Heavy ocean influence. Includes Western San Francisco, Daly City, Pacifica, Half Moon Bay, Emeryville/Berkeley, Bolinas/Stinson Beach, Sausalito, El Cerrito, Richmond, Alameda.</p>
+      <hr class="zone-rule">
       <p class="zone-detail"><strong>The marine layer dominates — foggy mornings that linger, rarely much heat.</strong> Winters stay frost-light and mild. Chill hours are low at 100–400 hrs. Most standard deciduous fruit that needs cold winters to set fruit won't perform here. Focus on low-chill and subtropical evergreen fruiting plants that ripen in cooler temperatures without much summer heat.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>Asian pears, Bearss lime, Eureka lemon, feijoas, figs ('Desert King', 'White Ischia'), loquats, passion fruit.</p>
       <a class="card-link" href="zone-favorites/zone1-favorites.html">Member's Fog Zone Favorites →</a>
@@ -518,37 +575,36 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <h3>🌊 Facing the Bay</h3>
       <p class="zone-chill"><strong>‎ ‎ ❄️‎  ‎ 400–900 Chill hours</strong></p>
       <!-- ULTIMAPS.COM Interactive Map -->
-<div class="map-frame">
-<iframe src="https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-<h4 class="zone-desc-title">
-  <span>Warm summers.</span>
-  <span>Mild winters.</span>
-</h4>
-<hr class="zone-rule">
-<p class="zone-desc-short">📍 Includes Berkeley, Oakland, Richmond, El Cerrito, Hayward, San Leandro; San Mateo, San Rafael, Novato, Martinez, Fremont, Vallejo, .</p>
-<hr class="zone-rule">
+      <div class="map-frame">
+        <iframe src="https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <h4 class="zone-desc-title">
+        <span>Warm summers.</span>
+        <span>Mild winters.</span>
+      </h4>
+      <hr class="zone-rule">
+      <p class="zone-desc-short">📍 Includes Berkeley, Oakland, Richmond, El Cerrito, Hayward, San Leandro, San Mateo, San Rafael, Novato, Martinez, Fremont, Vallejo.</p>
+      <hr class="zone-rule">
       <p class="zone-detail"><strong>More sun than the coast but still tempered by Bay breezes — summers are warm without being brutal, winters are mild but real.</strong> Chill hours run 400–900, enough for the vast majority of deciduous fruits without demanding the deep cold inland winters bring. This zone gives chapter members the broadest selection of anything they want to grow.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>apples, Asian pears, figs, Meyer lemon, persimmons, plums, pluots, pomegranates</p>
       <a class="card-link" href="zone-favorites/zone2-favorites.html">Member's Bay-Facing Favorites →</a>
     </div>
 
-
     <div class="zone-card">
       <div class="zone-label">Zone 3</div>
       <h3>☀️ Inland</h3>
-      <p class="zone-chill"><strong>‎ ‎ ‎❄️‎‎  ‎  600–1,500 Chill hours</strong></p>
+      <p class="zone-chill"><strong>‎ ‎ ‎❄️‎‎  ‎   600–1,500 Chill hours</strong></p>
       <!-- ULTIMAPS.COM Interactive Map -->
-<div class="map-frame">
-<iframe src="https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-<h4 class="zone-desc-title">
-  <span>Hot summers.</span>
-  <span>Mild winters.</span>
-</h4>
-<hr class="zone-rule">
-<p class="zone-desc-short">📍 Includes Concord, Walnut Creek, Lafayette, Danville, San Ramon, Pleasanton, Pittsburg, Antioch, Brentwood, Sunol, Dublin, Fairfield.</p>
-<hr class="zone-rule">
+      <div class="map-frame">
+        <iframe src="https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <h4 class="zone-desc-title">
+        <span>Hot summers.</span>
+        <span>Mild winters.</span>
+      </h4>
+      <hr class="zone-rule">
+      <p class="zone-desc-short">📍 Includes Concord, Walnut Creek, Lafayette, Danville, San Ramon, Pleasanton, Pittsburg, Antioch, Brentwood, Sunol, Dublin, Fairfield.</p>
+      <hr class="zone-rule">
       <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> Chill hours run 600–1,500, the highest in the chapter, meaning standard and high-chill deciduous varieties that struggle on the coast genuinely thrive. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat fully ripens all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>apricots, cherries, figs, grapes, jujubes, peaches, persimmons, pomegranates</p>
       <a class="card-link" href="zone-favorites/zone3-favorites.html">Member's Inland Favorites →</a>
