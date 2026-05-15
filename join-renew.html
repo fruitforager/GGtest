@@ -264,11 +264,9 @@ p {
   margin: 0 0 12px;
   font-size: 1.1rem;
   line-height: 1.55;
-  /* Use 'wrap' to prevent individual words from being stranded */
-  overflow-wrap: break-word;
-  /* Prevents the browser from breaking paragraphs into tiny pieces */
-  orphans: 2; 
-  widows: 2;
+  /* Higher values ensure larger blocks of text stay together during a break */
+  orphans: 4; 
+  widows: 4;
 }
 
 .small {
@@ -382,7 +380,7 @@ p {
 .map-wrap {
   width: 100%;
   max-width: 36ch;
-  margin: -16px 0 16px 0%;
+  margin: 0px 0 16px 0%;
   aspect-ratio: 3 / 4;
   background: #FBF5E8;
   border: 1px solid var(--border);
