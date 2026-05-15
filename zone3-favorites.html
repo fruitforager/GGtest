@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zone 1 Fruit Favorites · Golden Gate Chapter CRFG</title>
+<title>Zone 3 Fruit Favorites · Golden Gate Chapter CRFG</title>
 <style>
 :root {
   --bg: #FAF0E6;
@@ -57,9 +57,9 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 8px;
-  transition: color 0.2s, letter-spacing 0.2s;
+  transition: color 0.15s;
 }
-.back-link:hover { color: var(--blue); letter-spacing: 0.09em; }
+.back-link:hover { color: var(--blue); }
 .back-link svg { width: 15px; height: 15px; stroke-width: 2.5; }
 
 .page-title {
@@ -67,39 +67,42 @@ body {
   padding: 0;
 }
 .page-title-main {
+  font-family: system-ui, sans-serif;
   font-size: clamp(1.125rem, 1.2vw, 1.3rem); 
   font-weight: 900;
   color: rgba(107,76,110,0.88);
   line-height: 1.5;
   margin-top: 0;
   margin-bottom: 0;
+  letter-spacing: 0.01em;
 }
 .page-title-zone {
   font-family: system-ui, sans-serif;
-  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
   font-weight: 900;
   color: var(--blue);
   line-height: 1.18;
   letter-spacing: 0.01em;
-  margin-top: 1px;
+  margin-top: 50px;
 }
 .page-title-sub {
-  font-size: clamp(1.2rem, 1.5vw, 1.05rem);
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.5rem, 1.8vw, 1.2rem);
   font-weight: 800;
-  color: rgba(107,76,110,0.97);
+  color: rgba(107,76,110,0.88);
   line-height: 1.25;
+  letter-spacing: 0.0em;
   white-space: nowrap;
   min-width: 0;
   margin-top: 8px;
 }
 
 .zone-emoji {
-  font-size: 3em;
+  font-size: 0.99em;
   line-height: 1;
   display: inline;
   vertical-align: text-top;
-  margin-left: 2px;
-  margin-top: 60px;
+  margin-left: 10px;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
@@ -139,7 +142,7 @@ body {
   flex-wrap: wrap;
   gap: 8px 24px;
   margin-top: 14px;
-  margin-bottom: 28px;
+  padding: 0;
   font-family: system-ui, sans-serif;
   font-size: 0.88rem;
   color: var(--muted);
@@ -188,59 +191,27 @@ body {
 
 
 .header-with-map {
-  max-width: 100%;
+  margin-bottom: 28px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 24px;
+  width: 100%;
 }
-
-.page-title-zone,
-.page-title-sub,
-.page-title-main {
-  max-width: 100%;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-  text-wrap: balance;
+@media (max-width: 700px) {
+  .header-with-map {
+  margin-bottom: 28px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 24px;
+  width: 100%;
 }
-
-@media (max-width: 600px) {
-  .page-title-zone {
-    font-size: 1.6rem;
-    line-height: 1.2;
   }
-
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-
-  .search-wrap {
-    width: 100%;
-  }
-
-  .filter-select {
-    width: 100%;
-    min-width: 0;
-    margin-bottom: 4px;
-  }
-
-  .page-title-sub {
-    white-space: normal; /* prevents overflow */
-  }
-}
-
-p, .page-title-sub, .data-note, .variety-inline {
-  orphans: 2;
-  widows: 2;
-  text-wrap: pretty;
-}
 
 /* ── Controls ── */
 .controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 18px;
+  gap: 12px;
   margin-bottom: 28px;
   align-items: center;
-  padding: 6px 0;
 }
 .search-wrap {
   position: relative;
@@ -267,7 +238,6 @@ p, .page-title-sub, .data-note, .variety-inline {
   font-family: system-ui, sans-serif;
   font-size: 0.92rem;
   color: var(--text);
-  letter-spacing: 0.03em;
   outline: none;
   transition: border-color 0.15s;
 }
@@ -278,7 +248,6 @@ p, .page-title-sub, .data-note, .variety-inline {
   font-size: 0.88rem;
   font-weight: 900;
   color: #fff;
-  letter-spacing: 0.04em;
   background-color: #6b4c6e;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -303,18 +272,12 @@ p, .page-title-sub, .data-note, .variety-inline {
   background-color: #7f5c82;
   box-shadow: 0 0 0 3px rgba(107,76,110,0.22);
 }
-.filter-select option {
-  background-color: var(--blue-dark);
-  color: #fff;
-  font-weight: 700;
-}
 
 .results-count {
   font-family: system-ui, sans-serif;
   font-size: 0.82rem;
   color: var(--muted);
-  margin-top: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 /* ── Fruit sections ── */
@@ -402,7 +365,7 @@ p, .page-title-sub, .data-note, .variety-inline {
   grid-template-columns: 1.2em 1fr;
   align-items: start;
   gap: 0 4px;
-  font-size: 0.93rem;
+  font-size: 0.86rem;
   line-height: 1.5;
   width: 100%;
 }
@@ -443,9 +406,6 @@ p, .page-title-sub, .data-note, .variety-inline {
 @media (max-width: 600px) {
   .page-wrap { padding: 28px 16px 60px; }
 
-  .results-count {
-    margin-top: 14px;
-  }
 }
 
 /* ── Sidebar / Layout ── */
@@ -561,7 +521,7 @@ nav a.active{
 
 @media(max-width:750px){
   .layout{flex-direction:column;}
-  aside{width:100%;height:auto;position:sticky;top:0;z-index:100;}
+  aside{width:100%;height:auto;position:relative;}
   .nav-brand{display:none;}
   .mobile-header{
     display:flex;
@@ -641,9 +601,9 @@ nav a.active{
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
-      <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
-      <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
+      <a href="zone3-favorites.html" class="active" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
+      <a href="zone1-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
+      <a href="zone3-favorites.html" class="active" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
       <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
@@ -677,17 +637,16 @@ nav a.active{
     <div class="header-with-map">
       <div class="header-left">
         <div class="badge-title-row">
-          <div class="zone-badge">Zone 1</div>
+          <div class="zone-badge">Zone 3</div>
           <div class="page-title-main">MEMBER FAVORITES</div>
         </div>
         <div class="page-title">
-        <div class="zone-emoji">🌫️</div>
-          <div class="page-title-zone">Fog Zone ⬅ Ocean Influence</div>
-          <div class="page-title-sub">Cultivars for Cool Summers &amp; Mild Winters</div>
+          <div class="page-title-zone">Inland <span class="zone-emoji">☀️</span></div>
+          <div class="page-title-sub">Cultivars for Hot Summers &amp; Cold Winters</div>
         </div>
         <div class="meta-row">
-          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong></span>
-          <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">San Francisco</span> · <span class="city">Daly City</span> · <span class="city">Pacifica</span> · <span class="city">Half Moon Bay</span> · <span class="city">Berkeley (foggy areas)</span></span></span>
+          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>600–1,500</strong></span>
+          <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">Concord</span> · <span class="city">Danville</span> · <span class="city">Lafayette</span> · <span class="city">Pleasanton</span> · <span class="city">San Ramon</span> · <span class="city">Walnut Creek</span></span></span></span>
         </div>
       </div>
 </div>
@@ -724,48 +683,48 @@ const FRUITS = [
     "fruit": "Apple",
     "varieties": [
       {
-        "name": "Alkmene",
+        "name": "Fuji",
+        "votes": 2,
+        "comment": "Espaliered; sweet, crisp fruit (AS)"
+      },
+      {
+        "name": "Granny Smith",
         "votes": 1
       },
       {
-        "name": "Ashmead's Kernel",
+        "name": "Gravenstein",
         "votes": 1
       },
       {
-        "name": "Criterion",
+        "name": "MacIntosh",
         "votes": 1
       },
       {
-        "name": "Hauer Pippin",
+        "name": "Rubinette",
         "votes": 1
       },
       {
-        "name": "Hidden Rose",
+        "name": "Yellow Delicious",
         "votes": 1
       },
       {
-        "name": "Hudson's Golden Gem",
+        "name": "Red Delicious",
+        "votes": 1,
+        "comment": "Very productive, codling moth damage because I garden organically and don't spray with chemicals (AS)"
+      }
+    ]
+  },
+  {
+    "fruit": "Apricot",
+    "varieties": [
+      {
+        "name": "Blenheim",
         "votes": 1
       },
       {
-        "name": "Karmijn de Sonnaville",
-        "votes": 1
-      },
-      {
-        "name": "Kidd's Red Orange",
-        "votes": 1
-      },
-      {
-        "name": "Spitzenberg Esopus",
-        "votes": 1
-      },
-      {
-        "name": "State Fair",
-        "votes": 1
-      },
-      {
-        "name": "Winter White Pearmain",
-        "votes": 1
+        "name": "Un-named variety",
+        "votes": 1,
+        "comment": "Vigorous tree; Eutypa damage decreases fruit production; now will prune only in dry weather, usually summertime (AS)"
       }
     ]
   },
@@ -773,8 +732,47 @@ const FRUITS = [
     "fruit": "Avocado",
     "varieties": [
       {
-        "name": "Holiday",
+        "name": "Bacon",
         "votes": 1
+      }
+    ]
+  },
+  {
+    "fruit": "Berry",
+    "varieties": [
+      {
+        "name": "O'Neal",
+        "votes": 1,
+        "subgroup": "Blueberry"
+      },
+      {
+        "name": "Unknown variety",
+        "votes": 1,
+        "subgroup": "Blueberry",
+        "comment": "Can grow in Concord weather in containers (EC)"
+      },
+      {
+        "name": "Caroline",
+        "votes": 1,
+        "subgroup": "Raspberry"
+      }
+    ]
+  },
+  {
+    "fruit": "Cherry — Sweet",
+    "varieties": [
+      {
+        "name": "Bing",
+        "votes": 1
+      },
+      {
+        "name": "Republican",
+        "votes": 1
+      },
+      {
+        "name": "Stella",
+        "votes": 1,
+        "comment": "Very productive; Tulle is put up to protect from SWD; economical for 1-2 trees (AS)"
       }
     ]
   },
@@ -782,19 +780,58 @@ const FRUITS = [
     "fruit": "Citrus",
     "varieties": [
       {
-        "name": "Eureka",
+        "name": "Pink",
+        "votes": 1,
+        "subgroup": "Grapefruit"
+      },
+      {
+        "name": "Improved Meyer",
         "votes": 1,
         "subgroup": "Lemon"
       },
       {
-        "name": "Bearss",
-        "votes": 1,
-        "subgroup": "Lime"
+        "name": "Meyer",
+        "votes": 2,
+        "subgroup": "Lemon",
+        "comment": "Does very well. One crop per year only (EC)"
       },
       {
-        "name": "Calamondin",
+        "name": "Un-named variety",
+        "votes": 1,
+        "subgroup": "Lime",
+        "comment": "Won't survive (EC)"
+      },
+      {
+        "name": "Rangpur Lime",
+        "votes": 1,
+        "subgroup": "Mandarin (Sour)"
+      },
+      {
+        "name": "Blood Orange",
+        "votes": 1,
+        "subgroup": "Orange",
+        "comment": "Survives in container (EC)"
+      },
+      {
+        "name": "Moro Blood Orange",
         "votes": 1,
         "subgroup": "Orange"
+      },
+      {
+        "name": "Trovita",
+        "votes": 1,
+        "subgroup": "Orange"
+      },
+      {
+        "name": "Washington Navel",
+        "votes": 1,
+        "subgroup": "Orange",
+        "comment": "Took at least 10 years to produce. Perhaps needed fertilizer. Bumper crop this year (AS)"
+      },
+      {
+        "name": "Minneola",
+        "votes": 1,
+        "subgroup": "Tangelo"
       }
     ]
   },
@@ -802,16 +839,39 @@ const FRUITS = [
     "fruit": "Fig",
     "varieties": [
       {
-        "name": "Desert King",
+        "name": "Black Ischia",
         "votes": 1
       },
       {
-        "name": "Snowden",
+        "name": "Brown Turkey",
         "votes": 1
       },
       {
-        "name": "White Ischia",
+        "name": "Green fig",
         "votes": 1
+      },
+      {
+        "name": "Mission",
+        "votes": 1
+      },
+      {
+        "name": "Panache",
+        "votes": 1
+      }
+    ]
+  },
+  {
+    "fruit": "Grape",
+    "varieties": [
+      {
+        "name": "Red Flame",
+        "votes": 1,
+        "comment": "Have not figured out how to prevent fungal diseases without copper spraying (AS)"
+      },
+      {
+        "name": "Thompson Seedless",
+        "votes": 2,
+        "comment": "Does very well (EC)"
       }
     ]
   },
@@ -819,15 +879,7 @@ const FRUITS = [
     "fruit": "Guava — Pineapple (Feijoa)",
     "varieties": [
       {
-        "name": "Albert 5",
-        "votes": 1
-      },
-      {
-        "name": "Albert Supreme",
-        "votes": 1
-      },
-      {
-        "name": "Early Edendale",
+        "name": "Coolidge",
         "votes": 1
       },
       {
@@ -837,23 +889,37 @@ const FRUITS = [
     ]
   },
   {
-    "fruit": "Loquat",
+    "fruit": "Guava — Strawberry",
     "varieties": [
       {
-        "name": "Big Jim",
+        "name": "Un-named cultivar",
+        "votes": 1,
+        "comment": "Very small fruit (EC)"
+      }
+    ]
+  },
+  {
+    "fruit": "Jujube",
+    "varieties": [
+      {
+        "name": "Chico",
+        "votes": 1
+      },
+      {
+        "name": "Honey Jar",
+        "votes": 1
+      },
+      {
+        "name": "Sugar Cane",
         "votes": 1
       }
     ]
   },
   {
-    "fruit": "Passion Fruit",
+    "fruit": "Peach",
     "varieties": [
       {
-        "name": "Passiflora mollissima",
-        "votes": 1
-      },
-      {
-        "name": "Passiflora mixta",
+        "name": "Rio Oso Gem",
         "votes": 1
       }
     ]
@@ -862,34 +928,56 @@ const FRUITS = [
     "fruit": "Pear",
     "varieties": [
       {
-        "name": "Nashi",
+        "name": "Shinko",
         "votes": 1,
         "subgroup": "Asian"
       },
       {
-        "name": "Abbe Fetel",
+        "name": "Shinseiki",
+        "votes": 1,
+        "subgroup": "Asian",
+        "comment": "Vigorous and productive of mild, crisp fruit; unfortunately severely hit by fire blight this year so that it needed to be pruned several times (AS)"
+      },
+      {
+        "name": "20th Century",
+        "votes": 1,
+        "subgroup": "Asian",
+        "comment": "Vigorous and productive of mild, crisp fruit; sustained mild fire blight damage this year (AS)"
+      },
+      {
+        "name": "Ya Li",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Bartlett",
+        "votes": 1,
+        "subgroup": "European",
+        "comment": "Hasn't fruited yet (VH)"
+      },
+      {
+        "name": "Beurre d'Anjou",
         "votes": 1,
         "subgroup": "European"
       },
       {
-        "name": "Dana Hovey",
+        "name": "Comice",
         "votes": 1,
         "subgroup": "European"
-      },
+      }
+    ]
+  },
+  {
+    "fruit": "Persimmon",
+    "varieties": [
       {
-        "name": "Magness",
+        "name": "Fuyu",
         "votes": 1,
-        "subgroup": "European"
+        "comment": "Does very well. It absolutely took 7 years to bear fruit (EC) · Took 8-10 yrs to bear fruit; was told in too shady of a spot; generally bearing big, beautiful fruit (AS)"
       },
       {
-        "name": "Seckel",
-        "votes": 2,
-        "subgroup": "European"
-      },
-      {
-        "name": "Warren",
-        "votes": 1,
-        "subgroup": "European"
+        "name": "Hachiya",
+        "votes": 1
       }
     ]
   },
@@ -897,74 +985,56 @@ const FRUITS = [
     "fruit": "Plum",
     "varieties": [
       {
-        "name": "Prunus subcordata",
+        "name": "Broken Heart",
         "votes": 1,
-        "subgroup": "American"
-      },
-      {
-        "name": "Prunus angustifolia",
-        "votes": 1,
-        "subgroup": "American"
-      },
-      {
-        "name": "Delight",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Sprite",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Gage (unknown variety)",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Beauty",
-        "votes": 1,
-        "subgroup": "Japanese"
-      },
-      {
-        "name": "Burgundy",
-        "votes": 1,
-        "subgroup": "Japanese"
+        "subgroup": "Asian"
       },
       {
         "name": "Elephant Heart",
         "votes": 1,
-        "subgroup": "Japanese"
+        "subgroup": "Asian"
       },
       {
-        "name": "Flavor Queen",
+        "name": "Santa Rosa",
         "votes": 1,
-        "subgroup": "Japanese"
+        "subgroup": "Asian"
       },
       {
-        "name": "Inca",
+        "name": "Shiro",
         "votes": 1,
-        "subgroup": "Japanese"
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Weeping Santa Rosa",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Wickson",
+        "votes": 1,
+        "subgroup": "Asian"
+      },
+      {
+        "name": "Greengage",
+        "votes": 1,
+        "subgroup": "European"
+      },
+      {
+        "name": "Prune Plum",
+        "votes": 1,
+        "subgroup": "European"
       }
     ]
   },
   {
-    "fruit": "Strawberry",
+    "fruit": "Pomegranate",
     "varieties": [
       {
-        "name": "Firecracker",
+        "name": "Mae",
         "votes": 1
       },
       {
-        "name": "Mara des Bois",
-        "votes": 1
-      },
-      {
-        "name": "San Andreas",
-        "votes": 1
-      },
-      {
-        "name": "Yellow Wonder",
+        "name": "Wonderful",
         "votes": 1
       }
     ]
@@ -972,18 +1042,19 @@ const FRUITS = [
 ];
 
 // ─────────────────────────────────────────────
+// RENDER// ─────────────────────────────────────────────
 // RENDER
 // ─────────────────────────────────────────────
 let activeFilter = "All";
 
 function buildFilterButtons() {
   const select = document.getElementById("filterSelect");
-  const categories = ["Filter by Fruit", ...FRUITS.map(f => f.fruit)];
+  const categories = ["All fruits", ...FRUITS.map(f => f.fruit)];
   select.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join("");
 }
 
 function setFilter(cat) {
-  activeFilter = cat === "Filter by Fruit" ? "All" : cat;
+  activeFilter = cat === "All fruits" ? "All" : cat;
   filterAll();
 }
 
