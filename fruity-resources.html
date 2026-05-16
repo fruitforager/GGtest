@@ -23,7 +23,9 @@
   --bg: #FAF0E6;
   --text: #222;
   --green: #274D31;
+  --green-dark: #21452c;
   --blue: #2f5d8f;
+  --blue-dark: #21425c;
   --border: #d8ccb6;
   --sidebar: 220px;
   --content-width: 1200px;
@@ -39,7 +41,10 @@ body {
   line-height: 1.5;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+strong, b { font-weight: 800; }
 
 .layout {
   display: flex;
@@ -48,7 +53,7 @@ body {
   margin: auto;
 }
 
-/* ── Sidebar & Sticky Header ── */
+/* ── SIDEBAR NAVIGATION ── */
 aside {
   width: var(--sidebar);
   flex-shrink: 0;
@@ -59,7 +64,7 @@ aside {
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .nav-brand {
@@ -67,86 +72,189 @@ aside {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px 16px;
+  padding: 20px 16px 16px;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  margin-bottom: 4px;
 }
 
-.logo { width: 134px; height: auto; margin-bottom: 14px; filter: drop-shadow(0 3px 8px rgba(0,0,0,.22)); }
-.site-title { font-size: 1.05rem; font-weight: 800; color: white; }
-.site-crfg { font-size: .9rem; color: rgba(255,255,255,.75); }
+.logo {
+  width: 134px;
+  height: auto;
+  display: block;
+  margin: 0 auto 14px;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,.22));
+}
 
-nav { display: flex; flex-direction: column; padding: 4px 0 100px; }
-.nav-group-label { font-size: .76rem; font-weight: 800; text-transform: uppercase; color: rgba(255,255,255,0.6); padding: 16px 16px 5px; }
-nav a { color: var(--bg); text-decoration: none; padding: 8px 16px; font-size: .82rem; font-weight: 700; border-left: 3px solid transparent; }
-nav a.active { background: rgba(255,255,255,.14); border-left-color: rgba(255,255,255,.75); }
+.site-title { font-size: 1.05rem; font-weight: 800; color: white; line-height: 1.3; display: block; }
+.site-crfg  { font-size: 0.9rem;  font-weight: 700; color: rgba(255,255,255,0.75); line-height: 1.3; display: block; text-align: center; margin-top: 2px; }
+.site-sub   { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.3; margin-top: 4px; display: block; text-align: center; }
 
-.page { flex: 1; padding: 40px 44px; min-width: 0; }
-.resource-list { list-style: none; padding: 0; margin-top: 26px; display: grid; gap: 14px; }
-.resource-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; background: #FBF6EA; border: 1px solid #E7DCC8; border-radius: 14px; }
-.resource-icon { font-size: 1.5rem; flex-shrink: 0; }
-.resource-title { color: var(--green); font-weight: 800; text-decoration: none; font-size: 1.08rem; }
+nav { display: flex; flex-direction: column; padding: 4px 0 120px; }
+.nav-group { margin-top: 6px; }
+.nav-group-label {
+  font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.85); padding: 16px 16px 5px; display: block; margin-top: 4px;
+}
+nav a {
+  font-size: 0.82rem; font-weight: 700; color: var(--bg); text-decoration: none; padding: 5px 16px;
+  border-left: 3px solid transparent; display: block; line-height: 1.3; transition: background 0.12s;
+  margin-left: 18px;
+}
+nav a:hover, nav a.active {
+  background: rgba(255,255,255,0.1); color: white; border-left-color: rgba(255,255,255,0.75);
+}
 
-/* ── Mobile Logic ── */
 .mobile-header { display: none; }
 
+/* ── CONTENT AREA ── */
+.page { flex: 1; padding: 40px 44px; min-width: 0; }
+
+h2 { color: var(--blue); font-weight: 900; margin-top: 36px; }
+h3 { color: var(--blue); font-weight: 900; margin-top: 36px; }
+p  { margin: 0 0 12px; font-size: 1.1rem; }
+
+.hero h2 { margin-top: 0; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+
+/* ── RESOURCE CARDS ── */
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 26px;
+  display: grid;
+  gap: 14px;
+}
+
+.resource-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  background: #FBF6EA;
+  border: 1px solid #E7DCC8;
+  border-radius: 14px;
+}
+
+.resource-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.resource-title {
+  color: var(--green);
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 1.08rem;
+}
+
+.resource-title:hover { text-decoration: underline; }
+
+.resource-desc { font-size: 1rem; margin-top: 4px; }
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 60px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ── MOBILE ── */
 @media (max-width: 750px) {
   .layout { flex-direction: column; }
-  aside { width: 100%; height: auto; position: sticky; top: 0; overflow: visible; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+
+  aside {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    overflow: visible;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
   .nav-brand { display: none; }
-  
+
   .mobile-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 12px;
-    height: 56px;
+    padding: 12px 16px;
     background: var(--green);
+    z-index: 102;
+    position: relative;
   }
-  .mobile-logo { width: 36px; height: auto; }
-  .mobile-title { font-size: .82rem; font-weight: 800; color: white; }
 
-  /* Window Blind Nav */
+  .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .mobile-logo  { width: 36px; height: auto; }
+  .mobile-title { font-size: 0.88rem; font-weight: 800; color: white; }
+
+  /* Windowshade Menu Dropdown */
   nav {
+    display: flex;
     position: absolute;
-    top: 56px; left: 0; right: 0;
+    top: 100%;
+    left: 0;
+    right: 0;
     background: var(--green);
-    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
     opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    padding-bottom: 12px;
   }
-  nav.open { max-height: 80vh; opacity: 1; overflow-y: auto; }
-  
-  .hamburger {
-    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3);
-    border-radius: 7px; padding: 6px 10px; color: white; cursor: pointer;
-  }
-  
-  .page { padding: 24px 16px; }
-  .resource-item { orphans: auto; widows: auto; }
-}
 
-footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20px; font-size: .85rem; }
+  nav.open { transform: scaleY(1); opacity: 1; pointer-events: auto; }
+
+  nav a {
+    padding: 12px 20px;
+    border-left: none;
+    margin-left: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-group-label { padding: 10px 20px 4px; }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 7px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+  }
+
+  .hamburger svg { width: 16px; height: 16px; stroke: white; fill: none; }
+
+  .page { padding: 24px 16px; }
+}
 </style>
 </head>
 <body>
 
 <div class="layout">
+
 <aside>
   <a href="index.html" class="nav-brand">
     <img class="logo" src="images/CRFG-logo-transparent-web.svg" alt="Golden Gate Chapter CRFG Logo">
     <span class="site-title">Golden Gate Chapter</span>
     <span class="site-crfg">CRFG.org</span>
+    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
   </a>
 
   <div class="mobile-header">
-    <a href="index.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
-      <img class="mobile-logo" src="images/CRFG-logo-transparent-web.svg" alt="Logo">
+    <a href="index.html" class="mobile-brand">
+      <img class="mobile-logo" src="images/CRFG-logo-transparent-web.svg" alt="CRFG Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
-    <button class="hamburger" id="menuToggle">Menu ☰</button>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span>Menu</span>
+    </button>
   </div>
 
   <nav id="navMenu">
@@ -154,14 +262,33 @@ footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20p
       <span class="nav-group-label">🏠 Start Here</span>
       <a href="index.html">About</a>
     </div>
+
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html">Bay Area Favorites</a>
+      <a href="member-guides.html">Member Written Guides</a>
       <a href="fruity-resources.html" class="active">Fruity Resources</a>
     </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🤝 Community</span>
+      <a href="meetings.html">Meetings</a>
+      <a href="online-community.html">Online Community</a>
+    </div>
+
     <div class="nav-group">
       <span class="nav-group-label">✨ Membership</span>
       <a href="join-renew.html">Join / Renew</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🍋 Events</span>
+      <a href="gg-scionexchange.html">Scion Exchange</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-group-label">🌱 Get Plants</span>
+      <a href="where-to-buy.html">Where to Buy</a>
     </div>
   </nav>
 </aside>
@@ -170,9 +297,10 @@ footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20p
 <main>
 <section class="hero">
   <h2>Favorite Fruit-Growing Resources</h2>
-  <p class="small">Recommended websites, research tools, and sustainable gardening resources for Golden Gate Chapter members.</p>
+  <p>Recommended websites, research tools, and sustainable gardening resources for Golden Gate Chapter members.</p>
 
   <div class="resource-list">
+
     <div class="resource-item">
       <div class="resource-icon">🍊</div>
       <div class="resource-content">
@@ -180,31 +308,23 @@ footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20p
         <div class="resource-desc">The main CRFG website with articles and resources for rare fruit growers.</div>
       </div>
     </div>
-    
-  <div class="resource-item">
-    <div class="resource-icon">🌎</div>
-    <div class="resource-content">
-      <a class="resource-title" href="https://nafex.org">
-        North American Fruit Explorers (NAFEX)
-      </a>
-      <div class="resource-desc">
-        A longtime organization for people passionate about finding, growing, and sharing exceptional fruit and nut varieties.
-      </div>
-    </div>
-  </div>
-    
+
     <div class="resource-item">
-    <div class="resource-icon">🏡</div>
-    <div class="resource-content">
-      <a class="resource-title" href="https://www.homeorchardsociety.org">
-        Home Orchard Society
-      </a>
-      <div class="resource-desc">
-        Excellent practical advice for backyard orchardists, including pruning, espalier, and fruit tree care.
+      <div class="resource-icon">🌎</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://nafex.org">North American Fruit Explorers (NAFEX)</a>
+        <div class="resource-desc">A longtime organization for people passionate about finding, growing, and sharing exceptional fruit and nut varieties.</div>
       </div>
     </div>
-  </div>
-  
+
+    <div class="resource-item">
+      <div class="resource-icon">🏡</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://www.homeorchardsociety.org">Home Orchard Society</a>
+        <div class="resource-desc">Excellent practical advice for backyard orchardists, including pruning, espalier, and fruit tree care.</div>
+      </div>
+    </div>
+
     <div class="resource-item">
       <div class="resource-icon">🔬</div>
       <div class="resource-content">
@@ -212,54 +332,38 @@ footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20p
         <div class="resource-desc">Science-based information and research from the University of California.</div>
       </div>
     </div>
-    
-     <div class="resource-item">
-    <div class="resource-icon">🌿</div>
-    <div class="resource-content">
-      <a class="resource-title" href="https://www.kysu.edu/academics/college-ahnr/school-of-anr/pawpaw/index.php">
-        Pawpaw Research Program
-      </a>
-      <div class="resource-desc">
-        Kentucky State University's leading source for pawpaw research, cultivars, and growing information.
-      </div>
-    </div>
-  </div>
 
-  <div class="resource-item">
-    <div class="resource-icon">🌸</div>
-    <div class="resource-content">
-      <a class="resource-title" href="http://www.passiflora-uk.co.uk">
-        Passiflora UK
-      </a>
-      <div class="resource-desc">
-        Detailed information about passionfruit and ornamental Passiflora species from enthusiasts and collectors.
+    <div class="resource-item">
+      <div class="resource-icon">🌿</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://www.kysu.edu/academics/college-ahnr/school-of-anr/pawpaw/index.php">Pawpaw Research Program</a>
+        <div class="resource-desc">Kentucky State University's leading source for pawpaw research, cultivars, and growing information.</div>
       </div>
     </div>
-  </div>
 
-  <div class="resource-item">
-    <div class="resource-icon">🍎</div>
-    <div class="resource-content">
-      <a class="resource-title" href="https://pomiferous.com">
-        Pomiferous
-      </a>
-      <div class="resource-desc">
-        Explore thousands of apple varieties, harvest timing, pollination groups, and growing characteristics.
+    <div class="resource-item">
+      <div class="resource-icon">🌸</div>
+      <div class="resource-content">
+        <a class="resource-title" href="http://www.passiflora-uk.co.uk">Passiflora UK</a>
+        <div class="resource-desc">Detailed information about passionfruit and ornamental Passiflora species from enthusiasts and collectors.</div>
       </div>
     </div>
-  </div>
 
-  <div class="resource-item">
-    <div class="resource-icon">✂️</div>
-    <div class="resource-content">
-      <a class="resource-title" href="SummerPruning_wht1.pdf">
-        Summer Pruning Guide (PDF)
-      </a>
-      <div class="resource-desc">
-        A practical reference for timing and techniques when pruning fruit trees during the growing season.
+    <div class="resource-item">
+      <div class="resource-icon">🍎</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://pomiferous.com">Pomiferous</a>
+        <div class="resource-desc">Explore thousands of apple varieties, harvest timing, pollination groups, and growing characteristics.</div>
       </div>
     </div>
-  </div>
+
+    <div class="resource-item">
+      <div class="resource-icon">✂️</div>
+      <div class="resource-content">
+        <a class="resource-title" href="SummerPruning_wht1.pdf">Summer Pruning Guide (PDF)</a>
+        <div class="resource-desc">A practical reference for timing and techniques when pruning fruit trees during the growing season.</div>
+      </div>
+    </div>
 
     <div class="resource-item">
       <div class="resource-icon">♻️</div>
@@ -276,7 +380,8 @@ footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20p
         <div class="resource-desc">A service that connects gardeners with local arborists to receive free wood chips for mulching and soil building.</div>
       </div>
     </div>
-  </div>
+
+  </div><!-- /.resource-list -->
 </section>
 </main>
 
@@ -284,16 +389,23 @@ footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20p
   <p>Questions or comments? <a href="mailto:golden.gate@crfg.org">Email the Golden Gate Chapter</a>.</p>
   <p>Copyright &copy; 2026 California Rare Fruit Growers, Inc. | <a href="https://crfg.org">California Rare Fruit Growers</a></p>
 </footer>
-</div>
-</div>
+</div><!-- /.page -->
+</div><!-- /.layout -->
 
 <script>
-  const toggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('navMenu');
-  toggle.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    toggle.innerHTML = open ? 'Close ✕' : 'Menu ☰';
+(function () {
+  /* Active nav link */
+  var p = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("#navMenu a").forEach(function (a) {
+    if (a.getAttribute("href") === p) a.classList.add("active");
   });
+  /* Close menu on link click (mobile) */
+  document.querySelectorAll("#navMenu a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      document.getElementById("navMenu").classList.remove("open");
+    });
+  });
+}());
 </script>
 </body>
 </html>
