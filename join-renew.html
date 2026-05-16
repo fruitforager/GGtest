@@ -264,7 +264,6 @@ p {
   margin: 0 0 12px;
   font-size: 1.1rem;
   line-height: 1.55;
-  /* Higher values ensure larger blocks of text stay together during a break */
   orphans: 4; 
   widows: 4;
 }
@@ -491,7 +490,6 @@ hr {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    /* Allow the absolutely-positioned nav to overflow */
     overflow: visible;
   }
 
@@ -520,35 +518,27 @@ hr {
     color: white;
   }
 
-  /* Requirement: Become a chapter member slightly smaller in mobile */
   .member-title {
     font-size: 1.55rem;
     line-height: 1.2;
   }
 
-  /* ── Animated dropdown nav ── */
   nav {
-    /* Float above page content */
     position: absolute;
-    top: 56px;   /* height of mobile header bar */
+    top: 56px;
     left: 0;
     right: 0;
     background: var(--green);
     flex-direction: column;
     padding: 0 0 8px;
-
-    /* Hidden state */
     max-height: 0;
     opacity: 0;
     transform: translateY(-10px);
     overflow: hidden;
-
-    /* Animation */
     transition:
       max-height 0.35s ease,
       opacity    0.25s ease,
       transform  0.35s ease;
-
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     border-top: 1px solid rgba(255,255,255,0.15);
   }
@@ -600,6 +590,12 @@ hr {
   .map-wrap { width: 100%; aspect-ratio: 3 / 4; }
 
   .mail-line { white-space: normal; }
+
+  /* REMOVE widows/orphans for list on mobile */
+  .what-we-do-list li {
+    orphans: auto;
+    widows: auto;
+  }
 }
 
 @media (hover: hover) {
@@ -815,8 +811,8 @@ hr {
 
 <footer>
   <hr>
-  <p>Questions or comments? Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
-  <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
+  <p>Questions or comments? <a href="mailto:golden.gate@crfg.org">Email the Golden Gate Chapter</a>.</p>
+  <p>Copyright &copy; 2026 California Rare Fruit Growers, Inc. | <a href="https://crfg.org">California Rare Fruit Growers</a></p>
 </footer>
 </div>
 
