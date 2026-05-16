@@ -3,508 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fruity Resources</title>
+<title>Fruity Resources — Golden Gate Chapter CRFG</title>
+<meta name="description" content="A curated collection of websites, research tools, and pruning guides recommended by Bay Area fruit growers.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://goldengate.crfg.org/fruity-resources.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Golden Gate Chapter — California Rare Fruit Growers",
+  "url": "https://goldengate.crfg.org",
+  "logo": "https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg"
+}
+</script>
+
 <style>
-:root{
-  --bg:#FAF0E6;
-  --text:#222;
-  --green:#274D31;
-  --green-dark:#21452c;
-  --blue:#2f5d8f;
-  --blue-dark:#21425c;
-  --border:#d8ccb6;
-  --sidebar:220px;
-  --content-width:1200px;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  line-height:1.5;
-  font-size:18px;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
-strong,b{font-weight:800;}
-
-.layout{
-  display:flex;
-  min-height:100vh;
-  max-width:var(--content-width);
-  margin:auto;
+:root {
+  --bg: #FAF0E6;
+  --text: #222;
+  --green: #274D31;
+  --blue: #2f5d8f;
+  --border: #d8ccb6;
+  --sidebar: 220px;
+  --content-width: 1200px;
 }
 
-aside{
-  width:var(--sidebar);
-  flex-shrink:0;
-  background:var(--green);
-  display:flex;
-  flex-direction:column;
-  position:sticky;
-  top:0;
-  height:100vh;
-  overflow-y:auto;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(255,255,255,0.2) transparent;
-}
-.nav-brand{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding:20px 16px 16px;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.15);
-  margin-bottom:4px;
-}
-.logo{
-  width:134px;
-  height:auto;
-  display:block;
-  margin:0 auto 14px;
-  filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
-}
-.site-title{
-  font-size:1.05rem;
-  font-weight:800;
-  color:white;
-  line-height:1.3;
-  display:block;
-}
-.site-crfg{
-  font-size:0.9rem;
-  font-weight:700;
-  color:rgba(255,255,255,0.75);
-  line-height:1.3;
-  display:block;
-  text-align:center;
-  margin-top:2px;
-}
-.site-sub{
-  font-size:0.78rem;
-  font-weight:700;
-  color:rgba(255,255,255,0.85);
-  line-height:1.3;
-  margin-top:4px;
-  display:block;
-  text-align:center;
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
 }
 
-nav{
-  display:flex;
-  flex-direction:column;
-  padding:4px 0 120px;
-}
-.nav-group{margin-top:6px;}
-.nav-group-label{
-  font-size:0.76rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:0.12em;
-  color:rgba(255,255,255,0.85);
-  padding:16px 16px 5px;
-  display:block;
-  margin-top:4px;
-  text-align:left;
-}
-.nav-group:first-child .nav-group-label{
-  margin-top:0;
-  padding-top:10px;
-}
-nav a{
-  font-size:0.82rem;
-  font-weight:700;
-  color:var(--bg);
-  text-decoration:none;
-  padding:5px 16px 5px 16px;
-  border-left:3px solid transparent;
-  display:block;
-  line-height:1.3;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  transition:background 0.12s,color 0.12s,border-color 0.12s,transform 0.12s;
-  text-align:left;
-  margin-left:18px;
-}
-nav a:hover{
-  background:rgba(255,255,255,0.1);
-  color:white;
-}
-nav a.active{
-  background:rgba(255,255,255,0.14);
-  color:white;
-  border-left-color:rgba(255,255,255,0.75);
+.layout {
+  display: flex;
+  min-height: 100vh;
+  max-width: var(--content-width);
+  margin: auto;
 }
 
-.hamburger{display:none;}
-.mobile-header{display:none;}
-
-.page{
-  flex:1;
-  padding:40px 44px 40px 52px;
-  min-width:0;
-}
-.hero{margin-top:10px;}
-.hero h1{
-  font-size:clamp(2rem,3.5vw,3.2rem);
-  line-height:1.18;
-  margin:0 0 28px;
-  max-width:800px;
-  font-weight:900;
-  letter-spacing:-0.005em;
-}
-h2{
-  font-size:clamp(1.65rem,2.65vw,2.75rem);
-  line-height:1.05;
-  margin:44px 0 18px;
-  font-weight:900;
-  orphans:3;
-  widows:3;
-}
-h3{
-  font-size:clamp(1.3rem,2.1vw,2rem);
-  line-height:1.1;
-  margin:36px 0 14px;
-  font-weight:900;
-  orphans:3;
-  widows:3;
-}
-p{
-  margin:0 0 12px;
-  font-size:1.1rem;
-  line-height:1.55;
-  orphans:3;
-  widows:3;
-}
-.small{
-  font-size:1.08rem;
-  line-height:1.6;
-  max-width:52ch;
-}
-.member-title{
-  font-size:1.85rem;
-  font-weight:900;
-  line-height:1.18;
-  margin-bottom:12px;
-}
-.step{
-  margin:20px 0;
-  padding-left:22px;
-  max-width:46ch;
-}
-.step + .step{margin-top:30px;}
-.step p strong{
-  display:inline;
-  margin-bottom:0;
-  line-height:1.4;
-}
-.step p{
-  margin:0;
-  line-height:1.5;
+/* ── Sidebar & Sticky Header ── */
+aside {
+  width: var(--sidebar);
+  flex-shrink: 0;
+  background: var(--green);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1000;
 }
 
-.resource-list{
-  list-style:none;
-  padding:0;
-  margin-top:26px;
-  display:grid;
-  gap:14px;
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.15);
 }
 
-.resource-item{
-  display:flex;
-  gap:16px;
-  align-items:flex-start;
-  padding:18px 20px;
-  background:#FBF6EA;
-  border:1px solid #E7DCC8;
-  border-radius:14px;
-  transition:
-    transform .14s ease,
-    box-shadow .18s ease,
-    border-color .18s ease;
-}
+.logo { width: 134px; height: auto; margin-bottom: 14px; filter: drop-shadow(0 3px 8px rgba(0,0,0,.22)); }
+.site-title { font-size: 1.05rem; font-weight: 800; color: white; }
+.site-crfg { font-size: .9rem; color: rgba(255,255,255,.75); }
 
-.resource-item:hover{
-  transform:translateY(-1px);
-  box-shadow:0 8px 18px rgba(0,0,0,.06);
-  border-color:#d8ccb6;
-}
+nav { display: flex; flex-direction: column; padding: 4px 0 100px; }
+.nav-group-label { font-size: .76rem; font-weight: 800; text-transform: uppercase; color: rgba(255,255,255,0.6); padding: 16px 16px 5px; }
+nav a { color: var(--bg); text-decoration: none; padding: 8px 16px; font-size: .82rem; font-weight: 700; border-left: 3px solid transparent; }
+nav a.active { background: rgba(255,255,255,.14); border-left-color: rgba(255,255,255,.75); }
 
-.resource-icon{
-  font-size:1.5rem;
-  line-height:1;
-  flex-shrink:0;
-  margin-top:2px;
-}
+.page { flex: 1; padding: 40px 44px; min-width: 0; }
+.resource-list { list-style: none; padding: 0; margin-top: 26px; display: grid; gap: 14px; }
+.resource-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; background: #FBF6EA; border: 1px solid #E7DCC8; border-radius: 14px; }
+.resource-icon { font-size: 1.5rem; flex-shrink: 0; }
+.resource-title { color: var(--green); font-weight: 800; text-decoration: none; font-size: 1.08rem; }
 
-.resource-content{
-  min-width:0;
-}
+/* ── Mobile Logic ── */
+.mobile-header { display: none; }
 
-.resource-title{
-  display:inline-block;
-  color:var(--green);
-  font-size:1.08rem;
-  font-weight:800;
-  text-decoration:none;
-  line-height:1.25;
-}
-
-.resource-title:hover{
-  color:var(--blue);
-}
-
-.resource-desc{
-  margin-top:6px;
-  font-size:1rem;
-  line-height:1.5;
-  color:#4b4b4b;
-}
-
-.button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  margin-top:14px;
-  background:var(--blue);
-  color:white;
-  text-decoration:none;
-  padding:12px 16px;
-  border-radius:8px;
-  font-weight:900;
-  font-size:1.08rem;
-  letter-spacing:0.03em;
-  white-space:nowrap;
-  transition:background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-}
-.button:hover{
-  background:var(--blue-dark);
-  transform:translateY(-1px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.14);
-}
-.button:active{
-  transform:translateY(0);
-  box-shadow:0 3px 8px rgba(0,0,0,0.12);
-}
-.button:focus-visible{
-  outline:3px solid rgba(47,93,143,0.35);
-  outline-offset:2px;
-}
-
-.step .button{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  max-width:35ch;
-  text-align:center;
-  margin-top:14px;
-  padding-left:12px;
-  padding-right:12px;
-  background-image:linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
-  box-shadow:0 4px 10px rgba(0,0,0,0.10);
-}
-.step .button:hover{
-  background-image:linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
-}
-
-.pay-logos{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  margin-top:18px;
-  margin-bottom:18px;
-  padding:10px 6px;
-  width:100%;
-  max-width:35ch;
-}
-.pay-logos img{
-  flex:0 0 auto;
-  max-height:22px;
-  width:auto;
-}
-
-.pay-card{
-  margin-top:14px;
-  background:#f6e3d1;
-  border-radius:7px;
-  padding:12px 16px;
-  display:block;
-  font-size:0.9rem;
-  line-height:1.45;
-  color:#555;
-  max-width:48ch;
-  clear:both;
-}
-
-.pay-card a{
-  transition:color 0.18s ease, text-decoration-color 0.18s ease;
-}
-.pay-card a:hover{
-  color:var(--blue-dark);
-  text-decoration:underline;
-}
-
-.mail-line{
-  white-space:nowrap;
-}
-
-ul{
-  padding-left:26px;
-  margin:0;
-}
-li{
-  margin-bottom:6px;
-  font-size:1.05rem;
-  line-height:1.5;
-  orphans:3;
-  widows:3;
-}
-
-footer{
-  margin-top:60px;
-  font-size:0.85rem;
-  line-height:1.3;
-}
-footer p{font-size:0.82rem;}
-hr{
-  border:none;
-  border-top:1px solid var(--border);
-  margin:40px 0;
-}
-
-.bottom-tagline{
-  line-height:1.35;
-  margin-top:44px;
-  margin-bottom:0;
-}
-
-@media(max-width:750px){
-  .layout{flex-direction:column;}
-  aside{width:100%;height:auto;position:relative;}
-  .nav-brand{display:none;}
-  .mobile-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 16px;
+@media (max-width: 750px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: sticky; top: 0; overflow: visible; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .nav-brand { display: none; }
+  
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 56px;
+    background: var(--green);
   }
-  .mobile-brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
+  .mobile-logo { width: 36px; height: auto; }
+  .mobile-title { font-size: .82rem; font-weight: 800; color: white; }
+
+  /* Window Blind Nav */
+  nav {
+    position: absolute;
+    top: 56px; left: 0; right: 0;
+    background: var(--green);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
-  .mobile-logo{width:36px;height:auto;}
-  .mobile-title{
-    font-size:0.88rem;
-    font-weight:800;
-    color:white;
-    line-height:1.2;
+  nav.open { max-height: 80vh; opacity: 1; overflow-y: auto; }
+  
+  .hamburger {
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3);
+    border-radius: 7px; padding: 6px 10px; color: white; cursor: pointer;
   }
-  nav{display:none;padding:0 0 10px;}
-  nav.open{display:flex;}
-  nav a{
-    padding:8px 20px;
-    border-left:none;
-    font-size:0.95rem;
-    margin-left:0;
-  }
-  .nav-group-label{padding:10px 20px 3px;}
-  .hamburger{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.3);
-    border-radius:7px;
-    padding:6px 10px;
-    font-size:0.8rem;
-    font-weight:700;
-    color:white;
-    cursor:pointer;
-    font-family:inherit;
-  }
-  .hamburger svg{
-    width:16px;
-    height:16px;
-    stroke:white;
-    fill:none;
-  }
-  .page{padding:24px 16px;}
-  .hero h1{font-size:clamp(2rem,8vw,3rem);}
-  .button{
-    display:block;
-    width:100%;
-    max-width:none;
-    text-align:center;
-    white-space:normal;
-    line-height:1.25;
-    padding:12px 14px;
-  }
-  .step{
-    padding-left:0;
-    max-width:none;
-  }
-  .step .button,
-  .pay-logos,
-  .pay-card{
-    max-width:none;
-    width:100%;
-  }
-  .pay-logos{
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    padding:12px 6px;
-  }
-  .pay-logos img{
-    max-height:20px;
-  }
-  .bottom-tagline{
-    line-height:1.42;
-  }
+  
+  .page { padding: 24px 16px; }
+  .resource-item { orphans: auto; widows: auto; }
 }
 
-@media (hover:hover){
-  .button:hover{
-    background:var(--blue-dark);
-    transform:translateY(-1px);
-    box-shadow:0 8px 18px rgba(0,0,0,0.14);
-  }
-  .pay-card a:hover{
-    color:var(--blue-dark);
-    text-decoration:underline;
-  }
-}
+footer { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20px; font-size: .85rem; }
 </style>
 </head>
 <body>
 
 <div class="layout">
-
 <aside>
   <a href="index.html" class="nav-brand">
     <img class="logo" src="images/CRFG-logo-transparent-web.svg" alt="Golden Gate Chapter CRFG Logo">
     <span class="site-title">Golden Gate Chapter</span>
     <span class="site-crfg">CRFG.org</span>
-    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
   </a>
 
   <div class="mobile-header">
-    <a href="index.html" class="mobile-brand">
-      <img class="mobile-logo" src="images/CRFG-logo-transparent-web.svg" alt="CRFG Logo">
+    <a href="index.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img class="mobile-logo" src="images/CRFG-logo-transparent-web.svg" alt="Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <span>Menu</span>
-    </button>
+    <button class="hamburger" id="menuToggle">Menu ☰</button>
   </div>
 
   <nav id="navMenu">
@@ -512,61 +154,33 @@ hr{
       <span class="nav-group-label">🏠 Start Here</span>
       <a href="index.html">About</a>
     </div>
-
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html" class="active" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
-      <a href="fruity-resources.html">Fruity Resources</a>
+      <a href="bay-area-zone-favorites.html">Bay Area Favorites</a>
+      <a href="fruity-resources.html" class="active">Fruity Resources</a>
     </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🤝 Community</span>
-      <a href="meetings.html">Meetings</a>
-      <a href="online-community.html">Online Community</a>
-    </div>
-
     <div class="nav-group">
       <span class="nav-group-label">✨ Membership</span>
       <a href="join-renew.html">Join / Renew</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🍋 Events</span>
-      <a href="gg-scionexchange.html">Scion Exchange</a>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-group-label">🌱 Get Plants</span>
-      <a href="where-to-buy.html">Where to Buy</a>
     </div>
   </nav>
 </aside>
 
 <div class="page">
 <main>
-
 <section class="hero">
-<h2>Favorite Fruit-Growing Resources</h2>
+  <h2>Favorite Fruit-Growing Resources</h2>
+  <p class="small">Recommended websites, research tools, and sustainable gardening resources for Golden Gate Chapter members.</p>
 
-<p class="small">
-A collection of websites, research tools, pruning guides, and fruit-growing references recommended by Golden Gate Chapter members.
-</p>
-
-<div class="resource-list">
-
-  <div class="resource-item">
-    <div class="resource-icon">🍊</div>
-    <div class="resource-content">
-      <a class="resource-title" href="https://www.crfg.org">
-        California Rare Fruit Growers (CRFG)
-      </a>
-      <div class="resource-desc">
-        The main CRFG website with articles, fruit information, publications, and resources for rare fruit growers.
+  <div class="resource-list">
+    <div class="resource-item">
+      <div class="resource-icon">🍊</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://www.crfg.org">California Rare Fruit Growers (CRFG)</a>
+        <div class="resource-desc">The main CRFG website with articles and resources for rare fruit growers.</div>
       </div>
     </div>
-  </div>
-
+    
   <div class="resource-item">
     <div class="resource-icon">🌎</div>
     <div class="resource-content">
@@ -578,8 +192,8 @@ A collection of websites, research tools, pruning guides, and fruit-growing refe
       </div>
     </div>
   </div>
-
-  <div class="resource-item">
+    
+    <div class="resource-item">
     <div class="resource-icon">🏡</div>
     <div class="resource-content">
       <a class="resource-title" href="https://www.homeorchardsociety.org">
@@ -590,20 +204,16 @@ A collection of websites, research tools, pruning guides, and fruit-growing refe
       </div>
     </div>
   </div>
-
-  <div class="resource-item">
-    <div class="resource-icon">🔬</div>
-    <div class="resource-content">
-      <a class="resource-title" href="https://fruitsandnuts.ucdavis.edu">
-        UC Fruit &amp; Nut Research Center
-      </a>
-      <div class="resource-desc">
-        University of California research, growing guides, and science-based information for fruit and nut crops.
+  
+    <div class="resource-item">
+      <div class="resource-icon">🔬</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://fruitsandnuts.ucdavis.edu">UC Fruit &amp; Nut Research Center</a>
+        <div class="resource-desc">Science-based information and research from the University of California.</div>
       </div>
     </div>
-  </div>
-
-  <div class="resource-item">
+    
+     <div class="resource-item">
     <div class="resource-icon">🌿</div>
     <div class="resource-content">
       <a class="resource-title" href="https://www.kysu.edu/academics/college-ahnr/school-of-anr/pawpaw/index.php">
@@ -651,16 +261,39 @@ A collection of websites, research tools, pruning guides, and fruit-growing refe
     </div>
   </div>
 
-</div>
+    <div class="resource-item">
+      <div class="resource-icon">♻️</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://www.stopwaste.org">StopWaste</a>
+        <div class="resource-desc">Alameda County's resource for composting, sheet mulching, and sustainable gardening practices perfect for local orchards.</div>
+      </div>
+    </div>
+
+    <div class="resource-item">
+      <div class="resource-icon">🚛</div>
+      <div class="resource-content">
+        <a class="resource-title" href="https://getchipdrop.com">ChipDrop</a>
+        <div class="resource-desc">A service that connects gardeners with local arborists to receive free wood chips for mulching and soil building.</div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-<hr>
-<p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
-<hr>
-<p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
+  <p>Questions or comments? <a href="mailto:golden.gate@crfg.org">Email the Golden Gate Chapter</a>.</p>
+  <p>Copyright &copy; 2026 California Rare Fruit Growers, Inc. | <a href="https://crfg.org">California Rare Fruit Growers</a></p>
 </footer>
 </div>
-<script>(function(){var p=window.location.pathname.split("/").pop()||"index.html";document.querySelectorAll("#navMenu a").forEach(function(a){if(a.getAttribute("href")===p)a.style.background="rgba(47,93,59,0.13)";});}());</script>
+</div>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('navMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.innerHTML = open ? 'Close ✕' : 'Menu ☰';
+  });
+</script>
 </body>
 </html>
