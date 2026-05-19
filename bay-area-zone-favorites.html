@@ -251,11 +251,15 @@ p{
   border: 0;
   display: block;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* Leverage CSS hardware acceleration for buttery smooth 60fps scaling over map layout layers */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* Smooth scaling animation on hover */
 .map-frame:hover iframe {
-  transform: scale(1.05);
+  transform: scale(1.05) translateZ(0);
 }
 
 /* ── Lightbox Overlay Styles ── */
@@ -649,8 +653,8 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 1</div>
       <h3>🌫️ Fog Zone</h3>
       <p class="zone-chill"><strong>‎‎ ‎❄️‎ ‎  100–400 Chill hours</strong></p>
-      <div class="map-frame" onclick="openMapLightbox('https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6')">
-        <iframe src="https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-frame" onclick="openMapLightbox(this)">
+        <iframe data-src="https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6" title="Interactive Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
         <span>Cool summers.</span>
@@ -668,8 +672,8 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 2</div>
       <h3>🌊 Facing the Bay</h3>
       <p class="zone-chill"><strong>‎ ❄️‎  ‎ 400–900 Chill hours</strong></p>
-      <div class="map-frame" onclick="openMapLightbox('https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711')">
-        <iframe src="https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-frame" onclick="openMapLightbox(this)">
+        <iframe data-src="https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711" title="Interactive Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
         <span>Warm summers.</span>
@@ -687,8 +691,8 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 3</div>
       <h3>☀️ Inland</h3>
       <p class="zone-chill"><strong>‎ ‎‎❄️‎‎  ‎  600–1,500 Chill hours</strong></p>
-      <div class="map-frame" onclick="openMapLightbox('https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59')">
-        <iframe src="https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-frame" onclick="openMapLightbox(this)">
+        <iframe data-src="https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59" title="Interactive Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
         <span>Hot summers.</span>
@@ -697,7 +701,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <hr class="zone-rule">
       <p class="zone-desc-short">📍 Includes Concord, Walnut Creek, Lafayette, Danville, San Ramon, Pleasanton, Pittsburg, Antioch, Brentwood, Sunol, Dublin, Fairfield.</p>
       <hr class="zone-rule">
-      <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> Chill hours run 600–1,500, the highest in the chapter, meaning standard and high-chill deciduous varieties that struggle on the coast genuinely thrive. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat fully rips all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
+      <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> Chill hours run 600–1,500, the highest in the chapter, meaning standard and high-chill deciduous varieties that struggle on the coast genuinely thrive. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat fully ripens all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>apricots, cherries, figs, grapes, jujubes, peaches, persimmons, pomegranates</p>
       <a class="card-link" href="zone-favorites/zone3-favorites.html">Member's Inland Favorites →</a>
     </div>
@@ -708,7 +712,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 <div id="mapLightbox" class="map-lightbox" onclick="closeMapLightbox()">
   <div class="lightbox-content" onclick="event.stopPropagation()">
     <button class="lightbox-close" onclick="closeMapLightbox()" aria-label="Close lightbox">&times;</button>
-    <iframe id="lightboxIframe" src="" title="Expanded Interactive Map"></iframe>
   </div>
 </div>
 
@@ -729,22 +732,72 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   });
 }());
 
-/* Lightbox UI Functions */
-function openMapLightbox(mapUrl) {
+/* Highly Optimized Calculated Lazy Loading Strategy for Live Iframes */
+document.addEventListener("DOMContentLoaded", function () {
+  var mapIframes = document.querySelectorAll(".map-frame iframe");
+
+  if ("IntersectionObserver" in window) {
+    var mapObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var iframe = entry.target;
+          iframe.src = iframe.getAttribute("data-src");
+          observer.unobserve(iframe);
+        }
+      });
+    }, {
+      rootMargin: "350px 0px" // Loads maps fluidly 350px right before they roll into viewport
+    });
+
+    mapIframes.forEach(function (iframe) {
+      mapObserver.observe(iframe);
+    });
+  } else {
+    // Fallback for older browsers
+    mapIframes.forEach(function (iframe) {
+      iframe.src = iframe.getAttribute("data-src");
+    });
+  }
+});
+
+/* Lightbox Instant-Clone Strategy Functions */
+function openMapLightbox(clickedFrame) {
   var lightbox = document.getElementById('mapLightbox');
-  var iframe = document.getElementById('lightboxIframe');
-  iframe.src = mapUrl;
+  var contentArea = lightbox.querySelector('.lightbox-content');
+  
+  // Locate the existing live element
+  var liveIframe = clickedFrame.querySelector('iframe');
+  if (!liveIframe || !liveIframe.src) return;
+
+  // Calculate scrollbar offset width to block page layout jumping on desktops
+  var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.paddingRight = scrollbarWidth + 'px';
+  document.body.style.overflow = 'hidden';
+  
+  // Clone current map nodes instantly to avoid redundant API load delays
+  var clonedIframe = liveIframe.cloneNode(true);
+  clonedIframe.id = "lightboxIframe";
+  clonedIframe.removeAttribute('data-src');
+  
+  // Wipe any prior frames inside the target layout destination container
+  var oldIframe = document.getElementById('lightboxIframe');
+  if (oldIframe) oldIframe.remove();
+  
+  contentArea.appendChild(clonedIframe);
+  
+  // Fire animation sequence
   lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden'; // Lock background scrolling
 }
 
 function closeMapLightbox() {
   var lightbox = document.getElementById('mapLightbox');
-  var iframe = document.getElementById('lightboxIframe');
   lightbox.classList.remove('open');
-  document.body.style.overflow = ''; // Restore background scrolling
+  
   setTimeout(function() {
-    iframe.src = ''; // Unload iframe sources cleanly when closed
+    var lightboxIframe = document.getElementById('lightboxIframe');
+    if (lightboxIframe) lightboxIframe.remove(); // Cleanly detach duplicate layout
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
   }, 300);
 }
 </script>
