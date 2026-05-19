@@ -227,19 +227,6 @@ p{
   overflow: hidden;
   position: relative;
   margin: 0 0 20px 0; 
-  cursor: pointer;
-}
-
-/* Cover overlay to intercept interactions so clicking anywhere triggers the lightbox */
-.map-frame::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background: transparent;
 }
 
 .map-frame iframe {
@@ -252,7 +239,7 @@ p{
   display: block;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   
-  /* Leverage CSS hardware acceleration for buttery smooth 60fps scaling over map layout layers */
+  /* Forces GPU processing for buttery-smooth 60fps scaling over map layers */
   will-change: transform;
   transform: translateZ(0);
 }
@@ -260,75 +247,6 @@ p{
 /* Smooth scaling animation on hover */
 .map-frame:hover iframe {
   transform: scale(1.05) translateZ(0);
-}
-
-/* ── Lightbox Overlay Styles ── */
-.map-lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  padding: 40px;
-}
-.map-lightbox.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-.lightbox-content {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  height: 85vh;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 24px 54px rgba(0,0,0,0.4);
-  transform: scale(0.9);
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.map-lightbox.open .lightbox-content {
-  transform: scale(1);
-}
-.lightbox-content iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.lightbox-close {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 42px;
-  text-align: center;
-  cursor: pointer;
-  z-index: 10001;
-  transition: background 0.2s, transform 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.lightbox-close:hover {
-  background: rgba(0, 0, 0, 0.85);
-  transform: scale(1.05);
 }
 
 /* ── Zone cards ── */
@@ -573,13 +491,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     max-height: 60vh; 
   }
   
-  .map-lightbox {
-    padding: 16px;
-  }
-  .lightbox-content {
-    height: 75vh;
-  }
-  
   .zone-cards{grid-template-columns:1fr;}
   .zone-card a.card-link{width:100%;justify-content:center;}
 }
@@ -653,7 +564,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 1</div>
       <h3>🌫️ Fog Zone</h3>
       <p class="zone-chill"><strong>‎‎ ‎❄️‎ ‎  100–400 Chill hours</strong></p>
-      <div class="map-frame" onclick="openMapLightbox(this)">
+      <div class="map-frame">
         <iframe data-src="https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6" title="Interactive Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
@@ -672,7 +583,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 2</div>
       <h3>🌊 Facing the Bay</h3>
       <p class="zone-chill"><strong>‎ ❄️‎  ‎ 400–900 Chill hours</strong></p>
-      <div class="map-frame" onclick="openMapLightbox(this)">
+      <div class="map-frame">
         <iframe data-src="https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711" title="Interactive Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
@@ -691,7 +602,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 3</div>
       <h3>☀️ Inland</h3>
       <p class="zone-chill"><strong>‎ ‎‎❄️‎‎  ‎  600–1,500 Chill hours</strong></p>
-      <div class="map-frame" onclick="openMapLightbox(this)">
+      <div class="map-frame">
         <iframe data-src="https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59" title="Interactive Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
@@ -708,12 +619,6 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 
   </div>
 </main>
-
-<div id="mapLightbox" class="map-lightbox" onclick="closeMapLightbox()">
-  <div class="lightbox-content" onclick="event.stopPropagation()">
-    <button class="lightbox-close" onclick="closeMapLightbox()" aria-label="Close lightbox">&times;</button>
-  </div>
-</div>
 
 <footer>
   <hr>
@@ -732,7 +637,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   });
 }());
 
-/* Highly Optimized Calculated Lazy Loading Strategy for Live Iframes */
+/* Calculated Scroll Offset Lazy Loading Strategy for Live Maps */
 document.addEventListener("DOMContentLoaded", function () {
   var mapIframes = document.querySelectorAll(".map-frame iframe");
 
@@ -746,60 +651,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }, {
-      rootMargin: "350px 0px" // Loads maps fluidly 350px right before they roll into viewport
+      rootMargin: "350px 0px" // Starts rendering map layers fluidly 350px before entering viewport
     });
 
     mapIframes.forEach(function (iframe) {
       mapObserver.observe(iframe);
     });
   } else {
-    // Fallback for older browsers
+    // Legacy fallback
     mapIframes.forEach(function (iframe) {
       iframe.src = iframe.getAttribute("data-src");
     });
   }
 });
-
-/* Lightbox Instant-Clone Strategy Functions */
-function openMapLightbox(clickedFrame) {
-  var lightbox = document.getElementById('mapLightbox');
-  var contentArea = lightbox.querySelector('.lightbox-content');
-  
-  // Locate the existing live element
-  var liveIframe = clickedFrame.querySelector('iframe');
-  if (!liveIframe || !liveIframe.src) return;
-
-  // Calculate scrollbar offset width to block page layout jumping on desktops
-  var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-  document.body.style.paddingRight = scrollbarWidth + 'px';
-  document.body.style.overflow = 'hidden';
-  
-  // Clone current map nodes instantly to avoid redundant API load delays
-  var clonedIframe = liveIframe.cloneNode(true);
-  clonedIframe.id = "lightboxIframe";
-  clonedIframe.removeAttribute('data-src');
-  
-  // Wipe any prior frames inside the target layout destination container
-  var oldIframe = document.getElementById('lightboxIframe');
-  if (oldIframe) oldIframe.remove();
-  
-  contentArea.appendChild(clonedIframe);
-  
-  // Fire animation sequence
-  lightbox.classList.add('open');
-}
-
-function closeMapLightbox() {
-  var lightbox = document.getElementById('mapLightbox');
-  lightbox.classList.remove('open');
-  
-  setTimeout(function() {
-    var lightboxIframe = document.getElementById('lightboxIframe');
-    if (lightboxIframe) lightboxIframe.remove(); // Cleanly detach duplicate layout
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-  }, 300);
-}
 </script>
 </body>
 </html>
