@@ -94,14 +94,38 @@ nav a {
 nav a:hover, nav a.active { background: rgba(255,255,255,0.1); color: white; border-left-color: rgba(255,255,255,0.75); }
 
 /* ── Content Area ── */
-.page { flex: 1; padding: 40px 44px 40px 52px; min-width: 0; }
-h1 { color: var(--blue); font-weight: 900; margin: 0 0 28px; font-size: clamp(2rem,3.5vw,3.2rem); }
-.small { font-size: 1.1rem; margin-bottom: 12px; }
+.page { flex: 1; padding: 18px 44px 40px 52px; min-width: 0; }
+h1 { color: var(--blue); font-weight: 900; margin: 0 0 8px; font-size: clamp(2rem,3.5vw,3.2rem); }
+.small { font-size: 1.1rem; margin-bottom: 4px; }
 
-.resource-list { list-style: none; padding: 0; margin-top: 26px; display: grid; gap: 14px; }
-.resource-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; background: #FBF6EA; border: 1px solid #E7DCC8; border-radius: 14px; }
+/* ── Category Sections ── */
+.category-section { margin-top: 40px; }
+.category-section:first-of-type { margin-top: 26px; }
+
+.category-heading {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+.resource-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.resource-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  background: #ffffff;
+  border: 1px solid #E7DCC8;
+  border-radius: 5px;
+}
 .resource-icon { font-size: 1.5rem; flex-shrink: 0; }
 .resource-title { color: var(--green); font-weight: 800; text-decoration: none; font-size: 1.08rem; }
+.resource-title:hover { text-decoration: underline; }
 .resource-desc { margin-top: 4px; font-size: 1rem; color: #444; }
 
 /* ── Mobile ── */
@@ -185,87 +209,174 @@ hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
   <h1>Our Favorite Fruity Resources</h1>
   <p class="small">Recommended websites, research tools, and sustainable gardening resources for Golden Gate Chapter members.</p>
 
-  <div class="resource-list">
-    <div class="resource-item">
-      <div class="resource-icon">🍊</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://www.crfg.org">California Rare Fruit Growers (CRFG)</a>
-        <div class="resource-desc">The main CRFG website with articles and resources for rare fruit growers.</div>
-      </div>
-    </div>
-    
-    <div class="resource-item">
-      <div class="resource-icon">🌎</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://nafex.org">North American Fruit Explorers (NAFEX)</a>
-        <div class="resource-desc">Finding, growing, and sharing exceptional fruit and nut varieties.</div>
-      </div>
-    </div>
+  <!-- Fruit Growing & Research -->
+  <div class="category-section">
+    <div class="category-heading">🍊 Fruit Growing &amp; Research</div>
+    <div class="resource-list">
 
-    <div class="resource-item">
-      <div class="resource-icon">🏡</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://www.homeorchardsociety.org">Home Orchard Society</a>
-        <div class="resource-desc">Practical advice for backyard orchardists, including pruning and fruit tree care.</div>
+      <div class="resource-item">
+        <div class="resource-icon">🍊</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://www.crfg.org">California Rare Fruit Growers (CRFG)</a>
+          <div class="resource-desc">Discover rare fruit-growing techniques, browse expert articles and educational resources, and connect with a community passionate about cultivating unusual and rewarding fruit varieties.</div>
+        </div>
       </div>
-    </div>
 
-    <div class="resource-item">
-      <div class="resource-icon">🔬</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://fruitsandnuts.ucdavis.edu">UC Fruit &amp; Nut Research Center</a>
-        <div class="resource-desc">Science-based information and research from the University of California.</div>
+      <div class="resource-item">
+        <div class="resource-icon">🌎</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://nafex.org">North American Fruit Explorers (NAFEX)</a>
+          <div class="resource-desc">Explore exceptional fruit and nut varieties, exchange ideas with fellow enthusiasts, and uncover growing knowledge focused on uncommon edible plants.</div>
+        </div>
       </div>
-    </div>
 
-    <div class="resource-item">
-      <div class="resource-icon">🌿</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://www.kysu.edu/academics/college-ahnr/school-of-anr/pawpaw/index.php">Pawpaw Research Program</a>
-        <div class="resource-desc">KSU's leading source for pawpaw research, cultivars, and growing information.</div>
+      <div class="resource-item">
+        <div class="resource-icon">🏡</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://www.homeorchardsociety.org">Home Orchard Society</a>
+          <div class="resource-desc">Gain practical advice for backyard orchards, improve pruning skills, and navigate fruit tree care with accessible guidance for growers of all experience levels.</div>
+        </div>
       </div>
-    </div>
 
-    <div class="resource-item">
-      <div class="resource-icon">🌸</div>
-      <div class="resource-content">
-        <a class="resource-title" href="http://www.passiflora-uk.co.uk">Passiflora UK</a>
-        <div class="resource-desc">Information about passionfruit and ornamental Passiflora species.</div>
+      <div class="resource-item">
+        <div class="resource-icon">🔬</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://fruitsandnuts.ucdavis.edu">UC Fruit &amp; Nut Research Center</a>
+          <div class="resource-desc">Access university-backed research, examine science-based growing information, and stay informed about fruit and nut production, varieties, and orchard management.</div>
+        </div>
       </div>
-    </div>
 
-    <div class="resource-item">
-      <div class="resource-icon">🍎</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://pomiferous.com">Pomiferous</a>
-        <div class="resource-desc">Explore thousands of apple varieties, harvest timing, and characteristics.</div>
+      <div class="resource-item">
+        <div class="resource-icon">🌿</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://www.kysu.edu/academics/college-ahnr/school-of-anr/pawpaw/index.php">Pawpaw Research Program</a>
+          <div class="resource-desc">Investigate pawpaw cultivars, follow current research and breeding efforts, and deepen your understanding of one of North America's most unique native fruits.</div>
+        </div>
       </div>
-    </div>
 
-    <div class="resource-item">
-      <div class="resource-icon">✂️</div>
-      <div class="resource-content">
-        <a class="resource-title" href="SummerPruning_wht1.pdf">Summer Pruning Guide (PDF)</a>
-        <div class="resource-desc">Timing and techniques for pruning fruit trees during the growing season.</div>
+      <div class="resource-item">
+        <div class="resource-icon">🌸</div>
+        <div class="resource-content">
+          <a class="resource-title" href="http://www.passiflora-uk.co.uk">Passiflora UK</a>
+          <div class="resource-desc">Browse detailed information on passionfruit and ornamental Passiflora species, identify new varieties, and expand your knowledge of cultivation and care.</div>
+        </div>
       </div>
-    </div>
 
-    <div class="resource-item">
-      <div class="resource-icon">♻️</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://www.stopwaste.org">StopWaste</a>
-        <div class="resource-desc">Alameda County's resource for composting and sustainable gardening practices.</div>
+      <div class="resource-item">
+        <div class="resource-icon">🍎</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://pomiferous.com">Pomiferous</a>
+          <div class="resource-desc">Search thousands of apple varieties, compare harvest timing and flavor characteristics, and trace the diversity and history of apples worldwide.</div>
+        </div>
       </div>
-    </div>
 
-    <div class="resource-item">
-      <div class="resource-icon">🚛</div>
-      <div class="resource-content">
-        <a class="resource-title" href="https://getchipdrop.com">ChipDrop</a>
-        <div class="resource-desc">Connecting gardeners with arborists for free wood chips for mulching.</div>
-      </div>
     </div>
   </div>
+
+  <!-- Orchard Care & Pruning -->
+  <div class="category-section">
+    <div class="category-heading">🌱 Orchard Care &amp; Pruning</div>
+    <div class="resource-list">
+
+      <div class="resource-item">
+        <div class="resource-icon">✂️</div>
+        <div class="resource-content">
+          <a class="resource-title" href="SummerPruning_wht1.pdf">Summer Pruning Guide (PDF)</a>
+          <div class="resource-desc">Master seasonal pruning techniques, understand proper timing, and strengthen fruit tree health and productivity throughout the growing season.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Fruit Sharing & Community Harvesting -->
+  <div class="category-section">
+    <div class="category-heading">🍐 Fruit Sharing &amp; Community Harvesting</div>
+    <div class="resource-list">
+
+      <div class="resource-item">
+        <div class="resource-icon">🍐</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://www.villageharvest.org">Village Harvest</a>
+          <div class="resource-desc">Share excess fruit, volunteer for community harvests, and support local food access through one of the Bay Area's longest-running gleaning organizations.</div>
+        </div>
+      </div>
+
+      <div class="resource-item">
+        <div class="resource-icon">🍊</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://oaklandgleaners.org">Oakland Gleaners</a>
+          <div class="resource-desc">Donate surplus backyard fruit, participate in neighborhood harvests, and help connect fresh produce with East Bay food distribution efforts.</div>
+        </div>
+      </div>
+
+      <div class="resource-item">
+        <div class="resource-icon">🌿</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://climateroots.org/tree-gleaning/">Climate Roots Tree Gleaning</a>
+          <div class="resource-desc">Volunteer to harvest backyard fruit, support local food security, and help redirect excess produce to community organizations.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Sustainable Gardening & Urban Agriculture -->
+  <div class="category-section">
+    <div class="category-heading">🌼 Sustainable Gardening &amp; Urban Agriculture</div>
+    <div class="resource-list">
+
+      <div class="resource-item">
+        <div class="resource-icon">🌱</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://www.bayfriendly.org">Bay-Friendly Gardening</a>
+          <div class="resource-desc">Build healthier soil, improve mulch and compost practices, and adopt sustainable landscaping techniques suited to Bay Area gardens.</div>
+        </div>
+      </div>
+
+      <div class="resource-item">
+        <div class="resource-icon">🥕</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://foodwise.org">Foodwise</a>
+          <div class="resource-desc">Connect with local farms, attend educational programs, and strengthen your understanding of seasonal food and sustainable agriculture.</div>
+        </div>
+      </div>
+
+      <div class="resource-item">
+        <div class="resource-icon">🍋</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://urbansprouts.org/just-one-tree/">Just One Tree / Urban Sprouts</a>
+          <div class="resource-desc">Support urban food resilience, register backyard citrus trees, and help strengthen San Francisco's community fruit network.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Compost, Mulch & Soil Resources -->
+  <div class="category-section">
+    <div class="category-heading">♻️ Compost, Mulch &amp; Soil Resources</div>
+    <div class="resource-list">
+
+      <div class="resource-item">
+        <div class="resource-icon">♻️</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://www.stopwaste.org/at-home/home-garden/free-compost-and-mulch">StopWaste Free Compost &amp; Mulch</a>
+          <div class="resource-desc">Locate compost giveaways, access mulch resources, and improve garden soil through Alameda County sustainability programs.</div>
+        </div>
+      </div>
+
+      <div class="resource-item">
+        <div class="resource-icon">🚛</div>
+        <div class="resource-content">
+          <a class="resource-title" href="https://getchipdrop.com">ChipDrop</a>
+          <div class="resource-desc">Request free arborist wood chips, mulch fruit trees, and conserve soil moisture while improving long-term soil health.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </main>
 
 <footer>
