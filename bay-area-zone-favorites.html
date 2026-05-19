@@ -217,6 +217,7 @@ p{
 }
 
 /* ── Map Wrap ── */
+/* ── Updated Map Wrap Styles ── */
 .map-frame {
   width: 100%;
   max-width: 100%; 
@@ -227,6 +228,28 @@ p{
   overflow: hidden;
   position: relative;
   margin: 0 0 20px 0; 
+  
+  /* Enables responsive touch feedback instantly on mobile tap/hold */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 1. Add an invisible layer to intercept mobile touch events so the animation triggers first */
+.map-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: transparent;
+}
+
+/* If a user hovers or taps and holds, remove the interceptor layer to let them scroll the live map */
+.map-frame:has(iframe[src]):hover::after,
+.map-frame:has(iframe[src]):active::after {
+  display: none;
 }
 
 .map-frame iframe {
@@ -237,16 +260,20 @@ p{
   height: 100%;
   border: 0;
   display: block;
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   
-  /* Forces GPU processing for buttery-smooth 60fps scaling over map layers */
+  /* CSS transition using ease-out for faster visual responsiveness */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* HARDWARE ACCELERATION: Forces GPU layer compositing to bypass CPU layout redraws */
   will-change: transform;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0) scale(1);
+  backface-visibility: hidden;
 }
 
-/* Smooth scaling animation on hover */
-.map-frame:hover iframe {
-  transform: scale(1.05) translateZ(0);
+/* Smooth scaling animation triggered on desktop hover OR mobile touch/active states */
+.map-frame:hover iframe,
+.map-frame:active iframe {
+  transform: translate3d(0, 0, 0) scale(1.05);
 }
 
 /* ── Zone cards ── */
