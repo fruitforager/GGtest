@@ -3,7 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Online Community Golden Gate CRFG Chapter</title>
+<title>Online Community — Golden Gate Chapter CRFG</title>
+
+<meta name="description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings — powered by Groups.io.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Golden Gate Chapter, California Rare Fruit Growers">
+<link rel="canonical" href="https://goldengate.crfg.org/online-community.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Online Community — Golden Gate Chapter CRFG">
+<meta property="og:description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.">
+<meta property="og:url" content="https://goldengate.crfg.org/online-community.html">
+<meta property="og:site_name" content="Golden Gate Chapter — California Rare Fruit Growers">
+<meta property="og:image" content="https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Online Community — Golden Gate Chapter CRFG">
+<meta name="twitter:description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.">
+<meta name="twitter:image" content="https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Golden Gate Chapter — California Rare Fruit Growers",
+      "url": "https://goldengate.crfg.org",
+      "logo": "https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Online Community",
+      "description": "Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.",
+      "url": "https://goldengate.crfg.org/online-community.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Golden Gate Chapter — California Rare Fruit Growers",
+        "url": "https://goldengate.crfg.org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://goldengate.crfg.org/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Online Community",
+          "item": "https://goldengate.crfg.org/online-community.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <style>
 :root{
@@ -16,23 +77,13 @@
   --border:#d8ccb6;
   --sidebar:220px;
   --content-width:1200px;
-  --lavender:#d7d0ea;
-  --lavender-soft:#eeeaf7;
-  --lavender-warm:#f6f2fb;
-  --sage-soft:#eef4ee;
-  --cream-card:#fbf6ef;
-  --cream-card-2:#f7f1e8;
-  --accent:#6b4c6e;
-  --accent-soft:#f1e8f4;
 }
 
 *{box-sizing:border-box;}
 
 body{
   margin:0;
-  background:
-    radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 30%),
-    linear-gradient(180deg, #fbf4ee 0%, var(--bg) 38%, #f7efe3 100%);
+  background:var(--bg);
   color:var(--text);
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   font-size:17px;
@@ -85,6 +136,7 @@ aside{
 .site-sub{
   color:rgba(255,255,255,0.8);
   font-size:0.85rem;
+  font-weight:800;
   text-align:center;
 }
 
@@ -129,11 +181,7 @@ nav a:hover{
 }
 
 .hero{
-  background:linear-gradient(135deg, rgba(255,255,255,0.34), var(--lavender-warm));
-  border:1px solid rgba(215,204,182,0.9);
-  border-radius:16px;
-  padding:24px 24px 22px;
-  box-shadow:0 10px 26px rgba(0,0,0,0.05);
+  padding:0 0 22px;
 }
 .hero h1{
   font-size:clamp(1.9rem,3.2vw,3.1rem);
@@ -142,21 +190,6 @@ nav a:hover{
   font-weight:900;
   line-height:1.12;
   letter-spacing:-0.015em;
-}
-.hero .eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-size:0.75rem;
-  font-weight:900;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--accent);
-  background:var(--accent-soft);
-  border:1px solid rgba(107,76,110,0.14);
-  border-radius:999px;
-  padding:5px 11px;
-  margin-bottom:12px;
 }
 .hero p{
   max-width:64ch;
@@ -190,11 +223,10 @@ h2{
   margin:16px 0 20px;
 }
 .feature{
-  background:linear-gradient(180deg, var(--lavender-soft), var(--sage-soft));
-  border:1px solid rgba(215,204,182,0.8);
-  border-radius:14px;
+  background:#ffffff;
+  border:1px solid #e3dccf;
+  border-radius:5px;
   padding:15px 15px 14px;
-  box-shadow:0 3px 10px rgba(0,0,0,0.04);
 }
 .feature .icon{
   display:inline-flex;
@@ -209,8 +241,8 @@ h2{
 }
 .feature h3{
   margin:0 0 8px;
-  color:var(--green);
-  font-size:0.98rem;
+  color:var(--blue);
+  font-size:1.08rem;
   line-height:1.22;
 }
 .feature p{
@@ -229,17 +261,21 @@ h2{
 }
 
 .card{
-  background:linear-gradient(180deg, var(--cream-card), var(--cream-card-2));
-  border:1px solid rgba(215,204,182,0.95);
-  border-radius:16px;
+  background:#ffffff;
+  border:1px solid #e3dccf;
+  border-radius:5px;
   padding:18px 20px;
-  box-shadow:0 8px 22px rgba(0,0,0,0.05);
 }
 .card h3{
-  margin:0 0 10px;
-  color:var(--blue);
-  font-size:1.12rem;
-  line-height:1.2;
+  margin:0 0 4px;
+  color:var(--green);
+  font-size:1.05rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  border-bottom:2px solid var(--border);
+  padding-bottom:8px;
+  margin-bottom:12px;
 }
 .card p{
   margin:0 0 11px;
@@ -272,34 +308,23 @@ ol li{
 }
 
 .signup-card{
-  background:linear-gradient(180deg, var(--lavender-warm), #f7f2fb);
-  border:1px solid rgba(215,204,182,0.95);
-  border-radius:14px;
+  background:#ffffff;
+  border:1px solid #e3dccf;
+  border-radius:5px;
   padding:18px 18px 17px;
-  box-shadow:0 10px 22px rgba(0,0,0,0.06);
   position:sticky;
   top:18px;
 }
-.signup-card .label{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:10px;
-  color:var(--accent);
-  font-size:0.74rem;
-  font-weight:900;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  background:var(--accent-soft);
-  border:1px solid rgba(107,76,110,0.14);
-  border-radius:999px;
-  padding:5px 11px;
-}
 .signup-card h3{
-  margin:0 0 8px;
-  color:var(--blue);
-  font-size:1.15rem;
-  line-height:1.12;
+  margin:0 0 4px;
+  color:var(--green);
+  font-size:1.05rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  border-bottom:2px solid var(--border);
+  padding-bottom:8px;
+  margin-bottom:12px;
 }
 .signup-card p{
   margin:0 0 12px;
@@ -344,13 +369,12 @@ ol li{
   font-size:1rem;
   color:white;
   cursor:pointer;
-  background:linear-gradient(to bottom,#3a6f9f,#2f5d8f,#2b547f);
-  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  background:var(--blue);
+  transition:transform .15s ease, box-shadow .15s ease;
 }
 .signup-card input[type="submit"]:hover{
   transform:translateY(-1px);
   box-shadow:0 10px 18px rgba(0,0,0,0.12);
-  filter:saturate(1.05);
 }
 .signup-card input[type="submit"]:focus-visible{
   outline:3px solid rgba(47,93,143,0.35);
@@ -366,9 +390,9 @@ ol li{
   display:flex;
   gap:10px;
   align-items:flex-start;
-  background:linear-gradient(180deg, rgba(238,234,247,0.75), rgba(238,244,238,0.8));
-  border:1px solid rgba(215,204,182,0.7);
-  border-radius:12px;
+  background:#ffffff;
+  border:1px solid #e3dccf;
+  border-radius:5px;
   padding:12px 13px;
 }
 .step .num{
@@ -408,11 +432,11 @@ ol li{
 }
 
 footer{
-  margin-top:54px;
+  margin-top:60px;
+  border-top:1px solid var(--border);
+  padding-top:40px;
   font-size:0.85rem;
-  line-height:1.3;
 }
-footer p{font-size:0.82rem;}
 hr{
   border:none;
   border-top:1px solid var(--border);
@@ -472,10 +496,6 @@ hr{
     fill:none;
   }
   .page{padding:24px 16px;}
-  .hero{
-    padding:20px 17px 18px;
-    border-radius:14px;
-  }
   .hero h1{font-size:clamp(2rem,8vw,2.8rem);}
   .hero p{font-size:0.96rem;}
   .section{max-width:none;}
@@ -556,39 +576,37 @@ hr{
   <div class="page">
     <main>
       <section class="hero">
-        <div class="eyebrow">Online community</div>
-        <h1>Connect Between Meetings</h1>
+        <h1>Join the Conversation</h1>
         <p>
-          Stay connected with Golden Gate Chapter members and Bay Area fruit growers.
-          Share experiences, ask questions, and continue conversations between meetings.
+          The Golden Gate Chapter online community is where members stay in touch between meetings — asking questions, sharing harvests, and trading notes with Bay Area fruit growers year-round.
         </p>
         <p>
-          Tell your story, compare notes on what is thriving, and learn from the successes and surprises of other local growers.
+          Post what's ripening in your garden, troubleshoot problems with people who grow the same plants, and build on the knowledge of growers who've been at it for decades.
         </p>
       </section>
 
       <section class="section">
-        <h2>💬 Join the Conversation</h2>
+        <h2>💬 How to Connect Between Meetings</h2>
         <p class="section-intro">
-          Membership requests are reviewed to keep the community active and spam-free.
-          Once you join, you can ask questions, share photos, and learn from other local growers.
+          Membership requests are reviewed to keep the group active and spam-free.
+          Once approved, tap into local growing knowledge, get answers fast, and contribute your own experience to the mix.
         </p>
 
         <div class="feature-grid">
           <div class="feature">
             <div class="icon">🌿</div>
             <h3>Local growing tips</h3>
-            <p>Learn what works in Bay Area microclimates, from foggy coast to inland heat, and hear how others adapt their orchards over time.</p>
+            <p>Dig into what works across Bay Area microclimates — from foggy coastal strips to inland heat pockets — and pick up hard-won adaptations from members who've trialed the same varieties.</p>
           </div>
           <div class="feature">
             <div class="icon">💬</div>
             <h3>Member questions</h3>
-            <p>Ask about fruit trees, varieties, pests, pruning, and seasonal timing, and compare your results with growers who have tried the same plants.</p>
+            <p>Bring your toughest questions about fruit trees, pests, pruning, and timing — then compare notes with growers who've wrestled with the exact same problems in similar conditions.</p>
           </div>
           <div class="feature">
             <div class="icon">📷</div>
             <h3>Share photos</h3>
-            <p>Post blossoms, harvests, and problem plants so others can help identify and advise, and so everyone can see what is happening in real gardens.</p>
+            <p>Capture blossoms, harvests, and mystery ailments and post them for the group — get rapid identification help and let others see what's actually happening in real Bay Area gardens right now.</p>
           </div>
         </div>
 
@@ -596,15 +614,10 @@ hr{
           <div class="card">
             <h3>How it works</h3>
             <ol>
-              <li>Share a brief note about your interest in fruit growing.</li>
-              <li>Complete the signup and verification process.</li>
-              <li>Email us if you need help getting started.</li>
+              <li>Introduce yourself briefly — tell us what you grow, what you're hoping to learn, or what corner of the Bay Area you're gardening in.</li>
+              <li>Complete the signup form and confirm your email address so we know you're a real person with a genuine interest in fruit growing.</li>
+              <li>Reach out to us directly at <a href="mailto:golden_gate@crfg.org" style="color:var(--blue);font-weight:800;text-decoration:none;">golden_gate@crfg.org</a> if anything gets stuck or you don't hear back within a few days.</li>
             </ol>
-
-            <p class="small">
-              Questions? Email
-              <a href="mailto:golden_gate@crfg.org">golden_gate@crfg.org</a>
-            </p>
 
             <div class="footer-note">
               New here? Start with the <a href="member-guides.html">member guides</a> or browse <a href="bay-area-zone-favorites.html">Bay Area fruit favorites</a>.
@@ -612,10 +625,9 @@ hr{
           </div>
 
           <div class="signup-card">
-            <div class="label">Join the community</div>
             <h3>Request access</h3>
             <p>
-              Fill out the form below to request membership in the Golden Gate Chapter online community.
+              Enter your email below to request membership and start connecting with Bay Area fruit growers.
             </p>
 
             <form action="https://groups.io/g/goldengatecrfg/signup?u=7714720136544229230"
@@ -641,13 +653,24 @@ hr{
     </main>
 
     <footer>
-      <hr>
-      <p>Questions or comments? Email the <a href="mailto:golden_gate@crfg.org">Golden Gate Chapter</a>.</p>
-      <hr>
-      <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc (CRFG.org).</p>
+      <p>Questions or comments? <br>
+      Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+      <p>Copyright &copy; 2026 <br>
+      California Rare Fruit Growers Inc. | <a href="https://crfg.org">CRFG.org</a></p>
     </footer>
   </div>
 </div>
 
+<script>
+(function () {
+  var p = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("#navMenu a").forEach(function (a) {
+    if (a.getAttribute("href") === p) a.classList.add("active");
+  });
+  document.querySelectorAll("#navMenu a").forEach(link => {
+    link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('open'));
+  });
+}());
+</script>
 </body>
 </html>
