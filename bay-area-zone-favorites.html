@@ -5,20 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bay Area Fruit Favorites by Climate Zone | CRFG Golden Gate</title>
 
-<!-- Standard SEO Metadata -->
 <meta name="description" content="Discover the best fruit varieties to grow in the San Francisco Bay Area. Recommended varieties chosen by CRFG members across the Fog Zone, Bay-Facing, and Inland microclimates.">
 <meta name="keywords" content="CRFG, California Rare Fruit Growers, Golden Gate Chapter, Bay Area gardening, fruit trees, microclimates, climate zones, urban farming, growing fruit San Francisco">
 <meta name="author" content="California Rare Fruit Growers, Inc. - Golden Gate Chapter">
 <link rel="canonical" href="https://crfg.org/chapters/golden-gate/bay-area-zone-favorites.html">
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://crfg.org/chapters/golden-gate/bay-area-zone-favorites.html">
 <meta property="og:title" content="Bay Area Fruit Favorites by Climate Zone | CRFG Golden Gate">
 <meta property="og:description" content="Find the perfect fruit varieties for your specific Bay Area microclimate. Verified recommendations from local amateur and professional growers.">
 <meta property="og:image" content="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg">
 
-<!-- Twitter Card Data -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bay Area Fruit Favorites by Climate Zone | CRFG Golden Gate">
 <meta name="twitter:description" content="Explore interactive maps and fruit profiles broken down across three distinct Bay Area microclimates.">
@@ -230,6 +227,19 @@ p{
   overflow: hidden;
   position: relative;
   margin: 0 0 20px 0; 
+  cursor: pointer;
+}
+
+/* Cover overlay to intercept interactions so clicking anywhere triggers the lightbox */
+.map-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: transparent;
 }
 
 .map-frame iframe {
@@ -240,6 +250,81 @@ p{
   height: 100%;
   border: 0;
   display: block;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Smooth scaling animation on hover */
+.map-frame:hover iframe {
+  transform: scale(1.05);
+}
+
+/* ── Lightbox Overlay Styles ── */
+.map-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 40px;
+}
+.map-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 85vh;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 54px rgba(0,0,0,0.4);
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.map-lightbox.open .lightbox-content {
+  transform: scale(1);
+}
+.lightbox-content iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 42px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10001;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-close:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: scale(1.05);
 }
 
 /* ── Zone cards ── */
@@ -484,6 +569,13 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     max-height: 60vh; 
   }
   
+  .map-lightbox {
+    padding: 16px;
+  }
+  .lightbox-content {
+    height: 75vh;
+  }
+  
   .zone-cards{grid-template-columns:1fr;}
   .zone-card a.card-link{width:100%;justify-content:center;}
 }
@@ -557,7 +649,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 1</div>
       <h3>🌫️ Fog Zone</h3>
       <p class="zone-chill"><strong>‎‎ ‎❄️‎ ‎  100–400 Chill hours</strong></p>
-      <div class="map-frame">
+      <div class="map-frame" onclick="openMapLightbox('https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6')">
         <iframe src="https://api.ultimaps.com/player/6adbd83b-cfdd-4176-8c52-1e685dce49b6" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
@@ -576,7 +668,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 2</div>
       <h3>🌊 Facing the Bay</h3>
       <p class="zone-chill"><strong>‎ ❄️‎  ‎ 400–900 Chill hours</strong></p>
-      <div class="map-frame">
+      <div class="map-frame" onclick="openMapLightbox('https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711')">
         <iframe src="https://api.ultimaps.com/player/798a7c3f-8212-458b-a64d-3301230d1711" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
@@ -595,7 +687,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <div class="zone-label">Zone 3</div>
       <h3>☀️ Inland</h3>
       <p class="zone-chill"><strong>‎ ‎‎❄️‎‎  ‎  600–1,500 Chill hours</strong></p>
-      <div class="map-frame">
+      <div class="map-frame" onclick="openMapLightbox('https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59')">
         <iframe src="https://api.ultimaps.com/player/268d2c3c-104e-485f-b19e-5f6e62342d59" title="Interactive Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <h4 class="zone-desc-title">
@@ -605,7 +697,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
       <hr class="zone-rule">
       <p class="zone-desc-short">📍 Includes Concord, Walnut Creek, Lafayette, Danville, San Ramon, Pleasanton, Pittsburg, Antioch, Brentwood, Sunol, Dublin, Fairfield.</p>
       <hr class="zone-rule">
-      <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> Chill hours run 600–1,500, the highest in the chapter, meaning standard and high-chill deciduous varieties that struggle on the coast genuinely thrive. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat fully ripens all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
+      <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> Chill hours run 600–1,500, the highest in the chapter, meaning standard and high-chill deciduous varieties that struggle on the coast genuinely thrive. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat fully rips all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>apricots, cherries, figs, grapes, jujubes, peaches, persimmons, pomegranates</p>
       <a class="card-link" href="zone-favorites/zone3-favorites.html">Member's Inland Favorites →</a>
     </div>
@@ -613,16 +705,19 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   </div>
 </main>
 
+<div id="mapLightbox" class="map-lightbox" onclick="closeMapLightbox()">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeMapLightbox()" aria-label="Close lightbox">&times;</button>
+    <iframe id="lightboxIframe" src="" title="Expanded Interactive Map"></iframe>
+  </div>
+</div>
+
 <footer>
   <hr>
   <p>Questions or comments? Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
   <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
 </footer>
-</div><!-- /.page -->
-
-</div><!-- /.layout -->
-
-<script>
+</div></div><script>
 (function () {
   var p = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("#navMenu a").forEach(function (a) {
@@ -633,6 +728,25 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     }
   });
 }());
+
+/* Lightbox UI Functions */
+function openMapLightbox(mapUrl) {
+  var lightbox = document.getElementById('mapLightbox');
+  var iframe = document.getElementById('lightboxIframe');
+  iframe.src = mapUrl;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden'; // Lock background scrolling
+}
+
+function closeMapLightbox() {
+  var lightbox = document.getElementById('mapLightbox');
+  var iframe = document.getElementById('lightboxIframe');
+  lightbox.classList.remove('open');
+  document.body.style.overflow = ''; // Restore background scrolling
+  setTimeout(function() {
+    iframe.src = ''; // Unload iframe sources cleanly when closed
+  }, 300);
+}
 </script>
 </body>
 </html>
