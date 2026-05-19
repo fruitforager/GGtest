@@ -8,7 +8,7 @@
 <title>Directions to DVC Campus | Golden Gate Chapter CRFG Scion Exchange</title>
 <meta name="description" content="Driving directions and public transit routes to Diablo Valley College (DVC) in Pleasant Hill, CA for the Golden Gate Chapter CRFG Scion Exchange. Includes BART bus connections, highway routes from SF, Marin, Hayward, and Martinez, plus campus maps to the Horticulture Building." />
 <meta name="keywords" content="DVC directions, Diablo Valley College directions, CRFG Scion Exchange, Golden Gate Chapter CRFG, Pleasant Hill CA, Horticulture Building DVC, BART to DVC, scion exchange Bay Area" />
-<link rel="canonical" href="https://www.goldengatecrfg.org/dvc-directions.html" />
+<link rel="canonical" href="https://golden-gate.crfg.org/dvc-directions.html" />
 <meta name="robots" content="index, follow" />
 <meta name="author" content="Golden Gate Chapter, California Rare Fruit Growers" />
 
@@ -17,8 +17,7 @@
 <meta property="og:site_name" content="Golden Gate Chapter CRFG" />
 <meta property="og:title" content="Directions to DVC Campus | CRFG Scion Exchange" />
 <meta property="og:description" content="Get driving directions and BART bus routes to Diablo Valley College for the Golden Gate Chapter CRFG Scion Exchange. Includes campus maps to the Horticulture Building." />
-<meta property="og:url" content="https://www.goldengatecrfg.org/dvc-directions.html" />
-<meta property="og:image" content="https://www.goldengatecrfg.org/images/og-dvc-directions.jpg" />
+<meta property="og:url" content="https://golden-gate.crfg.org/dvc-directions.html" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_US" />
@@ -28,7 +27,7 @@
 <meta name="twitter:site" content="@CRFG_GoldenGate" />
 <meta name="twitter:title" content="Directions to DVC Campus | CRFG Scion Exchange" />
 <meta name="twitter:description" content="Driving and BART directions to Diablo Valley College for the Golden Gate Chapter CRFG Scion Exchange. Find the Horticulture Building with our campus maps." />
-<meta name="twitter:image" content="https://www.goldengatecrfg.org/images/og-dvc-directions.jpg" />
+
 
 <!-- ═══ GEO / LOCAL ══════════════════════════════════════════════════════ -->
 <meta name="geo.region" content="US-CA" />
@@ -48,7 +47,7 @@
       "organizer": {
         "@type": "Organization",
         "name": "Golden Gate Chapter, California Rare Fruit Growers",
-        "url": "https://www.goldengatecrfg.org",
+        "url": "https://www.golden-gate.crfg.org",
         "email": "golden.gate@crfg.org",
         "memberOf": {
           "@type": "Organization",
@@ -78,9 +77,9 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.goldengatecrfg.org/index.html" },
-        { "@type": "ListItem", "position": 2, "name": "Scion Exchange", "item": "https://www.goldengatecrfg.org/gg-scionexchange.html" },
-        { "@type": "ListItem", "position": 3, "name": "Directions to DVC Campus", "item": "https://www.goldengatecrfg.org/dvc-directions.html" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.golden-gate.crfg.org/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Scion Exchange", "item": "https://www.golden-gate.crfg.org/gg-scionexchange.html" },
+        { "@type": "ListItem", "position": 3, "name": "Directions to DVC Campus", "item": "https://www.golden-gate.crfg.org/dvc-directions.html" }
       ]
     },
     {
@@ -245,24 +244,25 @@ nav a.active {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: var(--green);
-  border-bottom: 2px solid var(--green-dark);
-  padding: 0.42rem 2.2rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 2.2rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   flex-wrap: wrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
 .topstrip a, .topstrip span {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.6);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-mid);
   text-decoration: none;
 }
-.topstrip a:hover    { color: rgba(255,255,255,0.9); text-decoration: underline; }
-.topstrip strong     { color: rgba(255,255,255,0.88); font-weight: 700; }
-.topstrip-sep        { color: rgba(255,255,255,0.3); font-size: 0.65rem; }
+.topstrip a:hover    { color: var(--blue); text-decoration: underline; }
+.topstrip strong     { color: var(--blue); font-weight: 800; }
+.topstrip-sep        { color: var(--border); font-size: 0.7rem; }
 
 /* ═══ MAIN CONTENT ═══════════════════════════════════════════════════════ */
 main {
@@ -334,17 +334,16 @@ main {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-top: 3px solid var(--blue);
-  border-radius: 3px;
+  border-radius: 16px;
   padding: 16px;
 }
 
 .transit-label {
-  font-size: 0.64rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.01em;
   color: var(--blue);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.55rem;
 }
 
 .step-row {
@@ -370,6 +369,19 @@ main {
   margin-top: 0.18rem;
 }
 
+.step-num-green {
+  background: var(--green);
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 800;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.18rem;
+}
+
 /* ── Driving ─────────────────────────────────────────────────────────── */
 .driving-wrap { margin-bottom: 1.9rem; }
 
@@ -383,7 +395,7 @@ main {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-left: 4px solid var(--green);
-  border-radius: 3px;
+  border-radius: 16px;
   padding: 16px;
   transition: box-shadow 0.17s, border-left-color 0.17s;
 }
@@ -394,7 +406,7 @@ main {
 }
 
 .driving-card-title {
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--blue);
   margin: 0 0 0.55rem;
@@ -430,7 +442,7 @@ main {
 .map-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
@@ -469,43 +481,11 @@ main {
   margin: 0;
 }
 
-/* ── Close button ────────────────────────────────────────────────────── */
-.close-btn {
-  display: inline-block;
-  padding: 0.42rem 1.1rem;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  background: var(--card-bg);
-  color: var(--text-mid);
-  font-size: 0.82rem;
-  font-family: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.14s, border-color 0.14s;
-  text-decoration: none;
-}
-.close-btn:hover { background: #ede7dc; border-color: #b5a890; color: var(--text); }
-
-/* ── Footer ──────────────────────────────────────────────────────────── */
-footer {
-  background: var(--green);
-  border-top: 2px solid var(--green-dark);
-  padding: 1rem 2.4rem;
-  margin-top: auto;
-}
-
-.footer-inner {
-  max-width: 820px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.4rem;
-}
-
-footer p { margin: 0; font-size: 0.76rem; color: rgba(255,255,255,0.6); }
-footer a { font-size: 0.76rem; color: rgba(255,255,255,0.75); text-decoration: none; font-weight: 700; }
-footer a:hover { color: #fff; text-decoration: underline; }
+footer { margin-top: 60px; font-size: 0.85rem; line-height: 1.6; padding: 0 2.4rem 2rem; }
+footer hr { border: none; border-top: 1px solid var(--border); margin: 0 0 24px; }
+footer p { margin: 0 0 8px; color: var(--text); }
+footer a { color: var(--blue); text-decoration: none; font-weight: 700; }
+footer a:hover { text-decoration: underline; color: var(--blue-dark); }
 
 /* ═══ RESPONSIVE ════════════════════════════════════════════════════════ */
 @media (max-width: 750px) {
@@ -602,7 +582,7 @@ footer a:hover { color: #fff; text-decoration: underline; }
   .driving-grid,
   .maps-grid { grid-template-columns: 1fr; }
 
-  footer { padding: 0.9rem 1rem; }
+  footer { padding: 0 1rem 2rem; }
 }
 </style>
 </head>
@@ -615,7 +595,7 @@ footer a:hover { color: #fff; text-decoration: underline; }
   <!-- Desktop brand block -->
   <a href="index.html" class="nav-brand">
     <img class="logo"
-         src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
+         src="images/CRFG-logo-transparent-web.svg"
          alt="Golden Gate Chapter CRFG Logo" />
     <span class="site-title">Golden Gate Chapter</span>
     <span class="site-crfg">CRFG.org</span>
@@ -626,7 +606,7 @@ footer a:hover { color: #fff; text-decoration: underline; }
   <div class="mobile-header">
     <a href="index.html" class="mobile-brand">
       <img class="mobile-logo"
-           src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg"
+           src="images/CRFG-logo-transparent-web.svg"
            alt="CRFG Logo" />
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
@@ -724,31 +704,31 @@ footer a:hover { color: #fff; text-decoration: underline; }
 
         <div class="driving-card">
           <p class="driving-card-title">🧭 From Martinez &amp; Points North</p>
-          <div class="step-row"><span class="step-num">1</span><span> Take <strong>I-680 South</strong></span></div>
-          <div class="step-row"><span class="step-num">2</span><span> Exit <strong>52 — Contra Costa Blvd</strong></span></div>
-          <div class="step-row"><span class="step-num">3</span><span> Continue on Contra Costa Blvd to campus</span></div>
+          <div class="step-row"><span class="step-num-green">1</span><span>Take <strong>I-680 South</strong></span></div>
+          <div class="step-row"><span class="step-num-green">2</span><span>Exit <strong>52 — Contra Costa Blvd</strong></span></div>
+          <div class="step-row"><span class="step-num-green">3</span><span>Continue on Contra Costa Blvd to campus</span></div>
         </div>
 
         <div class="driving-card">
           <p class="driving-card-title">🧭 From Hayward</p>
-          <div class="step-row"><span class="step-num">1</span><span></strong> Take <strong>I-580</strong> toward Oakland</span></div>
-          <div class="step-row"><span class="step-num">2</span><span></strong> <strong>SR-13 → SR-24 → I-680 North</strong></span></div>
-          <div class="step-row"><span class="step-num">3</span><span></strong> Exit <strong>51 — Willow Pass Rd</strong></span></div>
-          <div class="step-row"><span class="step-num">4</span><span></strong> Via Sunvalley Blvd → Contra Costa Blvd → Golf Club Rd → Old Quarry Rd to the Horticulture Building</span></div>
+          <div class="step-row"><span class="step-num-green">1</span><span>Take <strong>I-580</strong> toward Oakland</span></div>
+          <div class="step-row"><span class="step-num-green">2</span><span><strong>SR-13 → SR-24 → I-680 North</strong></span></div>
+          <div class="step-row"><span class="step-num-green">3</span><span>Exit <strong>51 — Willow Pass Rd</strong></span></div>
+          <div class="step-row"><span class="step-num-green">4</span><span>Via Sunvalley Blvd → Contra Costa Blvd → Golf Club Rd → Old Quarry Rd to the Horticulture Building</span></div>
         </div>
 
         <div class="driving-card">
           <p class="driving-card-title">🧭 From Marin County</p>
-          <div class="step-row"><span class="step-num">1</span><span> Cross the <strong>Richmond–San Rafael Bridge</strong></span></div>
-          <div class="step-row"><span class="step-num">2</span><span> <strong>Richmond Pkwy → CA-4 East → I-680 South</strong></span></div>
-          <div class="step-row"><span class="step-num">3</span><span> Exit <strong>52</strong>, continue to Old Quarry Road</span></div>
+          <div class="step-row"><span class="step-num-green">1</span><span>Cross the <strong>Richmond–San Rafael Bridge</strong></span></div>
+          <div class="step-row"><span class="step-num-green">2</span><span><strong>Richmond Pkwy → CA-4 East → I-680 South</strong></span></div>
+          <div class="step-row"><span class="step-num-green">3</span><span>Exit <strong>52</strong>, continue to Old Quarry Road</span></div>
         </div>
 
         <div class="driving-card">
           <p class="driving-card-title">🧭 From San Francisco</p>
-          <div class="step-row"><span class="step-num">1</span><span> Bay Bridge via <strong>I-80 East</strong></span></div>
-          <div class="step-row"><span class="step-num">2</span><span> Merge onto <strong>I-580</strong>, then <strong>CA-24</strong> toward Walnut Creek</span></div>
-          <div class="step-row"><span class="step-num">3</span><span> Continue to <strong>I-680</strong>, Exit <strong>51 — Willow Pass Rd</strong></span></div>
+          <div class="step-row"><span class="step-num-green">1</span><span>Bay Bridge via <strong>I-80 East</strong></span></div>
+          <div class="step-row"><span class="step-num-green">2</span><span>Merge onto <strong>I-580</strong>, then <strong>CA-24</strong> toward Walnut Creek</span></div>
+          <div class="step-row"><span class="step-num-green">3</span><span>Continue to <strong>I-680</strong>, Exit <strong>51 — Willow Pass Rd</strong></span></div>
         </div>
 
       </div>
@@ -757,12 +737,12 @@ footer a:hover { color: #fff; text-decoration: underline; }
     <!-- Campus Maps -->
     <section class="maps-wrap" aria-labelledby="maps-heading">
       <h2 id="maps-heading" class="section-heading">Campus Maps</h2>
-      <p class="section-sub">Use these to locate the Horticulture Building.</p>
+      <p class="section-sub">Use these to locate the Horticulture Building once on campus.</p>
 
       <div class="maps-grid">
         <div class="map-card">
           <div class="map-img-wrap">
-            <img src="images/bart-pleasant-hill-concord.svg"
+            <img src="images/DVC area map.jpg"
                  alt="DVC vicinity map showing nearby roads and freeway access to Diablo Valley College in Pleasant Hill, CA"
                  loading="lazy" width="400" height="175" />
           </div>
@@ -773,7 +753,7 @@ footer a:hover { color: #fff; text-decoration: underline; }
         </div>
         <div class="map-card">
           <div class="map-img-wrap">
-            <img src="images/dvc-campus-map.svg"
+            <img src="images/2-DVC color map.jpg"
                  alt="DVC campus map showing the location of the Horticulture Building at Diablo Valley College"
                  loading="lazy" width="400" height="175" />
           </div>
@@ -785,14 +765,17 @@ footer a:hover { color: #fff; text-decoration: underline; }
       </div>
     </section>
 
+
+
   </main>
 
-  <!-- Footer -->
+  <!-- Footer matching index.html -->
   <footer>
-    <div class="footer-inner">
-      <p>Questions? <a href="mailto:golden.gate@crfg.org">Email the Golden Gate Chapter</a></p>
-      <p>© 2026 California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
-    </div>
+    <hr>
+    <p>Questions or comments?<br>
+    Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+    <p>Copyright &copy; 2026<br>
+    California Rare Fruit Growers Inc. | <a href="https://crfg.org">CRFG.org</a></p>
   </footer>
 
 </div><!-- /page -->
