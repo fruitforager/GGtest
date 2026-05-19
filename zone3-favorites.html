@@ -57,9 +57,9 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 8px;
-  transition: color 0.15s;
+  transition: color 0.2s, letter-spacing 0.2s;
 }
-.back-link:hover { color: var(--blue); }
+.back-link:hover { color: var(--blue); letter-spacing: 0.09em; }
 .back-link svg { width: 15px; height: 15px; stroke-width: 2.5; }
 
 .page-title {
@@ -98,11 +98,12 @@ body {
 }
 
 .zone-emoji {
-  font-size: 0.99em;
+  font-size: 3em;
   line-height: 1;
   display: inline;
   vertical-align: text-top;
-  margin-left: 10px;
+  margin-left: 2px;
+  margin-top: 60px;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
@@ -183,6 +184,16 @@ body {
   color: var(--blue);
   font-size: 1.4rem;
 }
+.meta-hrs {
+  font-family: system-ui, sans-serif;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--blue);
+  margin-left: -4px;
+  margin-top: 2px;
+  position: relative;
+  top: 2px;
+}
 .header-left {
   width: 100%;
   padding: 0;
@@ -209,9 +220,10 @@ body {
 .controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px 18px;
   margin-bottom: 28px;
   align-items: center;
+  padding: 6px 0;
 }
 .search-wrap {
   position: relative;
@@ -238,6 +250,7 @@ body {
   font-family: system-ui, sans-serif;
   font-size: 0.92rem;
   color: var(--text);
+  letter-spacing: 0.03em;
   outline: none;
   transition: border-color 0.15s;
 }
@@ -248,6 +261,7 @@ body {
   font-size: 0.88rem;
   font-weight: 900;
   color: #fff;
+  letter-spacing: 0.04em;
   background-color: #6b4c6e;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -272,12 +286,18 @@ body {
   background-color: #7f5c82;
   box-shadow: 0 0 0 3px rgba(107,76,110,0.22);
 }
+.filter-select option {
+  background-color: var(--blue-dark);
+  color: #fff;
+  font-weight: 700;
+}
 
 .results-count {
   font-family: system-ui, sans-serif;
   font-size: 0.82rem;
   color: var(--muted);
-  margin-bottom: 16px;
+  margin-top: 10px;
+  margin-bottom: 14px;
 }
 
 /* ── Fruit sections ── */
@@ -338,6 +358,7 @@ body {
 }
 .variety-inline .v-name {
   font-weight: 700;
+  color: var(--burgandy);
 }
 .variety-inline .v-votes {
   font-weight: 400;
@@ -601,8 +622,8 @@ nav a.active{
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="zone3-favorites.html" class="active" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
-      <a href="zone1-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
+      <a href="zone1-favorites.html" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
+      <a href="zone2-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
       <a href="zone3-favorites.html" class="active" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
       <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
@@ -641,18 +662,18 @@ nav a.active{
           <div class="page-title-main">MEMBER FAVORITES</div>
         </div>
         <div class="page-title">
-          <div class="page-title-zone">Inland <span class="zone-emoji">☀️</span></div>
+        <div class="zone-emoji">☀️</div>
           <div class="page-title-sub">Cultivars for Hot Summers &amp; Cold Winters</div>
         </div>
         <div class="meta-row">
-          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>600–1,500</strong></span>
+          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>600–1,500</strong><span class="meta-hrs">hrs</span></span></span>
           <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">Concord</span> · <span class="city">Danville</span> · <span class="city">Lafayette</span> · <span class="city">Pleasanton</span> · <span class="city">San Ramon</span> · <span class="city">Walnut Creek</span></span></span></span>
         </div>
       </div>
 </div>
   </header>
 
-  <!-- Controls -->
+<!-- Controls -->
   <div class="controls">
     <div class="search-wrap">
       <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>

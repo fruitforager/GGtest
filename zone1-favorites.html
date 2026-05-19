@@ -7,7 +7,7 @@
 <style>
 :root {
   --bg: #FAF0E6;
-  --text: #222;
+  --text: #5A3F5D;
   --green: #274D31;
   --green-light: #3a6b47;
   --blue: #2f5d8f;
@@ -15,7 +15,7 @@
   --gg-orange: #c0362c;
   --border: #d8ccb6;
   --card-bg: #fff;
-  --burgandy: #6b4c6e;
+  --burgundy: #6b4c6e;
   --muted: #666;
   --tag-bg: #eef3f0;
 }
@@ -179,6 +179,17 @@ body {
 .meta-chill strong {
   color: var(--blue);
   font-size: 1.4rem;
+  
+}
+.meta-hrs {
+  font-family: system-ui, sans-serif;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--blue);
+  margin-left: -4px;
+  margin-top: 2px;
+  position: relative;
+  top: 2px;
 }
 .header-left {
   width: 100%;
@@ -200,38 +211,106 @@ body {
   text-wrap: balance;
 }
 
-@media (max-width: 600px) {
-  .page-title-zone {
-    font-size: 1.6rem;
-    line-height: 1.2;
+@media(max-width:750px){
+  .layout{flex-direction:column;}
+  aside{
+    width:100%;
+    height:auto;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    overflow:visible;
   }
 
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+  .nav-brand{display:none;}
+
+  .mobile-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 12px;
+    min-height:56px;
   }
 
-  .search-wrap {
-    width: 100%;
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
   }
 
-  .filter-select {
-    width: 100%;
-    min-width: 0;
-    margin-bottom: 4px;
+  .mobile-logo{width:36px;height:auto;}
+
+  .mobile-title{
+    font-weight:800;
+    font-size:0.9rem;
+    color:white;
+    line-height:1.2;
   }
 
-  .page-title-sub {
-    white-space: normal; /* prevents overflow */
+  nav{
+    position:absolute;
+    top:56px;
+    left:0;
+    right:0;
+    background:var(--green);
+    flex-direction:column;
+    max-height:0;
+    opacity:0;
+    transform:translateY(-10px);
+    overflow:hidden;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease,
+      transform 0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    border-top:1px solid rgba(255,255,255,0.15);
+  }
+
+  nav.open{
+    max-height:70vh;
+    opacity:1;
+    transform:translateY(0);
+    overflow-y:auto;
+  }
+
+  nav a{
+    padding:14px 18px;
+    font-size:1rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    margin-left:0;
+    border-left:none;
+    white-space:normal;
+  }
+
+  nav a:last-child{
+    border-bottom:none;
+  }
+
+  .hamburger{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:6px 12px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.25);
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+    gap:6px;
+  }
+
+  .hamburger svg{
+    width:16px;
+    height:16px;
+    stroke:white;
+    fill:none;
   }
 }
 
-p, .page-title-sub, .data-note, .variety-inline {
-  orphans: 2;
-  widows: 2;
-  text-wrap: pretty;
-}
+
 
 /* ── Controls ── */
 .controls {
@@ -627,8 +706,8 @@ nav a.active{
       <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+<button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">      
+<svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       <span>Menu</span>
     </button>
   </div>
@@ -642,7 +721,7 @@ nav a.active{
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
       <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
-      <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
+      <a href="zone2-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
       <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
       <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
@@ -686,7 +765,7 @@ nav a.active{
           <div class="page-title-sub">Cultivars for Cool Summers &amp; Mild Winters</div>
         </div>
         <div class="meta-row">
-          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong></span>
+          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong><span class="meta-hrs">hrs</span></span></span>
           <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">San Francisco</span> · <span class="city">Daly City</span> · <span class="city">Pacifica</span> · <span class="city">Half Moon Bay</span> · <span class="city">Berkeley (foggy areas)</span></span></span>
         </div>
       </div>
@@ -1066,6 +1145,10 @@ function render() {
 
 buildFilterButtons();
 render();
+function toggleMenu() {
+  const nav = document.getElementById("navMenu");
+  nav.classList.toggle("open");
+}
 </script>
 </div><!-- /.layout -->
 </body>

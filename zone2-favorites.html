@@ -15,7 +15,7 @@
   --gg-orange: #c0362c;
   --border: #d8ccb6;
   --card-bg: #fff;
-  --burgandy: #6b4c6e;
+  --burgundy: #6b4c6e;
   --muted: #666;
   --tag-bg: #eef3f0;
 }
@@ -57,9 +57,9 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 8px;
-  transition: color 0.15s;
+  transition: color 0.2s, letter-spacing 0.2s;
 }
-.back-link:hover { color: var(--blue); }
+.back-link:hover { color: var(--blue); letter-spacing: 0.09em; }
 .back-link svg { width: 15px; height: 15px; stroke-width: 2.5; }
 
 .page-title {
@@ -67,42 +67,39 @@ body {
   padding: 0;
 }
 .page-title-main {
-  font-family: system-ui, sans-serif;
   font-size: clamp(1.125rem, 1.2vw, 1.3rem); 
   font-weight: 900;
   color: rgba(107,76,110,0.88);
   line-height: 1.5;
   margin-top: 0;
   margin-bottom: 0;
-  letter-spacing: 0.01em;
 }
 .page-title-zone {
   font-family: system-ui, sans-serif;
-  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
   font-weight: 900;
   color: var(--blue);
   line-height: 1.18;
   letter-spacing: 0.01em;
-  margin-top: 50px;
+  margin-top: 1px;
 }
 .page-title-sub {
-  font-family: system-ui, sans-serif;
-  font-size: clamp(1.5rem, 1.8vw, 1.2rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.05rem);
   font-weight: 800;
-  color: rgba(107,76,110,0.88);
+  color: rgba(107,76,110,0.97);
   line-height: 1.25;
-  letter-spacing: 0.0em;
   white-space: nowrap;
   min-width: 0;
   margin-top: 8px;
 }
 
 .zone-emoji {
-  font-size: 0.99em;
+  font-size: 3em;
   line-height: 1;
   display: inline;
   vertical-align: text-top;
-  margin-left: 10px;
+  margin-left: 2px;
+  margin-top: 60px;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
@@ -142,7 +139,7 @@ body {
   flex-wrap: wrap;
   gap: 8px 24px;
   margin-top: 14px;
-  padding: 0;
+  margin-bottom: 28px;
   font-family: system-ui, sans-serif;
   font-size: 0.88rem;
   color: var(--muted);
@@ -182,6 +179,17 @@ body {
 .meta-chill strong {
   color: var(--blue);
   font-size: 1.4rem;
+  
+}
+.meta-hrs {
+  font-family: system-ui, sans-serif;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--blue);
+  margin-left: -4px;
+  margin-top: 2px;
+  position: relative;
+  top: 2px;
 }
 .header-left {
   width: 100%;
@@ -191,27 +199,126 @@ body {
 
 
 .header-with-map {
-  margin-bottom: 28px;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 24px;
-  width: 100%;
+  max-width: 100%;
 }
-@media (max-width: 700px) {
-  .header-with-map {
-  margin-bottom: 28px;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 24px;
-  width: 100%;
+
+.page-title-zone,
+.page-title-sub,
+.page-title-main {
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
+
+@media(max-width:750px){
+  .layout{flex-direction:column;}
+  aside{
+    width:100%;
+    height:auto;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    overflow:visible;
   }
+
+  .nav-brand{display:none;}
+
+  .mobile-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 12px;
+    min-height:56px;
+  }
+
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+  }
+
+  .mobile-logo{width:36px;height:auto;}
+
+  .mobile-title{
+    font-weight:800;
+    font-size:0.9rem;
+    color:white;
+    line-height:1.2;
+  }
+
+  nav{
+    position:absolute;
+    top:56px;
+    left:0;
+    right:0;
+    background:var(--green);
+    flex-direction:column;
+    max-height:0;
+    opacity:0;
+    transform:translateY(-10px);
+    overflow:hidden;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease,
+      transform 0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    border-top:1px solid rgba(255,255,255,0.15);
+  }
+
+  nav.open{
+    max-height:70vh;
+    opacity:1;
+    transform:translateY(0);
+    overflow-y:auto;
+  }
+
+  nav a{
+    padding:14px 18px;
+    font-size:1rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    margin-left:0;
+    border-left:none;
+    white-space:normal;
+  }
+
+  nav a:last-child{
+    border-bottom:none;
+  }
+
+  .hamburger{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:6px 12px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.25);
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+    gap:6px;
+  }
+
+  .hamburger svg{
+    width:16px;
+    height:16px;
+    stroke:white;
+    fill:none;
+  }
+}
+
 
 /* ── Controls ── */
 .controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px 18px;
   margin-bottom: 28px;
   align-items: center;
+  padding: 6px 0;
 }
 .search-wrap {
   position: relative;
@@ -238,6 +345,7 @@ body {
   font-family: system-ui, sans-serif;
   font-size: 0.92rem;
   color: var(--text);
+  letter-spacing: 0.03em;
   outline: none;
   transition: border-color 0.15s;
 }
@@ -248,6 +356,7 @@ body {
   font-size: 0.88rem;
   font-weight: 900;
   color: #fff;
+  letter-spacing: 0.04em;
   background-color: #6b4c6e;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -272,40 +381,20 @@ body {
   background-color: #7f5c82;
   box-shadow: 0 0 0 3px rgba(107,76,110,0.22);
 }
+.filter-select option {
+  background-color: var(--blue-dark);
+  color: #fff;
+  font-weight: 700;
+}
 
 .results-count {
   font-family: system-ui, sans-serif;
   font-size: 0.82rem;
   color: var(--muted);
-  margin-bottom: 16px;
+  margin-top: 10px;
+  margin-bottom: 14px;
 }
 
-/* ── Fruit sections ── */
-.fruit-section {
-  margin-bottom: 36px;
-}
-.fruit-section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1.5px solid var(--border);
-}
-.fruit-name {
-  font-family: system-ui, sans-serif;
-  font-size: 1rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-.fruit-total {
-  font-family: system-ui, sans-serif;
-  font-size: 0.78rem;
-  color: var(--muted);
-  font-weight: 600;
-}
 
 /* ── Variety rows ── */
 .variety-list {
@@ -338,6 +427,7 @@ body {
 }
 .variety-inline .v-name {
   font-weight: 700;
+  color: var(--burgundy);
 }
 .variety-inline .v-votes {
   font-weight: 400;
@@ -348,7 +438,6 @@ body {
   font-weight: 400;
   font-style: italic;
   color: var(--muted);
-  line-height: 1.5;
 }
 
 .subgroup-label {
@@ -366,7 +455,7 @@ body {
   grid-template-columns: 1.2em 1fr;
   align-items: start;
   gap: 0 4px;
-  font-size: 0.86rem;
+  font-size: 0.93rem;
   line-height: 1.5;
   width: 100%;
 }
@@ -407,6 +496,9 @@ body {
 @media (max-width: 600px) {
   .page-wrap { padding: 28px 16px 60px; }
 
+  .results-count {
+    margin-top: 14px;
+  }
 }
 
 /* ── Sidebar / Layout ── */
@@ -522,19 +614,13 @@ nav a.active{
 
 @media(max-width:750px){
   .layout{flex-direction:column;}
-  aside{width:100%;height:auto;position:relative;}
+  aside{width:100%;height:auto;position:sticky;top:0;z-index:100;}
   .nav-brand{display:none;}
   .mobile-header{
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:12px 16px;
-  }
-  position: sticky;
-    top: 0;
-    z-index: 1000; /* Ensures it stays above the fruit list content */
-    background: var(--green); /* Matches the sidebar color to prevent transparency */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Optional: adds depth during scroll */
   }
   .mobile-brand{
     display:flex;
@@ -552,7 +638,7 @@ nav a.active{
   nav{display:none;padding:0 0 10px;}
   nav.open{display:flex;}
   nav a{
-    padding:12px 20px;
+    padding:8px 20px;
     border-left:none;
     font-size:0.95rem;
     margin-left:0;
@@ -594,8 +680,8 @@ nav a.active{
       <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+<button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">      
+<svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       <span>Menu</span>
     </button>
   </div>
@@ -603,20 +689,20 @@ nav a.active{
   <nav id="navMenu">
     <div class="nav-group">
       <span class="nav-group-label">🏠 Start Here</span>
-      <a href="index.html">About</a>
+      <a href="index.htm">About</a>
     </div>
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="zone2-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
-      <a href="zone1-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
+      <a href="zone1-favorites.html" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
+      <a href="zone2-favorites.html" class="active" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
       <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
       <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
     <div class="nav-group">
       <span class="nav-group-label">🤝 Community</span>
-      <a href="meetings.html">Meetings</a>
+      <a href="meetings.htm">Meetings</a>
       <a href="online-community.html">Online Community</a>
     </div>
     <div class="nav-group">
@@ -648,11 +734,12 @@ nav a.active{
           <div class="page-title-main">MEMBER FAVORITES</div>
         </div>
         <div class="page-title">
-          <div class="page-title-zone">Valleys Facing the Bay <span class="zone-emoji">🌊</span></div>
+        <div class="zone-emoji">🌊</div>
+          <div class="page-title-zone">Valleys Facing the Bay></div>
           <div class="page-title-sub">Cultivars for Warm Summers &amp; Mild Winters</div>
         </div>
         <div class="meta-row">
-          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>400–900</strong></span>
+          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>400–900</strong><span class="meta-hrs">hrs</span></span></span>
           <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">Berkeley</span> · <span class="city">Oakland</span> · <span class="city">Richmond</span> · <span class="city">El Cerrito</span> · <span class="city">El Sobrante</span> · <span class="city">Hayward</span> · <span class="city">San Leandro</span> · <span class="city">San Mateo</span> · <span class="city">San Rafael</span> · <span class="city">Novato</span></span></span>
         </div>
       </div>
@@ -2241,12 +2328,12 @@ let activeFilter = "All";
 
 function buildFilterButtons() {
   const select = document.getElementById("filterSelect");
-  const categories = ["All fruits", ...FRUITS.map(f => f.fruit)];
+  const categories = ["Filter by Fruit", ...FRUITS.map(f => f.fruit)];
   select.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join("");
 }
 
 function setFilter(cat) {
-  activeFilter = cat === "All fruits" ? "All" : cat;
+  activeFilter = cat === "Filter by Fruit" ? "All" : cat;
   filterAll();
 }
 
