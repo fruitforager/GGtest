@@ -39,18 +39,6 @@
 }
 *{box-sizing:border-box;}
 
-/* ── Global Fast Page Entry Transition ── */
-@keyframes pageFadeIn {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 4px, 0); /* Subtle slide up helps visual continuity */
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 body{
   margin:0;
   background:var(--bg);
@@ -60,10 +48,6 @@ body{
   font-size:18px;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
-  
-  /* Applies the page transition globally across the site */
-  animation: pageFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
 }
 strong,b{font-weight:800;}
 
@@ -185,12 +169,25 @@ nav a.active{
 .hamburger{display:none;}
 .mobile-header{display:none;}
 
-/* ── Main content ── */
+/* ── Main content & SPA Transitions ── */
 .page{
   flex:1;
   padding:40px 44px 40px 52px;
   min-width:0;
+  
+  /* Fast Hardware Accelerated Base Transition Rules for Page Changes */
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
 }
+
+/* This utility helper class is used by JavaScript to execute smooth cross-fades */
+.page.fade-out {
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+}
+
 .hero{margin-top:10px;}
 .hero h1{
   font-size:clamp(2rem,3.5vw,3.2rem);
@@ -244,14 +241,11 @@ p{
   overflow: hidden;
   position: relative;
   margin: 0 0 20px 0; 
-  
   background: rgba(39, 77, 49, 0.04);
-  
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
-/* Invisible overlay intercepts touch events first so scaling transition fires instantly */
 .map-frame::after {
   content: '';
   position: absolute;
@@ -263,7 +257,6 @@ p{
   background: transparent;
 }
 
-/* Removes overlay on active interaction states to permit deep user map zooming/navigation */
 .map-frame:has(iframe[src]):hover::after,
 .map-frame:has(iframe[src]):active::after {
   display: none;
@@ -277,26 +270,18 @@ p{
   height: 100%;
   border: 0;
   display: block;
-  
-  /* Initial State before loading: Completely hidden and scaled down slightly */
   opacity: 0;
-  
-  /* Dual transition rule controls BOTH the entry fade-in AND the interactive scale loops */
-  transition: opacity 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  
-  /* GPU LAYERING HARDWARE ACCELERATION */
+  transition: opacity 0.5s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
   transform: translate3d(0, 0, 0) scale(0.97);
   backface-visibility: hidden;
 }
 
-/* Class added by JS script instantly when URL is assigned: fades and slides up beautifully */
 .map-frame iframe.loaded {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* Responsive zoom sizing updates bound to desktop hovers OR explicit mobile touch press events */
 .map-frame:hover iframe.loaded,
 .map-frame:active iframe.loaded {
   transform: translate3d(0, 0, 0) scale(1.05);
@@ -502,12 +487,10 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
     background:var(--green-dark);
     border-top:1px solid rgba(255,255,255,0.1);
     box-shadow:0 8px 16px rgba(0,0,0,0.2);
-    
     transform: scaleY(0);
     transform-origin: top;
     opacity: 0;
     pointer-events: none;
-    
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease-out;
   }
   
@@ -538,12 +521,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   
   .page{padding:24px 16px;}
   .hero h1{font-size:clamp(2rem,8vw,3rem);}
-  
-  .map-frame {
-    aspect-ratio: 3 / 4; 
-    max-height: 60vh; 
-  }
-  
+  .map-frame { aspect-ratio: 3 / 4; max-height: 60vh; }
   .zone-cards{grid-template-columns:1fr;}
   .zone-card a.card-link{width:100%;justify-content:center;}
 }
@@ -600,7 +578,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   </nav>
 </aside>
 
-<div class="page">
+<div class="page" id="spaContainer">
 <main>
   <section class="hero">
     <h1>Bay Area Fruit Favorites by Climate Zone</h1>
@@ -679,48 +657,109 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   <p>Copyright &copy; 2026, California Rare Fruit Growers, Inc. | <a href="https://crfg.org">CRFG.org</a></p>
 </footer>
 </div></div><script>
-(function () {
-  var p = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("#navMenu a").forEach(function (a) {
-    var href = a.getAttribute("href");
-    if (href === p && !a.classList.contains("active")) {
-      a.classList.add("active");
-      a.setAttribute("aria-current", "page");
-    }
-  });
-}());
-
-/* Calculated Scroll Offset Lazy Loading Strategy with Smooth Entrance Transitions */
-document.addEventListener("DOMContentLoaded", function () {
+/* ── Unified Map Lazy Loader Initialization ── */
+function initLazyMaps() {
   var mapIframes = document.querySelectorAll(".map-frame iframe");
-
   if ("IntersectionObserver" in window) {
     var mapObserver = new IntersectionObserver(function (entries, observer) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           var iframe = entry.target;
-          
           iframe.addEventListener('load', function() {
             iframe.classList.add('loaded');
           });
-          
           iframe.src = iframe.getAttribute("data-src");
           mapObserver.unobserve(iframe);
         }
       });
-    }, {
-      rootMargin: "350px 0px"
-    });
-
-    mapIframes.forEach(function (iframe) {
-      mapObserver.observe(iframe);
-    });
+    }, { rootMargin: "350px 0px" });
+    mapIframes.forEach(function (iframe) { mapObserver.observe(iframe); });
   } else {
     mapIframes.forEach(function (iframe) {
       iframe.src = iframe.getAttribute("data-src");
       iframe.classList.add('loaded');
     });
   }
+}
+
+/* Update Highlighted Sidebar Navigation Tabs Dynamically */
+function updateActiveNavLink() {
+  var p = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("#navMenu a").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (href === p) {
+      a.classList.add("active");
+      a.setAttribute("aria-current", "page");
+    } else {
+      a.classList.remove("active");
+      a.removeAttribute("aria-current");
+    }
+  });
+}
+
+/* ── High Performance AJAX SPA Site Router ── */
+function loadPage(url) {
+  var container = document.getElementById("spaContainer");
+  
+  // Phase 1: Smoothly fade-out current text and content block
+  container.classList.add("fade-out");
+  
+  setTimeout(function () {
+    fetch(url)
+      .then(function (response) { return response.text(); })
+      .then(function (html) {
+        // Parse incoming document setup string
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, "text/html");
+        var newContent = doc.getElementById("spaContainer").innerHTML;
+        
+        // Update DOM architecture dynamically inside the current viewport frame
+        container.innerHTML = newContent;
+        document.title = doc.title;
+        
+        // Close menu if interactive screen states are on mobile break layers
+        document.getElementById('navMenu').classList.remove('open');
+        
+        // Re-execute scripts, animations, and links
+        updateActiveNavLink();
+        initLazyMaps();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        
+        // Phase 2: Fade-in the brand-new incoming page contents smoothly
+        container.classList.remove("fade-out");
+      })
+      .catch(function (err) {
+        // Fallback option in case file structural requests break natively
+        window.location.href = url;
+      });
+  }, 220); // Syncs with the CSS opacity fade timeline duration
+}
+
+/* Intercept Click Events and Route Through AJAX */
+document.addEventListener("click", function (e) {
+  var anchor = e.target.closest("a");
+  if (!anchor) return;
+  
+  var href = anchor.getAttribute("href");
+  
+  // Verify link points to a separate page on our site (ignoring mail, external, or maps)
+  if (href && !href.startsWith("http") && !href.startsWith("mailto:") && !href.startsWith("#") && !anchor.getAttribute("target")) {
+    e.preventDefault();
+    history.pushState(null, "", href);
+    loadPage(href);
+  }
+});
+
+/* Catch Native Browser Back/Forward Navigation Arrow Presses */
+window.addEventListener("popstate", function () {
+  var currentPath = window.location.pathname.split("/").pop() || "index.html";
+  loadPage(currentPath);
+});
+
+/* Initial Execution Trigger Loops */
+document.addEventListener("DOMContentLoaded", function () {
+  updateActiveNavLink();
+  initLazyMaps();
 });
 </script>
 </body>
