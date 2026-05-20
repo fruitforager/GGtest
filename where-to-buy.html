@@ -36,6 +36,7 @@ strong,b{font-weight:800;}
   margin:auto;
 }
 
+/* ── Sidebar ── */
 aside{
   width:var(--sidebar);
   flex-shrink:0;
@@ -142,6 +143,7 @@ nav a.active{
 .hamburger{display:none;}
 .mobile-header{display:none;}
 
+/* ── Main content ── */
 .page{
   flex:1;
   padding:40px 44px 40px 52px;
@@ -166,6 +168,54 @@ h2{
   widows:2;
   color:var(--blue);
 }
+
+/* RESOURCE GRID */
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:18px;
+  margin-top:10px;
+  max-width:1000px;
+}
+
+.resource-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:#fff8f0;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  text-decoration:none;
+  color:inherit;
+  transition:all .16s ease;
+}
+
+.resource-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(0,0,0,.08);
+  border-color:#cbbba2;
+}
+
+.resource-icon{
+  font-size:1.5rem;
+  flex-shrink:0;
+}
+
+.resource-content h3{
+  margin:0 0 6px;
+  font-size:1.1rem;
+  color:var(--green);
+  line-height:1.2;
+}
+
+.resource-content p{
+  margin:0;
+  font-size:0.95rem;
+  color:#555;
+}
+
+
 h3{
   font-size:clamp(1.3rem,2.1vw,2rem);
   line-height:1.1;
@@ -398,6 +448,7 @@ hr{
     <div class="nav-group">
       <span class="nav-group-label">🏠 Start Here</span>
       <a href="index.htm">About</a>
+      <a href="golden-gate-history.html">Our Historical Roots</a>
     </div>
 
     <div class="nav-group">
