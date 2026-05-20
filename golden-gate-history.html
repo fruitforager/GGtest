@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Roots: History of the Golden Gate Chapter | CRFG</title>
 
-  <!-- Enhanced SEO Metadata -->
   <meta name="description" content="Discover the foundational history of the Golden Gate Chapter of the California Rare Fruit Growers. From its 1968 roots to pioneering urban food forests in the Bay Area.">
   <meta name="keywords" content="CRFG history, Golden Gate Chapter history, California Rare Fruit Growers, Paul Thomson, John Riley, Katherine Pyle, Bay Area orchard history, scion exchange origins, urban food forests">
   <link rel="canonical" href="https://goldengate.crfg.org/history.html">
 
-  <!-- Open Graph Protocol Tags -->
   <meta property="og:site_name" content="California Rare Fruit Growers - Golden Gate Chapter">
   <meta property="og:title" content="Our Roots: History of the Golden Gate Chapter | CRFG">
   <meta property="og:description" content="From a hand-cranked mimeograph machine to a vibrant network of urban orchardists mapping the unique microclimates of the San Francisco Bay Area.">
@@ -19,7 +17,6 @@
   <meta property="og:image" content="https://goldengate.crfg.org/images/og-history.jpg">
   <meta property="og:image:alt" content="Lush urban food forest showing diverse canopy layers of unusual fruit trees">
 
-  <!-- X / Twitter Cards Metadata -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Our Roots: History of the Golden Gate Chapter | CRFG">
   <meta name="twitter:description" content="Explore how backyard growers transformed fruit cultivation across San Francisco Bay Area microclimates since 1968.">
@@ -27,7 +24,6 @@
 
   <meta name="theme-color" content="#274D31">
 
-  <!-- Interconnected JSON-LD Rich Schema Graph -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -87,7 +83,6 @@
     }
   </script>
 
-  <!-- Tailwind CDN Integration Layer -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script>
     tailwind.config = {
@@ -192,14 +187,20 @@
         display: none !important; /* Hide desktop branding on mobile screen layouts */
       }
       
-      .mobile-header {
-        display: flex !important;
-        position: sticky !important;
+      aside {
+        width: 100% !important;
+        height: auto !important;
+        position: sticky !important; /* Fixed: Sticky parent container handles layout positioning */
         top: 0 !important;
         z-index: 1001 !important;
+        overflow: visible !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      }
+
+      .mobile-header {
+        display: flex !important;
         width: 100% !important;
         height: 56px !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         align-items: center;
         justify-content: space-between;
         padding-left: 0.75rem;
@@ -240,16 +241,6 @@
         transform: scale(0.95);
       }
 
-      aside {
-        width: 100% !important;
-        height: auto !important;
-        position: relative !important;
-        top: 0 !important;
-        z-index: 1000 !important;
-        overflow: visible !important;
-        box-shadow: none !important;
-      }
-
       nav {
         position: absolute !important;
         top: 56px !important; /* Adjusted to layout exactly beneath the new mobile header height */
@@ -287,15 +278,12 @@
 </head>
 <body class="m-0 bg-[#FAF0E6] text-[#222] font-sans antialiased text-[18px] leading-[1.6]">
 
-  <!-- Accessible Skip Navigation Link -->
   <a href="#main-content" class="absolute left-[-9999px] top-auto w-[1px] h-[1px] overflow-hidden focus:sticky focus:left-4 focus:top-4 focus:w-auto focus:h-auto focus:bg-[#274D31] focus:text-white focus:py-3 focus:px-5 focus:z-[1999] focus:rounded-md focus:font-bold focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-white">Skip to main content</a>
 
   <div class="layout-frame flex flex-row min-h-screen max-w-[1200px] mx-auto bg-[#FAF0E6]">
 
-    <!-- Sidebar Framework Layout Component Container -->
     <aside class="w-[220px] shrink-0 bg-[#274D31] flex flex-col sticky top-0 h-screen overflow-y-auto [media_(max-width:750px)]:h-auto">
       
-      <!-- YOUR NEW DESKTOP LOGO BRAND BLOCK SNIPPET -->
       <a href="index.html" class="nav-brand focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/40" aria-label="Golden Gate Chapter CRFG — Home">
         <img class="logo" src="images/CRFG-logo-transparent-web.svg" alt="Golden Gate Chapter CRFG Logo">
         <span class="site-title">Golden Gate Chapter</span>
@@ -303,7 +291,6 @@
         <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
       </a>
 
-      <!-- YOUR NEW MOBILE BRAND HEADER NAVIGATION BAR BLOCK SNIPPET -->
       <div class="mobile-header">
         <a href="index.html" class="mobile-brand" aria-label="Golden Gate Chapter CRFG — Home">
           <img class="mobile-logo" src="images/CRFG-logo-transparent-web.svg" alt="CRFG Logo">
@@ -320,7 +307,6 @@
         </button>
       </div>
 
-      <!-- Main Sidebar Structural Nav Element (Hidden/shown seamlessly by toggle click script) -->
       <nav id="navMenu" class="flex flex-col py-1 [media_(min-width:751px)]:pb-32" aria-label="Primary site navigation">
         
         <div class="mt-1.5">
@@ -371,13 +357,10 @@
       </nav>
     </aside>
 
-    <!-- Main Semantic Layout Content Enclosure Column -->
     <div class="flex-1 p-10 px-[54px] min-w-0 [max-width:calc(1200px-220px)] [media_(max-width:750px)]:p-5">
       
-      <!-- ARIA-Target Landmark Element Wrapper -->
       <main id="main-content" tabindex="-1" class="focus:outline-none">
 
-        <!-- Accessibility Breadcrumb Navigation Element Module -->
         <nav class="mb-6" aria-label="Breadcrumb">
           <ol class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-neutral-500 list-none p-0 m-0">
             <li><a href="index.html" class="hover:text-brandGreen transition-colors focus:outline-none focus:underline">Home</a></li>
@@ -468,7 +451,6 @@
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Chapter Chairperson <strong>John Valenzuela</strong> notes that rare fruit growing is a revelatory topic. It connects home gardeners directly to ethnobotany, agroecology, and the history of global trade. Many fruits we now take for granted—like Clementine mandarins or heirloom tomatoes—were once considered "rare" and unusual until small-scale, experimental growers proved their regional viability.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Our members often look at fruit growing through the lens of permaculture and "food forests"—designing highly efficient, multi-layered backyard ecosystems. This allows urban growers to pack maximum biodiversity into small yards by layering:</p>
 
-            <!-- Resource Cards Data Integration -->
             <div class="flex flex-col gap-4 my-7 py-4 border-y border-brandBorder bg-white/60 rounded-lg px-5 shadow-sm">
               <div class="flex flex-col sm:flex-row gap-2 sm:items-baseline">
                 <span class="font-extrabold uppercase text-[0.8rem] tracking-wider text-brandGreen block sm:w-36 shrink-0">Ground Layer:</span>
@@ -532,7 +514,6 @@
 
       </main>
 
-      <!-- Semantic Footer featuring valid Microdata Address Architecture -->
       <footer class="max-w-3xl mx-auto mt-20 text-xs text-neutral-600">
         <hr class="border-t border-brandBorder my-10">
         <address class="not-italic mb-2">
