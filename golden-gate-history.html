@@ -7,7 +7,7 @@
 
   <meta name="description" content="Discover the foundational history of the Golden Gate Chapter of the California Rare Fruit Growers. From its 1968 roots to pioneering urban food forests in the Bay Area.">
   <meta name="keywords" content="CRFG history, Golden Gate Chapter history, California Rare Fruit Growers, Paul Thomson, John Riley, Katherine Pyle, Bay Area orchard history, scion exchange origins, urban food forests">
-  <link rel="canonical" href="https://goldengate.crfg.org/history.html">
+  <link class="canonical" href="https://goldengate.crfg.org/history.html">
 
   <meta property="og:site_name" content="California Rare Fruit Growers - Golden Gate Chapter">
   <meta property="og:title" content="Our Roots: History of the Golden Gate Chapter | CRFG">
@@ -112,30 +112,169 @@
       scrollbar-width: thin;
       scrollbar-color: rgba(255,255,255,.2) transparent;
     }
+    
     nav a.active {
       background-color: rgba(255,255,255,.16) !important;
       color: #ffffff !important;
       border-left-color: rgba(255,255,255,.75) !important;
     }
+
     p, h1, h2, h3, h4, li, blockquote, strong {
       text-wrap: pretty;
     }
 
-    /* Custom styles managing the windowshade mechanics safely without engine conflict */
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 0.25rem;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+    .nav-brand:hover {
+      background-color: rgba(255,255,255,0.06);
+    }
+    .logo {
+      width: 5rem;
+      height: 5rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 0.75rem;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    }
+    .site-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.3;
+      display: block;
+    }
+    .site-crfg {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.3;
+      display: block;
+      margin-top: 0.125rem;
+    }
+    .site-sub {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.3;
+      margin-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      display: block;
+    }
+
+    .mobile-header {
+      display: none;
+    }
+
     @media (max-width: 750px) {
-      .mobile-shade {
-        max-height: 0px;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: max-height 0.35s ease-in-out, opacity 0.2s ease-out, transform 0.35s ease-in-out;
-        overflow: hidden;
+      .layout-frame { 
+        flex-direction: column !important; 
       }
-      .mobile-shade.show-shade {
-        max-height: 85vh;
-        opacity: 1;
-        transform: translateY(0);
-        overflow-y: auto;
+
+      .nav-brand {
+        display: none !important; 
       }
+      
+      .mobile-header {
+        display: flex !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1001 !important;
+        width: 100% !important;
+        height: 56px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        background-color: #274D31;
+      }
+      .mobile-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        text-decoration: none;
+      }
+      .mobile-logo {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+      .mobile-title {
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: #ffffff;
+      }
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.375rem;
+        background-color: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 7px;
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        min-height: 44px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+      }
+      .hamburger:active {
+        transform: scale(0.95);
+      }
+
+      aside {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+      }
+
+      nav {
+        position: absolute !important;
+        top: 56px !important; 
+        left: 0 !important;
+        right: 0 !important;
+        background-color: #274D31 !important;
+        padding: 0 0 8px 0 !important;
+        max-height: 0 !important;
+        opacity: 0 !important;
+        transform: translateY(-10px) !important;
+        overflow: hidden !important;
+        transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.35s ease !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25) !important;
+        border-top: 1px solid rgba(255,255,255,0.15) !important;
+      }
+
+      nav.open {
+        max-height: 70vh !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        overflow-y: auto !important;
+      }
+
+      nav a {
+        padding: 0 20px !important;
+        min-height: 48px !important;
+        font-size: .93rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+        border-radius: 0 !important;
+        white-space: normal !important;
+      }
+      nav a:last-child { border-bottom: none !important; }
     }
   </style>
 </head>
@@ -143,83 +282,84 @@
 
   <a href="#main-content" class="absolute left-[-9999px] top-auto w-[1px] h-[1px] overflow-hidden focus:sticky focus:left-4 focus:top-4 focus:w-auto focus:h-auto focus:bg-[#274D31] focus:text-white focus:py-3 focus:px-5 focus:z-[1999] focus:rounded-md focus:font-bold focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-white">Skip to main content</a>
 
-  <div class="layout-frame flex flex-col [media_(min-width:751px)]:flex-row min-h-screen max-w-[1200px] mx-auto bg-[#FAF0E6]">
+  <div class="layout-frame flex flex-row min-h-screen max-w-[1200px] mx-auto bg-[#FAF0E6]">
 
-    <aside class="w-full [media_(min-width:751px)]:w-[220px] shrink-0 bg-[#274D31] sticky top-0 [media_(min-width:751px)]:h-screen overflow-visible [media_(min-width:751px)]:overflow-y-auto z-[1050] shadow-md [media_(min-width:751px)]:shadow-none">
+    <aside class="w-[220px] shrink-0 bg-[#274D31] flex flex-col sticky top-0 h-screen overflow-y-auto [media_(max-width:750px)]:h-auto">
       
-      <a href="index.html" class="hidden [media_(min-width:751px)]:flex flex-col items-center text-center p-5 pb-4 border-b border-white/15 mb-1 no-underline hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/40" aria-label="Golden Gate Chapter CRFG — Home">
-        <img class="w-20 h-20 mx-auto block mb-3 drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]" src="images/CRFG-logo-transparent-web.svg" alt="Golden Gate Chapter CRFG Logo">
-        <span class="text-[1.05rem] font-extrabold color-white text-white leading-tight block">Golden Gate Chapter</span>
-        <span class="text-[0.9rem] font-bold text-white/75 leading-tight block mt-0.5">CRFG.org</span>
-        <span class="text-[0.78rem] font-bold text-white/85 leading-tight mt-1.5 pb-1 block">Growing unusual edibles in the San Francisco Bay Area</span>
+      <a href="index.html" class="nav-brand focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/40" aria-label="Golden Gate Chapter CRFG — Home">
+        <img class="logo" src="images/CRFG-logo-transparent-web.svg" alt="Golden Gate Chapter CRFG Logo">
+        <span class="site-title">Golden Gate Chapter</span>
+        <span class="site-crfg">CRFG.org</span>
+        <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
       </a>
 
-      <div class="flex [media_(min-width:751px)]:hidden w-full h-14 items-center justify-between px-3 bg-[#274D31] relative z-[1060]">
-        <a href="index.html" class="flex items-center gap-2.5 no-underline" aria-label="Golden Gate Chapter CRFG — Home">
-          <img class="w-9 h-9" src="images/CRFG-logo-transparent-web.svg" alt="CRFG Logo">
-          <span class="text-[0.82rem] font-extrabold text-white">Golden Gate Chapter · CRFG</span>
+      <div class="mobile-header">
+        <a href="index.html" class="mobile-brand" aria-label="Golden Gate Chapter CRFG — Home">
+          <img class="mobile-logo" src="images/CRFG-logo-transparent-web.svg" alt="CRFG Logo">
+          <span class="mobile-title">Golden Gate Chapter · CRFG</span>
         </a>
-        <button class="flex items-center justify-center gap-1.5 bg-white/10 border border-white/30 rounded-[7px] px-2.5 min-h-[44px] text-white cursor-pointer transition-transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50" 
+        <button class="hamburger focus:outline-none focus:ring-2 focus:ring-white/50" 
                 id="hamburgerBtn"
                 aria-controls="navMenu"
                 aria-expanded="false"
-                aria-label="Toggle primary navigation menu">
+                aria-label="Toggle primary navigation menu"
+                onclick="document.getElementById('navMenu').classList.toggle('open')">
           <svg viewBox="0 0 24 24" width="16" height="16" stroke="white" fill="none" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-          <span class="text-sm font-semibold">Menu</span>
+          <span>Menu</span>
         </button>
       </div>
 
-      <nav id="navMenu" class="mobile-shade [media_(min-width:751px)]:max-h-none [media_(min-width:751px)]:opacity-100 [media_(min-width:751px)]:transform-none absolute [media_(min-width:751px)]:relative top-14 [media_(min-width:751px)]:top-0 left-0 right-0 bg-[#274D31] pb-2 [media_(min-width:751px)]:pb-32 shadow-[0_10px_25px_rgba(0,0,0,0.25)] [media_(min-width:751px)]:shadow-none border-t border-white/15 [media_(min-width:751px)]:border-t-0 z-[1040]" aria-label="Primary site navigation">
+      <nav id="navMenu" class="flex flex-col py-1 [media_(min-width:751px)]:pb-32" aria-label="Primary site navigation">
         
         <div class="mt-1.5">
-          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-5 [media_(min-width:751px)]:px-4 pt-4 pb-1 block text-left" id="nav-group-start">🏠 Start Here</span>
+          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-4 pt-4 pb-1 block text-left" id="nav-group-start">🏠 Start Here</span>
           <ul class="list-none p-0 m-0" aria-labelledby="nav-group-start">
-            <li><a href="index.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">About Us</a></li>
-            <li><a href="golden-gate-history.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">Our Historical Roots</a></li>
+            <li><a href="index.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all focus:outline-none focus:bg-white/10">About Us</a></li>
+            <li><a href="golden-gate-history.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all focus:outline-none focus:bg-white/10">Our Historical Roots</a></li>
           </ul>
         </div>
 
         <div class="mt-1.5">
-          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-5 [media_(min-width:751px)]:px-4 pt-4 pb-1 block text-left" id="nav-group-grow">🌿 Grow Fruit</span>
+          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-4 pt-4 pb-1 block text-left" id="nav-group-grow">🌿 Grow Fruit</span>
           <ul class="list-none p-0 m-0" aria-labelledby="nav-group-grow">
-            <li><a href="bay-area-zone-favorites.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex flex-col items-start justify-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all py-2.5 leading-[1.3] focus:outline-none focus:bg-white/10">Bay Area Favorites<span class="pl-3 [media_(min-width:751px)]:pl-2 text-[0.78rem] opacity-85 font-semibold mt-px block">by Climate Zone</span></a></li>
-            <li><a href="member-guides.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex flex-col items-start justify-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all py-2.5 leading-[1.3] focus:outline-none focus:bg-white/10">Member Written Guides<span class="pl-3 [media_(min-width:751px)]:pl-2 text-[0.78rem] opacity-85 font-semibold mt-px block">What Thrives Locally</span></a></li>
-            <li><a href="fruity-resources.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">Fruity Resources</a></li>
+            <li><a href="bay-area-zone-favorites.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex flex-col items-start justify-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all py-2.5 leading-[1.3] focus:outline-none focus:bg-white/10">Bay Area Favorites<span class="pl-3 text-[0.78rem] opacity-85 font-semibold mt-px block">by Climate Zone</span></a></li>
+            <li><a href="member-guides.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex flex-col items-start justify-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all py-2.5 leading-[1.3] focus:outline-none focus:bg-white/10">Member Written Guides<span class="pl-3 text-[0.78rem] opacity-85 font-semibold mt-px block">What Thrives Locally</span></a></li>
+            <li><a href="fruity-resources.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all focus:outline-none focus:bg-white/10">Fruity Resources</a></li>
           </ul>
         </div>
 
         <div class="mt-1.5">
-          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-5 [media_(min-width:751px)]:px-4 pt-4 pb-1 block text-left" id="nav-group-community">🤝 Community</span>
+          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-4 pt-4 pb-1 block text-left" id="nav-group-community">🤝 Community</span>
           <ul class="list-none p-0 m-0" aria-labelledby="nav-group-community">
-            <li><a href="meetings.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">Meetings</a></li>
-            <li><a href="online-community.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">Online Community</a></li>
+            <li><a href="meetings.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all focus:outline-none focus:bg-white/10">Meetings</a></li>
+            <li><a href="online-community.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all focus:outline-none focus:bg-white/10">Online Community</a></li>
           </ul>
         </div>
 
         <div class="mt-1.5">
-          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-5 [media_(min-width:751px)]:px-4 pt-4 pb-1 block text-left" id="nav-group-membership">✨ Membership</span>
+          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-4 pt-4 pb-1 block text-left" id="nav-group-membership">✨ Membership</span>
           <ul class="list-none p-0 m-0" aria-labelledby="nav-group-membership">
-            <li><a href="join-renew.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">Join / Renew</a></li>
+            <li><a href="join-renew.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all focus:outline-none focus:bg-white/10">Join / Renew</a></li>
           </ul>
         </div>
 
         <div class="mt-1.5">
-          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-5 [media_(min-width:751px)]:px-4 pt-4 pb-1 block text-left" id="nav-group-events">🍋 Events</span>
+          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-4 pt-4 pb-1 block text-left" id="nav-group-events">🍋 Events</span>
           <ul class="list-none p-0 m-0" aria-labelledby="nav-group-events">
-            <li><a href="gg-scionexchange.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-b border-white/5 [media_(min-width:751px)]:border-b-0 [media_(min-width:751px)]:border-l-3 border-transparent hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">Scion Exchange</a></li>
+            <li><a href="gg-scionexchange.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all focus:outline-none focus:bg-white/10">Scion Exchange</a></li>
           </ul>
         </div>
 
         <div class="mt-1.5">
-          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-5 [media_(min-width:751px)]:px-4 pt-4 pb-1 block text-left" id="nav-group-plants">🌱 Get Plants</span>
+          <span class="text-[0.86rem] font-extrabold uppercase tracking-widest text-white/85 px-4 pt-4 pb-1 block text-left" id="nav-group-plants">🌱 Get Plants</span>
           <ul class="list-none p-0 m-0" aria-labelledby="nav-group-plants">
-            <li><a href="where-to-buy.html" class="text-[0.93rem] [media_(min-width:751px)]:text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[48px] [media_(min-width:751px)]:min-h-[44px] flex items-center px-5 [media_(min-width:751px)]:px-4 [media_(min-width:751px)]:pl-[19px] border-0 hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:bg-white/10">Where to Buy</a></li>
+            <li><a href="where-to-buy.html" class="text-[0.82rem] font-bold text-[#FAF0E6] no-underline min-h-[44px] flex items-center px-4 pl-[19px] border-l-3 border-transparent hover:bg-white/10 hover:text-white rounded-r-md transition-all mb-4 focus:outline-none focus:bg-white/10">Where to Buy</a></li>
           </ul>
         </div>
       </nav>
     </aside>
 
-    <div class="flex-1 p-5 sm:p-10 sm:px-[54px] min-w-0 [max-width:calc(1200px-220px)]">
+    <div class="flex-1 p-10 px-[54px] min-w-0 [max-width:calc(1200px-220px)] [media_(max-width:750px)]:p-5">
       
       <main id="main-content" tabindex="-1" class="focus:outline-none">
 
@@ -235,8 +375,9 @@
           
           <header class="border-b-2 border-[#222] pb-6 mb-10">
             <span class="text-[0.85rem] font-extrabold uppercase tracking-[0.18em] text-brandBurgundy mb-3 block">Chapter Chronicle & History</span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-brandGreen tracking-tight leading-[1.1] mb-[18px]">
-              Our Roots: <span class="block mt-1">The History of the Golden Gate Chapter</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-brandGreen tracking-tight leading-[1.1] mb-[18px] border-t-2 border-[#222] pt-1 mt-1">
+              Our Roots:
+              <span class="block mt-1">The History of the Golden Gate Chapter</span>
             </h1>
             <p class="text-xl sm:text-2xl font-normal text-[#444] leading-[1.45] max-w-2xl font-serif italic">From a hand-cranked mimeograph machine to a thriving regional network of urban food forests mapping the microclimates of the Bay Area.</p>
           </header>
@@ -248,57 +389,58 @@
           </section>
 
           <section class="mt-12" aria-labelledby="sec-spark">
-            <h2 id="sec-spark" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t border-brandBorder pt-1.8 mb-5">The Spark: A Soldier and an Engineer (1966–1968)</h2>
+            <h2 id="sec-spark" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t-2 border-[#222] pt-1 mt-1 mb-5">The Spark: A Soldier and an Engineer (1966–1968)</h2>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-6">The story of the CRFG was born in 1966 out of the shared obsession of two men: <strong>Paul Thomson</strong> and <strong>John Riley</strong>.</p>
             
             <div class="flex flex-col lg:flex-row gap-8 my-10 items-start w-full">
-              <div class="w-full lg:w-3/5 flex flex-col tracking-normal">
-                
-                <div class="pb-6 border-b border-brandBorder">
-                  <span class="text-[0.75rem] font-black uppercase tracking-widest text-brandGreen block mb-1">The Southern Grower</span>
-                  <h3 class="font-black font-serif text-neutral-900 text-3xl leading-none mb-3">Paul Thomson</h3>
-                  <p class="text-[0.98rem] text-neutral-800 font-sans leading-relaxed m-0">
-                    A rugged ex-Marine, self-taught botanist, and organic farmer living in San Diego’s North County. On his five-acre farm in Bonsall (and later his property “Edgehill” in Vista), Thomson was doing what many agricultural experts at the time claimed was impossible: successfully cultivating tropical and subtropical treats like cherimoyas, mangoes, lychees, and longans.
-                  </p>
-                </div>
-                
-                <div class="pt-6">
-                  <span class="text-[0.75rem] font-black uppercase tracking-widest text-brandBlue block mb-1">The Northern Innovator</span>
-                  <h3 class="font-black font-serif text-neutral-900 text-3xl leading-none mb-3">John Riley</h3>
-                  <p class="text-[0.98rem] text-neutral-800 font-sans leading-relaxed m-0">
-                    A brilliant Lockheed aerospace engineer based right here in Northern California (Santa Clara). He possessed an identical passion for rare, untried plants and brought a meticulous, scientific engineering mind to the art of plant propagation.
-                  </p>
-                </div>
-              </div>
+  
+  <div class="w-full lg:w-2/3 flex flex-col tracking-normal">
+    
+    <div class="pb-6">
+      <span style="border-top: 1.5px solid rgba(0, 0, 0, 0.6); padding-top: 2px; margin-top: 2px;" class="text-[0.75rem] font-black uppercase tracking-widest text-brandGreen block mb-1">The Southern Grower</span>
+      <h3 class="font-black font-serif text-neutral-900 text-3xl leading-none mb-3">Paul Thomson</h3>
+      <p class="text-[0.98rem] text-neutral-800 font-sans leading-relaxed m-0">
+        A rugged ex-Marine, self-taught botanist, and organic farmer living in San Diego’s North County. On his five-acre farm in Bonsall (and later his property “Edgehill” in Vista), Thomson was doing what many agricultural experts at the time claimed was impossible: successfully cultivating tropical and subtropical treats like cherimoyas, mangoes, lychees, and longans.
+      </p>
+    </div>
+    
+    <div class="pt-6">
+      <span style="border-top: 1.5px solid rgba(0, 0, 0, 0.6); padding-top: 2px; margin-top: 2px;" class="text-[0.75rem] font-black uppercase tracking-widest text-brandBlue block mb-1">The Northern Innovator</span>
+      <h3 class="font-black font-serif text-neutral-900 text-3xl leading-none mb-3">John Riley</h3>
+      <p class="text-[0.98rem] text-neutral-800 font-sans leading-relaxed m-0">
+        A brilliant Lockheed aerospace engineer based right here in Northern California (Santa Clara). He possessed an identical passion for rare, untried plants and brought a meticulous, scientific engineering mind to the art of plant propagation.
+      </p>
+    </div>
+  </div>
 
-              <div class="w-full lg:w-2/5 lg:mt-2">
-                <blockquote class="border-y-4 border-brandBlue py-6 px-3 text-[1.18rem] font-serif font-bold italic text-brandBlueDark leading-[1.5] m-0">
-                  <p class="m-0">"They arrived without prejudice to what could not be grown... starting an agricultural paradigm shift right from their backyards."</p>
-                </blockquote>
-              </div>
-            </div>
+  <div class="w-full lg:w-1/3 lg:mt-2">
+    <blockquote class="border-y-4 border-brandBlue py-6 px-3 text-[1.18rem] font-serif font-bold italic text-brandBlueDark leading-[1.5] m-0">
+      <p class="m-0">"They arrived without prejudice to what could not be grown... starting an agricultural paradigm shift right from their backyards."</p>
+    </blockquote>
+  </div>
+</div>
 
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">In 1966, Riley visited Thomson in North San Diego County. Seeing the incredible diversity of subtropical fruits thriving there, both men recognized a massive gap in the horticultural world. Commercial agriculture ignored these fruits, and backyard gardeners interested in unusual edible plants had no reliable sources of information or community support.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Inspired in part by the Florida Rare Fruit Council, the duo began collaborating. Using a hand-cranked mimeograph machine, they compiled their shared insights, successes, and failures into a typed newsletter, mailing it out to a small network of about 20 to 30 fellow enthusiasts.</p>
 
-            <h3 class="text-xl sm:text-2xl font-extrabold text-brandBlue mt-8 mb-3.5">1968: The Birth of an Organization</h3>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-brandBlue border-t-2 border-[#222] pt-1 mt-1 mb-3.5">1968: The Birth of an Organization</h3>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">As interest exploded, the duo realized that fruit hobbyists desperately needed a centralized clearinghouse to exchange knowledge, seeds, and wood. In <strong>November 1968</strong>, they officially founded the <strong>California Rare Fruit Growers, Inc.</strong></p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">The timing was perfect. The late 1960s brought a massive wave of newcomers moving to California. Crucially, these newcomers arrived "without prejudice to what could not be grown." Unbound by traditional agricultural dogmas, these backyard innovators started planting everything from passion fruit to pitahayas.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">By 1971, the group had grown to nearly 400 members; by the mid-1970s, it surpassed 500. What started as a mimeographed newsletter evolved into our flagship bimonthly magazine, <em>The Fruit Gardener</em>, and our annual state conference known as the <strong>Festival of Fruit</strong>.</p>
           </section>
 
           <section class="mt-12" aria-labelledby="sec-spreading-north">
-            <h2 id="sec-spreading-north" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t border-brandBorder pt-1.5 mb-5">Spreading North: The "Bay Area Chapter" (1983)</h2>
+            <h2 id="sec-spreading-north" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t-2 border-[#222] pt-1 mt-1 mb-5">Spreading North: The "Bay Area Chapter" (1983)</h2>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">For its first 15 years, the CRFG’s growth and early chapters remained almost exclusively south of the Tehachapi Mountains, which many considered the "Mecca" of exotic fruits. However, John Riley’s Northern California roots ensured the Bay Area wouldn't be left behind.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">The catalyst for our local history began in <strong>1983</strong>, when Riley and Thomson decided it was time to establish a formal presence in Northern California. They helped organize the very first northern chapter in San Jose, aptly named the <strong>Bay Area Chapter</strong>, with Brent Thompson serving as its first chairman.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">This single, monolithic chapter originally acted as the central hub for all fruit enthusiasts across the broader region. It drew an incredibly active, passionate group of growers from every corner of the Bay. One of their most significant early projects in the early 1980s was propagating and planting over 100 specimens of rare and prized fruit trees at <strong>Emma Prusch Farm Park in San Jose</strong>. This International Rare Fruit Orchard creates a living demonstration orchard that stands as a testament to those early years.</p>
           </section>
 
           <section class="mt-12" aria-labelledby="sec-golden-gate">
-            <h2 id="sec-golden-gate" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t border-brandBorder pt-1.5 mb-5">The Birth of the Golden Gate Chapter (1987)</h2>
+            <h2 id="sec-golden-gate" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t-2 border-[#222] pt-1 mt-1 mb-5">The Birth of the Golden Gate Chapter (1987)</h2>
             
             <blockquote class="w-full sm:w-[45%] sm:float-left sm:mr-6 my-4 sm:my-2 border-y-2 border-brandBurgundy py-4 px-1 text-[1.2rem] font-serif font-bold italic text-brandBurgundy leading-[1.45]">
-              <p class="m-0">"Our historic first meeting took place on September 12, 1987, at the South Berkeley Public Library."</p>
+              <p class="m-0"><i>"Our historic first meeting took place on September 12, 1987, at the South Berkeley Public Library."</i></p>
             </blockquote>
 
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">As regional membership swelled throughout the mid-to-late 1980s, it became clear that a single chapter could no longer adequately serve the entire region. The vast geographical spread and distinct microclimates of the Bay Area required a more localized approach. Growing fruit in the hot inland valleys of the East Bay or the foggy coastal pockets of San Francisco required entirely different strategies than growing in the South Bay.</p>
@@ -307,12 +449,12 @@
           </section>
 
           <section class="mt-12" aria-labelledby="sec-legacy">
-            <h2 id="sec-legacy" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t border-brandBorder pt-1.5 mb-5">A Legacy of Backyard Knowledge & Agroecology</h2>
+            <h2 id="sec-legacy" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t-2 border-[#222] pt-1 mt-1 mb-5">A Legacy of Backyard Knowledge & Agroecology</h2>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Since that foundational first meeting, the Golden Gate Chapter has transformed the concept of rare fruit growing for local residents. Instead of focusing strictly on the classic southern heat-lovers, our chapter became a vital testing ground for identifying, trialing, and preserving varieties that thrive in cool, overcast summers or unique urban microclimates.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Chapter Chairperson <strong>John Valenzuela</strong> notes that rare fruit growing is a revelatory topic. It connects home gardeners directly to ethnobotany, agroecology, and the history of global trade. Many fruits we now take for granted—like Clementine mandarins or heirloom tomatoes—were once considered "rare" and unusual until small-scale, experimental growers proved their regional viability.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Our members often look at fruit growing through the lens of permaculture and "food forests"—designing highly efficient, multi-layered backyard ecosystems. This allows urban growers to pack maximum biodiversity into small yards by layering:</p>
 
-            <div class="flex flex-col gap-4 my-7 py-4 border-y border-brandBorder bg-white/60 rounded-lg px-5 shadow-sm">
+            <div class="flex flex-col gap-4 my-7 py-4 border-t-4 border-b-4 border-brandGreen bg-white/60 rounded-lg px-5 shadow-sm">
               <div class="flex flex-col sm:flex-row gap-2 sm:items-baseline">
                 <span class="font-extrabold uppercase text-[0.8rem] tracking-wider text-brandGreen block sm:w-36 shrink-0">Ground Layer:</span>
                 <span class="text-base text-brandText"><strong>Ground Covers & Trailing Vines</strong> — Strawberries, pumpkins, and trailing vines.</span>
@@ -329,7 +471,7 @@
 
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Over the decades, we have transitioned from a small group of local hobbyists swapping backyard secrets into a robust community. We act as a literal and digital "backyard fence"—a collaborative network where decades of specialized pomological knowledge is preserved and passed down to the next generation of urban orchardists.</p>
 
-            <div class="border-t-5 border-b-5 border-brandGreen py-6 my-7 bg-white/60 rounded-md px-5 shadow-inner">
+            <div class="border-t-5 border-b-5 border-brandGreen py-6 my-7 bg-white/60 px-4 rounded-md px-5 shadow-inner">
               <h3 class="text-brandGreen text-xl font-black mt-0 mb-3 uppercase tracking-wider">What Defines a "Rare" Fruit?</h3>
               <p class="text-base text-neutral-800 mb-4 font-serif italic">At the Golden Gate Chapter, we honor the original mission statement penned by our founders. We define a fruit as "rare" if it meets any of these criteria:</p>
               <ul class="list-disc pl-5 space-y-1 text-base text-neutral-800 mb-8">
@@ -340,7 +482,7 @@
                 <li>It is an exceptional variety that is simply not grown commercially.</li>
               </ul>
 
-              <h4 class="text-brandBurgundy text-lg font-extrabold pt-2.5 border-t-2 border-brandBorder mb-3 uppercase tracking-wide">California Rare Fruit Growers: Parent Organization Scope & Impact</h4>
+              <h4 class="text-brandBurgundy text-lg font-extrabold pt-2.5 border-t-2  border-brandBorder mb-3 uppercase tracking-wide">California Rare Fruit Growers: Parent Organization Scope & Impact</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-neutral-800">
                 <div><strong class="text-brandGreen">Membership:</strong> Over 2,500 members worldwide</div>
                 <div><strong class="text-brandGreen">Chapters:</strong> 18 regional chapters across the western U.S. and internationally</div>
@@ -351,14 +493,14 @@
           </section>
 
           <section class="mt-12" aria-labelledby="sec-carrying-torch">
-            <h2 id="sec-carrying-torch" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t border-brandBorder pt-1.5 mb-5">Carrying the Torch Today</h2>
+            <h2 id="sec-carrying-torch" class="text-2xl sm:text-3xl font-black text-brandBurgundy border-t-2 border-[#222] pt-1 mt-1 mb-5">Carrying the Torch Today</h2>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">From foggy coastal hillsides to sizzling inland valleys, the <strong>Golden Gate Chapter region</strong> represents an incredible playground for fruit-growing experimentation. While our founders began by testing the limits of tropicals in Southern California, we continue that spirit of adventure in the North—constantly pushing the boundaries of what can be grown in our own backyards.</p>
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-5">Through education, preservation, and the sharing of plant material, the Golden Gate Chapter keeps Paul Thomson and John Riley’s original 1968 vision alive. <strong>We invite you</strong> to join our regular meetings, featuring expert speakers, orchard tours, fruit tastings, and workshops that highlight the richness of our community.</p>
             
             <p class="text-[1.1rem] text-neutral-800 leading-[1.65] mb-4">You can also take part in our long-standing annual traditions:</p>
             <ul class="list-disc pl-5 space-y-2 text-base text-neutral-800 font-medium mb-8">
               <li>Our popular <strong>Annual Golden Gate Scion Exchange</strong> (where beginners and experts alike choose from hundreds of varieties of dormant fruit tree cuttings).</li>
-              <li>Exclusive field trips, <strong>guided orchard tours</strong>, classes, and hands-on workshops.</li>
+              <li>Exclusive field trips <strong>guided orchard tours</strong> classes and ands-on workshops.</li>
               <li><strong>Seasonal fruit tastings</strong> from member orchards.</li>
             </ul>
 
@@ -375,12 +517,12 @@
 
       </main>
 
-      <footer class="max-w-3xl mx-auto mt-20 text-xs text-neutral-600">
+      <footer class="max-w-3xl mx-auto mt-20 text-[10px] tracking-tight text-neutral-500">
         <hr class="border-t border-brandBorder my-10">
-        <address class="not-italic mb-2">
-          <p class="m-0">Questions or comments? <br> Email the <a href="mailto:golden.gate@crfg.org" class="text-brandGreen underline font-bold hover:text-brandGreenDark focus:outline-none focus:ring-1 focus:ring-brandGreen">Golden Gate Chapter</a>.</p>
+        <address class="not-italic mb-2 text-[10px] tracking-tight">
+          <p class="m-0 text-[10px] tracking-tight">Questions or comments? <br> Email the <a href="mailto:golden.gate@crfg.org" class="text-brandGreen underline font-bold hover:text-brandGreenDark focus:outline-none focus:ring-1 focus:ring-brandGreen">Golden Gate Chapter</a>.</p>
         </address>
-        <p class="m-0">Copyright &copy; 2026. All rights reserved. <br> California Rare Fruit Growers Inc. | <a href="https://crfg.org" class="text-neutral-700 underline focus:outline-none focus:ring-1 focus:ring-neutral-700">CRFG.org</a></p>
+        <p class="m-0 text-[10px] tracking-tight">Copyright &copy; 2026. All rights reserved. <br> California Rare Fruit Growers Inc. | <a href="https://crfg.org" class="text-neutral-700 underline focus:outline-none focus:ring-1 focus:ring-neutral-700">CRFG.org</a></p>
       </footer>
     </div>
 
@@ -407,22 +549,20 @@
 
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
-        var isOpen = nav.classList.toggle("show-shade");
-        btn.setAttribute("aria-expanded", isOpen);
+        var open = nav.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
       });
 
-      // Close the menu automatically when clicking any internal links
       nav.querySelectorAll("a").forEach(function (a) {
         a.addEventListener("click", function () {
-          nav.classList.remove("show-shade");
+          nav.classList.remove("open");
           btn.setAttribute("aria-expanded", "false");
         });
       });
 
-      // Close the menu if a user clicks completely outside of the sticky menu frame
       document.addEventListener("click", function (e) {
         if (!nav.contains(e.target) && !btn.contains(e.target)) {
-          nav.classList.remove("show-shade");
+          nav.classList.remove("open");
           btn.setAttribute("aria-expanded", "false");
         }
       });
