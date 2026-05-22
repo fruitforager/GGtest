@@ -3,450 +3,1452 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golden Gate Scion Exchange CRFG</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              'beige: '#FAF0E6',
-              'green: '#274D31',
-              'green-dark': '#21452c',
-              'blue: '#2f5d8f',
-              'blue-dark': '#21425c',
-              'accent: '#f6e3d1',
-              'burgundy-dark': '#573b59;
-            }
-          }
-        }
+  <title>Golden Gate Scion Exchange 2026 · CRFG Bay Area</title>
+
+  <meta name="description" content="36th Annual Golden Gate Scion Exchange — February 22, 2026 at Diablo Valley College, Pleasant Hill, CA. Hundreds of rare fruit varieties, free grafting classes, expert demos, and fruit tastings. Hosted by the Golden Gate Chapter of California Rare Fruit Growers (CRFG).">
+  <meta name="keywords" content="scion exchange, CRFG, California Rare Fruit Growers, Golden Gate Chapter, grafting, fruit trees, scionwood, Bay Area, Diablo Valley College, Pleasant Hill, rare fruit, fruit grafting 2026">
+  <meta name="author" content="Golden Gate Chapter, California Rare Fruit Growers">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://golden-gate.crfg.org/gg-scionexchange.html">
+
+  <meta property="og:type" content="event">
+  <meta property="og:title" content="36th Annual Golden Gate Scion Exchange 2026 · CRFG">
+  <meta property="og:description" content="February 22, 2026 at Diablo Valley College, Pleasant Hill, CA. Hundreds of rare fruit varieties, free grafting classes, fruit tastings, and expert demos. Open to all — $5 entry.">
+  <meta property="og:image" content="https://golden-gate.crfg.org/images/Scion_Exchange_photos.jpg">
+  <meta property="og:image:alt" content="Volunteers and attendees at the Golden Gate CRFG Scion Exchange">
+  <meta property="og:url" content="https://golden-gate.crfg.org/gg-scionexchange.html">
+  <meta property="og:site_name" content="Golden Gate Chapter · CRFG">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="36th Annual Golden Gate Scion Exchange 2026 · CRFG">
+  <meta name="twitter:description" content="Feb 22, 2026 · Diablo Valley College, Pleasant Hill, CA. Hundreds of rare fruit varieties, free grafting classes, fruit tastings. $5 entry, all welcome.">
+  <meta name="twitter:image" content="https://golden-gate.crfg.org/images/Scion_Exchange_photos.jpg">
+  <meta name="twitter:site" content="@CRFG_HQ">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "36th Annual Golden Gate Scion Exchange 2026",
+    "description": "The Golden Gate Chapter of California Rare Fruit Growers hosts its 36th annual Scion Exchange. Attendees can select from hundreds of varieties of scionwood and cuttings, attend free grafting classes, watch live grafting demonstrations, and sample rare fruit cultivars.",
+    "startDate": "2026-02-22T11:00:00-08:00",
+    "endDate": "2026-02-22T15:00:00-08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "isAccessibleForFree": false,
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "General Admission",
+        "price": "5",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01",
+        "url": "https://shr.pn/2026GeneralAdmissionFastPass"
       },
-      plugins: [
-        function({ addBase }) {
-          addBase({
-            // Global safeguard against typographic widows and orphans across viewports
-            'h1, h2, h3, h4, p, dt, dd, li, span, strong, a': { textWrap: 'balance' },
-          })
-        }
-      ]
-    }
+      {
+        "@type": "Offer",
+        "name": "Member Early Entry Ticket",
+        "price": "5",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01",
+        "url": "https://shr.pn/2026MemberEarlyEntryTicket"
+      }
+    ],
+    "location": {
+      "@type": "Place",
+      "name": "Diablo Valley College Horticulture Department",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "321 Golf Club Road",
+        "addressLocality": "Pleasant Hill",
+        "addressRegion": "CA",
+        "postalCode": "94523",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.9419,
+        "longitude": -122.0608
+      }
+    },
+    "image": "https://golden-gate.crfg.org/images/Scion_Exchange_photos.jpg",
+    "url": "https://golden-gate.crfg.org/gg-scionexchange.html",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Golden Gate Chapter, California Rare Fruit Growers",
+      "url": "https://golden-gate.crfg.org",
+      "email": "golden_gate@crfg.org",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "California Rare Fruit Growers, Inc.",
+        "url": "https://crfg.org"
+      }
+    },
+    "keywords": "scion exchange, grafting, fruit trees, rare fruit, CRFG, Bay Area, scionwood, horticulture"
+  }
   </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================================================
+       CSS CUSTOM PROPERTIES — design tokens
+       (replaces tailwind.config color/font extensions)
+    ===================================================== */
+    :root {
+      --color-forest:    #1e3d28;
+      --color-leaf:      #2d5e3a;
+      --color-sage:      #5a7d5f;
+      --color-mist:      #e8f0e9;
+      --color-parchment: #faf6ef;
+      --color-crimson:   #9b1c2e;
+      --color-gold:      #c8882a;
+      --color-ink:       #1a1a18;
+      --color-blue-dark: #264d7a;
+      --color-red-dark:  #7e1525;
+      --color-mauve:     #6b4c6e;
+      --color-steel:     #2f5d8f;
+      --color-ruby:      #a31a3f;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    /* =====================================================
+       RESET / BASE
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-parchment);
+      color: var(--color-ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, .display { font-family: var(--font-display); }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* =====================================================
+       LAYOUT
+    ===================================================== */
+    .page-wrapper {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @media (min-width: 768px) {
+      .page-wrapper { flex-direction: row; }
+    }
+
+    /* =====================================================
+       SIDEBAR / ASIDE
+    ===================================================== */
+    .sidebar {
+      width: 100%;
+      background-color: var(--color-forest);
+      color: #fff;
+      flex-shrink: 0;
+      z-index: 50;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    }
+    @media (min-width: 768px) {
+      .sidebar {
+        width: 14rem; /* 56 */
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    @media (min-width: 1024px) {
+      .sidebar { width: 15rem; /* 60 */ }
+    }
+
+    /* Sidebar logo — desktop only */
+    .sidebar-logo {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .sidebar-logo:hover { background: rgba(255,255,255,0.05); }
+    @media (min-width: 768px) { .sidebar-logo { display: flex; } }
+    .sidebar-logo img { width: 5rem; height: auto; margin-bottom: 0.75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
+    .sidebar-logo .logo-name { font-family: var(--font-display); font-size: 1rem; font-weight: 900; line-height: 1.25; }
+    .sidebar-logo .logo-sub  { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-top: 0.125rem; }
+    .sidebar-logo .logo-tag  { font-size: 0.6875rem; color: rgba(255,255,255,0.6); margin-top: 0.5rem; line-height: 1.4; }
+
+    /* Mobile top bar */
+    .sidebar-mobile-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.875rem;
+      background: rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+    .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+    .sidebar-mobile-bar img { width: 2rem; height: auto; }
+    .sidebar-mobile-bar .brand { font-family: var(--font-display); font-size: 0.875rem; font-weight: 900; color: #fff; }
+    .menu-toggle {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 0.5rem;
+      padding: 0.375rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .menu-toggle:hover  { background: rgba(255,255,255,0.2); }
+    .menu-toggle:active { transform: scale(0.95); }
+    .menu-toggle svg { width: 1rem; height: 1rem; stroke: currentColor; fill: none; }
+
+    /* Nav menu */
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.25rem 0.75rem;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+    .nav-menu.is-open { display: flex; }
+    @media (min-width: 768px) { .nav-menu { display: flex; } }
+
+    .nav-section-label {
+      font-size: 0.625rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding: 0 0.5rem;
+      margin-bottom: 0.375rem;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(232,240,233,0.8);
+      transition: background 0.15s, color 0.15s;
+      text-decoration: none;
+    }
+    .nav-link:hover  { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-link.active { background: rgba(255,255,255,0.15); color: #fff; border-left: 3px solid var(--color-sage); padding-left: calc(0.75rem - 3px); }
+    /* Sub-label inside nav items */
+    .nav-link-sub {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .nav-link-sub .nav-sublabel {
+      padding-left: 1.5rem;
+      font-size: 0.78rem;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+
+    /* =====================================================
+       MAIN CONTENT AREA
+    ===================================================== */
+    .main-wrapper {
+      flex: 1;
+      min-width: 0;
+      padding: 2.5rem 1.25rem;
+    }
+    @media (min-width: 768px) { .main-wrapper { padding: 2.5rem 2.5rem; } }
+    @media (min-width: 1024px) { .main-wrapper { padding: 2.5rem 4rem; } }
+
+    main {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    main > * + * { margin-top: 2rem; }
+
+    /* =====================================================
+       TIMELINE DOTS
+    ===================================================== */
+    .timeline-item { position: relative; }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -1.25rem; top: 0.45rem;
+      width: 0.6rem; height: 0.6rem;
+      border-radius: 50%;
+      background: var(--color-sage);
+      border: 2px solid var(--color-parchment);
+      box-shadow: 0 0 0 2px var(--color-sage);
+    }
+
+    /* =====================================================
+       VARIETY TAGS — green (cuttings-to-root)
+    ===================================================== */
+    .variety-tag {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      background-color: rgba(39, 125, 68, 0.09);
+      color: #216939;
+      border: 1px solid rgba(39, 125, 68, 0.25);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .variety-tag:hover { background-color: rgba(39, 125, 68, 0.16); }
+
+    /* Linked variant (mulberry/olive asterisk tags) — slightly elevated */
+    a.variety-tag {
+      font-weight: 900;
+      text-decoration: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(39,125,68,0.09) 60%, rgba(39,125,68,0.12) 100%);
+      border-color: rgba(39, 125, 68, 0.3);
+      box-shadow: 0 3px 5px rgba(0,0,0,0.12), inset 0 -1.5px 2px rgba(0,0,0,0.04);
+    }
+    a.variety-tag:hover { transform: scale(1.05); }
+
+    /* =====================================================
+       PURPLE TAGS — scions-to-graft
+    ===================================================== */
+    .purple-tag {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      background-color: rgba(73, 57, 217, 0.05);
+      color: #2d228a;
+      border: 1px solid rgba(73, 57, 217, 0.18);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+
+    /* Linked purple variant (mulberry/olive asterisk tags) */
+    a.purple-tag {
+      font-weight: 900;
+      text-decoration: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(73,57,217,0.06) 60%, rgba(73,57,217,0.1) 100%);
+      border-color: rgba(73, 57, 217, 0.2);
+      box-shadow: 0 3px 5px rgba(0,0,0,0.1), inset 0 -1.5px 2px rgba(0,0,0,0.03);
+      transition: transform 0.15s;
+    }
+    a.purple-tag:hover { transform: scale(1.05); }
+
+    /* =====================================================
+       3D GLOSS BUTTONS
+    ===================================================== */
+    .btn-3d-gloss {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 0.875rem;
+      letter-spacing: 0.03em;
+      padding: 0.70rem 1.75rem;
+      border-radius: 0.75rem;
+      color: #ffffff !important;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow:
+        0 10px 22px -4px rgba(0,0,0,0.22),
+        0 4px 10px -2px rgba(0,0,0,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        inset 0 -4px 0 rgba(0,0,0,0.2);
+    }
+    .btn-3d-gloss::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 50%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 85%, rgba(255,255,255,0) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.28);
+      border-radius: 0.75rem 0.75rem 0 0;
+      pointer-events: none;
+    }
+    .btn-3d-gloss:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow:
+        0 16px 32px -4px rgba(0,0,0,0.26),
+        0 6px 14px -2px rgba(0,0,0,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.45),
+        inset 0 -4px 0 rgba(0,0,0,0.2);
+    }
+    .btn-3d-gloss:active {
+      transform: translateY(1px);
+      filter: brightness(0.96);
+      box-shadow:
+        0 4px 8px -2px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        inset 0 -2px 0 rgba(0,0,0,0.25);
+    }
+    .btn-blue    { background: linear-gradient(180deg, #4a8bc6 0%, #264d7a 100%); }
+    .btn-red     { background: linear-gradient(180deg, #d8455a 0%, #7e1525 100%); }
+    .btn-crimson { background: linear-gradient(180deg, #f5738c 0%, #a8233e 100%); }
+    .btn-green   { background: linear-gradient(180deg, #3a7048 0%, #214530 100%); }
+    .btn-full    { width: 100%; }
+
+    /* =====================================================
+       CHECKLIST ICONS
+    ===================================================== */
+    .check-item::before {
+      content: '✓';
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1rem; height: 1rem; min-width: 1rem;
+      border-radius: 50%; background: #4F7D57;
+      color: #fff; font-size: 0.5rem; font-weight: 900;
+      margin-top: 0.1rem;
+    }
+    .cross-item::before {
+      content: '✕';
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1rem; height: 1rem; min-width: 1rem;
+      border-radius: 50%; background: var(--color-crimson);
+      color: #fff; font-size: 0.45rem; font-weight: 900;
+      margin-top: 0.1rem;
+    }
+    .check-item,
+    .cross-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+    }
+
+    /* =====================================================
+       BADGE (corner ribbon on cards)
+    ===================================================== */
+    .badge-corner {
+      position: absolute;
+      top: 0; right: 0;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.375rem 1rem;
+      border-bottom-left-radius: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .badge-blue   { background: linear-gradient(180deg, #3a6fa8 0%, #2f5d8f 48%, #264d7a 100%); }
+    .badge-green  { background: linear-gradient(180deg, #7a9f75 0%, #5a7d55 48%, #405a3d 100%); }
+    .badge-purple { background: linear-gradient(180deg, #9a8cb8 0%, #7a6b9e 48%, #5a4d7d 100%); }
+
+    /* =====================================================
+       SCROLL FADE-IN  (JS-driven via IntersectionObserver)
+    ===================================================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Elements in the initial viewport animate immediately */
+    .fade-up.no-delay { transition-delay: 0s; }
+    .fade-up.delay-1  { transition-delay: 0.1s; }
+    .fade-up.delay-2  { transition-delay: 0.2s; }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* =====================================================
+       MISC UTILITIES (replacing Tailwind classes)
+    ===================================================== */
+    /* Ornament */
+    .ornament { letter-spacing: 0.25em; color: var(--color-gold); }
+
+    /* Heading text-shadow */
+    .heading-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+
+    /* Poster CTA button row */
+    .poster-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+    }
+    .poster-cta-text { flex: 1; }
+    .poster-cta-text p { font-size: 0.875rem; color: var(--color-forest); font-weight: 700; }
+    .poster-cta-text p + p { padding-left: 1rem; }
+
+    /* =====================================================
+       CARD COMPONENTS (frequently reused)
+    ===================================================== */
+    .card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .card-padded { padding: 1.5rem; }
+    @media (min-width: 768px) { .card-padded-lg { padding: 2rem; } }
+
+    /* Info note (mist background) */
+    .info-note {
+      background: var(--color-mist);
+      border-radius: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      color: var(--color-forest);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* Warning note (red) */
+    .warn-note {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--color-crimson);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* =====================================================
+       TWO-COLUMN INFO GRID (When / Where)
+    ===================================================== */
+    .info-grid {
+      display: grid;
+    }
+    @media (min-width: 640px) {
+      .info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .info-grid > * + * {
+        border-left: 1px solid rgba(0,0,0,0.08);
+        border-top: none;
+      }
+    }
+    .info-grid > * + * { border-top: 1px solid rgba(0,0,0,0.08); }
+
+    /* =====================================================
+       TWO-COLUMN SECTION GRID
+    ===================================================== */
+    .two-col {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .two-col { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* =====================================================
+       TIMELINE TRACK
+    ===================================================== */
+    .timeline-track {
+      border-left: 2px solid rgba(90,125,95,0.4);
+      margin-left: 0.25rem;
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+    }
+
+    /* =====================================================
+       KNOWLEDGE GRID
+    ===================================================== */
+    .knowledge-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px)  { .knowledge-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .knowledge-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    /* =====================================================
+       COMMUNITY ALLIES GRID
+    ===================================================== */
+    .allies-grid {
+      display: grid;
+      gap: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    @media (min-width: 640px) { .allies-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    /* =====================================================
+       DONOR LIST
+    ===================================================== */
+    .donor-list { list-style: none; }
+    .donor-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.625rem;
+      padding: 0.3rem 0;
+    }
+    .donor-list li + li { }
+    .donor-bullet {
+      color: var(--color-sage);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+    .donor-location {
+      color: var(--color-mauve);
+      opacity: 0.7;
+      font-weight: 400;
+    }
+
+    /* =====================================================
+       LINK STYLES
+    ===================================================== */
+    .link-leaf { color: var(--color-leaf); }
+    .link-leaf:hover { text-decoration: underline; }
+    .link-ink  { color: var(--color-ink); font-weight: 700; }
+    .link-ink:hover { color: var(--color-leaf); }
+
+    /* =====================================================
+       PRINT
+    ===================================================== */
+    @media print { .sidebar { display: none !important; } }
+
+    /* =====================================================
+       HERO PHOTO
+    ===================================================== */
+    .hero-photo-wrap {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .hero-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+      display: block;
+    }
+    .hero-photo:hover { transform: scale(1.02); }
+
+    /* =====================================================
+       TICKET CTA STRIP
+    ===================================================== */
+    .ticket-strip {
+      background-color: var(--color-forest);
+      padding: 1rem 1.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .ticket-strip-headline { color: #fff; font-weight: 900; font-size: 1rem; }
+    .ticket-strip-sub { color: rgba(255,255,255,0.9); font-size: 0.875rem; margin-top: 0.125rem; }
+    .ticket-strip-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 0.75rem;
+    }
+    .ticket-strip-buttons .btn-3d-gloss { flex: 1; }
+
+    /* =====================================================
+       SHOPPING LIST CTA  (inside Supplies card, single instance)
+    ===================================================== */
+    .shopping-cta {
+      margin-top: 1.5rem;
+      background: #fff;
+      border: 1px solid rgba(45,94,58,0.2);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--color-crimson);
+    }
+    .shopping-cta p { margin-bottom: 0.75rem; }
+
+    /* =====================================================
+       HANDBOOK CTA BANNER
+    ===================================================== */
+    .handbook-banner {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 1rem;
+      padding: 1.75rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    @media (min-width: 768px) {
+      .handbook-banner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .handbook-banner h3 { font-size: 1.5rem; font-weight: 900; color: var(--color-crimson); line-height: 1.3; }
+    .handbook-banner p  { font-size: 0.875rem; color: rgba(26,26,24,0.8); max-width: 32rem; line-height: 1.6; margin-top: 0.375rem; }
+
+    /* =====================================================
+       SECTION SPACING HELPERS
+    ===================================================== */
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 900;
+      color: var(--color-forest);
+      margin-bottom: 1.25rem;
+    }
+    .section-space { margin-top: 1.5rem; }
+
+    /* =====================================================
+       KNOWLEDGE SUBSECTION HEADERS
+    ===================================================== */
+    .knowledge-h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-steel);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.625rem;
+    }
+    .knowledge-h3 + .knowledge-h3,
+    .knowledge-list + .knowledge-h3 { margin-top: 0.75rem; }
+    .knowledge-list { list-style: none; }
+    .knowledge-list li + li { margin-top: 0.375rem; }
+    .knowledge-list li { font-size: 0.875rem; color: rgba(26,26,24,0.65); }
+    .knowledge-list .note { display: block; font-size: 0.6875rem; color: rgba(26,26,24,0.4); margin-top: 0.125rem; }
+
+    /* =====================================================
+       ABOUT EXCHANGE BOX
+    ===================================================== */
+    .about-box {
+      background: var(--color-mist);
+      border: 1px solid rgba(45,94,58,0.2);
+      border-radius: 1rem;
+      padding: 1.75rem;
+    }
+    .about-box h2 { font-size: 1.5rem; font-weight: 900; color: var(--color-forest); margin-bottom: 0.75rem; }
+    .about-box p  { font-size: 0.875rem; color: rgba(26,26,24,0.7); line-height: 1.7; max-width: 48rem; }
+    .about-box p + p { margin-top: 0.75rem; }
+
+    /* =====================================================
+       DONOR SECTION
+    ===================================================== */
+    .donor-section-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--color-crimson);
+      letter-spacing: 0.03em;
+    }
+    .donor-section-sub {
+      font-size: 0.75rem;
+      color: rgba(26,26,24,0.5);
+      max-width: 42rem;
+      line-height: 1.6;
+      margin-top: 0.25rem;
+    }
+    .donor-name-link { font-weight: 700; }
+    .donor-name-plain { font-weight: 700; color: var(--color-mauve); }
+    .donor-note { font-size: 0.75rem; color: rgba(26,26,24,0.5); font-weight: 400; }
+    .donor-last {
+      padding-top: 0.25rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin-top: 0.25rem;
+      font-style: italic;
+      color: rgba(26,26,24,0.55);
+    }
+    .donor-last strong { color: rgba(26,26,24,0.7); font-style: normal; }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    .site-footer {
+      max-width: 56rem;
+      margin: 4rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.75rem;
+      color: rgba(26,26,24,0.4);
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .site-footer { flex-direction: row; justify-content: space-between; }
+    }
+
+    /* =====================================================
+       AMBER BADGE (Rain or Shine)
+    ===================================================== */
+    .badge-amber {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: #fef3c7;
+      color: #92400e;
+      font-weight: 700;
+      padding: 0.125rem 0.625rem;
+      border-radius: 9999px;
+      border: 1px solid #fde68a;
+      margin-bottom: 0.75rem;
+    }
+
+    /* =====================================================
+       SMALL CHIP LINKS (map/directions)
+    ===================================================== */
+    .chip-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--color-mist);
+      color: var(--color-forest);
+      padding: 0.5rem 0.875rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .chip-link:hover { background: var(--color-leaf); color: #fff; }
+    .chip-link-sm {
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--color-mist);
+      color: var(--color-forest);
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      margin-bottom: 1.25rem;
+    }
+    .chip-link-sm:hover { opacity: 0.85; }
+
+    /* =====================================================
+       VARIETY SECTION HEADING  ("WITH Cuttings-to-Root")
+    ===================================================== */
+    .variety-heading { margin-bottom: 0.75rem; }
+    .variety-heading-prefix {
+      font-size: 55%;
+      opacity: 0.55;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      font-family: var(--font-body);
+      display: inline-block;
+      vertical-align: baseline;
+    }
+    .variety-heading-main {
+      font-family: var(--font-display);
+      font-weight: 900;
+      vertical-align: baseline;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+    }
+    .variety-heading-green  { color: #358d55; }
+    .variety-heading-purple { color: #6758c9; }
+
+    /* Tag cloud flex wrap */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    /* Event item */
+    .event-item { border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 0.75rem; }
+    .event-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .event-item-title { font-weight: 800; font-size: 0.93rem; letter-spacing: -0.01em; color: var(--color-ink); }
+    .event-item-desc  { font-size: 0.85rem; color: rgba(26,26,24,0.7); margin-top: 0.125rem; }
+
+    /* Supply item */
+    .supply-item { font-size: 0.93rem; font-weight: 500; color: rgba(26,26,24,0.85); }
+    .supply-item + .supply-item { margin-top: 1rem; }
+
+    /* Preserve Our Past heading */
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.6rem;
+      color: var(--color-crimson);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+      letter-spacing: 0.005em;
+      line-height: 1.1;
+      opacity: 0.95;
+      margin-bottom: 0.25rem;
+    }
+    .hero-tagline-amp { font-size: 74%; display: inline-block; }
+  </style>
 </head>
-<body class="bg-brand-beige text-neutral-800 antialiased selection:bg-brand-green/10 font-sans">
+<body>
 
-  <div class="mx-auto max-w-[1400px] flex flex-col md:flex-row min-h-screen">
-    
-    <aside class="w-full md:w-64 bg-brand-green text-white md:sticky md:top-0 md:h-screen flex flex-col shrink-0 z-50 shadow-xl md:shadow-none">
-      
-      <a href="index.html" class="hidden md:flex flex-col items-center text-center p-6 border-b border-white/10 hover:bg-white/5 transition-colors duration-200">
-        <img class="w-28 h-auto mb-4 drop-shadow-md" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
-        <span class="text-lg font-black tracking-tight leading-tight">Golden Gate Chapter</span>
-        <span class="text-sm font-bold text-white mt-0.5">CRFG.org</span>
-        <span class="text-[13px] font-bold text-white mt-2 max-w-[22ch] text-left">Growing unusual edibles in the San Francisco Bay Area</span>
+<div class="page-wrapper">
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar">
+
+    <a href="index.html" class="sidebar-logo">
+      <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
+      <span class="logo-name">Golden Gate Chapter</span>
+      <span class="logo-sub">CRFG.org</span>
+      <span class="logo-tag">Growing unusual edibles in the SF Bay Area</span>
+    </a>
+
+    <div class="sidebar-mobile-bar">
+      <a href="index.html">
+        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="32" height="32">
+        <span class="brand">Golden Gate · CRFG</span>
       </a>
-
-      <div class="flex md:hidden items-center justify-between p-4 bg-brand-green-dark border-b border-white/5">
-        <a href="index.html" class="flex items-center gap-3">
-          <img class="w-9 h-auto" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
-          <span class="text-sm font-black tracking-tight text-white">Golden Gate Chapter · CRFG</span>
-        </a>
-        <button onclick="document.getElementById('navMenu').classList.toggle('hidden')" class="flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-lg px-3 py-1.5 text-xs font-bold hover:bg-white/20 active:scale-95 transition-all" aria-label="Toggle navigation">
-          <svg class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-          <span>Menu</span>
-        </button>
-      </div>
-
-      <nav id="navMenu" class="hidden md:flex flex-col gap-5 py-4 px-3 overflow-y-auto grow scrollbar-thin md:block">
-        <div>
-          <span class="text-[11px] font-extrabold tracking-widest text-white uppercase px-3 block mb-1">🏠 Start Here</span>
-          <a href="index.htm" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all">About</a>
-        </div>
-
-        <div>
-          <span class="text-[11px] font-extrabold tracking-widest text-white uppercase px-3 block mb-1">🌿 Grow Fruit</span>
-          <a href="bay-area-zone-favorites.html" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all leading-snug">Bay Area Favorites<br><span class="text-[11px] font-normal text-white block mt-0.5">by Climate Zone</span></a>
-          <a href="member-guides.html" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all leading-snug mt-1">Member Written Guides<br><span class="text-[11px] font-normal text-white block mt-0.5">What Thrives Locally</span></a>
-          <a href="fruity-resources.html" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all mt-1">Fruity Resources</a>
-        </div>
-
-        <div>
-          <span class="text-[11px] font-extrabold tracking-widest text-white uppercase px-3 block mb-1">🤝 Community</span>
-          <a href="meetings.htm" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all">Meetings</a>
-          <a href="online-community.html" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all mt-1">Online Community</a>
-        </div>
-
-        <div>
-          <span class="text-[11px] font-extrabold tracking-widest text-white uppercase px-3 block mb-1">✨ Membership</span>
-          <a href="join-renew.html" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all">Join / Renew</a>
-        </div>
-
-        <div>
-          <span class="text-[11px] font-extrabold tracking-widest text-white uppercase px-3 block mb-1">🍋 Events</span>
-          <a href="gg-scionexchange.html" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all">Scion Exchange</a>
-        </div>
-
-        <div>
-          <span class="text-[11px] font-extrabold tracking-widest text-white uppercase px-3 block mb-1">🌱 Get Plants</span>
-          <a href="where-to-buy.html" class="nav-link text-sm font-bold text-brand-beige px-3 py-2 rounded-lg block hover:bg-white/10 hover:text-white transition-all">Where to Buy</a>
-        </div>
-      </nav>
-    </aside>
-
-    <div class="flex-1 px-4 py-8 md:p-12 lg:p-16 max-w-5xl min-w-0">
-      <main class="space-y-12">
-
-        <section class="space-y-4">
-          <h1 class="font-black tracking-tight leading-[1.1]">
-            <span class="block text-sm sm:text-base md:text-xl uppercase tracking-wider text-brand-green mb-2 font-black">
-              36th Annual <span class="font-normal text-neutral-400 mx-1">|</span> 2026 CRFG
-            </span>
-            <span class="block text-[9.5vw] xs:text-[3.5rem] sm:text-5xl md:text-6xl text-[#B61E31]">
-              Golden Gate<br>Scion Exchange
-            </span>
-          </h1>
-          <p class="text-lg md:text-xl text-neutral-900 max-w-3xl leading-relaxed">
-            <strong class="font-extrabold">Our biggest event of the year</strong> — hundreds of varieties, free classes, expert grafters, fruit tastings, and a community of passionate growers.
-          </p>
-        </section>
-
-        <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
-          <div class="grid gap-6 md:grid-cols-2">
-            <div class="space-y-2 border-b md:border-b-0 md:border-r border-neutral-100 pb-4 md:pb-0 md:pr-6">
-              <span class="text-xs font-black uppercase tracking-wider text-brand-green block">When</span>
-              <div class="text-base text-neutral-700 space-y-2">
-                <p class="text-lg font-extrabold text-neutral-900 inline-flex items-center gap-2">
-                  <span>Sunday, February 22, 2026</span>
-                  <span class="text-xs bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-full border border-amber-200">Rain or Shine</span>
-                </p>
-                <p><strong class="font-extrabold text-neutral-900">11:00 am</strong> — CRFG Members Only Early Entry<br>
-                  <span class="text-sm text-neutral-500">(<a href="https://shr.pn/CRFGJoinRenew" class="text-brand-blue hover:underline font-semibold">Join/Renew before the exchange</a> + buy your <a href="https://shr.pn/2026MemberEarlyEntryTicket" class="text-brand-blue hover:underline font-semibold">Early Entry Ticket</a>)</span>
-                </p>
-                <p><strong class="font-extrabold text-neutral-900">12:00 – 3:00 pm</strong> — Open to the Public<br>
-                  <span class="text-sm text-neutral-500">(<a href="https://shr.pn/2026GeneralAdmissionFastPass" class="text-brand-blue hover:underline font-semibold">Fast Pass Ticket</a>)</span>
-                </p>
-                <p class="text-sm bg-neutral-50 border border-neutral-100 rounded-lg p-3 text-neutral-600">
-                  <strong class="text-neutral-900 font-extrabold">$5 entry</strong> for members and non-members. Exact cash or e-ticket. Accompanying household members 18 and under are free.
-                </p>
-              </div>
-            </div>
-
-            <div class="space-y-2 md:pl-2">
-              <span class="text-xs font-black uppercase tracking-wider text-brand-green block">Where</span>
-              <div class="text-base text-neutral-700">
-                <p class="text-lg font-extrabold text-neutral-900">Diablo Valley College</p>
-                <p class="font-medium text-neutral-800">Horticultural Nursery</p>
-                <p class="text-neutral-500 mt-1">321 Golf Club Rd, Pleasant Hill, CA 94523</p>
-                <p class="text-sm text-brand-green-dark font-bold mt-2 bg-brand-green/5 inline-block px-2.5 py-1 rounded">
-                  🅿️ Free Parking: Lot 9
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-2.5 pt-4 border-t border-neutral-100">
-            <a href="https://shr.pn/DVCParkingLot9" target="_blank" class="bg-neutral-100 hover:bg-neutral-200/80 text-neutral-800 font-bold text-xs md:text-sm px-4 py-2.5 rounded-xl transition-all inline-flex items-center gap-1.5 shadow-sm">🅿️ Google Maps to Parking Lot</a>
-            <a href="https://shr.pn/Custom-Map" target="_blank" class="bg-neutral-100 hover:bg-neutral-200/80 text-neutral-800 font-bold text-xs md:text-sm px-4 py-2.5 rounded-xl transition-all inline-flex items-center gap-1.5 shadow-sm">🗺️ Event Map</a>
-            <a href="dvc-directions.html" target="_blank" class="bg-neutral-100 hover:bg-neutral-200/80 text-neutral-800 font-bold text-xs md:text-sm px-4 py-2.5 rounded-xl transition-all inline-flex items-center gap-1.5 shadow-sm">📄 Written Directions</a>
-          </div>
-        </div>
-
-        <section class="space-y-4">
-          <h2 class="text-2xl md:text-3xl font-black text-brand-blue tracking-tight">🎟️ Get Early-Entry Access — Join Now</h2>
-          <p class="text-neutral-600 max-w-2xl"><strong>Don't wait until the day of the exchange.</strong> Join or renew your CRFG membership for early entry at 11:00 am.</p>
-          
-          <ol class="list-decimal pl-5 space-y-2 text-neutral-700 max-w-2xl font-medium">
-            <li><strong><a href="https://shr.pn/CRFGJoinRenew" class="text-brand-blue hover:underline">Join the California Rare Fruit Growers</a></strong> — help support our mission of educating the public on how to grow rare fruit.</li>
-            <li><strong><a href="https://golden-gate.crfg.org/join.htm" class="text-brand-blue hover:underline">Join our Golden Gate Chapter</a></strong> — get access to exclusive orchard tours, grafting classes, fruit tastings, and our online community.</li>
-          </ol>
-
-          <div class="flex flex-col sm:flex-row gap-3 pt-2">
-            <a href="https://shr.pn/CRFGJoinRenew" target="_blank" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-center font-black px-6 py-3.5 rounded-xl shadow-md shadow-brand-blue/10 hover:-translate-y-0.5 active:translate-y-0 transition-all text-base tracking-wide">Join CRFG.org</a>
-            <a href="https://shr.pn/2026MemberEarlyEntryTicket" target="_blank" class="bg-brand-burgundy text-white text-center font-black px-6 py-3.5 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-base tracking-wide shadow-md shadow-brand-burgundy/15">Buy Early Entry Ticket</a>
-            <a href="https://shr.pn/2026GeneralAdmissionFastPass" target="_blank" class="bg-brand-burgundy text-white text-center font-black px-6 py-3.5 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-base tracking-wide shadow-md shadow-brand-burgundy/15">Buy Fast Pass Ticket</a>
-          </div>
-          
-          <p class="text-sm text-neutral-500 pt-1">
-            <strong><a href="https://shr.pn/2026GGSXposter" class="text-brand-blue hover:underline">Download the 2026 Scion Exchange Poster</a></strong> (PDF) — share it with your community!
-          </p>
-        </section>
-
-        <div class="overflow-hidden rounded-2xl shadow-md border border-neutral-200">
-          <img class="w-full h-auto object-cover max-h-[400px] hover:scale-[1.01] transition-transform duration-500" src="https://golden-gate.crfg.org/images/Scion_Exchange_photos.jpg" alt="Photos from a previous Golden Gate Scion Exchange">
-        </div>
-
-        <section class="space-y-4">
-          <h2 class="text-2xl md:text-3xl font-black text-brand-blue tracking-tight">🌿 What's Available</h2>
-          <p class="text-neutral-600 leading-relaxed max-w-4xl">
-            Select from hundreds of varieties of <strong>cuttings-to-root and scions-to-graft</strong> including <strong>almonds, apples, Asian plums, cane berries, cherries, currents &amp; gooseberries, European plums, grapes, kiwis, mulberries, nuts, olives, peaches, pears, persimmons, plumcots, pomegranates, quince, vegetable seeds</strong>, and seasonally appropriate seedlings.
-          </p>
-
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-2">
-            
-            <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 shadow-sm flex flex-col relative overflow-hidden">
-              <span class="absolute top-0 right-0 bg-emerald-600 text-white font-black text-xs uppercase tracking-widest px-4 py-1.5 rounded-bl-xl shadow-sm">Free</span>
-              <h3 class="text-lg font-black text-neutral-900 mb-4 mt-1">Included Events</h3>
-              <dl class="space-y-4 text-sm text-neutral-600 flex-1">
-                <div>
-                  <dt class="font-extrabold text-neutral-900 text-sm">11:10 am — Pre-Event Newbie Class</dt>
-                  <dd class="mt-0.5">With John Valenzuela, Chapter chair and CRFG State Board member.</dd>
-                </div>
-                <div class="border-t border-neutral-100 pt-3">
-                  <dt class="font-extrabold text-neutral-900 text-sm">12:30 – 1:45 pm — Grafting Class</dt>
-                  <dd class="mt-0.5">Hosted by CRFG member Graham Stott.</dd>
-                </div>
-                <div class="border-t border-neutral-100 pt-3">
-                  <dt class="font-extrabold text-neutral-900 text-sm">Live Grafting Demos</dt>
-                  <dd class="mt-0.5">Stop, watch, learn, and ask questions from expert CRFG grafters.</dd>
-                </div>
-                <div class="border-t border-neutral-100 pt-3">
-                  <dt class="font-extrabold text-neutral-900 text-sm">Fruit Tasting &amp; Database Access</dt>
-                  <dd class="mt-0.5">Discover fresh fruit cultivars. <a href="https://shr.pn/GG-Cultivar-Database2026" class="text-brand-blue hover:underline font-bold inline-block mt-1">Take a sneak peek inside descriptions!</a></dd>
-                </div>
-              </dl>
-              <p class="text-xs font-black text-red-700 bg-red-50 border border-red-100 rounded-xl mt-4 leading-normal">
-                ⚠️ Take only what you can graft. Limit 2 sticks per variety per person.
-              </p>
-            </div>
-
-            <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 shadow-sm flex flex-col relative overflow-hidden">
-              <span class="absolute top-0 right-0 bg-amber-600 text-white font-black text-xs uppercase tracking-widest px-4 py-1.5 rounded-bl-xl shadow-sm">For Sale</span>
-              <h3 class="text-lg font-black text-neutral-900 mb-4 mt-1">Supplies &amp; Goods</h3>
-              <ul class="space-y-3 text-sm text-neutral-600 list-disc pl-4 flex-1">
-                <li><a href="https://shr.pn/GGSXShoppingList" class="text-brand-blue font-bold hover:underline">2026 Official Shopping List</a></li>
-                <li><strong class="text-neutral-900 font-bold">Rootstocks &amp; Citrus:</strong> Diverse variants from the Sacramento Valley.</li>
-                <li><strong class="text-neutral-900 font-bold">Grafting Accessories:</strong> Metal labels, specialty buddy tape, knives, cut-gloves, and custom cleaners.</li>
-                <li><a href="https://shr.pn/DVChorticulture" class="text-brand-blue hover:underline font-bold">DVC Horticulture Plant Sale:</a> Organics, native species, annuals, herbs, succulents.</li>
-                <li><strong class="text-neutral-900 font-bold">Custom Grafting Service:</strong> Expert services handled on-site for a modest custom fee.</li>
-                <li><strong class="text-neutral-900 font-bold">Tool Sharpening Desk:</strong> Pruners, loppers, and knives meticulously tuned up.</li>
-              </ul>
-            </div>
-
-            <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 shadow-sm flex flex-col relative overflow-hidden md:col-span-2 lg:col-span-1">
-              <span class="absolute top-0 right-0 bg-brand-blue text-white font-black text-xs uppercase tracking-widest px-4 py-1.5 rounded-bl-xl shadow-sm">Vendors</span>
-              <h3 class="text-lg font-black text-neutral-900 mb-4 mt-1">Community Allies</h3>
-              <ul class="space-y-2 text-sm text-neutral-600 list-none flex-1">
-                <li><a href="https://andysorchard.com/" target="_blank" class="text-brand-blue hover:underline font-bold">Annies Gardenscapes</a></li>
-                <li class="border-t border-neutral-100 pt-1.5"><a href="https://shr.pn/CACitrus" target="_blank" class="text-brand-blue hover:underline font-bold">Citrus Pest &amp; Disease Prevention</a></li>
-                <li class="border-t border-neutral-100 pt-1.5"><a href="https://shr.pn/PlantingJustice" target="_blank" class="text-brand-blue hover:underline font-bold">Planting Justice Nursery</a></li>
-                <li class="border-t border-neutral-100 pt-1.5"><a href="https://circadiancropsciences.com" target="_blank" class="text-brand-blue hover:underline font-bold">Circadian Crop Sciences</a></li>
-                <li class="border-t border-neutral-100 pt-1.5"><span class="font-bold text-neutral-800">Contra Costa Ag Dept</span></li>
-                <li class="border-t border-neutral-100 pt-1.5"><span class="font-bold text-neutral-800">Bay Area Applied Mycology</span></li>
-                <li class="border-t border-neutral-100 pt-1.5"><a href="https://diablobees.org/content.aspx?page_id=0&club_id=60513" target="_blank" class="text-brand-blue hover:underline font-bold">Mt. Diablo Beekeepers</a></li>
-              </ul>
-              <p class="text-xs bg-brand-beige text-neutral-600 font-medium p-3 rounded-xl mt-4 border border-brand-accent">
-                🌱 <strong>Beginners Welcome!</strong> We all start somewhere. Bringing scions is not required to attend.
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-        <section class="grid gap-8 md:grid-cols-2">
-          
-          <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 shadow-sm space-y-4">
-            <h2 class="text-xl font-black text-brand-blue tracking-tight flex items-center gap-2">🎒 What to Bring</h2>
-            <ul class="space-y-2 text-sm text-neutral-600 list-decimal pl-4">
-              <li><strong class="text-neutral-900 font-bold">Scion wish list</strong> (mind your local chill hours).</li>
-              <li><strong class="text-neutral-900 font-bold">Gallon zip-top plastic bags</strong> marked with your name.</li>
-              <li><strong class="text-neutral-900 font-bold">Painters or masking tape</strong> + <strong class="text-neutral-900 font-bold">Permanent marker</strong>.</li>
-              <li><strong class="text-neutral-900 font-bold">Notebook, pen, and handled carrying tote</strong>.</li>
-              <li><strong class="text-neutral-900 font-bold">Scions/plants to share:</strong> Properly labeled, dropped at Intake.</li>
-              <li><strong class="text-neutral-900 font-bold">Grafting tools</strong> to sharpen for a small fee.</li>
-              <li>We accept <strong class="text-neutral-900 font-bold">Cash, Credit, Debit, Apple Pay, and Google Pay</strong>.</li>
-            </ul>
-          </div>
-
-          <div class="bg-red-50 border border-red-200 rounded-2xl p-6 shadow-sm space-y-4">
-            <h2 class="text-xl font-black text-red-900 tracking-tight flex items-center gap-2">🚫 Do Not Bring</h2>
-            <ul class="space-y-2 text-sm text-red-800 list-disc pl-4 font-medium">
-              <li><strong class="text-red-950 font-black">NO citrus or relatives</strong> (<a href="https://californiacitrusthreat.org/" class="underline text-brand-blue font-bold">find out why</a>).</li>
-              <li>NO potted fig plants (dormant cuttings are totally fine).</li>
-              <li>NO diseased or pest-infected materials.</li>
-              <li>NO excess container leaf litter or heavy root soil.</li>
-              <li>NO old wood with fruit spurs (bring last season's tip growth).</li>
-              <li>NO non-edible plants or currently patented varieties.</li>
-            </ul>
-          </div>
-
-        </section>
-
-        <section class="bg-gradient-to-br from-white to-neutral-50 border-2 border-brand-green/40 rounded-2xl p-6 md:p-8 shadow-xl shadow-neutral-900/5 relative overflow-hidden group">
-          <div class="absolute right-0 top-0 h-full w-24 bg-brand-green/5 transform skew-x-12 translate-x-8 group-hover:bg-brand-green/10 transition-colors duration-300"></div>
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-            <div class="space-y-2">
-              <h3 class="text-xl font-black text-[#B61E31] flex flex-col gap-1 tracking-tight leading-snug">
-                <span>Going to a Scion Exchange?</span>
-                <span>Read this first.</span>
-              </h3>
-              <p class="text-neutral-600 max-w-xl text-base leading-relaxed pt-1">
-                Avoid common mistakes and learn the simple steps that make scion exchanges more rewarding. Get expert guidance on collecting, storing, selecting, and sharing scionwood successfully.
-              </p>
-            </div>
-            
-            <a href="https://shr.pn/MakeBestofScionExchange" target="_blank" 
-               class="inline-block bg-brand-blue text-white font-black text-center px-6 py-3.5 rounded-lg shadow-[inset_0_-4px_0_0_#21425c,0_4px_6px_-1px_rgba(47,93,143,0.15)] hover:shadow-[inset_0_-4px_0_0_#21425c,0_12px_20px_-4px_rgba(47,93,143,0.3)] hover:-translate-y-1 active:translate-y-[2px] active:shadow-[inset_0_-1px_0_0_#21425c,0_2px_4px_0_rgba(47,93,143,0.1)] transition-all duration-200 ease-out whitespace-nowrap text-sm select-none">
-              Read the Handbook →
-            </a>
-          </div>
-        </section>
-
-        <section class="space-y-6">
-          <h2 class="text-2xl md:text-3xl font-black text-brand-blue tracking-tight">📚 Scion Exchange Essential Knowledge</h2>
-          
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-sm">
-            
-            <div class="space-y-2">
-              <h3 class="font-extrabold text-brand-blue text-base border-b border-neutral-200 pb-1.5">Harvesting Guides</h3>
-              <ul class="space-y-1.5 text-neutral-600">
-                <li><a href="https://www.youtube.com/watch?v=ThpvzdPOAy4" class="text-brand-blue hover:underline">How to Harvest Scions for a Scion Exchange</a></li>
-                <li><a href="https://golden-gate.crfg.org/Healthy_Scion_Wood.pdf" class="text-brand-blue hover:underline">Collecting Healthy Scions (PDF)</a></li>
-                <li><a href="https://golden-gate.crfg.org/scionex_videos.htm" class="text-brand-blue hover:underline">Watch Videos (Harvest & Prepare)</a></li>
-                <li><a href="https://shr.pn/HarvestScionsMSU" class="text-brand-blue hover:underline">How to Collect Scion wood with Photos</a> <span class="text-xs text-neutral-500 font-medium block mt-0.5">(Do not use paper towels for storage to avoid mold.)</span></li>
-                <li><a href="https://shr.pn/CRFGScionBagLabelsToPrint" class="text-brand-blue hover:underline">Labels to Print for Scion bags</a></li>
-                <li><a href="https://drive.google.com/file/d/1hS1Aj7_WlXsXP_PYgbCRGeNmFrImDRap/view?usp=drive_link" target="_blank" class="text-brand-blue hover:underline">Collecting and Grafting Evergreen Scion wood (PDF)</a></li>
-              </ul>
-            </div>
-
-            <div class="space-y-2">
-              <h3 class="font-extrabold text-brand-blue text-base border-b border-neutral-200 pb-1.5">Fruit Tree Compatibility</h3>
-              <ul class="space-y-1.5 text-neutral-600">
-                <li><a href="https://drive.google.com/file/d/1lMxJvPPFsg-CSpSdnrrJO-HdpW6-aDdA/view?usp=drive_link" class="text-brand-blue hover:underline">Fruit Tree Graft Compatibility Chart</a></li>
-                <li><a href="https://shr.pn/StoneFruit-Graft-Compatibility-Chart" class="text-brand-blue hover:underline">Stone Fruit Graft Compatibility Chart (New)</a></li>
-                <li><a href="https://shr.pn/PearQuinceCompatibility" class="text-brand-blue hover:underline">Pear &amp; Quince Compatibility</a></li>
-              </ul>
-            </div>
-
-            <div class="space-y-2">
-              <h3 class="font-extrabold text-brand-blue text-base border-b border-neutral-200 pb-1.5">Learn How to Graft</h3>
-              <ul class="space-y-1.5 text-neutral-600">
-                <li><a href="https://golden-gate.crfg.org/class_gf_full.pdf" class="text-brand-blue hover:underline">Grafting Fruit Trees with Graham Stott. Part 1 (PDF)</a></li>
-                <li><a href="https://golden-gate.crfg.org/pictures.pdf" class="text-brand-blue hover:underline">Photos &amp; Diagrams with Graham Stott. Part 2 (PDF)</a></li>
-                <li><a href="https://shr.pn/GraftingWDormantScions" class="text-brand-blue hover:underline">Grafting Dormant Deciduous Fruit Scions (Idell Weydemeyer)</a></li>
-                <li><a href="https://shr.pn/How-to-Graft-with-Illustrations" class="text-brand-blue hover:underline">How to Graft with Illustrations (Idell Weydemeyer)</a></li>
-                <li><a href="https://drive.google.com/file/d/1ZKLIuZaeg9ft9xXHoMjISOIobLpbnDy-/view?usp=drive_link" target="_blank" class="text-brand-blue hover:underline">Inter-Stemming Pear and Quince (PDF)</a></li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="grid gap-6 sm:grid-cols-2 text-sm pt-4 border-t border-neutral-200/60">
-            <div class="space-y-2">
-              <h3 class="font-extrabold text-brand-blue text-base border-b border-neutral-200 pb-1.5">Root or Graft Decisions</h3>
-              <ul class="space-y-1.5 text-neutral-600">
-                <li><a href="https://shr.pn/MulberriesRootGraft" target="_blank" class="text-brand-blue hover:underline">Mulberry: Varieties to Root or Graft (PDF)</a></li>
-                <li><a href="https://drive.google.com/file/d/12yNio2lLxNXOgmS81FDGZydU982bxQZ3/view?usp=drive_link" target="_blank" class="text-brand-blue hover:underline">Olive varieties rooting Ability (PDF)</a></li>
-                <li><a href="https://shr.pn/toRootOrGraft" target="_blank" class="text-brand-blue hover:underline">What can I root or to Graft (PDF)</a></li>
-              </ul>
-            </div>
-
-            <div class="space-y-2">
-              <h3 class="font-extrabold text-brand-blue text-base border-b border-neutral-200 pb-1.5">Varieties &amp; Regional Ripening</h3>
-              <ul class="space-y-1.5 text-neutral-600">
-                <li><a href="https://www.davewilson.com/img/content/dwn-low-chill-varieties.pdf" class="text-brand-blue hover:underline">Dave Wilson Low Chill Fruit &amp; Nut Varieties</a></li>
-                <li><a href="https://shr.pn/Fruit-Ripening-El-Sobrante-Region" class="text-brand-blue hover:underline">Fruit Ripening Times in El Sobrante &amp; Nearby</a></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section class="space-y-6">
-          <div class="bg-neutral-900/5 rounded-2xl p-6 md:p-8 space-y-4">
-            <h2 class="text-xl md:text-2xl font-black text-brand-blue tracking-tight">🌳 About Our Exchange</h2>
-            <div class="text-sm md:text-base text-neutral-600 space-y-3 leading-relaxed max-w-4xl">
-              <p>As the largest amateur fruit-growing organization in the world, our famous annual Scion Exchanges are the most prominent event by which California Rare Fruit Growers serves its mission. Find the best varieties for growing your own fruit.</p>
-              <p>We have a limited number of scions — availability depends on what is donated. In the spirit of the exchange, we invite you to harvest scions from your own trees and bring them to share. Even one or two trees is enough. Rare varieties are especially interesting, but beginning growers would love to try their hand at grafting a 'Santa Rosa' plum or 'Fuji' apple.</p>
-            </div>
-          </div>
-          
-          <p class="text-3xl md:text-4xl font-black tracking-wide py-2 border-l-4 border-brand-green pl-4 select-none block normal-case text-brand-burgundy">
-            <span class="block">Preserving Our Past.</span>
-            <span class="block mt-1">Planting Our Future.</span>
-          </p>
-        </section>
-
-        <section class="space-y-6 pt-4 border-t border-neutral-300/60">
-          <div class="space-y-1">
-            <h3 class="text-lg md:text-xl font-black text-brand-blue uppercase tracking-wider text-left">Thank You for Sharing Your Genetics</h3>
-            <p class="text-xs md:text-sm text-neutral-500 max-w-2xl leading-relaxed">
-              Our profound gratitude goes to the dedicated public repositories, historical landmarks, and local curators who generously cut back their canopies to share scionwood, preserving vital agricultural biodiversity for tomorrow's regional home orchards.
-            </p>
-          </div>
-          
-          <div class="grid gap-x-12 gap-y-6 md:grid-cols-2 pt-2">
-            
-            <div class="space-y-3">
-              <h4 class="text-[11px] font-black uppercase tracking-widest text-brand-green border-b border-brand-green/20 pb-1">Preservation Gardens &amp; Repositories</h4>
-              <ul class="space-y-2.5 text-sm font-medium text-neutral-700">
-                <li class="flex items-baseline gap-2"><span class="text-brand-green text-xs">◆</span><a href="https://filoli.org/about/" class="font-bold text-neutral-900 hover:text-brand-blue transition-colors">Filoli Estate Historic Orchard</a></li>
-                <li class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 leading-tight md:leading-normal">
-                  <span class="text-brand-green text-xs shrink-0">◆</span>
-                  <span class="font-bold text-neutral-900">Wolfskill Experimental Farm</span> 
-                  <span class="text-[10px] bg-neutral-200 text-neutral-600 px-1.5 py-0.5 rounded uppercase font-bold tracking-tight inline-block whitespace-nowrap">USDA Germplasm</span>
-                </li>                
-                <li class="flex items-baseline gap-2"><span class="text-brand-green text-xs">◆</span><a href="http://www.alan-chadwick.org/html%20pages/gallery/ucsc_garden_today.html" class="font-bold text-neutral-900 hover:text-brand-blue transition-colors">Alan Chadwick Garden at UCSC</a></li>
-                <li class="flex items-baseline gap-2"><span class="text-brand-green text-xs">◆</span><span class="font-bold text-neutral-900">Luther Burbank Home and Garden</span></li>
-                <li class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 leading-tight md:leading-normal">
-                  <span class="text-brand-green text-xs shrink-0">◆</span>
-                  <span class="font-bold text-neutral-900">The Heritage Fruit Orchard</span> 
-                  <span class="text-[10px] bg-neutral-200 text-neutral-600 px-1.5 py-0.5 rounded font-bold inline-block whitespace-nowrap">Emma Prusch Farm</span>
-                </li>                
-                <li class="flex items-baseline gap-2"><span class="text-brand-green text-xs">◆</span><span class="font-bold text-neutral-900">The Orchard at Martial Cottle Park</span></li>
-                <li class="flex items-baseline gap-2"><span class="text-brand-green text-xs">◆</span><span class="font-bold text-neutral-900">Shone Farm &amp; Loomis Park</span></li>
-              </ul>
-            </div>
-
-            <div class="space-y-3">
-              <h4 class="text-[11px] font-black uppercase tracking-widest text-brand-blue border-b border-brand-blue/20 pb-1">Artisanal &amp; Member Orchards</h4>
-              <ul class="space-y-2.5 text-sm font-medium text-neutral-700">
-                <li class="flex items-baseline gap-2"><span class="text-brand-blue text-xs">◇</span><a href="https://andysorchard.com" class="font-bold text-neutral-900 hover:text-brand-blue transition-colors">Andy's Orchard</a></li>
-                <li class="flex items-baseline gap-2"><span class="text-brand-blue text-xs">◇</span><span class="font-bold text-neutral-900">C. Todd Kennedy Collection</span></li>
-                <li class="flex items-baseline gap-2"><span class="text-brand-blue text-xs">◇</span><a href="https://shr.pn/PlantingJustice" class="font-bold text-neutral-900 hover:text-brand-blue transition-colors">Planting Justice Nursery</a></li>
-                <li class="flex items-baseline gap-2"><span class="text-brand-blue text-xs">◇</span><a href="https://www.goldennectarfarm.com" class="font-bold text-neutral-900 hover:text-brand-blue transition-colors">Golden Nectar Farm</a></li>
-                <li class="flex items-baseline gap-2"><span class="text-brand-blue text-xs">◇</span><a href="https://www.epicenteravocados.com" class="font-bold text-neutral-900 hover:text-brand-blue transition-colors">Epicenter Nursery</a></li>
-                <li class="flex items-baseline gap-2"><span class="text-brand-blue text-xs">◇</span><span class="font-bold text-neutral-900">Eden Garden, Fertile Groundworks, &amp; Bella Ridge Farm</span></li>
-              </ul>
-            </div>
-
-          </div>
-
-          <p class="text-xs md:text-sm text-neutral-700 font-medium italic pt-2 border-t border-neutral-200/60 leading-relaxed">
-            ...alongside with priceless scionwood from dedicated individual CRFG chapter members from around the region.
-          </p>
-
-          <p class="text-sm font-bold pt-4 text-center md:text-left">
-            👉 <a href="https://crfg.org/2026-scion-exchanges" target="_blank" class="text-brand-blue hover:underline">Visit other scheduled 2026 CRFG Scion Exchanges</a>
-          </p>
-        </section>
-
-      </main>
-      
-      <footer class="mt-16 pt-8 border-t border-neutral-300 text-xs text-neutral-600 font-medium opacity-80 space-y-3">
-        <div class="space-y-0">
-          <p>Questions or comments?</p>
-          <p>Email the <a href="mailto:golden_gate@crfg.org" class="text-emerald-700 hover:text-emerald-800 font-bold hover:underline">Golden Gate Chapter</a>.</p>
-        </div>
-        
-        <div class="space-y-0">
-          <p>Copyright © 2026, All rights reserved.</p>
-          <p>California Rare Fruit Growers, Inc. | <a href="https://crfg.org" target="_blank" class="text-emerald-700 hover:text-emerald-800 font-bold hover:underline">CRFG.org</a></p>
-        </div>
-      </footer>
-
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Menu
+      </button>
     </div>
 
+    <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
+      <div>
+        <p class="nav-section-label">Start Here</p>
+        <a href="index.htm" class="nav-link">🏠 About Us</a>
+        <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Grow Fruit</p>
+        <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
+          <span>🌿 Bay Area Favorites</span>
+          <span class="nav-sublabel">by Climate Zone</span>
+        </a>
+        <a href="member-guides.html" class="nav-link nav-link-sub" style="margin-top:0.25rem;">
+          <span>📖 Member Guides</span>
+          <span class="nav-sublabel">What Thrives Locally</span>
+        </a>
+        <a href="fruity-resources.html" class="nav-link" style="margin-top:0.25rem;">🔗 Fruity Resources</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Community</p>
+        <a href="meetings.htm" class="nav-link">🤝 Meetings</a>
+        <a href="online-community.html" class="nav-link" style="margin-top:0.25rem;">💬 Online Community</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Membership</p>
+        <a href="join-renew.html" class="nav-link">✨ Join / Renew</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Events</p>
+        <a href="gg-scionexchange.html" class="nav-link active">🍋 Scion Exchange</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Get Plants</p>
+        <a href="where-to-buy.html" class="nav-link">🌱 Where to Buy</a>
+      </div>
+    </nav>
+  </aside>
+  <!-- ==================== /SIDEBAR ==================== -->
+
+  <div class="main-wrapper">
+    <main>
+
+      <!-- HERO -->
+      <section class="fade-up">
+        <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision;">36th Annual · 2026 CRFG</p>
+        <h1 style="font-size:clamp(2.75rem,8vw,4.5rem); font-weight:900; line-height:1.05; color:var(--color-crimson); margin-bottom:1.25rem;">
+          Golden Gate<br>Scion Exchange
+        </h1>
+        <p style="font-size:1.125rem; color:var(--color-ink); max-width:42rem; line-height:1.7;">
+          <strong>OUR BIGGEST EVENT OF THE YEAR</strong> — hundreds of varieties, free classes, expert grafters, fruit tastings, and a community of passionate growers.
+        </p>
+      </section>
+
+      <!-- WHEN / WHERE -->
+      <section class="fade-up delay-1">
+        <div class="card">
+          <div class="info-grid">
+            <!-- When -->
+            <div class="card-padded">
+              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.5rem;">When</p>
+              <p style="font-size:1.25rem; font-weight:700; color:var(--color-crimson); margin-bottom:0.25rem;">Sunday, February 22, 2026</p>
+              <span class="badge-amber">Rain or Shine</span>
+
+              <div class="timeline-track">
+                <div class="timeline-item">
+                  <p style="font-size:0.875rem; font-weight:700; color:var(--color-ink);">11:00 am — Members Early Entry</p>
+                  <p style="font-size:0.75rem; color:rgba(26,26,24,0.5); margin-top:0.125rem;">
+                    <a href="https://shr.pn/CRFGJoinRenew" class="link-leaf" style="font-weight:600;">Join/Renew</a> first, then grab your
+                    <a href="https://shr.pn/2026MemberEarlyEntryTicket" class="link-leaf" style="font-weight:600;">Early Entry Ticket</a>
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <p style="font-size:0.875rem; font-weight:700; color:var(--color-ink);">12:00 – 3:00 pm — Open to Public</p>
+                  <p style="font-size:0.75rem; color:rgba(26,26,24,0.5); margin-top:0.125rem;">
+                    <a href="https://shr.pn/2026GeneralAdmissionFastPass" class="link-leaf" style="font-weight:600;">Fast Pass Ticket</a> available
+                  </p>
+                </div>
+              </div>
+              <p class="info-note" style="margin-top:1rem;">
+                <strong>$5 entry</strong> for all. Exact cash or e-ticket. Under 18 household members free.
+              </p>
+            </div>
+
+            <!-- Where -->
+            <div class="card-padded">
+              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.5rem;">Where</p>
+              <p style="font-size:1.25rem; font-weight:700; color:var(--color-crimson);">Diablo Valley College</p>
+              <p style="font-size:0.875rem; font-weight:500; color:rgba(26,26,24,0.6); margin-bottom:0.25rem;">Horticulture Department</p>
+              <p style="font-size:0.875rem; color:rgba(26,26,24,0.5); margin-bottom:1rem;">321 Golf Club Rd, Pleasant Hill, CA 94523</p>
+              <a href="https://shr.pn/DVCParkingLot9" target="_blank" class="chip-link-sm">
+                🅿️ Google Map to Free Parking — Lot 9
+              </a>
+              <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                <a href="https://shr.pn/Custom-Map" target="_blank" class="chip-link">𖤓 Custom Event Features Map</a>
+                <a href="dvc-directions.html" target="_blank" class="chip-link">🚍🚏 Public Transportation</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ticket CTA strip -->
+          <div class="ticket-strip">
+            <div style="padding-left:13px;">
+              <p class="ticket-strip-headline">Skip the line. Join before the day.</p>
+              <p class="ticket-strip-sub">Members enter at 11 am — an hour before the public.</p>
+            </div>
+            <div class="ticket-strip-buttons">
+              <a href="https://shr.pn/CRFGJoinRenew" target="_blank" class="btn-3d-gloss btn-blue">Join CRFG.org</a>
+              <a href="https://shr.pn/2026MemberEarlyEntryTicket" target="_blank" class="btn-3d-gloss btn-red">Early Entry</a>
+              <a href="https://shr.pn/2026GeneralAdmissionFastPass" target="_blank" class="btn-3d-gloss btn-crimson">Fast Pass</a>
+            </div>
+          </div>
+
+          <!-- Poster download — proper button treatment -->
+          <div style="padding: 1.25rem 1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+            <p style="font-size:0.875rem; color:var(--color-forest); font-weight:600; flex:1; min-width:12rem;">
+              Download the 2026 Scion Exchange event poster and share with your community.
+            </p>
+            <a href="https://shr.pn/2026ScionExchangePoster" target="_blank" class="btn-3d-gloss btn-green" style="flex-shrink:0;">
+              ↓ Download Poster
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- HERO PHOTO -->
+      <div class="hero-photo-wrap fade-up">
+        <img
+          class="hero-photo"
+          src="https://golden-gate.crfg.org/images/Scion_Exchange_photos.jpg"
+          alt="Photos from a previous Golden Gate Scion Exchange"
+          width="1200"
+          height="420"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- VARIETIES SECTION -->
+      <section class="fade-up">
+        <div class="card card-padded" style="padding:1.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem;">
+
+          <p class="hero-tagline">
+            Preserve Our Past <br>
+            <span class="hero-tagline-amp">&amp;</span> Plant Our Future
+          </p>
+
+          <!-- Cuttings-to-Root -->
+          <div>
+            <div class="variety-heading">
+              <h2 style="font-size:1.5rem; font-weight:700; color:#222; font-family:var(--font-body); margin-bottom:0.5rem;">
+                <span class="variety-heading-prefix">WITH</span>
+                <span class="variety-heading-main variety-heading-green"> Cuttings-to-Root</span>
+              </h2>
+            </div>
+            <div class="tag-cloud">
+              <span class="variety-tag">Cane Berries</span>
+              <span class="variety-tag">Currants</span>
+              <span class="variety-tag">Figs</span>
+              <span class="variety-tag">Gooseberries</span>
+              <span class="variety-tag">Grapes</span>
+              <span class="variety-tag">Kiwis</span>
+              <a href="docs/Mulberries%20to%20Root%20or%20Graft%20Chart.pdf" class="variety-tag">*Mulberries*</a>
+              <a href="docs/Mulberries%20to%20Root%20or%20Graft%20Chart.pdf" class="variety-tag">*Olives*</a>
+              <span class="variety-tag">Pomegranates</span>
+            </div>
+          </div>
+
+          <!-- Scions-to-Graft -->
+          <div>
+            <div class="variety-heading">
+              <h2 style="font-size:1.5rem; font-weight:700; color:#222; font-family:var(--font-body); margin-bottom:0.5rem;">
+                <span class="variety-heading-prefix">AND</span>
+                <span class="variety-heading-main variety-heading-purple"> Scions-to-Graft</span>
+              </h2>
+            </div>
+            <div class="tag-cloud">
+              <span class="purple-tag">Almonds</span>
+              <span class="purple-tag">Avocados</span>
+              <span class="purple-tag">Apples</span>
+              <span class="purple-tag">Asian Plums</span>
+              <span class="purple-tag">Cherries</span>
+              <span class="purple-tag">European Plums</span>
+              <a href="docs/Mulberries%20to%20Root%20or%20Graft%20Chart.pdf" class="purple-tag">*Mulberries*</a>
+              <span class="purple-tag">Nuts</span>
+              <a href="docs/Mulberries%20to%20Root%20or%20Graft%20Chart.pdf" class="purple-tag">*Olives*</a>
+              <span class="purple-tag">Peaches</span>
+              <span class="purple-tag">Pears</span>
+              <span class="purple-tag">Persimmons</span>
+              <span class="purple-tag">Plumcots</span>
+              <span class="purple-tag">Quince</span>
+              <span class="purple-tag">Vegetable Seeds</span>
+              <span class="purple-tag">Seedlings</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- INCLUDED EVENTS + SUPPLIES -->
+      <section class="two-col fade-up">
+
+        <!-- Included Events -->
+        <div class="card card-padded" style="display:flex; flex-direction:column; position:relative; overflow:hidden;">
+          <span class="badge-corner badge-blue">Free</span>
+          <h3 class="heading-shadow" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:2rem;">Included Events</h3>
+          <div style="display:flex; flex-direction:column; gap:1rem; flex:1;">
+            <div class="event-item">
+              <p class="event-item-title">11:10 am — Newbie Class</p>
+              <p class="event-item-desc">With John Valenzuela, Chapter chair &amp; CRFG State Board member.</p>
+            </div>
+            <div class="event-item">
+              <p class="event-item-title">12:30–1:45 pm — Grafting Class</p>
+              <p class="event-item-desc">Hosted by CRFG member Graham Stott.</p>
+            </div>
+            <div class="event-item">
+              <p class="event-item-title">Live Grafting Demos</p>
+              <p class="event-item-desc">Watch, learn, and ask questions from expert CRFG grafters.</p>
+            </div>
+            <div class="event-item">
+              <p class="event-item-title">Fruit Tasting</p>
+              <p class="event-item-desc">Sample fresh cultivars from our curated selection.</p>
+            </div>
+            <div class="event-item" style="border:none; padding:0;">
+              <p class="event-item-title">Cultivar Database</p>
+              <p class="event-item-desc">Over 600 varieties of cuttings-to-root and scions-to-graft. <a href="https://shr.pn/GG-Cultivar-Database2026" class="link-leaf" style="font-weight:600;">Sneak peek →</a></p>
+            </div>
+          </div>
+          <p class="warn-note" style="margin-top:1.5rem;">
+            ⚠️ Take only what you can graft.<br>Limit 2 sticks per variety.
+          </p>
+        </div>
+
+        <!-- Supplies & Goods -->
+        <div class="card card-padded" style="display:flex; flex-direction:column; position:relative; overflow:hidden;">
+          <span class="badge-corner badge-green">For Sale</span>
+          <h3 class="heading-shadow" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:2rem;">Supplies &amp; Goods</h3>
+          <div style="flex:1;">
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Rootstocks &amp; Citrus</strong> — variants from Sacramento Valley</p>
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Grafting Accessories</strong> — labels, tape, knives, gloves</p>
+            <p class="supply-item">→ <a href="https://shr.pn/DVChorticulture" class="link-leaf" style="font-weight:700;">DVC Horticulture Plant Sale</a></p>
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Custom Grafting Service</strong> — expert on-site grafting</p>
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Tool Sharpening Desk</strong> — pruners, loppers, knives</p>
+          </div>
+          <div class="shopping-cta">
+            <p>Everything you'll want to pick up on the day in one handy reference.</p>
+            <a href="https://drive.google.com/file/d/1jvrkS3LZlUK8789KThlyThgwI2XZKkOt/view?pli=1" target="_blank" class="btn-3d-gloss btn-blue btn-full">
+              2026 Official Shopping List →
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- HANDBOOK BANNER -->
+      <section class="handbook-banner fade-up">
+        <div>
+          <h3>Going to a Scion Exchange?<br>Read this first.</h3>
+          <p>Avoid common mistakes — expert guidance on collecting, storing, selecting, and sharing scionwood.</p>
+        </div>
+        <a href="https://shr.pn/MakeBestofScionExchange" target="_blank" class="btn-3d-gloss btn-green" style="flex-shrink:0;">
+          Read the Handbook →
+        </a>
+      </section>
+
+      <!-- WHAT TO BRING / NOT TO BRING -->
+      <section class="two-col fade-up">
+
+        <div class="card card-padded">
+          <h2 class="heading-shadow" style="font-size:1.875rem; font-weight:900; color:#26598c; margin-bottom:1rem;">🎒 What to Bring</h2>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.625rem; font-size:0.875rem; color:rgba(26,26,24,0.7);">
+            <li class="check-item"><span>Scion wish list (mind your local chill hours)</span></li>
+            <li class="check-item"><span><strong style="color:var(--color-ink);">Gallon zip-top bags</strong> marked with your name</span></li>
+            <li class="check-item"><span><strong style="color:var(--color-ink);">Painters tape + permanent marker</strong></span></li>
+            <li class="check-item"><span><strong style="color:var(--color-ink);">Notebook, pen, and handled tote</strong></span></li>
+            <li class="check-item"><span><strong style="color:var(--color-ink);">Scions/plants to share</strong> — properly labeled, drop off at Intake Station</span></li>
+            <li class="check-item"><span>Grafting tools to sharpen (small fee)</span></li>
+            <li class="check-item"><span>Cash, Credit, Debit, Apple Pay, or Google Pay</span></li>
+          </ul>
+        </div>
+
+        <div style="background:#fff5f5; border:1px solid #fecaca; border-radius:1rem; padding:1.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <h2 class="heading-shadow" style="font-size:1.875rem; font-weight:900; color:#26598c; margin-bottom:1rem;">🚫 What Not to Bring</h2>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.625rem; font-size:0.875rem; color:#991b1b;">
+            <li class="cross-item"><span><strong style="color:#450a0a;">NO citrus or relatives</strong> — <a href="https://californiacitrusthreat.org/" style="text-decoration:underline; font-weight:600;">find out why</a></span></li>
+            <li class="cross-item"><span>NO potted fig plants (dormant cuttings are fine)</span></li>
+            <li class="cross-item"><span>NO <a href="https://ipm.ucanr.edu/PMG/diseases/diseases.fruits.html" style="text-decoration:underline; font-weight:600;">diseased</a> or <a href="https://ipm.ucanr.edu/PMG/GARDEN/fruit.html" style="text-decoration:underline; font-weight:600;">pest-infected</a> material</span></li>
+            <li class="cross-item"><span>NO excess container leaf litter or heavy root soil</span></li>
+            <li class="cross-item"><span>NO old wood with fruit spurs — bring only <a href="https://www.canr.msu.edu/uploads/images/4-11-Fig-2-Bad-WatersproutRON.jpg" style="text-decoration:underline; font-weight:600;">last season's tip growth</a></span></li>
+            <li class="cross-item"><span>NO non-edible plants</span></li>
+            <li class="cross-item"><span>NO current <a href="https://shr.pn/PlantPatentsandTrademarks" style="text-decoration:underline; font-weight:600;">patented plant varieties</a></span></li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- COMMUNITY ALLIES -->
+      <section class="fade-up">
+        <div class="card card-padded" style="position:relative; overflow:hidden;">
+          <span class="badge-corner badge-purple">Vendors</span>
+          <h3 class="heading-shadow" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:2rem;">Community Allies</h3>
+          <ul class="allies-grid" style="list-style:none;">
+            <li><a href="https://anniesgardenscapes.com/" class="link-leaf">Annies Gardenscapes</a></li>
+            <li><a href="https://shr.pn/CACitrus" class="link-leaf">Citrus Pest &amp; Disease</a></li>
+            <li><a href="https://shr.pn/PlantingJustice" class="link-leaf">Planting Justice Nursery</a></li>
+            <li><a href="https://circadiancropsciences.com" class="link-leaf">Circadian Crop Sciences</a></li>
+            <li style="color:rgba(26,26,24,0.85);">Contra Costa Ag Dept</li>
+            <li style="color:rgba(26,26,24,0.85);">Bay Area Applied Mycology</li>
+            <li><a href="https://diablobees.org/" class="link-leaf">Mt. Diablo Beekeepers</a></li>
+          </ul>
+          <p style="margin-top:1.5rem; font-size:0.6875rem; background:var(--color-mist); color:var(--color-forest); font-weight:600; padding:1rem; border-radius:0.75rem; border:1px solid rgba(45,94,58,0.2); max-width:32rem;">
+            🌱 <strong>Beginners are welcome!</strong> Scions are not required to attend—but highly encouraged.
+          </p>
+        </div>
+      </section>
+
+      <!-- ESSENTIAL KNOWLEDGE -->
+      <section class="fade-up" style="margin-top:2rem;">
+        <h2 class="section-title">📚 Essential Knowledge</h2>
+        <div class="knowledge-grid">
+
+          <div>
+            <h3 class="knowledge-h3">Harvesting Guides</h3>
+            <ul class="knowledge-list">
+              <li><a href="https://www.youtube.com/watch?v=ThpvzdPOAy4" class="link-leaf">▶ How to Harvest Scions (Video)</a></li>
+              <li><a href="https://golden-gate.crfg.org/Healthy_Scion_Wood.pdf" class="link-leaf">Collecting Healthy Scions (PDF)</a></li>
+              <li><a href="https://golden-gate.crfg.org/scionex_videos.htm" class="link-leaf">Watch All Videos</a></li>
+              <li>
+                <a href="https://shr.pn/HarvestScionsMSU" class="link-leaf">Collect Scionwood with Photos</a>
+                <span class="note">Avoid paper towels — causes mold.</span>
+              </li>
+              <li><a href="https://shr.pn/CRFGScionBagLabelsToPrint" class="link-leaf">Printable Scion Bag Labels</a></li>
+              <li><a href="https://drive.google.com/file/d/1hS1Aj7_WlXsXP_PYgbCRGeNmFrImDRap/view?usp=drive_link" target="_blank" class="link-leaf">Evergreen Scionwood Guide (PDF)</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="knowledge-h3">Fruit Tree Compatibility</h3>
+            <ul class="knowledge-list">
+              <li><a href="https://drive.google.com/file/d/1lMxJvPPFsg-CSpSdnrrJO-HdpW6-aDdA/view?usp=drive_link" class="link-leaf">Fruit Tree Graft Compatibility Chart</a></li>
+              <li><a href="https://shr.pn/StoneFruit-Graft-Compatibility-Chart" class="link-leaf">Stone Fruit Chart (New)</a></li>
+              <li><a href="https://shr.pn/PearQuinceCompatibility" class="link-leaf">Pear &amp; Quince Compatibility</a></li>
+            </ul>
+            <h3 class="knowledge-h3" style="margin-top:0.75rem;">Root or Graft?</h3>
+            <ul class="knowledge-list">
+              <li><a href="https://shr.pn/MulberriesRootGraft" target="_blank" class="link-leaf">Mulberry Varieties (PDF)</a></li>
+              <li><a href="https://drive.google.com/file/d/12yNio2lLxNXOgmS81FDGZydU982bxQZ3/view?usp=drive_link" target="_blank" class="link-leaf">Olive Rooting Ability (PDF)</a></li>
+              <li><a href="https://shr.pn/toRootOrGraft" target="_blank" class="link-leaf">Root or Graft Reference (PDF)</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="knowledge-h3">Learn How to Graft</h3>
+            <ul class="knowledge-list">
+              <li><a href="https://golden-gate.crfg.org/class_gf_full.pdf" class="link-leaf">Graham Stott — Part 1 (PDF)</a></li>
+              <li><a href="https://golden-gate.crfg.org/pictures.pdf" class="link-leaf">Graham Stott — Part 2 Photos (PDF)</a></li>
+              <li><a href="https://shr.pn/GraftingWDormantScions" class="link-leaf">Grafting Dormant Deciduous Scions</a></li>
+              <li><a href="https://shr.pn/How-to-Graft-with-Illustrations" class="link-leaf">Graft with Illustrations</a></li>
+              <li><a href="https://drive.google.com/file/d/1ZKLIuZaeg9ft9xXHoMjISOIobLpbnDy-/view?usp=drive_link" target="_blank" class="link-leaf">Inter-Stemming Pear &amp; Quince (PDF)</a></li>
+            </ul>
+            <h3 class="knowledge-h3" style="margin-top:0.75rem;">Varieties &amp; Ripening</h3>
+            <ul class="knowledge-list">
+              <li><a href="https://www.davewilson.com/img/content/dwn-low-chill-varieties.pdf" class="link-leaf">Dave Wilson Low Chill Varieties</a></li>
+              <li><a href="https://shr.pn/Fruit-Ripening-El-Sobrante-Region" class="link-leaf">Ripening Times — El Sobrante Region</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ABOUT OUR EXCHANGE -->
+      <section class="fade-up">
+        <div class="about-box">
+          <h2>🌳 About Our Exchange</h2>
+          <p>As the largest amateur fruit-growing organization in the world, our annual Scion Exchanges are the most prominent event by which California Rare Fruit Growers serves its mission. Find the best varieties for growing your own fruit.</p>
+          <p>We have a limited number of scions — availability depends on donations. In the spirit of the exchange, we invite you to harvest scions from your own trees to share. Even one or two trees is enough. Rare varieties are especially interesting, but beginning growers would love to try a 'Santa Rosa' plum or 'Fuji' apple.</p>
+        </div>
+      </section>
+
+      <!-- THANK YOU / DONORS -->
+      <section class="fade-up" style="padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); margin-top:1.5rem;">
+        <div style="margin-bottom:1.25rem;">
+          <h2 class="donor-section-title">Thank You for Sharing Your Genetics</h2>
+          <p class="donor-section-sub">
+            Our profound gratitude goes to the dedicated repositories, historical landmarks, and local curators who generously share scionwood to preserve vital agricultural biodiversity.
+          </p>
+        </div>
+
+        <ul class="donor-list">
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><a href="https://andysorchard.com/" class="link-ink">Andy's Orchard</a> <span class="donor-location">— Morgan Hill, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">C. Todd Kennedy Orchard</span> <span class="donor-location">— Morgan Hill, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><a href="https://filoli.org/about/" class="link-ink">Filoli Estate</a> <span class="donor-note">(National Trust for Historic Preservation)</span> <span class="donor-location">— Woodside, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">The Heritage Fruit Orchard</span> <span class="donor-note">(Emma Prusch Farm Park)</span> <span class="donor-location">— San Jose, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Eden Garden at Crosswinds Church</span> <span class="donor-location">— Livermore, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Fertile Groundworks</span> <span class="donor-location">— Livermore, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><a href="https://www.goldennectarfarm.com/" class="link-ink">Golden Nectar Farm</a> <span class="donor-location">— Windsor, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Luther Burbank Home and Garden</span> <span class="donor-location">— Santa Rosa, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Wolfskill Experimental Farm</span> <span class="donor-note">(USDA National Clonal Germplasm Repository for Fruit and Nut Crops)</span> <span class="donor-location">— Winters, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Bella Ridge Farm</span> <span class="donor-location">— Occidental, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><a href="https://shr.pn/PlantingJustice" class="link-ink">Planting Justice Nursery</a> <span class="donor-location">— El Sobrante, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Loomis Park</span> <span class="donor-location">— Sacramento, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Shone Farm</span> <span class="donor-location">— Forestville, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">Birdsong Orchards</span> <span class="donor-location">— Watsonville, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><span class="donor-name-plain">The Orchard at Martial Cottle Park</span> <span class="donor-location">— San Jose, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><a href="https://www.epicenteravocados.com/" class="link-ink">Epicenter Nursery</a> <span class="donor-location">— La Selva, CA</span></span>
+          </li>
+          <li>
+            <span class="donor-bullet">◆</span>
+            <span><a href="http://www.alan-chadwick.org/html%20pages/gallery/ucsc_garden_today.html" class="link-ink">Alan Chadwick Garden at UCSC</a> <span class="donor-location">— Santa Cruz, CA</span></span>
+          </li>
+          <li class="donor-last">
+            <span class="donor-bullet">◆</span>
+            <span>And <strong>MANY dozens</strong> of personal CRFG member orchards from around the region.</span>
+          </li>
+        </ul>
+
+        <p style="font-size:0.875rem; font-weight:600; margin-top:0.5rem;">
+          <a href="https://crfg.org/2026-scion-exchanges" target="_blank" class="link-leaf">
+            → Visit other 2026 CRFG Scion Exchanges
+          </a>
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Questions? Email the <a href="mailto:golden_gate@crfg.org" class="link-leaf" style="font-weight:700;">Golden Gate Chapter</a>.</p>
+      <p>© 2026 California Rare Fruit Growers, Inc. · <a href="https://crfg.org" target="_blank" class="link-leaf" style="font-weight:700;">CRFG.org</a></p>
+    </footer>
   </div>
 
-  <script>
-    (function(){
-      var currentPath = window.location.pathname.split("/").pop() || "join-renew.html";
-      document.querySelectorAll("#navMenu a").forEach(function(link){
-        if(link.getAttribute("href") === currentPath){
-          // Active state text elements updated to crisp pure white
-          link.classList.add("bg-white/15", "text-white", "border-l-4", "border-white");
+</div><!-- /.page-wrapper -->
+
+<script>
+  // ── Active nav link ──────────────────────────────────────────
+  (function () {
+    var p = window.location.pathname.split('/').pop() || '';
+    document.querySelectorAll('#navMenu a').forEach(function (a) {
+      if (a.getAttribute('href') === p) a.classList.add('active');
+    });
+  }());
+
+  // ── Mobile nav toggle + auto-close on link click ─────────────
+  var toggle  = document.getElementById('menuToggle');
+  var navMenu = document.getElementById('navMenu');
+
+  toggle.addEventListener('click', function () {
+    var open = navMenu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  navMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navMenu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── Scroll-triggered fade-up (IntersectionObserver) ──────────
+  var fadeEls = document.querySelectorAll('.fade-up');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         }
       });
-    }());
-  </script>
+    }, { threshold: 0.08 });
+
+    fadeEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    // Fallback: no IntersectionObserver — show everything immediately
+    fadeEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+</script>
 </body>
 </html>
