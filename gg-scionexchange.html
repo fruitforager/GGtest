@@ -133,6 +133,9 @@
     h1, h2, h3, .display { font-family: var(--font-display); }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+    .info-grid p[style*="letter-spacing:0.1em"] {
+  letter-spacing: 0.05em !important;
+}
 
     /* =====================================================
        LAYOUT
@@ -676,6 +679,9 @@
       flex-direction: row;
       gap: 0.75rem;
     }
+    @media (max-width: 639px) {
+    .ticket-strip-buttons { flex-direction: column !important; }
+  }
     .ticket-strip-buttons .btn-3d-gloss { flex: 1; }
 
     /* =====================================================
@@ -691,6 +697,7 @@
       font-weight: 600;
       color: var(--color-crimson);
     }
+    .shopping-cta .btn-crimson { background: linear-gradient(180deg, #f5738c 0%, #a8233e 100%); }
     .shopping-cta p { margin-bottom: 0.75rem; }
 
     /* =====================================================
@@ -977,7 +984,8 @@
           Golden Gate<br>Scion Exchange
         </h1>
         <p style="font-size:1.125rem; color:var(--color-ink); max-width:42rem; line-height:1.7;">
-          <strong>OUR BIGGEST EVENT OF THE YEAR</strong> — hundreds of varieties, free classes, expert grafters, fruit tastings, and a community of passionate growers.
+          <strong>Rare fruit. Local knowledge. Hundreds of varieties. One day only.</strong> <br>Free classes, expert grafters, fruit tastings, and a community of passionate growers. Hundreds of Bay Area growers attend each year. First time? No experience needed.
+We'll show you what to do.
         </p>
       </section>
 
@@ -1120,6 +1128,9 @@
               <span class="purple-tag">Vegetable Seeds</span>
               <span class="purple-tag">Seedlings</span>
             </div>
+                      <p style="margin-top:1.5rem; font-size:0.6875rem; background:var(--color-mist); color:var(--color-forest); font-weight:600; padding:1rem; border-radius:0.75rem; border:1px solid rgba(45,94,58,0.2); max-width:32rem;">
+             <strong>600+ rare and beloved fruit varieties await discovery. →</strong> Research the cultivars expected at this year’s Scion Exchange before you arrive. Discover what thrives in your microclimate, compare chill needs and ripening windows, and build a smarter wishlist. https://docs.google.com/spreadsheets/u/3/d/1qRNN6UdlNOYpRKR61PAMVi_MJH8ZVyIBwXl_bzHw4Yc
+          </p>
           </div>
 
         </div>
@@ -1161,33 +1172,33 @@
 
         <!-- Supplies & Goods -->
         <div class="card card-padded" style="display:flex; flex-direction:column; position:relative; overflow:hidden;">
-          <span class="badge-corner badge-green">For Sale</span>
-          <h3 class="heading-shadow" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:2rem;">Supplies &amp; Goods</h3>
-          <div style="flex:1;">
-            <p class="supply-item">→ <strong style="color:var(--color-ink);">Rootstocks &amp; Citrus</strong> — variants from Sacramento Valley</p>
-            <p class="supply-item">→ <strong style="color:var(--color-ink);">Grafting Accessories</strong> — labels, tape, knives, gloves</p>
-            <p class="supply-item">→ <a href="https://shr.pn/DVChorticulture" class="link-leaf" style="font-weight:700;">DVC Horticulture Plant Sale</a></p>
-            <p class="supply-item">→ <strong style="color:var(--color-ink);">Custom Grafting Service</strong> — expert on-site grafting</p>
-            <p class="supply-item">→ <strong style="color:var(--color-ink);">Tool Sharpening Desk</strong> — pruners, loppers, knives</p>
-          </div>
-          <div class="shopping-cta">
-            <p>Everything you'll want to pick up on the day in one handy reference.</p>
-            <a href="https://drive.google.com/file/d/1jvrkS3LZlUK8789KThlyThgwI2XZKkOt/view?pli=1" target="_blank" class="btn-3d-gloss btn-blue btn-full">
-              2026 Official Shopping List →
-            </a>
-          </div>
-        </div>
+  <span class="badge-corner badge-green">For Sale</span>
+  <h3 class="heading-shadow" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:2rem;">Supplies &amp; Goods</h3>
+  <div style="flex:1;">
+    <p class="supply-item">→ <strong style="color:var(--color-ink);">Rootstocks &amp; Citrus</strong> — A selection of hardy rootstocks and citrus varieties sourced from the Sacramento Valley.</p>
+    <p class="supply-item">→ <strong style="color:var(--color-ink);">Grafting Accessories</strong> — Professional-grade supplies including specialized grafting tape, waterproof plant labels, precision grafting knives, and protective gloves.</p>
+    <p class="supply-item">→ <a href="https://shr.pn/DVChorticulture" class="link-leaf" style="font-weight:700;">DVC Horticulture Plant Sale</a> — Exclusive offerings from the department's nursery.</p>
+    <p class="supply-item">→ <strong style="color:var(--color-ink);">Custom Grafting Service</strong> — On-site experts available to perform grafts for you on your chosen scionwood.</p>
+    <p class="supply-item">→ <strong style="color:var(--color-ink);">Tool Sharpening Desk</strong> — Bring your pruners, loppers, and knives for a professional edge restoration.</p>
+  </div>
+  <div class="shopping-cta">
+    <p>Everything you'll want to pick up on the day in one handy reference.</p>
+    <a href="https://drive.google.com/file/d/1jvrkS3LZlUK8789KThlyThgwI2XZKkOt/view?pli=1" target="_blank" class="btn-3d-gloss btn-crimson btn-full">
+      2026 Official Shopping List →
+    </a>
+  </div>
+</div>
 
       </section>
 
       <!-- HANDBOOK BANNER -->
       <section class="handbook-banner fade-up">
         <div>
-          <h3>Going to a Scion Exchange?<br>Read this first.</h3>
-          <p>Avoid common mistakes — expert guidance on collecting, storing, selecting, and sharing scionwood.</p>
+          <h3>Going to a Scion Exchange?<br> Read this first.</h3>
+          <p>Avoid common mistakes — expert guidance on collecting, storing, selecting, and sharing scionwood.<br> <strong>The orchard of your dreams starts here.</strong></p>
         </div>
         <a href="https://shr.pn/MakeBestofScionExchange" target="_blank" class="btn-3d-gloss btn-green" style="flex-shrink:0;">
-          Read the Handbook →
+          Download Your Handbook →
         </a>
       </section>
 
@@ -1200,7 +1211,7 @@
             <li class="check-item"><span>Scion wish list (mind your local chill hours)</span></li>
             <li class="check-item"><span><strong style="color:var(--color-ink);">Gallon zip-top bags</strong> marked with your name</span></li>
             <li class="check-item"><span><strong style="color:var(--color-ink);">Painters tape + permanent marker</strong></span></li>
-            <li class="check-item"><span><strong style="color:var(--color-ink);">Notebook, pen, and handled tote</strong></span></li>
+            <li class="check-xitem"><span><strong style="color:var(--color-ink);">Notebook, pen, and handled tote</strong></span></li>
             <li class="check-item"><span><strong style="color:var(--color-ink);">Scions/plants to share</strong> — properly labeled, drop off at Intake Station</span></li>
             <li class="check-item"><span>Grafting tools to sharpen (small fee)</span></li>
             <li class="check-item"><span>Cash, Credit, Debit, Apple Pay, or Google Pay</span></li>
@@ -1236,9 +1247,6 @@
             <li style="color:rgba(26,26,24,0.85);">Bay Area Applied Mycology</li>
             <li><a href="https://diablobees.org/" class="link-leaf">Mt. Diablo Beekeepers</a></li>
           </ul>
-          <p style="margin-top:1.5rem; font-size:0.6875rem; background:var(--color-mist); color:var(--color-forest); font-weight:600; padding:1rem; border-radius:0.75rem; border:1px solid rgba(45,94,58,0.2); max-width:32rem;">
-            🌱 <strong>Beginners are welcome!</strong> Scions are not required to attend—but highly encouraged.
-          </p>
         </div>
       </section>
 
@@ -1263,11 +1271,11 @@
           </div>
 
           <div>
-            <h3 class="knowledge-h3">Fruit Tree Compatibility</h3>
+            <h3 class="knowledge-h3">Graft Compatibility of Fruit Trees</h3>
             <ul class="knowledge-list">
-              <li><a href="https://drive.google.com/file/d/1lMxJvPPFsg-CSpSdnrrJO-HdpW6-aDdA/view?usp=drive_link" class="link-leaf">Fruit Tree Graft Compatibility Chart</a></li>
-              <li><a href="https://shr.pn/StoneFruit-Graft-Compatibility-Chart" class="link-leaf">Stone Fruit Chart (New)</a></li>
-              <li><a href="https://shr.pn/PearQuinceCompatibility" class="link-leaf">Pear &amp; Quince Compatibility</a></li>
+              <li><a href="https://drive.google.com/file/d/1lMxJvPPFsg-CSpSdnrrJO-HdpW6-aDdA/view?usp=drive_link" class="link-leaf">Fruit Tree Graft Compatibility</a></li>
+              <li><a href="https://shr.pn/StoneFruit-Graft-Compatibility-Chart" class="link-leaf">Stone Fruit Graft Compatibility</a></li>
+              <li><a href="https://shr.pn/PearQuinceCompatibility" class="link-leaf">Pear &amp; Quince Graft Compatibility</a></li>
             </ul>
             <h3 class="knowledge-h3" style="margin-top:0.75rem;">Root or Graft?</h3>
             <ul class="knowledge-list">
