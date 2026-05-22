@@ -373,51 +373,85 @@
       font-weight: 800;
       font-size: 0.875rem;
       letter-spacing: 0.03em;
-      padding: 0.70rem 1.75rem;
-      border-radius: 0.75rem;
+      padding: 0.75rem 2rem; /* Base padding */
+      border-radius: 9999px;
       color: #ffffff !important;
       text-align: center;
       text-decoration: none;
       white-space: nowrap;
-      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                  filter 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow:
-        0 10px 22px -4px rgba(0,0,0,0.22),
-        0 4px 10px -2px rgba(0,0,0,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.35),
-        inset 0 -4px 0 rgba(0,0,0,0.2);
+      border: none;
+
+      /* 1. Subtle light border around top and sides */
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+        inset 1px 0 0 rgba(255, 255, 255, 0.2), 
+        inset -1px 0 0 rgba(255, 255, 255, 0.2), 
+        0 4px 10px -2px rgba(0, 0, 0, 0.3);    
+
+      /* 2. Sculpted surface gradient for more rounded dimension */
+      background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(0, 0, 0, 0.1) 100%);
+      
+      /* 3. Transition includes padding for the widening effect */
+      transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1),
+                  box-shadow 0.25s ease,
+                  padding 0.25s ease;
     }
-    .btn-3d-gloss::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 50%;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 85%, rgba(255,255,255,0) 100%);
-      border-bottom: 1px solid rgba(255,255,255,0.28);
-      border-radius: 0.75rem 0.75rem 0 0;
-      pointer-events: none;
-    }
+
     .btn-3d-gloss:hover {
       transform: translateY(-2px);
-      filter: brightness(1.08);
-      box-shadow:
-        0 16px 32px -4px rgba(0,0,0,0.26),
-        0 6px 14px -2px rgba(0,0,0,0.16),
-        inset 0 1px 0 rgba(255,255,255,0.45),
-        inset 0 -4px 0 rgba(0,0,0,0.2);
+      /* Widen the button by increasing horizontal padding */
+      padding-left: 2.5rem; 
+      padding-right: 2.5rem;
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 1px 0 0 rgba(255, 255, 255, 0.3),
+        inset -1px 0 0 rgba(255, 255, 255, 0.3),
+        0 8px 16px -4px rgba(0, 0, 0, 0.4);
+      filter: brightness(1.05);
     }
+
     .btn-3d-gloss:active {
       transform: translateY(1px);
-      filter: brightness(0.96);
-      box-shadow:
-        0 4px 8px -2px rgba(0,0,0,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.2),
-        inset 0 -2px 0 rgba(0,0,0,0.25);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
     }
-    .btn-blue    { background: linear-gradient(180deg, #4a8bc6 0%, #264d7a 100%); }
-    .btn-red     { background: linear-gradient(180deg, #d8455a 0%, #7e1525 100%); }
-    .btn-crimson { background: linear-gradient(180deg, #f5738c 0%, #a8233e 100%); }
-    .btn-green   { background: linear-gradient(180deg, #3a7048 0%, #214530 100%); }
+    /* =====================================================
+       FOREST PILL BUTTONS (Rounded Dimensional Gradient)
+    ===================================================== */
+    .btn-forest-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem; 
+      color: #3A6D47 !important; 
+      
+      /* Rounded gradient effect: lighter at top, solid color at bottom */
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF0E6 40%, #FAF0E6 100%) !important;
+      
+      /* Subtle, uniform edge */
+      border: 1px solid rgba(58, 109, 71, 0.2); 
+      border-radius: 9999px;
+      
+      /* Soft, even shadow for lift */
+      box-shadow: 0 2px 4px rgba(58, 109, 71, 0.1);
+      
+      margin-bottom: 0.75rem;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .btn-forest-pill:hover {
+      transform: translateY(-1px);
+      padding-left: 1.5rem; 
+      padding-right: 1.5rem;
+      box-shadow: 0 4px 6px rgba(58, 109, 71, 0.15);
+      border-color: rgba(58, 109, 71, 0.3);
+    }
+    /* Button Colors with Vertical Gradients */
+    .btn-blue    { background: linear-gradient(180deg, #5a9ad5 0%, #264d7a 100%); }
+    .btn-red     { background: linear-gradient(180deg, #e55a6d 0%, #7e1525 100%); }
+    .btn-crimson { background: linear-gradient(180deg, #ff849d 0%, #a8233e 100%); }
+    .btn-green   { background: linear-gradient(180deg, #4d8f5e 0%, #214530 100%); }
     .btn-full    { width: 100%; }
 
     /* =====================================================
@@ -701,7 +735,9 @@
     .shopping-cta p { margin-bottom: 0.75rem; }
 
     /* =====================================================
-       HANDBOOK CTA BANNER
+       <a href="https://shr.pn/MakeBestofScionExchange" target="_blank" class="btn-3d-gloss btn-blue" style="flex-shrink:0;">
+  Download Your Handbook →
+</a> CTA BANNER
     ===================================================== */
     .handbook-banner {
       background: #fff;
@@ -1025,12 +1061,16 @@ We'll show you what to do.
               <p style="font-size:1.25rem; font-weight:700; color:var(--color-crimson);">Diablo Valley College</p>
               <p style="font-size:0.875rem; font-weight:500; color:rgba(26,26,24,0.6); margin-bottom:0.25rem;">Horticulture Department</p>
               <p style="font-size:0.875rem; color:rgba(26,26,24,0.5); margin-bottom:1rem;">321 Golf Club Rd, Pleasant Hill, CA 94523</p>
-              <a href="https://shr.pn/DVCParkingLot9" target="_blank" class="chip-link-sm">
-                🅿️ Google Map to Free Parking — Lot 9
-              </a>
+              🅿️ <a href="URL_HERE" class="btn-3d-gloss btn-forest-pill">
+  Google Map to Free Parking — Lot 9
+</a>
               <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-                <a href="https://shr.pn/Custom-Map" target="_blank" class="chip-link">𖤓 Custom Event Features Map</a>
-                <a href="dvc-directions.html" target="_blank" class="chip-link">🚍🚏 Public Transportation</a>
+              𖤓 <a href="URL_HERE" class="btn-3d-gloss btn-forest-pill">
+  Custom Event Features Map
+</a>
+              🚍🚏 <a href="URL_HERE" class="btn-3d-gloss btn-forest-pill">
+  Public Transportation
+</a>
               </div>
             </div>
           </div>
@@ -1076,10 +1116,11 @@ We'll show you what to do.
       <section class="fade-up">
         <div class="card card-padded" style="padding:1.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem;">
 
-          <p class="hero-tagline">
-            Preserve Our Past <br>
-            <span class="hero-tagline-amp">&amp;</span> Plant Our Future
-          </p>
+         <p class="hero-tagline" style="white-space: nowrap;">
+  Preserve Our Past 
+  <span class="hero-tagline-amp">&amp;</span><br> 
+  Plant Our Future
+</p>
 
           <!-- Cuttings-to-Root -->
           <div>
@@ -1237,7 +1278,7 @@ We'll show you what to do.
       <section class="fade-up">
         <div class="card card-padded" style="position:relative; overflow:hidden;">
           <span class="badge-corner badge-purple">Vendors</span>
-          <h3 class="heading-shadow" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:2rem;">Community Allies</h3>
+          <h3 class="heading-shadow" style="font-size:1.5rem; font-weight:900; color:var(--color-blue-dark); margin-bottom:1rem; margin-top:2rem;">Community Allies</h3>
           <ul class="allies-grid" style="list-style:none;">
             <li><a href="https://anniesgardenscapes.com/" class="link-leaf">Annies Gardenscapes</a></li>
             <li><a href="https://shr.pn/CACitrus" class="link-leaf">Citrus Pest &amp; Disease</a></li>
