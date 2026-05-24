@@ -175,9 +175,9 @@
     .sidebar-logo:hover { background: rgba(255,255,255,0.05); }
     @media (min-width: 768px) { .sidebar-logo { display: flex; } }
     .sidebar-logo img      { width: 5rem; height: auto; margin-bottom: 0.75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
-    .sidebar-logo .logo-name { font-family: var(--font-display); font-size: 1rem; font-weight: 900; line-height: 1.25; }
+    .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 1rem; font-weight: 900; line-height: 1.25; }
     .sidebar-logo .logo-sub  { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-top: 0.125rem; }
-    .sidebar-logo .logo-tag  { font-size: 0.6875rem; color: rgba(255,255,255,0.6); margin-top: 0.5rem; line-height: 1.4; }
+    .sidebar-logo .logo-tag  { font-size: 0.6875rem; font-weight: 700; color: rgba(255,255,255,0.6); margin-top: 0.5rem; line-height: 1.4; }
 
     .sidebar-mobile-bar {
       display: flex; align-items: center; justify-content: space-between;
@@ -187,7 +187,7 @@
     @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
     .sidebar-mobile-bar a     { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
     .sidebar-mobile-bar img   { width: 2rem; height: auto; }
-    .sidebar-mobile-bar .brand { font-family: var(--font-display); font-size: 0.875rem; font-weight: 900; color: #fff; }
+    .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.875rem; font-weight: 900; color: #fff; }
 
     .menu-toggle {
       background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
@@ -198,14 +198,44 @@
     }
     .menu-toggle:hover  { background: rgba(255,255,255,0.2); }
     .menu-toggle:active { transform: scale(0.95); }
-    .menu-toggle svg { width: 1rem; height: 1rem; stroke: currentColor; fill: none; }
+    .menu-toggle svg { width: 1rem; height: 1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
+    .menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
+    .menu-toggle .toggle-label-open  { display: inline; }
+    .menu-toggle .toggle-label-close { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
 
+    /* --- Window-shade nav (mobile) --- */
     .nav-menu {
-      display: none; flex-direction: column; gap: 1rem;
-      padding: 1.25rem 0.75rem; overflow-y: auto; flex-grow: 1;
+      flex-direction: column; gap: 1rem;
+      padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
+
+      /* Shade mechanics: collapsed by default on mobile */
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity    0.30s ease,
+        padding    0.42s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .nav-menu.is-open { display: flex; }
-    @media (min-width: 768px) { .nav-menu { display: flex; } }
+    .nav-menu.is-open {
+      max-height: 800px;   /* large enough for any nav content */
+      opacity: 1;
+      pointer-events: auto;
+      padding: 1.25rem 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .nav-menu {
+        /* On desktop sidebar: always open, no animation */
+        display: flex;
+        max-height: none !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        padding: 1.25rem 0.75rem !important;
+        overflow-y: auto;
+      }
+    }
 
     .nav-section-label {
       font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
@@ -347,12 +377,12 @@
     .btn-3d-gloss:active { transform: translateY(1px); box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); }
 
     .btn-3d-gloss.btn-blue {
-      background: linear-gradient(to bottom, rgba(42,82,112,0.13) 0%, rgba(42,82,112,0.22) 100%);
+      background: linear-gradient(to bottom, rgba(42,82,112,0.07) 0%, rgba(42,82,112,0.13) 100%);
       color: #2a5270; border: none;
-      border-top: 1px solid rgba(42,82,112,0.15); border-bottom: 1px solid rgba(42,82,112,0.38); border-left: 1px solid rgba(42,82,112,0.38);
-      box-shadow: inset 0 -2px 4px rgba(42,82,112,0.1), 0 2px 4px rgba(42,82,112,0.18);
+      border-top: 1px solid rgba(42,82,112,0.1); border-bottom: 1px solid rgba(42,82,112,0.25); border-left: 1px solid rgba(42,82,112,0.25);
+      box-shadow: inset 0 -2px 4px rgba(42,82,112,0.06), 0 2px 4px rgba(42,82,112,0.1);
     }
-    .btn-3d-gloss.btn-blue:hover { box-shadow: inset 0 -2px 4px rgba(42,82,112,0.15), 0 3px 6px rgba(42,82,112,0.24); }
+    .btn-3d-gloss.btn-blue:hover { box-shadow: inset 0 -2px 4px rgba(42,82,112,0.1), 0 3px 6px rgba(42,82,112,0.16); }
 
     .btn-3d-gloss.btn-ink {
       background: linear-gradient(to bottom, rgba(26,26,24,0.72) 0%, rgba(26,26,24,0.82) 100%);
@@ -371,20 +401,20 @@
     .btn-3d-gloss.btn-white:hover { box-shadow: inset 0 -2px 4px rgba(0,0,0,0.08), 0 3px 8px rgba(0,0,0,0.22); }
 
     .btn-3d-gloss.btn-red {
-      background: linear-gradient(to bottom, rgba(163,45,45,0.11) 0%, rgba(163,45,45,0.21) 100%);
+      background: linear-gradient(to bottom, rgba(163,45,45,0.06) 0%, rgba(163,45,45,0.12) 100%);
       color: #A32D2D; border: none;
-      border-top: 1px solid rgba(163,45,45,0.15); border-bottom: 1px solid rgba(163,45,45,0.36); border-left: 1px solid rgba(163,45,45,0.36);
-      box-shadow: inset 0 -2px 4px rgba(163,45,45,0.1), 0 2px 4px rgba(163,45,45,0.18);
+      border-top: 1px solid rgba(163,45,45,0.1); border-bottom: 1px solid rgba(163,45,45,0.22); border-left: 1px solid rgba(163,45,45,0.22);
+      box-shadow: inset 0 -2px 4px rgba(163,45,45,0.06), 0 2px 4px rgba(163,45,45,0.1);
     }
-    .btn-3d-gloss.btn-red:hover { box-shadow: inset 0 -2px 4px rgba(163,45,45,0.15), 0 3px 6px rgba(163,45,45,0.24); }
+    .btn-3d-gloss.btn-red:hover { box-shadow: inset 0 -2px 4px rgba(163,45,45,0.1), 0 3px 6px rgba(163,45,45,0.16); }
 
     .btn-3d-gloss.btn-green {
-      background: linear-gradient(to bottom, rgba(59,109,17,0.11) 0%, rgba(59,109,17,0.21) 100%);
+      background: linear-gradient(to bottom, rgba(59,109,17,0.06) 0%, rgba(59,109,17,0.12) 100%);
       color: #3B6D11; border: none;
-      border-top: 1px solid rgba(59,109,17,0.15); border-bottom: 1px solid rgba(59,109,17,0.36); border-left: 1px solid rgba(59,109,17,0.36);
-      box-shadow: inset 0 -2px 4px rgba(59,109,17,0.1), 0 2px 4px rgba(59,109,17,0.18);
+      border-top: 1px solid rgba(59,109,17,0.1); border-bottom: 1px solid rgba(59,109,17,0.22); border-left: 1px solid rgba(59,109,17,0.22);
+      box-shadow: inset 0 -2px 4px rgba(59,109,17,0.06), 0 2px 4px rgba(59,109,17,0.1);
     }
-    .btn-3d-gloss.btn-green:hover { box-shadow: inset 0 -2px 4px rgba(59,109,17,0.15), 0 3px 6px rgba(59,109,17,0.24); }
+    .btn-3d-gloss.btn-green:hover { box-shadow: inset 0 -2px 4px rgba(59,109,17,0.1), 0 3px 6px rgba(59,109,17,0.16); }
 
     .btn-3d-gloss.btn-crimson {
       background: linear-gradient(to bottom, rgba(155,28,46,0.11) 0%, rgba(155,28,46,0.21) 100%);
@@ -521,10 +551,12 @@
     @media (min-width: 1024px) { .knowledge-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
     .knowledge-h3 {
+      font-family: var(--font-body);
       font-size: 1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--color-steel); border-bottom: 1px solid rgba(0,0,0,0.1);
-      padding-bottom: 0.5rem; margin-bottom: 0.625rem;
+      color: var(--color-steel); border-top: 1px solid rgba(0,0,0,0.22);
+      padding-top: 0.35rem; margin-bottom: 0.625rem; margin-top: 1rem;
     }
+    div > .knowledge-h3:first-child { padding-top: 0.35rem; margin-top: 0; }
     .knowledge-h3 + .knowledge-h3,
     .knowledge-list + .knowledge-h3 { margin-top: 0.75rem; }
     .knowledge-list { list-style: none; }
@@ -562,12 +594,12 @@
     .shopping-banner p  { font-size: 0.875rem; color: rgba(26,26,24,0.8); max-width: 32rem; line-height: 1.6; margin-top: 0.375rem; }
 
     .btn-3d-gloss.btn-purple {
-      background: linear-gradient(to bottom, rgba(122,107,158,0.13) 0%, rgba(122,107,158,0.24) 100%);
+      background: linear-gradient(to bottom, rgba(122,107,158,0.07) 0%, rgba(122,107,158,0.13) 100%);
       color: #5a4d7d; border: none;
-      border-top: 1px solid rgba(122,107,158,0.15); border-bottom: 1px solid rgba(122,107,158,0.38); border-left: 1px solid rgba(122,107,158,0.38);
-      box-shadow: inset 0 -2px 4px rgba(122,107,158,0.1), 0 2px 4px rgba(122,107,158,0.2);
+      border-top: 1px solid rgba(122,107,158,0.1); border-bottom: 1px solid rgba(122,107,158,0.25); border-left: 1px solid rgba(122,107,158,0.25);
+      box-shadow: inset 0 -2px 4px rgba(122,107,158,0.06), 0 2px 4px rgba(122,107,158,0.12);
     }
-    .btn-3d-gloss.btn-purple:hover { box-shadow: inset 0 -2px 4px rgba(122,107,158,0.15), 0 3px 6px rgba(122,107,158,0.28); }
+    .btn-3d-gloss.btn-purple:hover { box-shadow: inset 0 -2px 4px rgba(122,107,158,0.1), 0 3px 6px rgba(122,107,158,0.18); }
 
     .donor-section-title {
       margin: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.05;
@@ -588,8 +620,9 @@
     ===================================================== */
     .variety-heading { margin-bottom: 0.75rem; }
     .variety-heading-prefix {
-      font-size: 55%; opacity: 0.55; font-weight: 900; letter-spacing: 0.02em;
+      font-size: 55%; font-weight: 900; letter-spacing: 0.02em;
       font-family: var(--font-body); display: inline-block; vertical-align: baseline;
+      color: var(--color-crimson);
     }
     .variety-heading-main { font-family: var(--font-display); font-weight: 900; vertical-align: baseline; text-shadow: 2px 2px 6px rgba(0,0,0,0.08); }
     .variety-heading-green  { color: #358d55; }
@@ -611,7 +644,7 @@
        HERO TAGLINE
     ===================================================== */
     .hero-tagline {
-      font-family: var(--font-display); font-weight: 900; font-size: 2.6rem;
+      font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.6rem);
       color: var(--color-crimson); text-shadow: 2px 2px 6px rgba(0,0,0,0.1);
       letter-spacing: 0.005em; line-height: 1.1; opacity: 0.95; margin-bottom: 0.25rem;
     }
@@ -677,7 +710,7 @@
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
         <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        Menu
+        <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
       </button>
     </div>
 
@@ -724,7 +757,7 @@
 
       <!-- HERO -->
       <section class="fade-up">
-        <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision;">36th Annual · 2026 CRFG</p>
+        <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.18);">36th Annual · 2026 CRFG</p>
         <h1 class="shadow-text" style="font-size:clamp(2.75rem,8vw,4.5rem); font-weight:900; line-height:1.05; color:var(--color-crimson); margin-bottom:1.25rem; text-shadow:1px 2px 3px rgba(0,0,0,0.12);">
           Golden Gate<br>Scion Exchange
         </h1>
@@ -743,23 +776,23 @@
 
             <!-- When -->
             <div class="card-padded">
-              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.4rem;">When</p>
+              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.4rem; text-shadow:0 1px 3px rgba(0,0,0,0.15);">When</p>
               <p class="date-location-font shadow-text" style="color:var(--color-crimson); margin-bottom:0.5rem;">Sunday, February 22, 2026</p>
               <span class="badge-amber" style="margin-bottom:1rem; display:inline-block;">Rain or Shine</span>
               <div class="timeline-track" style="margin-top:0.25rem;">
                 <div class="timeline-item">
                   <p style="font-size:1rem; font-weight:700; color:var(--color-ink); margin-bottom:0.35rem;">11:00 am — Members Early Entry</p>
-                  <p style="font-size:0.875rem; color:rgba(26,26,24,0.8); padding-left:1.25rem; margin-bottom:0.5rem;">Join/Renew first:</p>
+                  <p style="font-size:0.875rem; color:inherit; padding-left:1.25rem; margin-bottom:0.5rem;">Join/Renew first:</p>
                   <a href="https://shr.pn/CRFGJoinRenew" target="_blank" class="btn-3d-gloss btn-blue" style="margin-bottom:0.5rem;">Join / Renew CRFG.org</a>
-                  <p style="font-size:0.875rem; font-weight:600; color:rgba(26,26,24,0.8); padding-left:1.25rem; margin-bottom:0.5rem;">
+                  <p  style="font-size:0.875rem; color:inherit; padding-left:1.25rem; margin-bottom:0.5rem;">
                     <a href="https://shr.pn/2026MemberEarlyEntryTicket" style="color:inherit; text-decoration:none;">Then grab your ticket:</a>
                   </p>
                   <a href="https://shr.pn/2026MemberEarlyEntryTicket" target="_blank" class="btn-3d-gloss btn-red">Buy Early Entry Ticket</a>
                 </div>
                 <div class="timeline-item">
                   <p style="font-size:1rem; font-weight:700; color:var(--color-ink); margin-bottom:0.35rem;">12:00–3:00 pm — Open to Public</p>
-                  <p style="font-size:0.875rem; padding-left:1.25rem; margin-bottom:0.5rem;">
-                    <a href="https://shr.pn/2026GeneralAdmissionFastPass" style="font-weight:600; color:rgba(26,26,24,0.8); text-decoration:none;">Skip the line. Buy your ticket now.</a>
+                  <p style="font-size:0.875rem; color:inherit; padding-left:1.25rem; margin-bottom:0.5rem;">
+                    <a href="https://shr.pn/2026GeneralAdmissionFastPass" style="color:inherit; text-decoration:none;">Skip the line. Buy your ticket now.</a>
                   </p>
                   <a href="https://shr.pn/2026GeneralAdmissionFastPass" target="_blank" class="btn-3d-gloss btn-green">Buy Fast Pass Ticket</a>
                 </div>
@@ -768,11 +801,11 @@
             </div>
 
             <!-- Where -->
-            <div class="card-padded">
-              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.4rem;  margin-top:0.4rem;">Where</p>
+            <div class="card-padded" style="padding-top:1.75rem;">
+              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.4rem; margin-top:0.4rem; text-shadow:0 1px 3px rgba(0,0,0,0.15);">Where</p>
               <p class="date-location-font shadow-text" style="color:var(--color-crimson); margin-bottom:0.2rem;">Diablo Valley College</p>
-              <p style="font-size:0.875rem; font-weight:500; color:rgba(26,26,24,0.6); margin-bottom:0.2rem;">Horticulture Department</p>
-              <p style="font-size:0.875rem; color:rgba(26,26,24,0.5); margin-bottom:1.5rem;">321 Golf Club Rd, Pleasant Hill, CA 94523</p>
+              <p style="font-size:1rem; font-weight:600; color:rgba(26,26,24,0.65); margin-bottom:0.2rem;">Horticulture Department</p>
+              <p style="font-size:0.95rem; color:rgba(26,26,24,0.55); margin-bottom:1.5rem;">321 Golf Club Rd, Pleasant Hill, CA 94523</p>
               <div style="display:flex; flex-direction:column; align-items:flex-start; gap:0.5rem;">
                 <a href="https://www.google.com/maps/dir//37.9702325,-122.0684604/@37.9702944,-122.150941,12z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" class="btn-3d-gloss btn-forest-pill" style="padding:0.4rem 0.8rem; margin-bottom:0;">
                   → Google Map: Free Parking Lot 9 🅿️
@@ -788,7 +821,7 @@
 
           </div>
           
-                <div class="info-note" style="margin-top:1.25rem; margin-left:50px; margin-right:50px;">
+                <div style="margin-top:1.25rem; margin-left:50px; margin-right:50px; padding:0.75rem 0; border-top:1px solid rgba(0,0,0,0.12); border-bottom:1px solid rgba(0,0,0,0.12);">
                 <p style="font-size:1rem; font-weight:900; color:var(--color-forest); margin-bottom:0.25rem; margin-top:0.4rem;">$10 admission for everyone.</p>
                 <p style="font-size:0.8125rem; color:rgba(26,26,24,0.65); line-height:1.6;">Exact cash or e-ticket accepted at the gate.<br>Children under 18 in your household enter free.</p>
               </div>
@@ -819,7 +852,7 @@
       <section class="fade-up">
         <div class="card card-padded" style="padding:1.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem;">
 
-          <p class="hero-tagline" style="white-space:nowrap;">
+          <p class="hero-tagline">
             Preserve Our Past <span class="hero-tagline-amp">&amp;</span><br>
             Plant Our Future
           </p>
@@ -874,7 +907,7 @@
 
             <!-- Cultivar Database Feature -->
             <div style="margin-top:1.6rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.08);">
-              <div style="background:linear-gradient(135deg,#f8fbf7 0%,#eef5ef 100%); border:1.1px solid rgba(39,77,49,0.30); border-radius:22px; padding:1.35rem 1.35rem 1.4rem; box-shadow:0 8px 12px rgba(0,0,0,0.06); position:relative; overflow:hidden;">
+              <div style="background:linear-gradient(135deg,#f8fbf7 0%,#eef5ef 100%); border:1.1px solid rgba(39,77,49,0.30); border-radius:22px; padding:1.35rem 1.35rem 1.4rem; box-shadow:0 8px 12px rgba(0,0,0,0.06); position:relative; overflow:hidden; border-bottom: 3px solid rgba(39,77,49,0.25);">
                 <div style="position:absolute; top:-50px; right:-50px; width:140px; height:140px; border:1px solid rgba(155,28,46,0.2); border-radius:999px; background:rgba(39,77,49,0.05); box-shadow:0 4px 12px rgba(0,0,0,0.1); filter:blur(22px); pointer-events:none;"></div>
                 <p style="margin:0 0 0.45rem; font-size:0.68rem; font-weight:900; text-transform:uppercase; letter-spacing:.16em; color:#A32135;">Confirmed for 2026</p>
                 <h3 style="margin:0 0 0.75rem; font-family:var(--font-display); font-size:1.55rem; line-height:1.05; font-weight:900; color:#A32135; text-shadow:1px 2px 3px rgba(0,0,0,0.1);">Rare Fruit Starts&nbsp;With&nbsp;a&nbsp;Plan</h3>
@@ -888,12 +921,21 @@
                   onmouseout="this.style.transform='translateY(0)'">
                   🌿 Explore This&nbsp;Year's&nbsp;Varieties <span aria-hidden="true">→</span>
                 </a>
-                <p style="margin:.9rem 0 0; font-size:0.82rem; color:#68756b; font-style:italic; line-height:1.5;">The best wishlists are made before the doors open.</p>
+                <p style="margin:.9rem 0 0; font-size:1rem; color:#68756b; font-style:inherent; line-height:1.5;">The best wishlists are made before the doors open.</p>
               </div>
 
-              <div style="margin-top:1rem; padding:1rem 1.1rem; border-radius:16px; background:rgba(163,33,53,0.06); border:1px solid rgba(163,33,53,0.14);">
-                <p style="margin:0 0 .3rem; font-size:.88rem; font-weight:900; color:#A32135; letter-spacing:.01em;">⚠️ Share the Harvest — Select only what you can reasonably graft.</p>
-                <p style="margin:0; font-size:.9rem; line-height:1.55; color:#5b4a4a;"><strong>Limit 2 sticks per variety</strong> so more growers can discover and enjoy rare cultivars.</p>
+              <div style="margin-top:1rem; border-radius:16px; overflow:hidden; border:1px solid rgba(163,33,53,0.22); box-shadow:0 4px 12px rgba(163,33,53,0.08);">
+                <div style="background:linear-gradient(135deg,#A32135 0%,#7e1525 100%); padding:0.7rem 1.1rem; display:flex; align-items:center; gap:0.6rem;">
+                  <span style="font-size:1.2rem; line-height:1;">⚠️</span>
+                  <p style="margin:0; font-size:0.78rem; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:0.12em;">Share the Harvest</p>
+                </div>
+                <div style="background:linear-gradient(135deg,#fff8f8 0%,#fdf2f3 100%); padding:0.9rem 1.1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                  <p style="margin:0; font-size:0.95rem; font-weight:700; color:#7e1525; line-height:1.4;">Select only what you can reasonably graft.</p>
+                  <div style="display:flex; align-items:baseline; gap:0.5rem;">
+                    <span style="font-size:1.4rem; font-weight:900; color:#A32135; line-height:1; flex-shrink:0;">2</span>
+                    <p style="margin:0; font-size:0.875rem; line-height:1.5; color:#5b4a4a;"><strong>sticks per variety, maximum</strong> — so more growers can discover and enjoy rare cultivars.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -917,12 +959,12 @@
               <p class="event-item-desc">Hosted by CRFG member Graham Stott.</p>
             </div>
             <div class="event-item">
-              <p class="event-item-title">Live Grafting Demos</p>
-              <p class="event-item-desc">Watch, learn, and ask questions from expert CRFG grafters.</p>
+              <p class="event-item-title">Live Demonstration Grafting & Sharpening</p>
+              <p class="event-item-desc">Watch, learn, and ask questions from expert CRFG grafters. Watch live grafting and tool sharpening throughout the event..</p>
             </div>
             <div class="event-item">
-              <p class="event-item-title">Fruit Tasting</p>
-              <p class="event-item-desc">Sample fresh cultivars from our curated selection.</p>
+              <p class="event-item-title">Fresh Fruit Tasting</p>
+              <p class="event-item-desc">Sample fresh seasonal fruit from our members.</p>
             </div>
             <div class="event-item" style="border:none; padding:0;">
               <p class="event-item-title">Cultivar Database</p>
@@ -935,16 +977,27 @@
           <span class="badge-corner badge-green">For Sale</span>
           <h3 class="heading-shadow shadow-text" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:.35rem;">Supplies &amp; Goods</h3>
           <div style="flex:1;">
-            <p class="supply-item">→ <strong style="color:var(--color-ink);">Rootstocks &amp; Citrus</strong></p>
-            <p class="event-item-desc">A selection of hardy rootstocks and citrus varieties sourced from the Sacramento Valley.</p>
-            <p class="supply-item">→ <strong style="color:var(--color-ink);">Grafting Accessories</strong></p>
-            <p class="event-item-desc">Professional-grade supplies including specialized grafting tape, waterproof plant labels, precision grafting knives, and protective gloves.</p>
+           <p class="supply-item">→ <strong style="color:var(--color-ink);">Fruit Tree Rootstocks for Grafting</strong></p>
+            <p class="event-item-desc">Specialized rootstocks for apples, pears, cherries, peaches, plums, pluots, apriums, almonds, and more to grow stronger, better-adapted fruit trees.</p>
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Organic Orchard Care: Pest & Disease Solutions</strong></p>
+            <p class="event-item-desc">Organic products for fungus, insects, disease prevention, and plant health.</p>
+                      <p class="supply-item">→ <strong style="color:var(--color-ink);">Annie’s Gardenscapes Plants</strong></p>
+            <p class="event-item-desc">Fruit trees, berries, figs, mulberries, persimmons, specialty plants, and select bare-root fruit trees.</p>  
+                <p class="supply-item">→ <strong style="color:var(--color-ink);">Grafting Accessories</strong></p>
+            <p class="event-item-desc">Professional supplies including specialized grafting tape, metal plant labels, precision grafting knives, and protective gloves. Curated and recommended by our members.</p>
             <p class="supply-item">→ <a href="https://shr.pn/DVChorticulture" class="link-leaf" style="font-weight:700;">DVC Horticulture Plant Sale</a></p>
-            <p class="event-item-desc">Exclusive offerings from the department's nursery.</p>
+            <p class="event-item-desc">Beyond fruit trees—explore a massive selection of vegetables, herbs, natives, pollinator plants, succulents, and landscape favorites..</p>
             <p class="supply-item">→ <strong style="color:var(--color-ink);">Custom Grafting Service</strong></p>
             <p class="event-item-desc">On-site experts available to perform grafts for you on your purchased rootstock.</p>
-            <p class="supply-item">→ <strong style="color:var(--color-ink);">Tool Sharpening Desk</strong></p>
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Tool Sharpening Station</strong></p>
             <p class="event-item-desc">Bring your pruners, loppers, and knives for a professional edge restoration.</p>
+                 <p class="supply-item">→ <strong style="color:var(--color-ink);">Custom Grafting Service</strong></p>
+            <p class="event-item-desc">Have compatible scions grafted onto rootstock by experienced grafters..</p>
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Tree-ripened Citrus</strong></p>
+            <p class="event-item-desc">Grown by CRFG member Ray Sheehy including pomelos, oranges, and grapefruit grown in the Sacramento Valley .</p>
+                        <p class="supply-item">→ <strong style="color:var(--color-ink);">Vintage CRFG Magazines</strong></p>
+            <p class="event-item-desc">Back issues of the <em>Fruit Gardener</em> magazine filled with fruit-growing knowledge and tips.</p>
+            
           </div>
         </div>
 
@@ -1023,7 +1076,7 @@
       <!-- ESSENTIAL KNOWLEDGE -->
       <section class="fade-up" style="margin-top:2rem;">
         <h2 class="section-title shadow-text" style="color:var(--color-crimson); text-shadow:0 2px 6px rgba(0,0,0,0.13);">📚 Essential Knowledge</h2>
-        <div class="knowledge-grid">
+        <div class="knowledge-grid" style="padding-left:1.75rem;">
 
           <div>
             <h3 class="knowledge-h3">Harvesting Guides</h3>
@@ -1188,7 +1241,7 @@
 
           <div class="donor-last" style="margin-top:1.5rem; padding:1rem; border-top:2px solid rgba(0,0,0,0.05); color:var(--color-forest);">
             <span class="donor-bullet">◆</span>
-            <span>And <strong>MANY dozens</strong> of personal CRFG member orchards from around the region—like you!</span>
+            <span>And <strong>MANY dozens</strong> of personal CRFG member orchards from around the region—<em>like you!</em></span>
           </div>
         </div>
 
