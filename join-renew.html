@@ -376,8 +376,23 @@ p { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.55; }
 .pay-card-section + .pay-card-section { margin-top: 8px; }
 
 /* Map Dimension Custom Component */
-.map-wrap { width: 60%; max-width: 600px; aspect-ratio: 3 / 4; margin-top: 45px; margin-bottom: 24px; }
-.map-wrap iframe { width: 100%; height: 100%; border: 1px solid var(--border); border-radius: 6px; display: block; }
+.map-wrap {
+  width: 60%;
+  max-width: 600px;
+  aspect-ratio: 3 / 4;
+  margin-top: 45px;
+  margin-bottom: 24px;
+  overflow: hidden; /* clips iframe to rounded corners */
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
 
 ul { padding-left: 26px; margin: 12px 0; }
 li { margin-bottom: 8px; font-size: 1.05rem; }
@@ -561,10 +576,11 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
       <h3>What You Get 🍊🍒 🥝</h3>
       <ul>
         <li>Orchard tours and hands-on workshops</li>
-        <li>Seasonal fruit tastings and harvest sharing</li>
-        <li>Direct access to experienced growers</li>
+        <li>Insider knowledge from experienced fruit growers</li>
+        <li>Seasonal harvests, tastings, and new varieties to discover</li>
+        <li>A local network for advice, troubleshooting, and inspiration</li>
         <li>Scion Exchange early entry and plant sharing</li>
-        <li>A community of passionate fruit growers</li>
+        <li>Confidence to grow better fruit at home</li>
       </ul>
 
       <div class="map-wrap">
