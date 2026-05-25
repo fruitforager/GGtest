@@ -388,6 +388,9 @@
        6. INTERACTIVE MAP FRAME STYLING
     ===================================================== */
 /* Map Dimension Custom Component */
+/* =========================
+   MAP WRAPPER (BASE)
+========================= */
 .map-wrap {
   position: relative;
   width: 60%;
@@ -400,7 +403,7 @@
   border: 1px solid var(--border);
 }
 
-/* iframe MUST fully fill */
+/* iframe fully fills container */
 .map-wrap iframe {
   position: absolute;
   inset: 0;
@@ -410,38 +413,26 @@
   display: block;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+/* =========================
+   TABLET (optional refinement)
+========================= */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .map-wrap {
+    width: 75%;
+  }
+}
+
+/* =========================
+   MOBILE
+   (IMPORTANT: no shape override here)
+========================= */
+@media (max-width: 767px) {
   .map-wrap {
     width: 100%;
     aspect-ratio: 3 / 4;
+    margin: 32px auto 20px;
   }
 }
-
-/* Tablet adjustments (optional but clean) */
-@media (min-width: 600px) and (max-width: 767px) {
-  .map-wrap {
-    width: 80%;
-  }
-}
-
-/* Desktop */
-@media (min-width: 768px) {
-  .map-wrap {
-    width: 70%;
-  }
-}
-
-
-    /* =====================================================
-       7. MOBILE OPTIMIZATIONS & MEDIAS
-    ===================================================== */
-    @media(max-width: 767px) {
-      .custom-main-title { font-size: 2.2rem; }
-      p { font-size: 1.05rem; }
-      .map-wrap { aspect-ratio: 1 / 1; margin: 32px auto 20px; }
-    }
-
     /* =====================================================
        8. SITE FOOTER SCHEMATICS
     ===================================================== */
