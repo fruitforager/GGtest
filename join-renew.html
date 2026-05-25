@@ -404,23 +404,6 @@ p { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.55; }
     aspect-ratio: 3 / 4;
   }
 }
-What this does
-Desktop: stays 60% width, max 600px, 3:4 portrait.
-Mobile: expands to full width (100%) and keeps the same 3:4 ratio.
-
-If it still becomes square on mobile, something elsewhere is overriding it. In that case, force it:
-
-@media (max-width: 768px) {
-  .map-wrap {
-    width: 100%;
-    aspect-ratio: 3 / 4 !important;
-    height: auto !important;
-  }
-}
-
-That should lock it into a portrait rectangle on phones.
-
-You’re out of messages with the most advanced Free model. Responses may be less detailed until 2:33 PM. Start a fr
 
 ul { padding-left: 26px; margin: 12px 0; }
 li { margin-bottom: 8px; font-size: 1.05rem; }
