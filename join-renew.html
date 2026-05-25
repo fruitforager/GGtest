@@ -238,21 +238,20 @@ strong, b { font-weight: 800; }
 main { max-width: 56rem; margin: 0 auto; }
 
 /* Hero Presentation Styling */
-
 .hero { margin-top: 10px; }
 .hero h1 {
   font-size: clamp(2.2rem, 4vw, 3.8rem);
   font-weight: 900;
-  color: #5B4A73; /* Restored to original purple */
-  line-height: 1.1; /* Reverted to tighter leading */
+  color: #5B4A73; 
+  line-height: 1.1; 
   margin: 0 0 28px;
   max-width: 900px;
-  letter-spacing: -0.02em; 
+  letter-spacing: -0.005em; 
 }
 .hero h1 span { display: block; }
 
 .member-title {
-  font-size: clamp(2.05rem, 3.4vw, 3.25rem) !important;
+  font-size: clamp(2.05rem, 3.2vw, 3.25rem) !important;
   font-weight: 900;
   line-height: 1.1;
   margin: 0 0 12px;
@@ -279,27 +278,66 @@ p { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.55; }
   align-items: center;
   justify-content: center;
   margin-top: 14px;
-  background: linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
+  position: relative;
+  
+  /* Seamless sequential percentages for a premium 3D sheen layout */
+  background: linear-gradient(
+    to bottom, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(255, 255, 255, 0.08) 30%, 
+    rgba(255, 255, 255, 0) 45%, 
+    rgba(0, 0, 0, 0.04) 70%, 
+    rgba(0, 0, 0, 0.15) 100%
+  ), #2f5d8f;
+  
   color: white;
   text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-weight: 900;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 800;
   font-size: 1.08rem;
   letter-spacing: 0.03em;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(47,93,143,0.28), 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15);
-  transition: transform 0.18s cubic-bezier(.2,.9,.25,1), box-shadow 0.18s ease, filter 0.18s ease;
+  
+  /* Natural depth properties using solid accent borders and shadows */
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 4px 0 #183352, 
+    0 6px 14px rgba(24, 51, 82, 0.4);
+    
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.35);
+  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.25, 1);
 }
+
 .button:hover {
-  filter: brightness(1.10);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(47,93,143,0.32), 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
+  background: linear-gradient(
+    to bottom, 
+    rgba(255, 255, 255, 0.2) 0%, 
+    rgba(255, 255, 255, 0.12) 30%, 
+    rgba(255, 255, 255, 0) 45%, 
+    rgba(0, 0, 0, 0.02) 70%, 
+    rgba(0, 0, 0, 0.12) 100%
+  ), #36679c;
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 2px 0 #183352, 
+    0 4px 18px rgba(24, 51, 82, 0.5);
+  transform: translateY(2px);
 }
+
 .button:active {
-  transform: translateY(1px);
-  filter: brightness(0.97);
-  box-shadow: 0 2px 6px rgba(47,93,143,0.22), inset 0 2px 6px rgba(0,0,0,0.10);
+  background: linear-gradient(
+    to bottom, 
+    rgba(0, 0, 0, 0.12) 0%, 
+    rgba(0, 0, 0, 0.04) 45%, 
+    rgba(255, 255, 255, 0) 70%, 
+    rgba(255, 255, 255, 0.08) 100%
+  ), #234870;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4) inset,
+    0 0 0 #183352, 
+    0 2px 4px rgba(24, 51, 82, 0.2);
+  transform: translateY(4px);
 }
 
 .step .button {
@@ -310,17 +348,26 @@ p { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.55; }
   padding-left: 12px;
   padding-right: 12px;
 }
-.step .button:hover {
-  background-image: linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
-}
 
-/* Payment Assets Layout */
+/* Payment Assets Layout - Inset slightly from button boundaries to leave pristine breathing room */
 .pay-logos {
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-  margin-top: 6px; margin-bottom: 18px; padding: 6px 12px; width: 100%; max-width: 39ch;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 6px;
+  margin-top: 23px; 
+  margin-bottom: 18px; 
+  width: 100%; 
+  max-width: 37ch; /* Perfectly matches the max-width of the button above */
+  padding: 2px 27px; /* Increased padding locks elements inside the border radius curve for generous breathing room */
 }
-.pay-logos img { flex: 0 0 auto; display: block; height: 28px; }
-.pay-logos img[alt="Discover"] { height: 15px; }
+.pay-logos img { flex: 0 0 auto; display: block; height: 1px; width: auto; object-fit: contain; }
+.pay-logos img[alt="Visa and Mastercard"] { height: 19px; }
+.pay-logos img[alt="American Express"] { height: 19px; }
+.pay-logos img[alt="Discover"] { height: 13px; } /* Bumped ratio up relative to others for balanced visibility */
+.pay-logos img[alt="Apple Pay"] { height: 19px; }
+.pay-logos img[alt="Google Pay"] { height: 18px; }
+.pay-logos img[alt="Credit Card"] { height: 17px; }
 
 .pay-card {
   margin-top: 24px; background: #f6e3d1; border-radius: 7px; padding: 12px 16px;
@@ -338,7 +385,7 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
 .who-joins-list { padding-left: 0; list-style: none; }
 .who-joins-list li { padding-left: 1.4rem; text-indent: -0.2rem; margin: 0 0 6px; }
 
-.bottom-tagline { line-height: 1.35; margin-top: 44px; margin-bottom: 0; }
+.bottom-tagline { line-height: 1.35; margin-top: 45px; margin-bottom: 0; }
 .bottom-tagline span { display: block; }
 
 /* Skip Links & A11y Controls */
@@ -357,9 +404,8 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
   .map-wrap { width: 70%; margin: 45px auto 24px; }
   .hero h1 { text-wrap: wrap; }
   .step { padding-left: 0; max-width: none; }
-  .step .button, .pay-logos, .pay-card { max-width: none; width: 100%; }
-  .pay-logos { justify-content: center; }
-  .mail-line { white-space: normal; }
+  .step .button, .pay-card { max-width: none; width: 100%; }
+  .pay-logos { max-width: none; width: 100%; padding: 6px 36px; }
 }
 
 /* =====================================================
@@ -482,12 +528,12 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
         <a class="button" href="https://shr.pn/GGJoinRenew" target="_blank" rel="noopener noreferrer">Join the Golden Gate Chapter</a>
 
         <div class="pay-logos" aria-label="Accepted payment methods">
-          <img src="https://www.image2url.com/r2/default/images/1778370145085-f24780b1-62fc-4f6e-bc22-37aa52d7372b.svg" alt="Visa and Mastercard" width="60" height="20" loading="lazy">
-          <img src="https://www.image2url.com/r2/default/images/1778369253805-7c529f08-cf1a-4804-905c-0483ebc5dc3a.svg" alt="American Express" width="36" height="20" loading="lazy">
-          <img src="https://www.image2url.com/r2/default/images/1778369333135-6a59c66d-4455-443a-8576-3dfbca91676e.svg" alt="Discover" width="52" height="13" loading="lazy">
-          <img src="https://www.image2url.com/r2/default/images/1778369398953-b33b9332-7bd5-4c04-8b0f-f0d8e6cd51b8.svg" alt="Apple Pay" width="46" height="20" loading="lazy">
-          <img src="https://www.image2url.com/r2/default/images/1778369442494-c98af60f-014b-4bc2-a53e-53cbea742339.svg" alt="Google Pay" width="50" height="20" loading="lazy">
-          <img src="https://www.image2url.com/r2/default/images/1778369560180-e0163bf4-be8d-4e63-8ce7-ca818b234be1.svg" alt="Credit Card" width="30" height="20" loading="lazy">
+          <img src="https://www.image2url.com/r2/default/images/1778370145085-f24780b1-62fc-4f6e-bc22-37aa52d7372b.svg" alt="Visa and Mastercard" width="60" height="18" loading="lazy">
+          <img src="https://www.image2url.com/r2/default/images/1778369253805-7c529f08-cf1a-4804-905c-0483ebc5dc3a.svg" alt="American Express" width="36" height="18" loading="lazy">
+          <img src="https://www.image2url.com/r2/default/images/1778369333135-6a59c66d-4455-443a-8576-3dfbca91676e.svg" alt="Discover" width="52" height="12" loading="lazy">
+          <img src="https://www.image2url.com/r2/default/images/1778369398953-b33b9332-7bd5-4c04-8b0f-f0d8e6cd51b8.svg" alt="Apple Pay" width="46" height="18" loading="lazy">
+          <img src="https://www.image2url.com/r2/default/images/1778369442494-c98af60f-014b-4bc2-a53e-53cbea742339.svg" alt="Google Pay" width="50" height="17" loading="lazy">
+          <img src="https://www.image2url.com/r2/default/images/1778369560180-e0163bf4-be8d-4e63-8ce7-ca818b234be1.svg" alt="Credit Card" width="30" height="16" loading="lazy">
         </div>
 
         <div class="pay-card">
