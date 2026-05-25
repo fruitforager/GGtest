@@ -1,535 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Online Community — Golden Gate Chapter CRFG</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Community — Golden Gate Chapter CRFG</title>
 
-<meta name="description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings — powered by Groups.io.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Golden Gate Chapter, California Rare Fruit Growers">
-<link rel="canonical" href="https://goldengate.crfg.org/online-community.html">
+  <meta name="description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings — powered by Groups.io.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Golden Gate Chapter, California Rare Fruit Growers">
+  <link rel="canonical" href="https://goldengate.crfg.org/online-community.html">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Online Community — Golden Gate Chapter CRFG">
-<meta property="og:description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.">
-<meta property="og:url" content="https://goldengate.crfg.org/online-community.html">
-<meta property="og:site_name" content="Golden Gate Chapter — California Rare Fruit Growers">
-<meta property="og:image" content="https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Online Community — Golden Gate Chapter CRFG">
+  <meta property="og:description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.">
+  <meta property="og:url" content="https://goldengate.crfg.org/online-community.html">
+  <meta property="og:site_name" content="Golden Gate Chapter — California Rare Fruit Growers">
+  <meta property="og:image" content="https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Online Community — Golden Gate Chapter CRFG">
-<meta name="twitter:description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.">
-<meta name="twitter:image" content="https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Online Community — Golden Gate Chapter CRFG">
+  <meta name="twitter:description" content="Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.">
+  <meta name="twitter:image" content="https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "name": "Golden Gate Chapter — California Rare Fruit Growers",
-      "url": "https://goldengate.crfg.org",
-      "logo": "https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg"
-    },
-    {
-      "@type": "WebPage",
-      "name": "Online Community",
-      "description": "Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.",
-      "url": "https://goldengate.crfg.org/online-community.html",
-      "publisher": {
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Organization",
         "name": "Golden Gate Chapter — California Rare Fruit Growers",
-        "url": "https://goldengate.crfg.org"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://goldengate.crfg.org/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Online Community",
-          "item": "https://goldengate.crfg.org/online-community.html"
+        "url": "https://goldengate.crfg.org",
+        "logo": "https://goldengate.crfg.org/images/CRFG-logo-transparent-web.svg"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Online Community",
+        "description": "Connect with Golden Gate Chapter CRFG members online. Ask questions, share harvests, and trade growing tips with Bay Area fruit growers between meetings.",
+        "url": "https://goldengate.crfg.org/online-community.html",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Golden Gate Chapter — California Rare Fruit Growers",
+          "url": "https://goldengate.crfg.org"
         }
-      ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://goldengate.crfg.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Online Community",
+            "item": "https://goldengate.crfg.org/online-community.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF0E6;
+      --surface: #FFFFFF;
+      --text-base: rgba(0, 0, 0, 0.96);
+      --text-muted: rgba(0, 0, 0, 0.93);
+      --green: #274D31;
+      --green-dark: #1B3622;
+      --blue: #1A4473;
+      --blue-dark: #102A47;
+      --blue-light: #EBF2FA;
+      --color-leaf: #2D5E3A;
+      --border: #D8CCB6;
+      --border-light: #E8DFD0;
+      --nested-card-bg: #FAF6F0;
+      --sidebar-width: 240px;
+      --content-max-width: 1200px;
+      --radius: 6px;
     }
-  ]
-}
-</script>
 
-<style>
-:root{
-  --bg:#FAF0E6;
-  --text:#222;
-  --green:#274D31;
-  --green-dark:#21452c;
-  --blue:#2f5d8f;
-  --blue-dark:#21425c;
-  --border:#d8ccb6;
-  --sidebar:220px;
-  --content-width:1200px;
-}
+    * { box-sizing: border-box; }
 
-*{box-sizing:border-box;}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-base);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  font-size:17px;
-  line-height:1.52;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
+    strong, b { font-weight: 800; }
 
-strong,b{font-weight:800;}
+    p {
+      max-width: 65ch;
+      text-wrap: pretty;
+      margin: 0 0 16px;
+    }
 
-.layout{
-  display:flex;
-  min-height:100vh;
-  max-width:var(--content-width);
-  margin:auto;
-}
+    .layout {
+      display: flex;
+      min-height: 100vh;
+      max-width: var(--content-max-width);
+      margin: auto;
+    }
 
-aside{
-  width:var(--sidebar);
-  flex-shrink:0;
-  background:var(--green);
-  display:flex;
-  flex-direction:column;
-  position:sticky;
-  top:0;
-  height:100vh;
-  overflow-y:auto;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(255,255,255,0.2) transparent;
-}
-.nav-brand{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding:20px 16px 16px;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.15);
-}
-.logo{
-  width:134px;
-  margin-bottom:14px;
-  filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
-}
-.site-title{
-  color:white;
-  font-weight:800;
-}
-.site-crfg,
-.site-sub{
-  color:rgba(255,255,255,0.8);
-  font-size:0.85rem;
-  font-weight:800;
-  text-align:center;
-}
+    /* ═══ SIDEBAR NAVIGATION ══════════════════════════════════════════ */
+    aside {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
 
-nav{
-  display:flex;
-  flex-direction:column;
-  padding:4px 0 120px;
-}
-.nav-group-label{
-  font-size:0.76rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:0.12em;
-  color:rgba(255,255,255,0.85);
-  padding:16px 16px 5px;
-}
-nav a{
-  font-size:0.85rem;
-  font-weight:700;
-  color:var(--bg);
-  text-decoration:none;
-  padding:6px 16px;
-  margin-left:18px;
-  display:block;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  transition:background 0.12s,color 0.12s,border-color 0.12s;
-}
-nav a:hover{
-  background:rgba(255,255,255,0.1);
-  color:white;
-}
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 24px 16px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-.hamburger{display:none;}
-.mobile-header{display:none;}
+    .logo {
+      width: 110px;
+      margin-bottom: 12px;
+    }
 
-.page{
-  flex:1;
-  padding:42px 48px;
-  min-width:0;
-}
+    .site-title {
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
 
-.hero{
-  padding:0 0 22px;
-}
-.hero h1{
-  font-size:clamp(1.9rem,3.2vw,3.1rem);
-  margin:0 0 12px;
-  color:var(--blue);
-  font-weight:900;
-  line-height:1.12;
-  letter-spacing:-0.015em;
-}
-.hero p{
-  max-width:64ch;
-  color:#4a423c;
-  margin:0 0 9px;
-  font-size:1rem;
-}
+    .site-crfg, .site-sub {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
 
-.section{
-  margin-top:30px;
-  max-width:70ch;
-}
-h2{
-  color:var(--blue);
-  font-size:clamp(1.55rem,2.2vw,2.2rem);
-  margin:30px 0 12px;
-  font-weight:900;
-  line-height:1.08;
-}
-.section-intro{
-  font-size:0.98rem;
-  color:#544d46;
-  max-width:62ch;
-  margin:0 0 16px;
-}
+    nav {
+      display: flex;
+      flex-direction: column;
+      padding: 16px 0 40px;
+    }
 
-.feature-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
-  gap:14px;
-  margin:16px 0 20px;
-}
-.feature{
-  background:#ffffff;
-  border:1px solid #e3dccf;
-  border-radius:5px;
-  padding:15px 15px 14px;
-}
-.feature .icon{
-  display:inline-flex;
-  width:34px;
-  height:34px;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
-  background:rgba(107,76,110,0.10);
-  margin-bottom:10px;
-  font-size:1rem;
-}
-.feature h3 {
-  margin: 0 0 8px;
-  color: var(--blue);
-  font-size: 1.18rem;
-  line-height: 1.22;
-  font-weight: 700;
-}
-.feature p{
-  margin:0;
-  font-size:0.9rem;
-  color:#57534f;
-  line-height:1.5;
-}
+    .nav-group-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 16px 24px 6px;
+    }
 
-.card-row{
-  display:grid;
-  grid-template-columns:1.25fr 0.78fr;
-  gap:16px;
-  align-items:start;
-  margin-top:16px;
-}
+    nav a {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      padding: 8px 24px;
+      display: block;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
 
-.card{
-  background:#ffffff;
-  border:1px solid #e3dccf;
-  border-radius:5px;
-  padding:18px 20px;
-}
-.card h3{
-  margin:0 0 4px;
-  color:var(--green);
-  font-size:1.05rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  border-bottom:2px solid var(--border);
-  padding-bottom:8px;
-  margin-bottom:12px;
-}
-.card p{
-  margin:0 0 11px;
-  color:#4c4c4c;
-  font-size:0.95rem;
-}
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+    }
 
-p {
-  max-width: 65ch;
-  line-height: 1.5;
-  text-wrap: pretty;
-  orphans: 2;
-  overflow-wrap: break-word;
-}
+    nav a.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      font-weight: 800;
+      border-left: 4px solid var(--bg);
+      padding-left: 20px;
+    }
 
-ol{
-  padding-left:20px;
-  margin:12px 0 0;
-}
-ol li{
-  margin:9px 0;
-  color:#45413d;
-  font-size:0.94rem;
-}
+    .hamburger, .mobile-header { display: none; }
 
-.small{
-  margin-top:13px;
-  font-size:0.94rem;
-  color:#555;
-}
-.small a{
-  color:var(--blue);
-  font-weight:800;
-  text-decoration:none;
-}
-.small a:hover{
-  text-decoration:underline;
-}
+    /* ═══ MAIN PAGE CONTAINER ═════════════════════════════════════════ */
+    .page {
+      flex: 1;
+      padding: 56px 64px;
+      min-width: 0;
+    }
 
-.signup-card{
-  background:#ffffff;
-  border:1px solid #e3dccf;
-  border-radius:5px;
-  padding:18px 18px 17px;
-  position:sticky;
-  top:18px;
-}
-.signup-card h3{
-  margin:0 0 4px;
-  color:var(--green);
-  font-size:1.05rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  border-bottom:2px solid var(--border);
-  padding-bottom:8px;
-  margin-bottom:12px;
-}
-.signup-card p{
-  margin:0 0 12px;
-  color:#555;
-  font-size:0.92rem;
-}
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
 
-.signup-card form{
-  margin-top:6px;
-}
+    .eyebrow, .card-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
 
-.signup-card label{
-  display:block;
-  font-weight:900;
-  color:var(--blue);
-  margin-bottom:9px;
-  font-size:0.95rem;
-}
+    /* Hero Header - Intentionally Unchanged */
+    h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      margin: 0 0 16px;
+      color: var(--blue);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
 
-.signup-card input[type="email"]{
-  width:100%;
-  padding:11px 13px;
-  border-radius:9px;
-  border:1px solid rgba(215,204,182,0.95);
-  margin-bottom:11px;
-  font-size:0.98rem;
-  background:#fffdf9;
-  transition:border-color 0.15s ease, box-shadow 0.15s ease;
-}
-.signup-card input[type="email"]:focus{
-  outline:none;
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px rgba(47,93,143,0.14);
-}
+    /* Sections Headers - Increased size & weight */
+    h2 {
+      color: var(--green);
+      font-size: clamp(2.0rem, 3.5vw, 2.6rem); 
+      margin: 0 0 16px;
+      font-weight: 900; 
+      letter-spacing: -0.01em;
+      line-height: 1.2
+    }
 
-.signup-card input[type="submit"]{
-  width:100%;
-  border:none;
-  border-radius:9px;
-  padding:12px 14px;
-  font-weight:900;
-  font-size:1rem;
-  color:white;
-  cursor:pointer;
-  background:var(--blue);
-  transition:transform .15s ease, box-shadow .15s ease;
-}
-.signup-card input[type="submit"]:hover{
-  transform:translateY(-1px);
-  box-shadow:0 10px 18px rgba(0,0,0,0.12);
-}
-.signup-card input[type="submit"]:focus-visible{
-  outline:3px solid rgba(47,93,143,0.35);
-  outline-offset:2px;
-}
+    .hero-lead {
+      max-width: 62ch;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin: 0 0 28px;
+    }
 
-.steps{
-  margin-top:14px;
-  display:grid;
-  gap:10px;
-}
-.step{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  background:#ffffff;
-  border:1px solid #e3dccf;
-  border-radius:5px;
-  padding:12px 13px;
-}
-.step .num{
-  flex:0 0 auto;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:var(--green);
-  color:#fff;
-  font-size:0.82rem;
-  font-weight:900;
-  line-height:1;
-}
-.step p{
-  margin:0;
-  font-size:0.9rem;
-  color:#4d4945;
-}
+    /* ═══ 3D GLOSS BUTTONS ════════════════════════════════════════════ */
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
 
-.footer-note{
-  margin-top:16px;
-  padding-top:13px;
-  border-top:1px solid rgba(215,204,182,0.7);
-  font-size:0.9rem;
-  color:#5b534d;
-}
-.footer-note a{
-  color:var(--blue);
-  font-weight:800;
-  text-decoration:none;
-}
-.footer-note a:hover{
-  text-decoration:underline;
-}
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+      transition: transform 0.1s ease, filter 0.15s ease, box-shadow 0.15s ease;
+      background: linear-gradient(to bottom, #245891 0%, var(--blue) 40%, #133459 100%);
+      color: #FFFFFF;
+      box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.2), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    }
 
-footer{
-  margin-top:60px;
-  border-top:1px solid var(--border);
-  padding-top:40px;
-  font-size:0.85rem;
-}
-hr{
-  border:none;
-  border-top:1px solid var(--border);
-  margin:40px 0;
-}
+    .button:hover {
+      filter: brightness(1.06);
+      box-shadow: 
+        0 6px 14px rgba(0, 0, 0, 0.25), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    }
 
-@media(max-width:750px){
-  .layout{flex-direction:column;}
-  aside{width:100%;height:auto;position:relative;}
-  .nav-brand{display:none;}
-  .mobile-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 16px;
-  }
-  .mobile-brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-  }
-  .mobile-logo{width:36px;height:auto;}
-  .mobile-title{
-    font-size:0.88rem;
-    font-weight:800;
-    color:white;
-    line-height:1.18;
-  }
-  nav{display:none;padding:0 0 10px;}
-  nav.open{display:flex;}
-  nav a{
-    padding:8px 20px;
-    border-left:none;
-    font-size:0.95rem;
-    margin-left:0;
-  }
-  .nav-group-label{padding:10px 20px 3px;}
-  .hamburger{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.3);
-    border-radius:7px;
-    padding:6px 10px;
-    font-size:0.8rem;
-    font-weight:700;
-    color:white;
-    cursor:pointer;
-    font-family:inherit;
-  }
-  .hamburger svg{
-    width:16px;
-    height:16px;
-    stroke:white;
-    fill:none;
-  }
-  .page{padding:24px 16px;}
-  .hero h1{font-size:clamp(2rem,8vw,2.8rem);}
-  .hero p{font-size:0.96rem;}
-  .section{max-width:none;}
-  .feature-grid{
-    grid-template-columns:1fr;
-  }
-  .card-row{
-    grid-template-columns:1fr;
-  }
-  .signup-card{
-    position:relative;
-    top:auto;
-    max-width:28rem;
-    justify-self:start;
-  }
-}
-</style>
+    .button:active {
+      transform: translateY(1px);
+      box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.2), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .button.secondary {
+      background: linear-gradient(to bottom, #FFFFFF 0%, #F4EEE6 100%);
+      color: var(--blue);
+      border: 1px solid var(--border);
+      text-shadow: none;
+      box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.08), 
+        inset 0 1px 0 #FFFFFF;
+    }
+
+    .button.secondary:hover {
+      filter: none;
+      background: linear-gradient(to bottom, #FFFFFF 0%, #E8DFD0 100%);
+      box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 #FFFFFF;
+    }
+
+    /* Hero Bullet Elements */
+    .hero-proof {
+      display: flex;
+      gap: 10px 20px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border-light);
+      padding-top: 24px;
+    }
+
+    .hero-proof span {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .hero-proof span::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 65ch;
+      margin: 0 0 24px;
+    }
+
+    /* ═══ WHY MEMBERS LOVE THE GROUP (PARENT & NESTED CARD) ════════════ */
+    .why-community-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+
+    .benefits-nested-card {
+      background: var(--nested-card-bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 8px;
+    }
+
+    .benefits-inner-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    /* Inner Benefit Block Headers - Increased size & weight */
+    .benefit-block h3 {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 1.45rem; 
+      font-weight: 900; 
+    }
+
+    .benefit-block p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(87, 83, 79, 0.9);
+      line-height: 1.6;
+    }
+
+    /* Split Content Area */
+    .community-layout {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .community-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 28px 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 16px;
+    }
+
+    .step-number {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    /* Inner Step List Headers - Increased size, weight, and changed to blue */
+    .step-content h3 {
+      margin: 0 0 4px;
+      font-size: 1.25rem; 
+      color: var(--blue); 
+      font-weight: 900; 
+    }
+
+    .step-content p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .resource-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+    }
+
+    .resource-note a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .resource-note a:hover { text-decoration: underline; }
+
+    /* Signup Form Card */
+    .signup-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: sticky;
+      top: 32px;
+    }
+
+    /* Sidebar Form Title Header - Increased size & weight */
+    .signup-title {
+      font-size: 1.75rem; 
+      font-weight: 900; 
+      margin: 0 0 12px;
+    }
+
+    .signup-copy {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 20px;
+    }
+
+    .signup-card label {
+      display: block;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+    }
+
+    .signup-card input[type="email"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      background: #FFFFFF;
+      font-family: inherit;
+      color: var(--text-base);
+    }
+
+    .signup-card input[type="email"]:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(47, 93, 143, 0.15);
+    }
+
+    .signup-card input[type="submit"] {
+      width: 100%;
+      border: none;
+      border-radius: 9999px;
+      padding: 12px 14px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: inherit;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+      transition: filter 0.15s ease, box-shadow 0.15s ease;
+      background: linear-gradient(to bottom, #245891 0%, var(--blue) 40%, #133459 100%);
+      box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.2), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .signup-card input[type="submit"]:hover {
+      filter: brightness(1.06);
+      box-shadow: 
+        0 6px 14px rgba(0, 0, 0, 0.25), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .signup-help {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .signup-help a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 40px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 24px;
+      font-size: 0.75rem;
+      color: rgba(26, 26, 24, 0.75);
+      line-height: 1.6;
+    }
+
+    .site-footer p { 
+      margin: 0 0 8px; 
+      font-size: 0.75rem;
+      color: rgba(26, 26, 24, 0.55);
+    }
+    
+    .site-footer a { 
+      color: var(--color-leaf); 
+      font-weight: 700; 
+      text-decoration: none; 
+    }
+    
+    .site-footer a:hover { text-decoration: underline; }
+
+    /* Honeypot Form Anti-Spam Styling */
+    .hidden-field {
+      position: absolute; 
+      left: -5000px;
+    }
+
+    /* ═══ RESPONSIVE BREAKPOINTS ══════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .community-layout {
+        grid-template-columns: 1fr;
+      }
+      .signup-card {
+        position: relative;
+        top: auto;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .layout { flex-direction: column; }
+      aside { width: 100%; height: auto; position: relative; }
+      .nav-brand { display: none; }
+      
+      .mobile-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        background: var(--green);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .mobile-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      
+      .mobile-logo { width: 34px; height: auto; }
+      .mobile-title { font-size: 0.95rem; font-weight: 800; color: #FFFFFF; }
+      
+      nav { display: none; padding: 8px 0; }
+      nav.open { display: flex; }
+      nav a { padding: 10px 20px; margin-left: 0; }
+      .nav-group-label { padding: 12px 20px 4px; }
+      
+      .hamburger {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        cursor: pointer;
+      }
+      
+      .hamburger svg { width: 16px; height: 16px; stroke: #FFFFFF; fill: none; }
+      .page { padding: 32px 20px; }
+    }
+  </style>
 </head>
 
 <body>
 <div class="layout">
 
+  <!-- Sidebar -->
   <aside>
     <a href="index.html" class="nav-brand">
-      <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Logo">
+      <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
       <span class="site-title">Golden Gate Chapter</span>
       <span class="site-crfg">CRFG.org</span>
       <span class="site-sub">Bay Area fruit growers</span>
@@ -555,8 +656,8 @@ hr{
 
       <div class="nav-group">
         <span class="nav-group-label">Grow Fruit</span>
-        <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-        <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+        <a href="bay-area-zone-favorites.html">Bay Area Favorites</a>
+        <a href="member-guides.html">Member Written Guides</a>
         <a href="fruity-resources.html">Fruity Resources</a>
       </div>
 
@@ -583,94 +684,128 @@ hr{
     </nav>
   </aside>
 
+  <!-- Main Content Area -->
   <div class="page">
     <main>
+
+      <!-- Hero Section -->
       <section class="hero">
-        <h1>Join Our Fruity Conversation</h1>
-        <p>
-          The Golden Gate Chapter online community is where members stay in touch between meetings — asking questions, sharing harvests, and trading notes with Bay Area fruit growers year-round.
-        </p>
-        <p>
-          Post what's ripening in your garden, troubleshoot problems with people who grow the same plants, and build on the knowledge of growers who've been at it for decades.
-        </p>
-      </section>
-
-      <section class="section">
-        <h2>💬 How to Connect Between Meetings</h2>
-        <p class="section-intro">
-          Membership requests are reviewed to keep the group active and spam-free.
-          Once approved, tap into local growing knowledge, get answers fast, and contribute your own experience to the mix.
+        <div class="eyebrow">Stay Connected Between Meetings</div>
+        <h1>Join the Conversation.<br>Grow Better Fruit.</h1>
+        <p class="hero-lead">
+          The Golden Gate Chapter online community is where Bay Area fruit growers swap advice, celebrate harvests, troubleshoot problems, and stay connected all year long.<br> Whether you’re growing citrus on a patio, experimenting with subtropicals, or tending an established orchard, there’s always someone in the group eager to share what they’ve learned.
         </p>
 
-        <div class="feature-grid">
-          <div class="feature">
-            <div class="icon">🌿</div>
-            <h3>Local growing tips</h3>
-            <p>Dig into what works across Bay Area microclimates — from foggy coastal strips to inland heat pockets — and pick up hard-won adaptations from members who've trialed the same varieties.</p>
-          </div>
-          <div class="feature">
-            <div class="icon">💬</div>
-            <h3>Member questions</h3>
-            <p>Bring your toughest questions about fruit trees, pests, pruning, and timing — then compare notes with growers who've wrestled with the exact same problems in similar conditions.</p>
-          </div>
-          <div class="feature">
-            <div class="icon">📷</div>
-            <h3>Share photos</h3>
-            <p>Capture blossoms, harvests, and mystery ailments and post them for the group — get rapid identification help and let others see what's actually happening in real Bay Area gardens right now.</p>
-          </div>
+        <div class="hero-actions">
+          <a class="button" href="#join-community">Request Access</a>
+          <a class="button secondary" href="member-guides.html">Explore Member Guides</a>
         </div>
 
-        <div class="card-row">
-          <div class="card">
-            <h3>How it works</h3>
-            <ol>
-              <li>Introduce yourself briefly — tell us what you grow, what you're hoping to learn, or what corner of the Bay Area you're gardening in.</li>
-              <li>Complete the signup form and confirm your email address so we know you're a real person with a genuine interest in fruit growing.</li>
-              <li>Reach out to us directly at <a href="mailto:golden_gate@crfg.org" style="color:var(--blue);font-weight:800;text-decoration:none;">golden_gate@crfg.org</a> if anything gets stuck or you don't hear back within a few days.</li>
-            </ol>
+        <div class="hero-proof">
+          <span>Local growing advice</span>
+          <span>Fast answers from experienced growers</span>
+          <span>Harvest photos & seasonal updates</span>
+          <span>Friendly Bay Area community</span>
+        </div>
+      </section>
 
-            <div class="footer-note">
-              New here? Start with the <a href="member-guides.html">member guides</a> or browse <a href="bay-area-zone-favorites.html">Bay Area fruit favorites</a>.
+      <!-- Reconfigured Value Prop: Main card with a nested inner card -->
+      <section class="why-community-card">
+        <h2>Growing Fruit Is Better Together</h2>
+        <p class="section-intro">
+          Think of it as your year-round fruit growing support network — a place to ask questions, compare notes, and learn from people growing the same plants in the same Bay Area conditions.<br> Whether you’re growing citrus on a patio, experimenting with subtropicals, or tending an established orchard, there’s always someone in the group eager to share what they’ve learned.
+        </p>
+
+        <div class="benefits-nested-card">
+          <div class="benefits-inner-layout">
+            <div class="benefit-block">
+              <h3>Local Growing Wisdom</h3>
+              <p>Learn what actually works across Bay Area microclimates — from foggy coastlines to inland heat pockets — with advice grounded in local experience.</p>
+            </div>
+
+            <div class="benefit-block">
+              <h3>Get Answers Fast</h3>
+              <p>Bring questions about pruning, pests, varieties, watering, timing, or mystery problems and hear from growers who've faced the same challenges.</p>
+            </div>
+
+            <div class="benefit-block">
+              <h3>Share What’s Growing</h3>
+              <p>Post blossoms, harvests, unusual fruit, experiments, and garden wins — or ask for help identifying what might be happening in your trees.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step Content & Sidebar Join Split Layout -->
+      <div class="community-layout">
+        <section class="community-card">
+          <div class="card-eyebrow">Getting Started</div>
+          <h2>How the Community Works</h2>
+
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Introduce Yourself</h3>
+                <p>Share what you grow, what you're curious about, or which part of the Bay Area you garden in.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Request Access</h3>
+                <p>Submit your email and confirm your request so we can keep the group active, useful, and spam-free.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Start Participating</h3>
+                <p>Ask questions, post photos, celebrate harvests, and tap into decades of local fruit-growing knowledge.</p>
+              </div>
             </div>
           </div>
 
-          <div class="signup-card">
-            <h3>Request access</h3>
-            <p>
-              Enter your email below to request membership and start connecting with Bay Area fruit growers.
-            </p>
-
-            <form action="https://groups.io/g/goldengatecrfg/signup?u=7714720136544229230"
-                  method="post"
-                  target="_blank">
-
-              <label for="email">Email address</label>
-              <input id="email"
-                     name="email"
-                     type="email"
-                     required
-                     placeholder="your@email.com">
-
-              <div style="position:absolute; left:-5000px;">
-                <input tabindex="-1" name="b_7714720136544229230" type="text" value="">
-              </div>
-
-              <input type="submit" value="Request to Join">
-            </form>
+          <div class="resource-note">
+            <strong>New here?</strong> Start with the <a href="member-guides.html">member guides</a> or browse <a href="bay-area-zone-favorites.html">Bay Area fruit favorites</a>.
           </div>
-        </div>
-      </section>
+        </section>
+
+        <!-- Dynamic Form Sticky Card -->
+        <section class="signup-card" id="join-community">
+          <div class="card-eyebrow">Join the Community</div>
+          <h2 class="signup-title">Join the Conversation</h2>
+          <p class="signup-copy">Enter your email below to connect with Bay Area fruit growers, ask questions, and stay inspired between meetings.</p>
+
+          <form action="https://groups.io/g/goldengatecrfg/signup?u=7714720136544229230" method="post" target="_blank">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" required placeholder="your@email.com">
+
+            <!-- Anti-Spam Honeypot Field -->
+            <div class="hidden-field" aria-hidden="true">
+              <input tabindex="-1" name="b_7714720136544229230" type="text" value="">
+            </div>
+
+            <input type="submit" value="Request to Join">
+          </form>
+
+          <div class="signup-help">
+            Questions or trouble joining?<br>
+            Email <a href="mailto:golden_gate@crfg.org">golden_gate@crfg.org</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Global Footer -->
+      <footer class="site-footer">
+        <p>Questions or comments?<br>Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+        <p>Copyright &copy; 2026. All rights reserved.<br>California Rare Fruit Growers Inc. | <a href="https://crfg.org" target="_blank">CRFG.org</a></p>
+      </footer>
     </main>
-
-     <footer class="max-w-3xl mx-auto mt-20 text-xs text-neutral-600">
-  <p>Questions or comments? <br>
-  Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
-  <p>Copyright &copy; 2026. All rights reserved. <br>
-  California Rare Fruit Growers Inc. | <a href="https://crfg.org">CRFG.org</a></p>
-  </footer>
-    </div>
-
   </div>
+</div>
 
 <script>
 (function () {
