@@ -177,7 +177,7 @@
     .sidebar-logo img      { width: 5rem; height: auto; margin-bottom: 0.75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
     .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 1rem; font-weight: 900; line-height: 1.25; }
     .sidebar-logo .logo-sub  { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-top: 0.125rem; }
-    .sidebar-logo .logo-tag  { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.85); margin-top: 0.5rem; line-height: 1.4; }
+    .sidebar-logo .logo-tag  { font-size: 0.6875rem; font-weight: 700; color: rgba(255,255,255,0.6); margin-top: 0.5rem; line-height: 1.4; }
 
     .sidebar-mobile-bar {
       display: flex; align-items: center; justify-content: space-between;
@@ -316,6 +316,42 @@
       background: var(--color-sage); border: 2px solid var(--color-parchment);
       box-shadow: 0 0 0 2px var(--color-sage);
     }
+      /* =====================================================
+       PAYMENT LOGOS — green
+    ===================================================== */
+.pay-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  width: 100%;
+  max-width: 32ch;
+}
+.pay-logos img {
+  flex: 0 0 auto;
+  display: block;
+  height: 28px;
+}
+.pay-logos img[alt="Discover"] { height: 15px; }
+
+/* ── Pay card ── */
+.pay-card {
+  margin-top: 24px;
+  background: #f6e3d1;
+  border-radius: 7px;
+  padding: 12px 16px;
+  display: block;
+  font-size: .9rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 48ch;
+  clear: both;
+}
+.pay-card-section + .pay-card-section { margin-top: 8px; }
 
     /* =====================================================
        VARIETY TAGS — green
@@ -423,14 +459,6 @@
       box-shadow: inset 0 -2px 4px rgba(155,28,46,0.1), 0 2px 4px rgba(155,28,46,0.18);
     }
     .btn-3d-gloss.btn-crimson:hover { box-shadow: inset 0 -2px 4px rgba(155,28,46,0.15), 0 3px 6px rgba(155,28,46,0.24); }
-
-    .btn-3d-gloss.btn-purple {
-      background: linear-gradient(to bottom, rgba(155,28,46,0.11) 0%, rgba(155,28,46,0.21) 100%);
-      color: #9b1c2e; border: none;
-      border-top: 1px solid rgba(155,28,46,0.15); border-bottom: 1px solid rgba(155,28,46,0.38); border-left: 1px solid rgba(155,28,46,0.38);
-      box-shadow: inset 0 -2px 4px rgba(155,28,46,0.1), 0 2px 4px rgba(155,28,46,0.18);
-    }
-    .btn-3d-gloss.btn-purple:hover { box-shadow: inset 0 -2px 4px rgba(155,28,46,0.15), 0 3px 6px rgba(155,28,46,0.24); }
 
     /* =====================================================
        FOREST PILL BUTTONS
@@ -552,9 +580,9 @@
 
     .knowledge-h3 {
       font-family: var(--font-body);
-      font-size: 1.02rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em;
-      color: var(--color-steel); border-top: 1px solid rgba(0,0,0,0.13);
-      padding-top: 0.2rem; margin-bottom: 0.625rem; margin-top: 1rem;
+      font-size: 1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--color-steel); border-top: 1.5px solid rgba(42,82,112,0.35);
+      padding-top: 0.35rem; margin-bottom: 0.625rem; margin-top: 1rem;
     }
     div > .knowledge-h3:first-child { padding-top: 0.35rem; margin-top: 0; }
     .knowledge-h3 + .knowledge-h3,
@@ -562,7 +590,7 @@
     .knowledge-list { list-style: none; }
     .knowledge-list li + li { margin-top: 0.375rem; }
     .knowledge-list li { font-size: 0.875rem; color: rgba(26,26,24,0.65); }
-    .knowledge-list .note { display: block; font-size: 0.6875rem; color: rgba(26,26,24,0.4); margin-top: 0.125rem; }
+    .knowledge-list .note { display: block; font-size: 0.7875rem; color: rgba(26,26,24,0.6); margin-top: 0.125rem; }
 
     /* =====================================================
        ALLIES GRID
@@ -618,7 +646,7 @@
     /* =====================================================
        VARIETY HEADINGS
     ===================================================== */
-    .variety-heading { margin-bottom: 0.75rem; }
+    .variety-heading { margin-bottom: 0.65rem; }
     .variety-heading-prefix {
       font-size: 55%; font-weight: 900; letter-spacing: 0.02em;
       font-family: var(--font-body); display: inline-block; vertical-align: baseline;
@@ -647,6 +675,10 @@
       font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.6rem);
       color: var(--color-crimson); text-shadow: 2px 2px 6px rgba(0,0,0,0.1);
       letter-spacing: 0.005em; line-height: 1.1; opacity: 0.95; margin-bottom: 0.25rem;
+      word-break: keep-all; overflow-wrap: normal;
+    }
+    @media (max-width: 480px) {
+      .hero-tagline { font-size: clamp(1.45rem, 7.5vw, 1.8rem); }
     }
     .hero-tagline-amp { font-size: 74%; display: inline-block; }
 
@@ -687,7 +719,229 @@
     }
     @media (min-width: 640px) { .site-footer { flex-direction: row; justify-content: space-between; } }
 
-    @media print { .sidebar { display: none !important; } }
+    /* =====================================================
+       SCROLL PROGRESS BAR
+    ===================================================== */
+    #scroll-progress-track {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: rgba(255,255,255,0.08); z-index: 100;
+      display: none;
+    }
+    @media (min-width: 768px) {
+      #scroll-progress-track { display: block; }
+    }
+    #scroll-progress {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--color-sage) 0%, #8ecf9a 100%);
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* =====================================================
+       CULTIVAR COUNTER BADGE
+    ===================================================== */
+    #cultivar-counter {
+      display: inline-block;
+      font-variant-numeric: tabular-nums;
+      min-width: 2.2ch;
+    }
+
+    /* =====================================================
+       STICKY TICKET BAR (mobile only)
+    ===================================================== */
+    #ticket-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: var(--color-forest);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.25);
+      padding: 0.6rem 1rem 0.75rem;
+      transform: translateY(0);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                  opacity   0.3s ease;
+    }
+    @media (max-width: 767px) {
+      #ticket-bar { display: block; }
+      /* Push page content up so bar doesn't overlap footer */
+      body { padding-bottom: 5rem; }
+    }
+    #ticket-bar.ticket-bar-hidden {
+      transform: translateY(110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .ticket-bar-inner {
+      display: flex; flex-direction: column; gap: 0.5rem; align-items: stretch;
+      max-width: 480px; margin: 0 auto;
+    }
+    .ticket-bar-label {
+      font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.7);
+      text-transform: uppercase; letter-spacing: 0.1em; text-align: center;
+    }
+    .ticket-bar-btns {
+      display: flex; gap: 0.5rem;
+    }
+    .tbar-btn {
+      flex: 1; display: block; text-align: center; text-decoration: none;
+      font-size: 0.8rem; font-weight: 800; padding: 0.55rem 0.5rem;
+      border-radius: 8px; letter-spacing: 0.01em;
+      transition: filter 0.15s, transform 0.15s;
+    }
+    .tbar-btn:active { transform: scale(0.97); }
+    .tbar-btn-red {
+      background: linear-gradient(to bottom, rgba(180,50,50,0.18) 0%, rgba(155,28,46,0.28) 100%);
+      color: #ffb3b3;
+      border: 1px solid rgba(200,80,80,0.35);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .tbar-btn-red:hover { filter: brightness(1.12); }
+    .tbar-btn-green {
+      background: linear-gradient(to bottom, rgba(60,120,60,0.22) 0%, rgba(45,94,58,0.35) 100%);
+      color: #b8f0c0;
+      border: 1px solid rgba(80,150,80,0.35);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .tbar-btn-green:hover { filter: brightness(1.12); }
+
+    /* =====================================================
+       PRINT STYLES
+    ===================================================== */
+    @media print {
+      /* Hide all interactive / decorative chrome */
+      .sidebar, #ticket-bar, #scroll-progress-track,
+      .hero-photo-wrap, .fade-up,
+      .btn-3d-gloss, .btn-explore, .btn-forest-pill,
+      .shopping-banner, .handbook-banner,
+      .badge-corner, .badge-amber,
+      .knowledge-grid a[href]::after { display: none !important; }
+
+      /* Reset page layout to single column */
+      .page-wrapper { display: block; }
+      .main-wrapper { padding: 0; }
+      main { max-width: 100%; }
+
+      /* Force all fade-up elements visible */
+      .fade-up { opacity: 1 !important; transform: none !important; }
+
+      /* Typography */
+      body { font-size: 11pt; color: #000; background: #fff; }
+      h1   { font-size: 22pt; color: #000; text-shadow: none; }
+      h2, h3 { font-size: 14pt; color: #000; text-shadow: none; }
+      a    { color: #000; text-decoration: none; }
+
+      /* When / Where as compact two-col */
+      .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border: 1pt solid #ccc; padding: 0.5rem; }
+      .card { border: 1pt solid #ccc; page-break-inside: avoid; }
+
+      /* Checklist items render as clean bullets */
+      .check-item { display: flex; gap: 0.5rem; margin-bottom: 4pt; }
+      .check-item::before { content: '☐'; background: none; color: #000; font-size: 10pt; width: auto; height: auto; border-radius: 0; }
+      .cross-item { display: flex; gap: 0.5rem; margin-bottom: 4pt; }
+      .cross-item::before { content: '✕'; background: none; color: #000; font-size: 10pt; width: auto; height: auto; border-radius: 0; }
+
+      /* Two-col sections stack in print */
+      .two-col { display: block; }
+      .two-col > * + * { margin-top: 1rem; }
+
+      /* Tags print inline without pill styling */
+      .variety-tag, .purple-tag { border: none; background: none; padding: 0; font-size: 10pt; }
+      .variety-tag::after, .purple-tag::after { content: ', '; }
+
+      /* Knowledge grid full-width */
+      .knowledge-grid { display: block; }
+      .knowledge-grid > div { margin-bottom: 0.75rem; }
+      .knowledge-list a::after { content: ' (' attr(href) ')'; font-size: 8pt; color: #555; }
+
+      /* Page break hints */
+      #sec-knowledge { page-break-before: always; }
+      .about-box { page-break-inside: avoid; }
+
+      /* Print header */
+      main::before {
+        content: 'Golden Gate CRFG · 36th Annual Scion Exchange · Feb 22, 2026 · Diablo Valley College, Pleasant Hill CA';
+        display: block; font-size: 8pt; color: #555;
+        border-bottom: 1pt solid #ccc; padding-bottom: 4pt; margin-bottom: 12pt;
+      }
+    }
+
+    /* =====================================================
+       EXPLORE VARIETIES BUTTON
+    ===================================================== */
+    @keyframes shimmer-slide {
+      0%   { transform: translateX(-140%) skewX(-18deg); opacity: 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { transform: translateX(240%) skewX(-18deg); opacity: 0; }
+    }
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        inset 0 -2px 4px rgba(0,0,0,0.2),
+        0 6px 16px rgba(30,61,40,0.32),
+        0 2px 4px rgba(0,0,0,0.18); }
+      50% { box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.22),
+        inset 0 -2px 4px rgba(0,0,0,0.2),
+        0 8px 22px rgba(30,61,40,0.5),
+        0 3px 8px rgba(0,0,0,0.22); }
+    }
+    .btn-explore {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: linear-gradient(165deg, #527d5c 0%, #2e5938 45%, #1b3825 100%);
+      color: #fff; text-decoration: none;
+      padding: 0.95rem 1.4rem; border-radius: 14px;
+      font-size: 0.94rem; font-weight: 800; letter-spacing: 0.015em;
+      position: relative; overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.26);
+      border-left: 1px solid rgba(255,255,255,0.14);
+      border-bottom: 2px solid rgba(0,0,0,0.4);
+      border-right: 1px solid rgba(0,0,0,0.22);
+      animation: glow-pulse 3s ease-in-out infinite;
+      transition: transform 0.22s cubic-bezier(0.2,0,0,1),
+                  box-shadow 0.22s cubic-bezier(0.2,0,0,1),
+                  filter 0.22s ease;
+    }
+    /* top gloss sheen */
+    .btn-explore::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 48%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 100%);
+      border-radius: 14px 14px 60% 60%; pointer-events: none;
+    }
+    /* shimmer sweep */
+    .btn-explore::after {
+      content: '';
+      position: absolute; top: 0; width: 45%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+      transform: translateX(-140%) skewX(-18deg);
+      pointer-events: none;
+    }
+    .btn-explore:hover {
+      transform: translateY(-3px) scale(1.025);
+      filter: brightness(1.1);
+      animation: none;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.28),
+        inset 0 -2px 4px rgba(0,0,0,0.28),
+        0 16px 32px rgba(30,61,40,0.45),
+        0 6px 12px rgba(0,0,0,0.28);
+    }
+    .btn-explore:hover::after {
+      animation: shimmer-slide 0.6s ease forwards;
+    }
+    .btn-explore:active {
+      transform: translateY(1px) scale(0.98);
+      filter: brightness(0.96);
+      animation: none;
+      box-shadow:
+        inset 0 3px 8px rgba(0,0,0,0.35),
+        0 2px 4px rgba(30,61,40,0.2);
+    }
+    .btn-explore .arrow {
+      display: inline-block; font-style: normal;
+      transition: transform 0.22s cubic-bezier(0.2,0,0,1);
+    }
+    .btn-explore:hover .arrow { transform: translateX(4px); }
   </style>
 </head>
 <body>
@@ -696,11 +950,13 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress-track"><div id="scroll-progress"></div></div>
     <a href="index.html" class="sidebar-logo">
       <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
       <span class="logo-name">Golden Gate Chapter</span>
       <span class="logo-sub">CRFG.org</span>
-      <span class="logo-tag">Growing unusual edibles<br> in the SF Bay Area</span>
+      <span class="logo-tag">Growing unusual edibles in the SF Bay Area</span>
     </a>
 
     <div class="sidebar-mobile-bar">
@@ -756,7 +1012,7 @@
     <main>
 
       <!-- HERO -->
-      <section class="fade-up">
+      <section id="sec-hero" class="fade-up">
         <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.18);">36th Annual · 2026 CRFG</p>
         <h1 class="shadow-text" style="font-size:clamp(2.75rem,8vw,4.5rem); font-weight:900; line-height:1.05; color:var(--color-crimson); margin-bottom:1.25rem; text-shadow:1px 2px 3px rgba(0,0,0,0.12);">
           Golden Gate<br>Scion Exchange
@@ -770,7 +1026,7 @@
       </section>
 
       <!-- WHEN / WHERE -->
-      <section class="fade-up delay-1">
+      <section id="sec-when" class="fade-up delay-1">
         <div class="card">
           <div class="info-grid">
 
@@ -782,17 +1038,17 @@
               <div class="timeline-track" style="margin-top:0.25rem;">
                 <div class="timeline-item">
                   <p style="font-size:1rem; font-weight:700; color:var(--color-ink); margin-bottom:0.35rem;">11:00 am — Members Early Entry</p>
-                  <p style="font-size:0.875rem; color:inherit; padding-left:1.25rem; margin-bottom:0.5rem;">Join/Renew first:</p>
+                  <p style="font-size:0.875rem; font-weight:500; color:inherit; padding-left:2.2rem; margin-bottom:0.5rem; opacity: 0.60;">1. First, ensure your CRFG&nbsp;membership&nbsp;is&nbsp;active:</p>
                   <a href="https://shr.pn/CRFGJoinRenew" target="_blank" class="btn-3d-gloss btn-blue" style="margin-bottom:0.5rem;">Join / Renew CRFG.org</a>
                   <p  style="font-size:0.875rem; color:inherit; padding-left:1.25rem; margin-bottom:0.5rem;">
-                    <a href="https://shr.pn/2026MemberEarlyEntryTicket" style="color:inherit; text-decoration:none;">Then grab your ticket:</a>
+                    <a href="https://shr.pn/2026MemberEarlyEntryTicket" style="color:inherit; padding-left:1rem; text-decoration:none; opacity: 0.60;">2. Then secure your early&nbsp;access:</a>
                   </p>
                   <a href="https://shr.pn/2026MemberEarlyEntryTicket" target="_blank" class="btn-3d-gloss btn-red">Buy Early Entry Ticket</a>
                 </div>
                 <div class="timeline-item">
                   <p style="font-size:1rem; font-weight:700; color:var(--color-ink); margin-bottom:0.35rem;">12:00–3:00 pm — Open to Public</p>
-                  <p style="font-size:0.875rem; color:inherit; padding-left:1.25rem; margin-bottom:0.5rem;">
-                    <a href="https://shr.pn/2026GeneralAdmissionFastPass" style="color:inherit; text-decoration:none;">Skip the line. Buy your ticket now.</a>
+                  <p style="font-size:0.875rem; font-weight:500; color:inherit; padding-left:2rem; margin-bottom:0.5rem;">
+                    <a href="https://shr.pn/2026GeneralAdmissionFastPass" style="color:inherit;  padding-left:1.2rem; text-decoration:none; opacity: 0.60;">Skip the line and get your ticket ahead&nbsp;of&nbsp;time:</a>
                   </p>
                   <a href="https://shr.pn/2026GeneralAdmissionFastPass" target="_blank" class="btn-3d-gloss btn-green">Buy Fast Pass Ticket</a>
                 </div>
@@ -801,19 +1057,19 @@
             </div>
 
             <!-- Where -->
-            <div class="card-padded" style="padding-top:1.75rem;">
-              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.4rem; margin-top:0.4rem; text-shadow:0 1px 3px rgba(0,0,0,0.15);">Where</p>
+             <div class="card-padded">
+              <p style="font-size:0.875rem; font-weight:900; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-sage); margin-bottom:0.4rem; margin-top:1.5rem; text-shadow:0 1px 3px rgba(0,0,0,0.15);">Where</p>
               <p class="date-location-font shadow-text" style="color:var(--color-crimson); margin-bottom:0.2rem;">Diablo Valley College</p>
               <p style="font-size:1rem; font-weight:600; color:rgba(26,26,24,0.65); margin-bottom:0.2rem;">Horticulture Department</p>
-              <p style="font-size:0.95rem; color:rgba(26,26,24,0.55); margin-bottom:1.5rem;">321 Golf Club Rd, Pleasant Hill, CA 94523</p>
+              <p style="font-size:0.95rem; color:rgba(26,26,24,0.55); margin-bottom:1.5rem;">321 Golf Club Rd<br> Pleasant Hill, CA 94523</p>
               <div style="display:flex; flex-direction:column; align-items:flex-start; gap:0.5rem;">
-                <a href="https://www.google.com/maps/dir//37.9702325,-122.0684604/@37.9702944,-122.150941,12z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" class="btn-3d-gloss btn-forest-pill" style="padding:0.4rem 0.8rem; margin-bottom:0;">
+                <a href="https://www.google.com/maps/dir//37.9702325,-122.0684604/@37.9702944,-122.150941,12z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" class="btn-3d-gloss btn-forest-pill">
                   → Google Map: Free Parking Lot 9 🅿️
                 </a>
-                <a href="https://shr.pn/Custom-Map" class="btn-3d-gloss btn-forest-pill" style="padding:0.4rem 0.8rem; margin-bottom:0;">
+                <a href="https://shr.pn/Custom-Map" class="btn-3d-gloss btn-forest-pill">
                   → Custom Event Features Map 𖤓
                 </a>
-                <a href="dvc-directions.html" class="btn-3d-gloss btn-forest-pill" style="padding:0.4rem 0.8rem; margin-bottom:0;">
+                <a href="dvc-directions.html" class="btn-3d-gloss btn-forest-pill">
                   → Public Transportation 🚍
                 </a>
               </div>
@@ -822,8 +1078,8 @@
           </div>
           
                 <div style="margin-top:1.25rem; margin-left:50px; margin-right:50px; padding:0.75rem 0; border-top:1px solid rgba(0,0,0,0.12); border-bottom:1px solid rgba(0,0,0,0.12);">
-                <p style="font-size:1rem; font-weight:900; color:var(--color-forest); margin-bottom:0.25rem; margin-top:0.4rem;">$10 admission for everyone.</p>
-                <p style="font-size:0.8125rem; color:rgba(26,26,24,0.65); line-height:1.6;">Exact cash or e-ticket accepted at the gate.<br>Children under 18 in your household enter free.</p>
+                <p style="font-size:1rem; font-weight:900; color:var(--color-forest); margin-bottom:0.25rem; margin-top:0.4rem;">$10 admission <span style="color:inherit; opacity: 0.65;;">(adults)</span>.</p>
+                <p style="font-size:0.8125rem; color:rgba(26,26,24,0.75); line-height:1.6;">Children under 18 in your household are free with a paying adult.<br>Exact cash or e-ticket accepted at the gate.</p>
               </div>
 
           <!-- Poster download -->
@@ -849,7 +1105,7 @@
       </div>
 
       <!-- VARIETIES SECTION -->
-      <section class="fade-up">
+      <section id="sec-varieties" class="fade-up">
         <div class="card card-padded" style="padding:1.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem;">
 
           <p class="hero-tagline">
@@ -861,7 +1117,7 @@
           <div>
             <div class="variety-heading">
               <h2 style="font-size:1.5rem; font-weight:700; color:#222; font-family:var(--font-body); margin-bottom:0.5rem;">
-                <span class="variety-heading-prefix">WITH</span>
+                <span class="variety-heading-prefix">WITH</span><br>
                 <span class="variety-heading-main variety-heading-green shadow-text"> Cuttings-to-Root</span>
               </h2>
             </div>
@@ -882,7 +1138,7 @@
           <div>
             <div class="variety-heading">
               <h2 style="font-size:1.5rem; font-weight:700; color:#222; font-family:var(--font-body); margin-bottom:0.5rem;">
-                <span class="variety-heading-prefix">AND</span>
+                <span class="variety-heading-prefix">AND</span><br>
                 <span class="variety-heading-main variety-heading-purple shadow-text"> Scions-to-Graft</span>
               </h2>
             </div>
@@ -909,31 +1165,28 @@
             <div style="margin-top:1.6rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.08);">
               <div style="background:linear-gradient(135deg,#f8fbf7 0%,#eef5ef 100%); border:1.1px solid rgba(39,77,49,0.30); border-radius:22px; padding:1.35rem 1.35rem 1.4rem; box-shadow:0 8px 12px rgba(0,0,0,0.06); position:relative; overflow:hidden; border-bottom: 3px solid rgba(39,77,49,0.25);">
                 <div style="position:absolute; top:-50px; right:-50px; width:140px; height:140px; border:1px solid rgba(155,28,46,0.2); border-radius:999px; background:rgba(39,77,49,0.05); box-shadow:0 4px 12px rgba(0,0,0,0.1); filter:blur(22px); pointer-events:none;"></div>
-                <p style="margin:0 0 0.45rem; font-size:0.68rem; font-weight:900; text-transform:uppercase; letter-spacing:.16em; color:#A32135;">Confirmed for 2026</p>
-                <h3 style="margin:0 0 0.75rem; font-family:var(--font-display); font-size:1.55rem; line-height:1.05; font-weight:900; color:#A32135; text-shadow:1px 2px 3px rgba(0,0,0,0.1);">Rare Fruit Starts&nbsp;With&nbsp;a&nbsp;Plan</h3>
+                <p style="margin:0 0 0.8rem; font-size:0.68rem; font-weight:900; text-transform:uppercase; letter-spacing:.16em; color:#A32135; padding-bottom:0.5rem; border-bottom:1.5px solid rgba(163,33,53,0.35);">Confirmed for 2026</p>
+                <h3 id="cultivar-heading" style="margin:0 0 0.75rem; font-family:var(--font-display); font-size:1.55rem; line-height:1.05; font-weight:900; color:#A32135; text-shadow:1px 2px 3px rgba(0,0,0,0.1);">Rare Fruit Starts With&nbsp;a&nbsp;Plan</h3>
                 <p style="margin:0 0 1rem; font-size:0.97rem; line-height:1.62; color:#3e4a41;">
                   Explore <strong>700+ confirmed cultivars for 2026</strong> and research which varieties are best suited to your <strong>microclimate, chill hours, and growing goals</strong> before our exchange.
                 </p>
                 <a href="https://docs.google.com/spreadsheets/u/3/d/1qRNN6UdlNOYpRKR61PAMVi_MJH8ZVyIBwXl_bzHw4Yc"
                   target="_blank" rel="noopener noreferrer"
-                  style="display:inline-flex; align-items:center; gap:.55rem; background:linear-gradient(180deg,#3f6a48 0%,#274D31 100%); color:#fff; text-decoration:none; padding:.9rem 1.15rem; border-radius:16px; font-size:0.94rem; font-weight:800; box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 8px 18px rgba(39,77,49,.18); transition:transform .18s ease, box-shadow .18s ease;"
-                  onmouseover="this.style.transform='translateY(-1px)'"
-                  onmouseout="this.style.transform='translateY(0)'">
-                  🌿 Explore This&nbsp;Year's&nbsp;Varieties <span aria-hidden="true">→</span>
+                  class="btn-explore">
+                  🌿 Explore This&nbsp;Year's&nbsp;Varieties <span class="arrow" aria-hidden="true">→</span>
                 </a>
-                <p style="margin:.9rem 0 0; font-size:1rem; color:#68756b; font-style:inherent; line-height:1.5;">The best wishlists are made before the doors open.</p>
+                <p style="margin:.9rem 0 0; font-size:1rem; color:#68756b; line-height:1.5;">The best wishlists are made before the doors open.</p>
               </div>
 
               <div style="margin-top:1rem; border-radius:16px; overflow:hidden; border:1px solid rgba(163,33,53,0.22); box-shadow:0 4px 12px rgba(163,33,53,0.08);">
-                <div style="background:linear-gradient(135deg,#A32135 0%,#7e1525 100%); padding:0.7rem 1.1rem; display:flex; align-items:center; gap:0.6rem;">
+                <div style="background:#A32135; padding:0.7rem 1.1rem; display:flex; align-items:center; gap:0.6rem;">
                   <span style="font-size:1.2rem; line-height:1;">⚠️</span>
-                  <p style="margin:0; font-size:0.78rem; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:0.12em;">Select only what you can reasonably graft.</p>
+                  <p style="margin:0; font-size:0.78rem; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:0.12em;">Select only what you&nbsp;can&nbsp;reasonably&nbsp;graft.</p>
                 </div>
                 <div style="background:linear-gradient(135deg,#fff8f8 0%,#fdf2f3 100%); padding:0.9rem 1.1rem; display:flex; flex-direction:column; gap:0.5rem;">
-                  <p style="margin:0; font-size:0.95rem; font-weight:700; color:#7e1525; line-height:1.4;">Select only what you can reasonably graft.</p>
                   <div style="display:flex; align-items:baseline; gap:0.5rem;">
                     <span style="font-size:1.4rem; font-weight:900; color:#A32135; line-height:1; flex-shrink:0;">2</span>
-                    <p style="margin:0; font-size:0.875rem; line-height:1.5; color:#5b4a4a;"><strong>scions per variety, per person</strong> — so more growers can discover and enjoy rare cultivars.</p>
+                    <p style="margin:0; font-size:0.95rem; font-weight:700; color:#7e1525; line-height:1.4;"><strong>scions per variety, per person</strong> — <br>so more growers can discover and enjoy rare cultivars.</p>
                   </div>
                 </div>
               </div>
@@ -944,11 +1197,11 @@
       </section>
 
       <!-- INCLUDED EVENTS + SUPPLIES -->
-      <section class="two-col fade-up">
+      <section id="sec-events" class="two-col fade-up">
 
         <div class="card card-padded" style="display:flex; flex-direction:column; position:relative; overflow:hidden;">
           <span class="badge-corner badge-blue">Free</span>
-          <h3 class="heading-shadow shadow-text" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:.35rem;">Included Events</h3>
+          <h3 class="heading-shadow shadow-text" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:.55rem;">Included Events</h3>
           <div style="display:flex; flex-direction:column; gap:1rem; flex:1;">
             <div class="event-item">
               <p class="event-item-title">11:10 am — Newbie Class</p>
@@ -956,7 +1209,7 @@
             </div>
             <div class="event-item">
               <p class="event-item-title">12:30–1:45 pm — Grafting Class</p>
-              <p class="event-item-desc">Hosted by Golden Gate member Graham Stott.</p>
+              <p class="event-item-desc">Hosted by CRFG member Graham Stott.</p>
             </div>
             <div class="event-item">
               <p class="event-item-title">Live Demonstration Grafting & Sharpening</p>
@@ -975,7 +1228,7 @@
 
         <div class="card card-padded" style="display:flex; flex-direction:column; position:relative; overflow:hidden;">
           <span class="badge-corner badge-green">For Sale</span>
-          <h3 class="heading-shadow shadow-text" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:.35rem;">Supplies &amp; Goods</h3>
+          <h3 class="heading-shadow shadow-text" style="font-size:1.5rem; font-weight:900; color:var(--color-ruby); margin-bottom:1rem; margin-top:.55rem;">Supplies &amp; Goods</h3>
           <div style="flex:1;">
            <p class="supply-item">→ <strong style="color:var(--color-ink);">Fruit Tree Rootstocks for Grafting</strong></p>
             <p class="event-item-desc">Specialized rootstocks for apples, pears, cherries, peaches, plums, pluots, apriums, almonds, and more to grow stronger, better-adapted fruit trees.</p>
@@ -986,18 +1239,15 @@
                 <p class="supply-item">→ <strong style="color:var(--color-ink);">Grafting Accessories</strong></p>
             <p class="event-item-desc">Professional supplies including specialized grafting tape, metal plant labels, precision grafting knives, and protective gloves. Curated and recommended by our members.</p>
             <p class="supply-item">→ <a href="https://shr.pn/DVChorticulture" class="link-leaf" style="font-weight:700;">DVC Horticulture Plant Sale</a></p>
-            <p class="event-item-desc">Beyond fruit trees—explore a massive selection of vegetables, herbs, natives, pollinator plants, succulents, and landscape favorites..</p>
+            <p class="event-item-desc">Beyond fruit trees — explore a massive selection of vegetables, herbs, natives, pollinator plants, succulents, and landscape favorites.</p>
             <p class="supply-item">→ <strong style="color:var(--color-ink);">Custom Grafting Service</strong></p>
             <p class="event-item-desc">On-site experts available to perform grafts for you on your purchased rootstock.</p>
             <p class="supply-item">→ <strong style="color:var(--color-ink);">Tool Sharpening Station</strong></p>
             <p class="event-item-desc">Bring your pruners, loppers, and knives for a professional edge restoration.</p>
-                 <p class="supply-item">→ <strong style="color:var(--color-ink);">Custom Grafting Service</strong></p>
-            <p class="event-item-desc">Have compatible scions grafted onto rootstock by experienced grafters..</p>
             <p class="supply-item">→ <strong style="color:var(--color-ink);">Tree-ripened Citrus</strong></p>
-            <p class="event-item-desc">Grown by CRFG member Ray Sheehy including pomelos, oranges, and grapefruit grown in the Sacramento Valley .</p>
-                        <p class="supply-item">→ <strong style="color:var(--color-ink);">Vintage CRFG Magazines</strong></p>
+            <p class="event-item-desc">Grown by CRFG member Ray Sheehy including pomelos, oranges, and grapefruit grown in the Sacramento Valley.</p>
+            <p class="supply-item">→ <strong style="color:var(--color-ink);">Vintage CRFG Magazines</strong></p>
             <p class="event-item-desc">Back issues of the <em>Fruit Gardener</em> magazine filled with fruit-growing knowledge and tips.</p>
-            
           </div>
         </div>
 
@@ -1006,8 +1256,8 @@
       <!-- SHOPPING LIST CTA -->
       <section class="shopping-banner fade-up">
         <div>
-          <h3>Come prepared.<br>Know what to buy.</h3>
-          <p>Everything you'll want to pick up on the day — rootstocks, grafting tape, labels, knives, and more — in one handy reference.</p>
+          <h3>Come prepared.<br>Know&nbsp;what&nbsp;to&nbsp;buy.</h3>
+<p>Everything you’ll want to pick up on the day — rootstocks, grafting gear, organic orchard care, nursery plants, citrus, and expert services like custom grafting and tool sharpening — all in one handy guide.</p>
         </div>
         <a href="https://drive.google.com/file/d/1jvrkS3LZlUK8789KThlyThgwI2XZKkOt/view?pli=1" target="_blank" class="btn-3d-gloss btn-purple" style="flex-shrink:0; width:auto; display:inline-block;">
           2026 Official Shopping List →
@@ -1016,8 +1266,7 @@
       <section class="handbook-banner fade-up" style="align-items:flex-end;">
         <div>
           <h3>Going to a Scion&nbsp;Exchange?<br> Read this first.</h3>
-          <p>
-            Avoid common mistakes — expert guidance on collecting, storing, selecting, and sharing scionwood.<br>
+          <p>Avoid common mistakes. A complete guide to turning scions into thriving fruit trees, with expert advice on selecting varieties, finding compatible rootstock, grafting successfully, planting well, and growing healthy trees.<br>
             <strong>The orchard of your dreams starts here.</strong>
           </p>
         </div>
@@ -1027,23 +1276,36 @@
       </section>
 
       <!-- WHAT TO BRING / NOT TO BRING -->
-      <section class="two-col fade-up">
+      <section id="sec-bring" class="two-col fade-up">
 
         <div class="card card-padded">
-          <h2 class="heading-shadow shadow-text" style="font-size:1.875rem; font-weight:900; color:#2a5270; margin-bottom:1rem;">🎒 What to&nbsp;Bring</h2>
+          <h2 class="heading-shadow shadow-text" style="font-size:1.875rem; font-weight:900; color:#2a5270; margin-bottom:1rem;"><span style="display:block; font-size:1.5rem; line-height:1.4;">🎒</span>What to Bring</h2>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.625rem; font-size:0.875rem; color:rgba(26,26,24,0.7);">
             <li class="check-item"><span>Scion wish list (mind your local chill hours)</span></li>
             <li class="check-item"><span><strong style="color:var(--color-ink);">Gallon zip-top bags</strong> marked with your name</span></li>
             <li class="check-item"><span><strong style="color:var(--color-ink);">Painters tape + permanent marker</strong></span></li>
-            <li class="check-xitem"><span><strong style="color:var(--color-ink);">Notebook, pen, and handled tote</strong></span></li>
+            <li class="check-item"><span><strong style="color:var(--color-ink);">Notebook, pen, and handled tote</strong></span></li>
             <li class="check-item"><span><strong style="color:var(--color-ink);">Scions/plants to share</strong> — properly labeled, drop off at Intake Station</span></li>
             <li class="check-item"><span>Grafting tools to sharpen (small fee)</span></li>
             <li class="check-item"><span>Cash, Credit, Debit, Apple Pay, or Google Pay</span></li>
           </ul>
+                      <div class="pay-logos" aria-label="Accepted payment methods">
+    <img src="https://www.image2url.com/r2/default/images/1778370145085-f24780b1-62fc-4f6e-bc22-37aa52d7372b.svg"
+         alt="Visa and Mastercard" width="60" height="20" loading="lazy"> <img src="https://www.image2url.com/r2/default/images/1778369253805-7c529f08-cf1a-4804-905c-0483ebc5dc3a.svg"
+         alt="American Express" width="36" height="20" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369333135-6a59c66d-4455-443a-8576-3dfbca91676e.svg"
+         alt="Discover" width="52" height="13" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369398953-b33b9332-7bd5-4c04-8b0f-f0d8e6cd51b8.svg"
+         alt="Apple Pay" width="46" height="20" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369442494-c98af60f-014b-4bc2-a53e-53cbea742339.svg"
+         alt="Google Pay" width="50" height="20" loading="lazy">
+    <img src="https://www.image2url.com/r2/default/images/1778369560180-e0163bf4-be8d-4e63-8ce7-ca818b234be1.svg"
+         alt="Credit Card" width="30" height="20" loading="lazy">
+  </div>
         </div>
 
         <div style="background:#fff5f5; border:1px solid #fecaca; border-radius:1rem; padding:1.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-          <h2 class="heading-shadow shadow-text" style="font-size:1.875rem; font-weight:900; color:#2a5270; margin-bottom:1rem;">🚫 What Not to&nbsp;Bring</h2>
+          <h2 class="heading-shadow shadow-text" style="font-size:1.875rem; font-weight:900; color:#2a5270; margin-bottom:1rem;"><span style="display:block; font-size:1.5rem; line-height:1.4;">🚫</span>What Not to Bring</h2>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.625rem; font-size:0.875rem; color:#991b1b;">
             <li class="cross-item"><span><strong style="color:#450a0a;">NO citrus or relatives</strong> — <a href="https://californiacitrusthreat.org/" style="text-decoration:underline; font-weight:600;">find out why</a></span></li>
             <li class="cross-item"><span>NO potted fig plants (dormant cuttings are fine)</span></li>
@@ -1058,7 +1320,7 @@
       </section>
 
       <!-- VENDORS -->
-      <section class="fade-up">
+      <section id="sec-vendors" class="fade-up">
         <div class="card card-padded" style="position:relative; overflow:hidden;">
           <span class="badge-corner badge-purple" style="left:0; right:auto; border-radius:0 0 0.5rem 0;">Visit Our Vendors</span>
           <ul class="allies-grid" style="list-style:none; padding-top:2.2rem; margin-top:0;">
@@ -1074,12 +1336,12 @@
       </section>
 
       <!-- ESSENTIAL KNOWLEDGE -->
-      <section class="fade-up" style="margin-top:2rem;">
+      <section id="sec-knowledge" class="fade-up" style="margin-top:2rem;">
         <h2 class="section-title shadow-text" style="color:var(--color-crimson); text-shadow:0 2px 6px rgba(0,0,0,0.13);">📚 Essential Knowledge</h2>
         <div class="knowledge-grid" style="padding-left:1.75rem;">
 
           <div>
-            <h3 class="knowledge-h3">Scion Harvesting Guides</h3>
+            <h3 class="knowledge-h3">Harvesting Guides</h3>
             <ul class="knowledge-list">
               <li><a href="https://www.youtube.com/watch?v=ThpvzdPOAy4" class="link-leaf">▶ How to Harvest Scions • video</a></li>
               <li><a href="https://golden-gate.crfg.org/Healthy_Scion_Wood.pdf" class="link-leaf">Collecting Healthy Scions • pdf</a></li>
@@ -1102,10 +1364,9 @@
             </ul>
             <h3 class="knowledge-h3" style="margin-top:0.75rem;">Root or Graft?</h3>
             <ul class="knowledge-list">
-             <li><a href="https://shr.pn/toRootOrGraft" target="_blank" class="link-leaf">Root or Graft by Species Reference • pdf</a></li>
-             <li><a href="https://shr.pn/MulberriesRootGraft" target="_blank" class="link-leaf">Mulberry Varieties Rooting Ability • pdf</a></li>
-              <li><a href="https://drive.google.com/file/d/12yNio2lLxNXOgmS81FDGZydU982bxQZ3/view?usp=drive_link" target="_blank" class="link-leaf">Olive Varieties Rooting Ability • pdf</a></li>
-            
+              <li><a href="https://shr.pn/MulberriesRootGraft" target="_blank" class="link-leaf">Mulberry Varieties • pdf</a></li>
+              <li><a href="https://drive.google.com/file/d/12yNio2lLxNXOgmS81FDGZydU982bxQZ3/view?usp=drive_link" target="_blank" class="link-leaf">Olive Rooting Ability • pdf</a></li>
+              <li><a href="https://shr.pn/toRootOrGraft" target="_blank" class="link-leaf">Root or Graft Reference • pdf</a></li>
             </ul>
           </div>
 
@@ -1131,9 +1392,12 @@
       <!-- ABOUT OUR EXCHANGE -->
       <section class="fade-up">
         <div class="about-box">
-          <h2>🌳 About Our Exchange</h2>
-          <p>As the largest amateur fruit-growing organization in the world, our annual Scion Exchanges are the most prominent event by which California Rare Fruit Growers serves its mission. Find the best varieties for growing your own fruit.</p>
-          <p>We have a limited number of scions — availability depends on donations. In the spirit of the exchange, we invite you to harvest scions from your own trees to share. Even one or two trees is enough. Rare varieties are especially interesting, but beginning growers would love to try a 'Santa Rosa' plum or 'Fuji' apple.</p>
+          <h2 style="text-shadow: 1px 2px 3px rgba(0,0,0,0.17);"> 🌳 About Our&nbsp;Exchange</h2>
+          <p>As part of the largest amateur fruit-growing organization in the world, California Rare Fruit Growers’ annual Scion Exchanges are one of the clearest expressions of one of our missions: preserving and sharing exceptional fruit varieties.</p>
+  <p>At the exchange, you’ll join other growers in trading dormant scionwood—cuttings used to graft new fruit trees. <strong>Together, you help create a living network of shared genetics</strong> across generations of orchards.</p>
+  <p>Scion availability depends entirely on community donations. <strong>We encourage you to bring wood from your own trees to share</strong>, whether that’s just a few branches or a diverse backyard collection. Rare varieties are always welcome, but so are familiar favorites like ‘Santa Rosa’ plum or ‘Fuji’ apple—especially if you’re just getting started with grafting.</p>
+  <p><strong>Every exchange becomes a collaborative living archive</strong>, shaped by everyone who takes part.</p>
+
         </div>
       </section>
 
@@ -1141,7 +1405,7 @@
       <section class="fade-up" style="padding-top:2.5rem; border-top:1px solid rgba(0,0,0,0.1); margin-top:3rem;">
         <div class="card" style="background:var(--color-mist); border:1px solid rgba(30,61,40,0.2); padding:2rem;">
           <div style="margin-bottom:2rem;">
-            <h2 class="donor-section-title">Thank You for Sharing You&nbsp;Genetics</h2>
+            <h2 class="donor-section-title">Thank You for Sharing Your&nbsp;Genetics</h2>
             <p class="donor-section-sub">
               Our profound gratitude goes to the dedicated repositories, historical landmarks, and local curators who generously share scionwood to preserve vital agricultural biodiversity.
             </p>
@@ -1151,103 +1415,103 @@
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Andy's Orchard</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Commercial Stone Fruit Orchard</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">MORGAN HILL, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">MORGAN HILL, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">C. Todd Kennedy Orchard</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Rare Variety Curator</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">MORGAN HILL, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">MORGAN HILL, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Filoli Estate</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">National Trust for Historic Preservation</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WOODSIDE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WOODSIDE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">The Heritage Fruit Orchard</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Emma Prusch Farm Park</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SAN JOSE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SAN JOSE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Eden Garden at Crosswinds Church</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Community Orchard</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">LIVERMORE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">LIVERMORE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Fertile Groundworks</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Community Garden &amp; Orchard</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">LIVERMORE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">LIVERMORE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Golden Nectar Farm</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Biodiverse Cultivars</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WINDSOR, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WINDSOR, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Luther Burbank Home and Garden</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Historical Botanical Site</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SANTA ROSA, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SANTA ROSA, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Wolfskill Experimental Farm</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">USDA Clonal Germplasm Repository</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WINTERS, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WINTERS, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Bella Ridge Farm</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Orchard &amp; Nursery</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">OCCIDENTAL, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">OCCIDENTAL, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Planting Justice Nursery</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Largest Organic Fruit Tree Nursery</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">EL SOBRANTE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">EL SOBRANTE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Loomis Park</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Community Orchard</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SACRAMENTO, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SACRAMENTO, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Shone Farm</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Educational Orchard</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">FORESTVILLE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">FORESTVILLE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Birdsong Orchards</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Small-Scale Grower</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WATSONVILLE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">WATSONVILLE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">The Fig Hunter</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Fig Seeker</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">RED BLUFF, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">RED BLUFF, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">The Orchard at Martial Cottle Park</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Public Heritage Orchard</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SAN JOSE, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SAN JOSE, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Epicenter Nursery</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">Specialty Cultivars</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">LA SELVA, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">LA SELVA, CA</span>
             </li>
             <li style="background:rgba(255,255,255,0.5); padding:1rem; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column;">
               <span style="font-weight:900; color:var(--color-ink);">Alan Chadwick Garden at UCSC</span>
               <span style="font-size:0.85rem; color:var(--color-sage);">UCSC Historic Garden</span>
-              <span style="font-size:77%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SANTA CRUZ, CA</span>
+              <span style="font-size:85%; font-weight:700; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-top:0.25rem;">SANTA CRUZ, CA</span>
             </li>
           </ul>
 
           <div class="donor-last" style="margin-top:1.5rem; padding:1rem; border-top:2px solid rgba(0,0,0,0.05); color:var(--color-forest);">
             <span class="donor-bullet">◆</span>
-            <span>And <strong>MANY dozens</strong> of personal CRFG member orchards from around the region—<em>like you!</em></span>
+            <span>And <strong>from hundreds of CRFG members and scion exchange attendees</strong> across the region—<em>like you!</em></span>
           </div>
         </div>
 
         <p style="font-size:0.875rem; font-weight:600; margin-top:1.5rem; text-align:center;">
-          <a href="https://crfg.org/2026-scion-exchanges" target="_blank" class="btn-3d-gloss btn-white" style="display:inline-block; width:auto; padding:0.75rem 1.5rem;">
+          <a href="https://crfg.org/2026-scion-exchanges" target="_blank" class="btn-3d-gloss btn-blue" style="display:inline-block; width:auto; padding:0.75rem 1.5rem;">
             → Visit other 2026 CRFG Scion Exchanges
           </a>
         </p>
@@ -1265,16 +1529,54 @@
 
 </div><!-- /.page-wrapper -->
 
+<!-- STICKY MOBILE TICKET BAR -->
+<div id="ticket-bar" aria-label="Get tickets" role="complementary">
+  <div class="ticket-bar-inner">
+    <span class="ticket-bar-label">🍋 Feb&nbsp;22 &mdash; Get&nbsp;your&nbsp;ticket</span>
+    <div class="ticket-bar-btns">
+      <a href="https://shr.pn/2026MemberEarlyEntryTicket" target="_blank" class="tbar-btn tbar-btn-red">CRFG Member Fast Pass</a>
+      <a href="https://shr.pn/2026GeneralAdmissionFastPass" target="_blank" class="tbar-btn tbar-btn-green">Public Fast Pass> Skip-the-Line</a>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Active nav link
+  /* ── 1. SCROLL-SPY: update active nav link as user scrolls ── */
   (function () {
-    var p = window.location.pathname.split('/').pop() || '';
-    document.querySelectorAll('#navMenu a').forEach(function (a) {
-      if (a.getAttribute('href') === p) a.classList.add('active');
-    });
+    // Section → nav link mapping (href value → section id)
+    var sectionMap = [
+      { sectionId: 'sec-when',      href: 'gg-scionexchange.html' },
+      { sectionId: 'sec-varieties', href: 'gg-scionexchange.html' },
+      { sectionId: 'sec-events',    href: 'gg-scionexchange.html' },
+      { sectionId: 'sec-bring',     href: 'gg-scionexchange.html' },
+      { sectionId: 'sec-knowledge', href: 'gg-scionexchange.html' },
+    ];
+    // On this page all links point here; real spy tracks which section is in view
+    var sections = ['sec-hero','sec-when','sec-varieties','sec-events','sec-bring','sec-vendors','sec-knowledge'];
+    var navLinks  = document.querySelectorAll('#navMenu a');
+    var activeLink = document.querySelector('#navMenu a[href="gg-scionexchange.html"]');
+
+    if ('IntersectionObserver' in window && activeLink) {
+      var visible = {};
+      var secObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+        // Pick topmost visible section
+        for (var i = 0; i < sections.length; i++) {
+          if (visible[sections[i]]) {
+            navLinks.forEach(function (l) { l.classList.remove('active'); });
+            activeLink.classList.add('active');
+            break;
+          }
+        }
+      }, { threshold: 0.15 });
+      sections.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) secObserver.observe(el);
+      });
+    }
   }());
 
-  // Mobile nav toggle + auto-close on link click
+  /* ── 2. MOBILE NAV TOGGLE ── */
   var toggle  = document.getElementById('menuToggle');
   var navMenu = document.getElementById('navMenu');
 
@@ -1282,7 +1584,6 @@
     var open = navMenu.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(open));
   });
-
   navMenu.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
       navMenu.classList.remove('is-open');
@@ -1290,21 +1591,88 @@
     });
   });
 
-  // Scroll-triggered fade-up
+  /* ── 3. SCROLL FADE-UP ── */
   var fadeEls = document.querySelectorAll('.fade-up');
   if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
+    var fadeObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          fadeObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.08 });
-    fadeEls.forEach(function (el) { observer.observe(el); });
+    fadeEls.forEach(function (el) { fadeObserver.observe(el); });
   } else {
     fadeEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
+
+  /* ── 4. STICKY TICKET BAR: hide once When/Where card is visible ── */
+  (function () {
+    var bar     = document.getElementById('ticket-bar');
+    var whenSec = document.getElementById('sec-when');
+    if (!bar || !whenSec || !('IntersectionObserver' in window)) return;
+
+    // Start hidden on desktop (CSS handles this), show on mobile
+    var barObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          bar.classList.add('ticket-bar-hidden');
+        } else {
+          bar.classList.remove('ticket-bar-hidden');
+        }
+      });
+    }, { threshold: 0.3 });
+    barObserver.observe(whenSec);
+  }());
+
+  /* ── 5. CULTIVAR COUNTER: count up 0 → 700 when card enters view ── */
+  (function () {
+    var counter = document.getElementById('cultivar-counter');
+    if (!counter || !('IntersectionObserver' in window)) return;
+    var target  = parseInt(counter.getAttribute('data-target'), 10);
+    var started = false;
+
+    var cntObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !started) {
+          started = true;
+          var start     = 0;
+          var duration  = 1400; // ms
+          var startTime = null;
+          // Ease-out cubic
+          function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+          function step(ts) {
+            if (!startTime) startTime = ts;
+            var progress = Math.min((ts - startTime) / duration, 1);
+            counter.textContent = Math.floor(easeOut(progress) * target);
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              counter.textContent = target;
+            }
+          }
+          requestAnimationFrame(step);
+          cntObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    cntObserver.observe(counter);
+  }());
+
+  /* ── 6. SCROLL PROGRESS BAR ── */
+  (function () {
+    var bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    function updateProgress() {
+      var scrollTop  = window.scrollY || document.documentElement.scrollTop;
+      var docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+      var pct        = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }());
 </script>
 </body>
 </html>
