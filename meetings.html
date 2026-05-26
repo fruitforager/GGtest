@@ -5,454 +5,565 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Meetings Golden Gate Chapter CRFG</title>
 <style>
-:root{
---bg:#FAF0E6;
---text:#222;
---green:#274D31;
---green-dark:#21452c;
---blue:#2f5d8f;
---blue-dark:#21425c;
---burgundy: #6b4c6e;
---color-leaf: #2d5e3a;
---border:#d8ccb6;
---sidebar:220px;
---content-width:1200px;
-}
-*{box-sizing:border-box;}
-body{
-margin:0;
-background:var(--bg);
-color:var(--text);
-font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-line-height:1.5;
-font-size:18px;
--webkit-font-smoothing:antialiased;
-text-rendering:optimizeLegibility;
-}
-strong,b{font-weight:800;}
-
-.layout{
-display:flex;
-min-height:100vh;
-max-width:var(--content-width);
-margin:auto;
-}
-    .eyebrow, .card-eyebrow {
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      color: var(--blue);
-      margin-bottom: 12px;
-      opacity: 0.9;
-    }
-
-aside{
-width:var(--sidebar);
-flex-shrink:0;
-background:var(--green);
-display:flex;
-flex-direction:column;
-position:sticky;
-top:0;
-height:100vh;
-overflow-y:auto;
-scrollbar-width:thin;
-scrollbar-color:rgba(255,255,255,0.2) transparent;
-}
-.nav-brand{
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
-padding:20px 16px 16px;
-text-decoration:none;
-border-bottom:1px solid rgba(255,255,255,0.15);
-margin-bottom:4px;
-}
-.logo{
-width:134px;
-height:auto;
-display:block;
-margin:0 auto 14px;
-filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
-}
-.site-title{
-font-size:1.05rem;
-font-weight:800;
-color:white;
-line-height:1.3;
-display:block;
-}
-.site-crfg{
-font-size:0.9rem;
-font-weight:700;
-color:rgba(255,255,255,0.75);
-line-height:1.3;
-display:block;
-text-align:center;
-margin-top:2px;
-}
-.site-sub{
-font-size:0.78rem;
-font-weight:700;
-color:rgba(255,255,255,0.85);
-line-height:1.3;
-margin-top:4px;
-display:block;
-text-align:center;
+:root {
+  --bg: #FAF0E6;
+  --text: #222;
+  --green: #274D31;
+  --green-dark: #21452c;
+  --blue: #2f5d8f;
+  --blue-dark: #21425c;
+  --burgundy: #6b4c6e;
+  --color-leaf: #2d5e3a;
+  --color-crimson: #9b1c2e;
+  --border: #d8ccb6;
+  --sidebar: 220px;
+  --content-width: 1200px;
 }
 
-nav{
-display:flex;
-flex-direction:column;
-padding:4px 0 120px;
-}
-.nav-group{margin-top:6px;}
-.nav-group-label{
-font-size:0.76rem;
-font-weight:800;
-text-transform:uppercase;
-letter-spacing:0.12em;
-color:rgba(255,255,255,0.85);
-padding:16px 16px 5px;
-display:block;
-margin-top:4px;
-text-align:left;
-}
-.nav-group:first-child .nav-group-label{
-margin-top:0;
-padding-top:10px;
-}
-nav a{
-font-size:0.82rem;
-font-weight:700;
-color:var(--bg);
-text-decoration:none;
-padding:5px 16px 5px 16px;
-border-left:3px solid transparent;
-display:block;
-line-height:1.3;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-transition:background 0.12s,color 0.12s,border-color 0.12s,transform 0.12s;
-text-align:left;
-margin-left:18px;
-}
-nav a:hover{
-background:rgba(255,255,255,0.1);
-color:white;
-}
-nav a.active{
-background:rgba(255,255,255,0.14);
-color:white;
-border-left-color:rgba(255,255,255,0.75);
+* {
+  box-sizing: border-box;
 }
 
-.hamburger{display:none;}
-.mobile-header{display:none;}
-
-.page{
-flex:1;
-padding:40px 44px 40px 52px;
-min-width:0;
-}
-.hero{margin-top:10px;}
-.hero h1{
-font-size:clamp(2rem,3.5vw,3.2rem);
-line-height:1.18;
-margin:0 0 28px;
-max-width:800px;
-font-weight:900;
-letter-spacing:-0.005em;
-color:var(--blue);
-}
-h2{
-font-size:clamp(1.65rem,2.65vw,2.75rem);
-line-height:1.35;
-margin:44px 0 18px;
-font-weight:900;
-orphans:2;
-widows:2;
-color:var(--blue);
-}
-h3{
-font-size:clamp(1.3rem,2.1vw,2rem);
-line-height:1.1;
-margin:36px 0 14px;
-font-weight:900;
-orphans:2;
-widows:2;
-color:var(--blue);
-}
-p{
-margin:0 0 12px;
-font-size:1.1rem;
-line-height:1.55;
-orphans:2;
-widows:2;
-}
-.small{
-font-size:1.08rem;
-line-height:1.6;
-max-width:52ch;
-}
-.member-title{
-font-size:1.85rem;
-font-weight:900;
-line-height:1.18;
-margin-bottom:12px;
-}
-.step{
-margin:20px 0;
-padding-left:22px;
-max-width:46ch;
-}
-.step + .step{margin-top:30px;}
-.step p strong{
-display:inline;
-margin-bottom:0;
-line-height:1.4;
-}
-.step p{
-margin:0;
-line-height:1.5;
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-top:14px;
-background:var(--blue);
-color:white;
-text-decoration:none;
-padding:10px 14px;
-border-radius:8px;
-font-weight:900;
-font-size:1.08rem;
-letter-spacing:0.03em;
-white-space:nowrap;
-transition:background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-}
-.button:hover{
-background:var(--blue-light);
-transform:translateY(-1px);
-box-shadow:0 8px 18px rgba(0,0,0,0.14);
-}
-.button:active{
-transform:translateY(0);
-box-shadow:0 3px 8px rgba(0,0,0,0.12);
-}
-.button:focus-visible{
-outline:3px solid rgba(47,93,143,0.35);
-outline-offset:2px;
+strong, b {
+  font-weight: 800;
 }
 
-.step .button{
-display:flex;
-align-items:center;
-justify-content:center;
-width:100%;
-max-width:35ch;
-text-align:center;
-margin-top:14px;
-padding-left:12px;
-padding-right:12px;
-background-image:linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
-box-shadow:0 4px 10px rgba(0,0,0,0.10);
-}
-.step .button:hover{
-background-image:linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
+.layout {
+  display: flex;
+  min-height: 100vh;
+  max-width: var(--content-width);
+  margin: auto;
 }
 
-.pay-logos{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:14px;
-margin-top:18px;
-margin-bottom:18px;
-padding:10px 6px;
-width:100%;
-max-width:35ch;
-}
-.pay-logos img{
-flex:0 0 auto;
-max-height:22px;
-width:auto;
+.eyebrow, .card-eyebrow {
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.10); 
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 12px;
+  opacity: 0.9;
 }
 
-.pay-card{
-margin-top:14px;
-background:#f6e3d1;
-border-radius:7px;
-padding:12px 16px;
-display:block;
-font-size:0.9rem;
-line-height:1.45;
-color:#555;
-max-width:48ch;
-clear:both;
+aside {
+  width: var(--sidebar);
+  flex-shrink: 0;
+  background: var(--green);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-.pay-card a{
-transition:color 0.18s ease, text-decoration-color 0.18s ease;
-}
-.pay-card a:hover{
-color:var(--blue-dark);
-text-decoration:underline;
-}
-
-.mail-line{
-white-space:nowrap;
-}
-
-ul{
-padding-left:26px;
-margin:0;
-}
-li{
-margin-bottom:6px;
-font-size:1.05rem;
-line-height:1.5;
-orphans:3;
-widows:3;
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 16px 16px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 4px;
 }
 
-=====================================================
-        FOOTER SCHEMATICS
-    =================================================
-    .site-footer {
-      max-width: 56rem; 
-      margin: 5rem 0 0; 
-      padding-top: 2rem;
-      border-top: 1px solid rgba(0,0,0,0.08); 
-      font-size: 0.72rem;
-      color: rgba(26,26,24,0.5); 
-      font-weight: 500;
-      text-align: left;
-      line-height: 1.65;
-    }
-    
-    .site-footer p {
-      margin-bottom: 6px;
-      font-size: 0.72rem;
-    }
-    
-    .site-footer a { 
-      color: var(--color-leaf); 
-      font-weight: 600; 
-      text-decoration: none; 
-    }
-    .site-footer a:hover { text-decoration: underline; }
-
-
-.bottom-tagline{
-line-height:1.35;
-margin-top:44px;
-margin-bottom:0;
+.logo {
+  width: 134px;
+  height: auto;
+  display: block;
+  margin: 0 auto 14px;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, .22));
 }
 
-@media(max-width:750px){
-.layout{flex-direction:column;}
-aside{width:100%;height:auto;position:relative;}
-.nav-brand{display:none;}
-.mobile-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:12px 16px;
-} .mobile-brand{
-display:flex;
-align-items:center;
-gap:10px;
-text-decoration:none;
-} .mobile-logo{width:36px;height:auto;}
-.mobile-title{
-font-size:0.88rem;
-font-weight:800;
-color:white;
-line-height:1.2;
-} nav{display:none;padding:0 0 10px;}
-nav.open{display:flex;}
-nav a{
-padding:8px 20px;
-border-left:none;
-font-size:0.95rem;
-margin-left:0;
-} .nav-group-label{padding:10px 20px 3px;}
-.hamburger{
-display:flex;
-align-items:center;
-gap:6px;
-background:rgba(255,255,255,0.1);
-border:1px solid rgba(255,255,255,0.3);
-border-radius:7px;
-padding:6px 10px;
-font-size:0.8rem;
-font-weight:700;
-color:white;
-cursor:pointer;
-font-family:inherit;
-} .hamburger svg{
-width:16px;
-height:16px;
-stroke:white;
-fill:none;
-} .page{padding:24px 16px;}
-.hero h1{font-size:clamp(2rem,8vw,3rem);}
-.button{
-display:block;
-width:100%;
-max-width:none;
-text-align:center;
-white-space:normal;
-line-height:1.25;
-padding:12px 14px;
-} .step{
-padding-left:0;
-max-width:none;
-} .step .button,
-.pay-logos,
-.pay-card{
-max-width:none;
-width:100%;
-} .pay-logos{
-gap:10px;
-flex-wrap:wrap;
-justify-content:center;
-padding:12px 6px;
-} .pay-logos img{
-max-height:20px;
-} .bottom-tagline{
-line-height:1.42;
-} }
-
-@media (hover:hover){
-.button:hover{
-background:var(--blue-dark);
-transform:translateY(-1px);
-box-shadow:0 8px 18px rgba(0,0,0,0.14);
-} .pay-card a:hover{
-color:var(--blue-dark);
-text-decoration:underline;
-} }
-
-/* Small content-area helpers */
-.meeting-card{
-background: #FCF8EE;
-border: 1px solid #D7C9B2;
-padding:22px;
-border-radius:10px;
-max-width:900px;
-box-shadow:0 8px 18px rgba(0,0,0,0.04);
+.site-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1.3;
+  display: block;
 }
-.meeting-detail{display:flex;gap:12px;margin:6px 0;align-items:flex-start;}
-.meeting-detail .label{min-width:86px;font-weight:800;color:var(--green-dark);}
-.meeting-detail .value{flex:1}
-.agenda-item{margin:6px 0 0;}
+
+.site-crfg {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.3;
+  display: block;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.site-sub {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.3;
+  margin-top: 4px;
+  display: block;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0 120px;
+}
+
+.nav-group {
+  margin-top: 6px;
+}
+
+.nav-group-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 16px 16px 5px;
+  display: block;
+  margin-top: 4px;
+  text-align: left;
+}
+
+.nav-group:first-child .nav-group-label {
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+nav a {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--bg);
+  text-decoration: none;
+  padding: 5px 16px 5px 16px;
+  border-left: 3px solid transparent;
+  display: block;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, transform 0.12s;
+  text-align: left;
+  margin-left: 18px;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+nav a.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  border-left-color: rgba(255, 255, 255, 0.75);
+}
+
+.hamburger {
+  display: none;
+}
+
+.mobile-header {
+  display: none;
+}
+
+.page {
+  flex: 1;
+  padding: 40px 44px 40px 52px;
+  min-width: 0;
+}
+
+.hero {
+  margin-top: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.18;
+  margin: 0 0 28px;
+  max-width: 800px;
+  font-weight: 900;
+  letter-spacing: -0.005em;
+  color: var(--color-crimson);
+}
+
+h2 {
+  font-size: clamp(1.65rem, 2.65vw, 2.75rem);
+  line-height: 1.35;
+  margin: 44px 0 18px;
+  font-weight: 900;
+  orphans: 2;
+  widows: 2;
+  color: var(--blue);
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.1vw, 2rem);
+  line-height: 1.1;
+  margin: 36px 0 14px;
+  font-weight: 900;
+  orphans: 2;
+  widows: 2;
+  color: var(--blue);
+}
+
+p {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  orphans: 2;
+  widows: 2;
+}
+
+.small {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.member-title {
+  font-size: 1.85rem;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 12px;
+}
+
+.step {
+  margin: 20px 0;
+  padding-left: 22px;
+  max-width: 46ch;
+}
+
+.step + .step {
+  margin-top: 30px;
+}
+
+.step p strong {
+  display: inline;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+.step p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Compact dimensional 3D pill button config */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  background: linear-gradient(to bottom, #5385ba 0%, #3a6f9f 50%, #244b75 100%);
+  color: white;
+  text-decoration: none;
+    padding: 9px 20px;
+  border-radius: 50px; /* Completely round ends */
+  font-weight: 900;
+  font-size: 0.95rem;  /* Scales down the button text size slightly */
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 
+              inset 0 1px 2px rgba(255, 255, 255, 0.35), 
+              inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
+              filter 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.32);
+  filter: brightness(1.08);
+}
+
+.button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  filter: brightness(0.95);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(47, 93, 143, 0.45);
+  outline-offset: 2px;
+}
+
+.step .button {
+  display: flex;
+  width: 100%;
+  max-width: 35ch;
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* Forces alignment grid match with details grid value columns */
+.meeting-card .button {
+  margin-top: 18px;
+  display: inline-flex;
+  width: auto;
+  margin-left: 98px; /* Perfectly offsets past the 86px label width + 12px gap */
+}
+
+.pay-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding: 10px 6px;
+  width: 100%;
+  max-width: 35ch;
+}
+
+.pay-logos img {
+  flex: 0 0 auto;
+  max-height: 22px;
+  width: auto;
+}
+
+.pay-card {
+  margin-top: 14px;
+  background: #f6e3d1;
+  border-radius: 7px;
+  padding: 12px 16px;
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #555;
+  max-width: 48ch;
+  clear: both;
+}
+
+.pay-card a {
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.pay-card a:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
+}
+
+.mail-line {
+  white-space: nowrap;
+}
+
+ul {
+  padding-left: 26px;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  orphans: 3;
+  widows: 3;
+}
+
+/* =====================================================
+        FOOTER SCHEMATICS (Fixed CSS comment trap)
+===================================================== */
+.site-footer {
+  max-width: 56rem; 
+  margin: 5rem 0 0; 
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08); 
+  font-size: 0.72rem;
+  color: rgba(26, 26, 24, 0.5); 
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.65;
+}
+
+.site-footer p {
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+}
+
+.site-footer a { 
+  color: var(--color-leaf); 
+  font-weight: 600; 
+  text-decoration: none; 
+}
+
+.site-footer a:hover { 
+  text-decoration: underline; 
+}
+
+.bottom-tagline {
+  line-height: 1.35;
+  margin-top: 44px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 750px) {
+  .layout {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .nav-brand {
+    display: none;
+  }
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .mobile-logo {
+    width: 36px;
+    height: auto;
+  }
+  .mobile-title {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+  }
+  nav {
+    display: none;
+    padding: 0 0 10px;
+  }
+  nav.open {
+    display: flex;
+  }
+  nav a {
+    padding: 8px 20px;
+    border-left: none;
+    font-size: 0.95rem;
+    margin-left: 0;
+  }
+  .nav-group-label {
+    padding: 10px 20px 3px;
+  }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 7px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .hamburger svg {
+    width: 16px;
+    height: 16px;
+    stroke: white;
+    fill: none;
+  }
+  .page {
+    padding: 24px 16px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .button {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.25;
+    padding: 8px 18px;
+  }
+  .meeting-card .button {
+    margin-left: 0; /* Drops grid indentation offset cleanly on single stack screens */
+    margin-top: 14px;
+  }
+  .step {
+    padding-left: 0;
+    max-width: none;
+  }
+  .step .button {
+    display: flex;
+    width: 100%;
+  }
+  .pay-logos,
+  .pay-card {
+    max-width: none;
+    width: 100%;
+  }
+  .pay-logos {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 12px 6px;
+  }
+  .pay-logos img {
+    max-height: 20px;
+  }
+  .bottom-tagline {
+    line-height: 1.42;
+  }
+}
+
+@media (hover: hover) {
+  .pay-card a:hover {
+    color: var(--blue-dark);
+    text-decoration: underline;
+  }
+}
+
+/* Content framework blocks */
+.meeting-card {
+  background: #FCF8EE;
+  border: 1px solid #D7C9B2;
+  padding: 22px;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+.meeting-detail {
+  display: flex;
+  gap: 12px;
+  margin: 6px 0;
+  align-items: flex-start;
+}
+.meeting-detail .label {
+  min-width: 86px;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+.meeting-detail .value {
+  flex: 1;
+}
+.agenda-item {
+  margin: 6px 0 0;
+}
 </style>
 </head>
 <body>
@@ -519,7 +630,7 @@ box-shadow:0 8px 18px rgba(0,0,0,0.04);
 <main>
 <section class="hero">
 <div class="eyebrow">Come curious—leave with possibilities</div>
-<h1>Golden Gate Chapter&nbsp;Meetings</h1>
+<h1 style="color:var(--color-crimson);">Golden Gate Chapter&nbsp;Meetings</h1>
 <p>Meetings are <strong>free and open to the public</strong>. You don't need to be a CRFG member to attend — just bring your curiosity and enthusiasm for fruit.</p>
 <p class="small">Meetings may include an expert speaker, fresh fruit tastings from members' gardens, members only orchard tours and field trips, plant and scion sharing, and great conversation with local growers.</p>
 </section>
