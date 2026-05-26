@@ -59,17 +59,17 @@ strong,b{font-weight:800;}
   margin:auto;
 }
 
- /* ── Anniversary Tagline Component ── */
+  /* ── Anniversary Tagline Component ── */
     .anniversary-tag {
       display: inline-flex;
       flex-wrap: wrap; 
       align-items: center;
       gap: 4px 10px;      
       font-family: var(--font-body);
-      font-size: 1.1rem;
-      font-weight: 800;
+      font-size: 0.88rem;
+      font-weight: 700;
       color: var(--green); 
-      letter-spacing: 0.05em; 
+      letter-spacing: 0.005em; 
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
       opacity: 0.88;
       line-height: 1.25;  
@@ -78,6 +78,10 @@ strong,b{font-weight:800;}
 
     .tag-chunk {
       display: inline-block; /* Prevents internal line breaks inside text phrases */
+    }
+
+    .back-link + .anniversary-tag {
+      margin-left: 20px; 
     }
 
 /* ── Sidebar ── */
@@ -655,9 +659,13 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
         <span>Mild winters.</span>
       </h4>
       <hr class="zone-rule">
-      <p class="zone-desc-short">📍 Heavy ocean influence. Includes Western San Francisco, Daly City, Pacifica, Half Moon Bay, Emeryville/Berkeley, Bolinas/Stinson Beach, Sausalito, El Cerrito, Richmond, Alameda.</p>
+      <p class="zone-desc-short">📍 Cool Coastal. Cool summers, mild winters, heavy fog, and wind. Heavy ocean influence. Includes Western San Francisco, western Marin, Daly City, Pacifica, Half Moon Bay, Emeryville/Berkeley, Bolinas/Stinson Beach, San Mateo, Sausalito, El Cerrito, Richmond, Alameda.</p>
       <hr class="zone-rule">
-      <p class="zone-detail"><strong>The marine layer dominates — foggy mornings that linger, rarely much heat.</strong> Winters stay frost-light and mild. Chill hours are low at 100–400 hrs. Most standard deciduous fruit that needs cold winters to set fruit won't perform here. Focus on low-chill and subtropical evergreen fruiting plants that ripen in cooler temperatures without much summer heat.</p>
+      <p class="zone-desc-short"><strong>Sunset Zone:</strong> Primarily Zone 17, with parts of Zone 16.</strong></p>
+      <hr class="zone-rule">
+      <p class="zone-detail"><strong>The marine layer dominates — cool summers, mild winters, heavy morning fogs that linger, wind, and rarely much heat.</strong> Winters stay frost-light and mild. Chill hours are low at 100–400 hrs. Most standard deciduous fruit that need cold winters to set fruit won't perform here. Focus on low-chill and subtropical evergreen fruiting plants that ripen in cooler temperatures without much summer heat.</p>
+            <hr class="zone-rule">
+      <p class="zone-desc-short"><strong>Fruit Suitability:</strong> Limited to low-chill (<400 hours) and early-ripening varieties. Subtropicals like citrus and avocados (hardy varieties) thrive here, while many temperate fruits (apples, cherries) struggle to mature or lack sufficient chill.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>Asian pears, Bearss lime, Eureka lemon, feijoas, figs ('Desert King', 'White Ischia'), loquats, passion fruit.</p>
       <a class="card-link" href="zone-favorites/zone1-favorites.html">Member's Fog Zone Favorites →</a>
     </div>
@@ -674,9 +682,13 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
         <span>Mild winters.</span>
       </h4>
       <hr class="zone-rule">
-      <p class="zone-desc-short">📍 Includes Berkeley, Oakland, Richmond, El Cerrito, Hayward, San Leandro, San Mateo, San Rafael, Novato, Martinez, Fremont, Vallejo.</p>
+      <p class="zone-desc-short">📍 Includes Berkeley, Oakland, Albany, Richmond, El Cerrito, Hayward (western), San Leandro, San Mateo, Burlingame, Millbrae, San Rafael, Novato, central Marin, Martinez, Fremont, Vallejo.</p>
       <hr class="zone-rule">
-      <p class="zone-detail"><strong>More sun than the coast but still tempered by Bay breezes — summers are warm without being brutal, winters are mild but real.</strong> Chill hours run 400–900, enough for the vast majority of deciduous fruits without demanding the deep cold inland winters bring. This zone gives chapter members the broadest selection of anything they want to grow.</p>
+      <p class="zone-desc-short"><strong>Sunset Zone:</strong> Primarily Zone 16, transitioning to Zone 15 in colder pockets.</strong></p>
+      <hr class="zone-rule">
+      <p class="zone-detail"><strong>Moderate summers and winters with more sun than the coast but still tempered by Bay breezes — summers are warm without being brutal, winters are mild but real.</strong> Chill hours run 400–900, enough for the vast majority of deciduous fruits without demanding the deep cold inland winters bring. With less fog than the coast but more marine influence than inland, this zone gives chapter members the broadest selection of anything they want to grow.</p>
+      <hr class="zone-rule">
+      <p class="zone-desc-short"><strong>Fruit Suitability:</strong> Supports <strong>low-to-moderate-chill</strong> varieties (200–600 hours). A wide range of temperate fruits (plums, peaches, apricots, apples) and subtropicals can succeed with proper variety selection.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>apples, Asian pears, figs, Meyer lemon, persimmons, plums, pluots, pomegranates</p>
       <a class="card-link" href="zone-favorites/zone2-favorites.html">Member's Bay-Facing Favorites →</a>
     </div>
@@ -693,9 +705,13 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
         <span>Mild winters.</span>
       </h4>
       <hr class="zone-rule">
-      <p class="zone-desc-short">📍 Includes Concord, Walnut Creek, Lafayette, Danville, San Ramon, Pleasanton, Pittsburg, Antioch, Brentwood, Sunol, Dublin, Fairfield.</p>
+      <p class="zone-desc-short">📍 Includes Concord, Walnut Creek, Lafayette, Danville, Livermore, San Ramon, Pleasanton, Pittsburg, Antioch, Brentwood, Sunol, Dublin, Fairfield, Napa Valley and eastern Contra Costa/Alameda.</p>
       <hr class="zone-rule">
-      <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> Chill hours run 600–1,500, the highest in the chapter, meaning standard and high-chill deciduous varieties that struggle on the coast genuinely thrive. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat fully ripens all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
+      <p class="zone-desc-short"><strong>Sunset Zone:</strong> Primarily Zone 14 and Zone 15, with pockets of Zone 7 in higher elevations.</strong></p>
+      <hr class="zone-rule">
+      <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> 600–1,500, the highest chill hours in the chapter, means standard and high-chill deciduous varieties that struggle on the coast can genuinely here . Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat accumulation fully ripens all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
+      <hr class="zone-rule">
+      <p class="zone-desc-short"><strong>Fruit Suitability:</strong> Supports <strong>moderate-to-high-chill</strong> varieties (500–1,000+ hours).  Ideal for traditional temperate fruits like cherries, apples, pears, and walnuts, as well as heat-loving varieties of grapes and stone fruit.</p>
       <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>apricots, cherries, figs, grapes, jujubes, peaches, persimmons, pomegranates</p>
       <a class="card-link" href="zone-favorites/zone3-favorites.html">Member's Inland Favorites →</a>
     </div>
