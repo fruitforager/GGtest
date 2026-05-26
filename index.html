@@ -143,12 +143,12 @@
 
     /* Standardized Clean Sans-Serif Slogan Font Rule */
     .custom-main-title {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      font-size: clamp(1.85rem, 4vw, 3.2rem);
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
       font-weight: 900;
       color: var(--blue);
       line-height: 1.15;
-      margin: 0 0 28px;
+      margin: 24px 0 28px;       /* 💡 Added 24px to the top margin to push it down a bit */
+      letter-spacing: -0.02em;   /* 💡 Tightened letter-spacing for a clean, premium look */
       max-width: 900px;
     }
 
@@ -183,16 +183,18 @@
     /* ── Anniversary Tagline Component ── */
     .anniversary-tag {
       display: inline-flex;
-      flex-wrap: wrap; /* Allows blocks to drop down cleanly when space runs out */
+      flex-wrap: wrap; 
       align-items: center;
-      gap: 6px 10px; /* 6px vertical spacing if wrapped, 10px horizontal separation */
+      gap: 4px 10px; 
       font-family: var(--font-body);
       font-size: 0.88rem;
       font-weight: 700;
       color: var(--green); 
-      letter-spacing: 0.005em; /* Decreased letter-spacing for a cleaner feel */
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.10); /* Muted, crisp black drop shadow */
-      margin-bottom: 24px;
+      letter-spacing: 0.005em; 
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+      opacity: 0.88;
+      line-height: 1.25;  
+      margin-bottom: 12px; /* 💡 Reduced from 24px to pull it closer to the text below */
     }
 
     .tag-chunk {
@@ -586,7 +588,8 @@
 
       <section id="sec-hero" class="fade-up">
         <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.18);">36th Annual · 2026 CRFG</p>
-        <h1 class="shadow-text">Golden Gate Chapter</h1>
+        
+        <h1 class="shadow-text" style="font-size:clamp(2.75rem,8vw,4.5rem); font-weight:900; line-height:1.05; color:var(--color-crimson); margin-bottom:0.25rem; text-shadow:1px 2px 3px rgba(0,0,0,0.12);">Golden Gate Chapter</h1>
       </section>
       
       <h1 class="custom-main-title">Rare fruit.<br>Real community.<br>Right here in&nbsp;the&nbsp;Bay&nbsp;Area.</h1>
@@ -674,6 +677,18 @@
         yearSpan.textContent = currentYear - foundingYear;
       }
     }());
+
+    /* ── Fade-Up Intersection Observer ── */
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => fadeObserver.observe(el));
   });
 </script>
 </body>
