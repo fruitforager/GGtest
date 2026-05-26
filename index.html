@@ -374,14 +374,14 @@
     .nav-link {
       font-family: var(--font-body); display: flex; align-items: center; gap: 0.5rem;
       padding: 0.45rem 0.75rem; border-radius: 0.5rem;
-      font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.85);
+      font-size: 0.8125rem; font-weight: 600; color: var(--color-mist); /* Changed text menu font color to a subtle light green tint */
       transition: background 0.15s, color 0.15s;
       text-decoration: none; 
     }
     .nav-link:hover { background: rgba(255,255,255,0.08); color: #fff; }
     .nav-link.active { background: rgba(255,255,255,0.17); color: #fff; border-left: 3px solid #ffffff; opacity: 0.88; padding-left: calc(0.75rem - 3px); }
     .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
-    .nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.8; font-weight: 400; }
+    .nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.8; font-weight: 400; color: var(--color-sage); /* Changed submenu descriptor label text to explicit sage green */ }
 
     /* =====================================================
        SCROLL FADE-IN
@@ -396,39 +396,135 @@
     /* =====================================================
        5. COMPONENT BUTTON SPECIFICATIONS
     ===================================================== */
+    /* Primary Blue Button with Matched Pill Shape & 3D Depth */
+    /* Anti-Aliased Primary Blue Button with Smooth Hover Depth */
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-top: 14px;
-      background: linear-gradient(to bottom, #3a6f9f 0%, #2f5d8f 55%, #2b547f 100%);
+      
+      /* ✨ HARDWARE ACCELERATION: Forces crisp, buttery-smooth anti-aliased round corners */
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      
+      /* Base Color Structure */
+      background: linear-gradient(to bottom, #4a84bc 0%, #2f5d8f 40%, #22446a 100%);
+      background-color: #2f5d8f;
+      background-clip: padding-box;
+      
+      /* 🧼 SUBTLE EDGE PROTECTION: A soft, translucent border to soften rasterized edge pixels */
+      border: 1px solid rgba(34, 68, 106, 0.25);
+      
       color: white;
       text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 900;
-      font-size: 1.08rem;
+      padding: 12px 28px; 
+      border-radius: 50px; 
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.05rem;
       letter-spacing: 0.03em;
       white-space: nowrap;
-      box-shadow: var(--shadow-btn-base);
-      transition: transform 0.18s cubic-bezier(.2,.9,.25,1), box-shadow 0.18s ease, filter 0.18s ease;
+      
+      /* Multi-Layer 3D Depth Shadows */
+      box-shadow: 
+        inset 0 3px 4px rgba(255, 255, 255, 0.28),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.18); 
+      
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12)) 
+              drop-shadow(0 4px 8px rgba(47, 93, 143, 0.25));
+      
+      /* ✨ SMOOTH HOVER TRANSITION: Explicitly animates transform and shadows without paint snapping */
+      transition: transform 0.2s cubic-bezier(.2,.9,.25,1), filter 0.2s ease, background-color 0.2s ease;
     }
     
     .button:hover {
-      filter: brightness(1.08);
+      /* ✨ REMOVED HARD HOVER GRADIENT STRIP: Uses filter brightness adjustment 
+         instead to avoid hard lines, keeping the original smooth gradient intact underneath */
+      filter: brightness(1.06) 
+              drop-shadow(0 2px 2px rgba(0, 0, 0, 0.08)) 
+              drop-shadow(0 7px 14px rgba(47, 93, 143, 0.35));
       transform: translateY(-2px);
-      box-shadow: var(--shadow-btn-hover);
     }
     
     .button:active {
       transform: translateY(1px);
-      filter: brightness(0.97);
-      box-shadow: var(--shadow-btn-active);
+      filter: brightness(0.94)
+              drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08)) 
+              drop-shadow(0 2px 3px rgba(47, 93, 143, 0.15));
     }
     
     .button:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 4px rgba(47,93,143,0.35), 0 4px 12px rgba(47,93,143,0.22);
+      filter: drop-shadow(0 0 0 4px rgba(47, 93, 143, 0.35));
+    }
+
+    /* Whitened Gradient Gloss Button Style */
+    /* Refined Whitened Gradient Gloss Button Style */
+    .button-neutral {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      
+      /* 📦 DEEPER 3D GRADIENT: Stronger white top-light transitioning to a slightly denser base */
+      background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(255, 255, 255, 0.60) 40%, 
+        rgba(245, 242, 235, 0.45) 100%
+      );
+      background-color: rgba(255, 255, 255, 0.5); 
+      background-clip: padding-box; 
+      
+      /* Soft, elegant border line */
+      border: 1px solid rgba(90, 125, 95, 0.38); 
+      
+      color: var(--color-leaf); 
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0em;
+      white-space: nowrap;
+      
+      /* 📦 COMPARTMENT SHADOWS: Stronger internal top rim-light + subtle bottom cushion */
+      box-shadow: 
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.03); 
+      
+      /* 📦 MULTI-LAYER DROP SHADOW: Combines a tight dark shadow with a soft ambient blur */
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08)) 
+              drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
+      
+      transition: transform 0.2s cubic-bezier(.2,.9,.25,1), filter 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-neutral:hover {
+      background-color: rgba(255, 255, 255, 0.75);
+      transform: translateY(-2px);
+      /* Intensifies depth profile on hover action */
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06)) 
+              drop-shadow(0 7px 14px rgba(0, 0, 0, 0.11));
+    }
+
+    .button-neutral:active {
+      transform: translateY(1px);
+      background-color: rgba(255, 255, 255, 0.55);
+      /* flattens drop shadow cleanly to look physically pressed down */
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05)) 
+              drop-shadow(0 2px 3px rgba(0, 0, 0, 0.04));
+    }
+
+    .button-neutral .arrow {
+      margin-left: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .button-neutral:hover .arrow {
+      transform: translateX(4px);
     }
 
     .step .button {
@@ -592,7 +688,7 @@
       </div>
 
       <section id="sec-hero" class="fade-up">
-      <p style="font-size:0.96rem; font-weight:500; letter-spacing:0.0em; color:var(--color-crimson); margin-top: 24px; margin-bottom: 1px; opacity: 0.83; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.12);">Celebrating <span id="crfg-years">39</span> Years of Rare Fruit Curiosity & Passion</span></p>
+      <p style="font-size:0.96rem; font-weight:500; letter-spacing:0.0em; color:var(--color-crimson); margin-top: 24px; margin-bottom: 1px; opacity: 0.83; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.12);">Celebrating <span id="crfg-years">39</span> Years of Rare Fruit Curiosity & Passion</p>
         <hr class="thin-rule">
         <p style="font-size:1.06rem; font-weight:700; letter-spacing:0.02em; color:var(--color-crimson); margin-top: 1px; margin-bottom:0.25rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.12);">California Rare Fruit Growers</p>
         <h1 class="shadow-text">Golden Gate Chapter</h1>
@@ -605,6 +701,7 @@
 
       <p>Our <strong>Golden Gate Chapter</strong> holds meetings <strong>across the San Francisco Bay Area</strong> featuring guest speakers, fruit tastings, shared potlucks, orchard tours, hands-on learning, and great conversation with people who share your passion for growing.</p>
 
+     <p><a href="golden-gate-history.html" class="button-neutral">Read about our Chapter's history <span class="arrow">&rarr;</span></a></p>
       <h2>🍋 🍇 🌳 🍒 🥭</h2>
 
       <h3>What Happens at Meetings</h3>
@@ -613,7 +710,7 @@
       <p><strong>Our signature event is the Golden Gate Scion Exchange</strong> &mdash; where you can collect cuttings to root, seeds, tubers, and rootstocks, learn grafting techniques, and get practical advice from experienced growers.</p>
 
       <h3>Everyone is Welcome 🌱</h3>
-      <p>You don't need to be a member to attend &mdash; just show up curious. Membership in CRFG is encouraged, and <strong>a Golden Gate Chapter membership is only $10/year</strong>.</p>
+      <p>You don't need to be a member to attend &mdash; just show show up curious. Membership in CRFG is encouraged, and <strong>a Golden Gate Chapter membership is only $10/year</strong>.</p>
       
       <p>Whether you’re a:</p>
       <ul>
