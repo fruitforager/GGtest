@@ -59,6 +59,27 @@ strong,b{font-weight:800;}
   margin:auto;
 }
 
+ /* ── Anniversary Tagline Component ── */
+    .anniversary-tag {
+      display: inline-flex;
+      flex-wrap: wrap; 
+      align-items: center;
+      gap: 4px 10px;      
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--green); 
+      letter-spacing: 0.05em; 
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+      opacity: 0.88;
+      line-height: 1.25;  
+      margin-bottom: 12px; /* Pulls the block closer to the content below */
+    }
+
+    .tag-chunk {
+      display: inline-block; /* Prevents internal line breaks inside text phrases */
+    }
+
 /* ── Sidebar ── */
 aside{
   width:var(--sidebar);
@@ -561,14 +582,14 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
   <a href="index.html" class="nav-brand">
     <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
     <span class="site-title">Golden Gate Chapter</span>
-    <span class="site-crfg">CRFG.org</span>
+    <span class="site-crfg">EST 1987 · CRFG.org</span>
     <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
   </a>
 
   <div class="mobile-header">
     <a href="index.html" class="mobile-brand">
       <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
-      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+      <span class="mobile-title">Golden Gate Chapter · CRFG.org</span>
     </a>
     <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open');" aria-label="Toggle navigation">
       <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -607,6 +628,10 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0;}
 
 <div class="page" id="mainPageContent">
 <main>
+ <div class="anniversary-tag animate-fade">
+        <span class="tag-chunk">KNOW YOUR ZONE. GROW BETTER FRUIT.<span>
+      </div>
+      
   <section class="hero">
     <h1>Bay Area<br> Fruit Favorites<br> by Climate Zone</h1>
     <p>The following lists come from a poll of Golden Gate Chapter members, who were asked to recommend their favorite fruits and varieties.</p>
