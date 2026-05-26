@@ -137,18 +137,19 @@
       font-weight: 900; 
       line-height: 1.05; 
       color: var(--color-crimson); 
-      margin-bottom: 1.25rem; 
+      margin-bottom: 0.25rem; /* Adjusted down for tighter layout lockup */
       text-shadow: 1px 2px 3px rgba(0,0,0,0.12);
     }
 
     /* Standardized Clean Sans-Serif Slogan Font Rule */
     .custom-main-title {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       font-size: clamp(1.6rem, 3.5vw, 2.8rem);
       font-weight: 900;
       color: var(--blue);
       line-height: 1.15;
-      margin: 24px 0 28px;       /* 💡 Added 24px to the top margin to push it down a bit */
-      letter-spacing: -0.02em;   /* 💡 Tightened letter-spacing for a clean, premium look */
+      margin: 48px 0 28px; /* 💡 Increased top margin from 24px to 48px to move it down */
+      letter-spacing: -0.01em;
       max-width: 900px;
     }
 
@@ -185,7 +186,7 @@
       display: inline-flex;
       flex-wrap: wrap; 
       align-items: center;
-      gap: 4px 10px; 
+      gap: 4px 10px;      
       font-family: var(--font-body);
       font-size: 0.88rem;
       font-weight: 700;
@@ -194,11 +195,11 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
       opacity: 0.88;
       line-height: 1.25;  
-      margin-bottom: 12px; /* 💡 Reduced from 24px to pull it closer to the text below */
+      margin-bottom: 12px; /* Pulls the block closer to the content below */
     }
 
     .tag-chunk {
-      display: inline-block; /* Prevents text internal breaking; keeps phrases unified */
+      display: inline-block; /* Prevents internal line breaks inside text phrases */
     }
 
     .back-link + .anniversary-tag {
@@ -580,16 +581,14 @@
 
   <div class="main-wrapper">
     <main>
-      <!-- Anniversary/Stewardship Tagline Component -->
       <div class="anniversary-tag animate-fade">
         <span class="tag-chunk">ROOTED IN THE BAY SINCE 1987:</span>
         <span class="tag-chunk">Celebrating <span id="crfg-years">39</span> Years of Rare Fruit Stewardship</span>
       </div>
 
       <section id="sec-hero" class="fade-up">
-        <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.18);">36th Annual · 2026 CRFG</p>
-        
-        <h1 class="shadow-text" style="font-size:clamp(2.75rem,8vw,4.5rem); font-weight:900; line-height:1.05; color:var(--color-crimson); margin-bottom:0.25rem; text-shadow:1px 2px 3px rgba(0,0,0,0.12);">Golden Gate Chapter</h1>
+        <p style="font-size:1.05rem; font-weight:700; letter-spacing:0.02em; color:var(--color-crimson); margin-top: 24px; margin-bottom:0.25rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.12);">California Rare Fruit Growers</p>
+        <h1 class="shadow-text">Golden Gate Chapter</h1>
       </section>
       
       <h1 class="custom-main-title">Rare fruit.<br>Real community.<br>Right here in&nbsp;the&nbsp;Bay&nbsp;Area.</h1>
