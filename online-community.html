@@ -67,29 +67,53 @@
   </script>
 
   <style>
+    /* =====================================================
+       1. SYSTEM VARIABLES & DESIGN TOKENS
+    ===================================================== */
     :root {
       --bg: #FAF0E6;
       --surface: #FFFFFF;
       --text-base: rgba(0, 0, 0, 0.96);
       --text-muted: rgba(0, 0, 0, 0.93);
       --green: #274D31;
-      --green-dark: #1B3622;
-      --blue: #1A4473;
-      --blue-dark: #102A47;
-      --blue-light: #EBF2FA;
-      --color-leaf: #2D5E3A;
-      --border: #D8CCB6;
+      --green-dark: #21452c;
+      --blue: #2f5d8f;
+      --blue-dark: #21425c;
+      --border: #d8ccb6;
       --border-light: #E8DFD0;
       --nested-card-bg: #FAF6F0;
-      --sidebar-width: 240px;
-      --content-max-width: 1200px;
+      --sidebar-width: 14rem;
+      --max-container: 1380px;
       --radius: 6px;
+
+      /* Brand Typography Palette */
+      --color-forest:    #1e3d28;
+      --color-leaf:      #2d5e3a;
+      --color-sage:      #5a7d5f;
+      --color-mist:      #e8f0e9;
+      --color-parchment: #faf6ef;
+      --color-crimson:   #9b1c2e;
+      --color-gold:      #c8882a;
+      --color-ink:       #1a1a18;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      /* Standardized Shadow Tokens */
+      --shadow-btn-base: 0 4px 12px rgba(47,93,143,0.28), 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15);
+      --shadow-btn-hover: 0 8px 20px rgba(47,93,143,0.32), 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
+      --shadow-btn-active: 0 2px 6px rgba(47,93,143,0.22), inset 0 2px 6px rgba(0,0,0,0.10);
     }
 
-    * { box-sizing: border-box; }
+    /* =====================================================
+       2. GLOBAL RESET & TYPOGRAPHY SYSTEM
+    ===================================================== */
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
 
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--text-base);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -107,106 +131,32 @@
       margin: 0 0 16px;
     }
 
-    .layout {
-      display: flex;
-      min-height: 100vh;
-      max-width: var(--content-max-width);
-      margin: auto;
+    /* Hero Header */
+    h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      margin: 0 0 16px;
+      color: var(--blue);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
 
-    /* ═══ SIDEBAR NAVIGATION ══════════════════════════════════════════ */
-    aside {
-      width: var(--sidebar-width);
-      flex-shrink: 0;
-      background: var(--green);
-      display: flex;
-      flex-direction: column;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-    }
-
-    .nav-brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 24px 16px;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .logo {
-      width: 110px;
-      margin-bottom: 12px;
-    }
-
-    .site-title {
-      color: #FFFFFF;
-      font-weight: 800;
-      font-size: 1.05rem;
+    /* Sections Headers */
+    h2 {
+      color: var(--green);
+      font-size: clamp(2.0rem, 3.5vw, 2.6rem); 
+      margin: 0 0 16px;
+      font-weight: 900; 
       letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
-    .site-crfg, .site-sub {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
-    nav {
-      display: flex;
-      flex-direction: column;
-      padding: 16px 0 40px;
-    }
-
-    .nav-group-label {
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255, 255, 255, 0.6);
-      padding: 16px 24px 6px;
-    }
-
-    nav a {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.85);
-      text-decoration: none;
-      padding: 8px 24px;
-      display: block;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #FFFFFF;
-    }
-
-    nav a.active {
-      background: rgba(255, 255, 255, 0.12);
-      color: #FFFFFF;
-      font-weight: 800;
-      border-left: 4px solid var(--bg);
-      padding-left: 20px;
-    }
-
-    .hamburger, .mobile-header { display: none; }
-
-    /* ═══ MAIN PAGE CONTAINER ═════════════════════════════════════════ */
-    .page {
-      flex: 1;
-      padding: 56px 64px;
-      min-width: 0;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
+    .hero-lead {
+      max-width: 62ch;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin: 0 0 28px;
     }
 
     .eyebrow, .card-eyebrow {
@@ -220,35 +170,272 @@
       opacity: 0.9;
     }
 
-    /* Hero Header - Intentionally Unchanged */
-    h1 {
-      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
-      margin: 0 0 16px;
-      color: var(--blue);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+    /* =====================================================
+       3. SITE STRUCTURE & LAYOUT ARCHITECTURE
+    ===================================================== */
+    .page-wrapper {
+      max-width: var(--max-container); 
+      margin: 0 auto;
+      display: flex; 
+      flex-direction: column; 
+      min-height: 100vh;
+    }
+    @media (min-width: 768px) { 
+      .page-wrapper { flex-direction: row; } 
     }
 
-    /* Sections Headers - Increased size & weight */
-    h2 {
-      color: var(--green);
-      font-size: clamp(2.0rem, 3.5vw, 2.6rem); 
-      margin: 0 0 16px;
+    .main-wrapper { 
+      flex: 1; 
+      min-width: 0; 
+      padding: 2rem 1.25rem; 
+    }
+    @media (min-width: 768px) { 
+      .main-wrapper { padding: 56px 64px; } 
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    /* =====================================================
+       4. UNIFORM SIDEBAR & BRAND LOGO ARCHITECTURE
+    ===================================================== */
+    .sidebar {
+      width: 100%; 
+      background-color: var(--color-forest); 
+      color: #fff;
+      flex-shrink: 0; 
+      z-index: 50;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: sticky; 
+      top: 0;
+    }
+    @media (min-width: 768px) {
+      .sidebar { 
+        width: var(--sidebar-width); 
+        position: sticky; 
+        top: 0; 
+        height: 100vh; 
+        display: flex; 
+        flex-direction: column; 
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      }
+    }
+    @media (min-width: 1024px) { 
+      .sidebar { width: 15rem; } 
+    }
+
+    /* Premium Balanced Desktop Sidebar Logo Block */
+    .sidebar-logo {
+      display: none; 
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center;
+      padding: 2.25rem 1rem 1.75rem; /* Adjusted padding for a larger presence */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.15s ease-in-out;
+      text-decoration: none; 
+    }
+    .sidebar-logo:hover { 
+      background: rgba(255, 255, 255, 0.03); 
+    }
+   @media (min-width: 768px) { 
+      .sidebar-logo { display: flex; } 
+    }
+    
+    .sidebar-logo img { 
+      width: 8.5rem;  /* Maxed out image size */
+      height: 8.5rem; 
+      margin-bottom: 0.85rem; /* Pulled text closer to the image */
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+      transition: transform 0.2s ease;
+    }
+    .sidebar-logo:hover img {
+      transform: scale(1.02);
+    }
+    
+    .sidebar-logo .logo-name { 
+      font-family: var(--font-body); 
+      font-size: 1.15rem; /* Slightly larger text to match giant logo */
       font-weight: 900; 
-      letter-spacing: -0.01em;
-      line-height: 1.2
+      line-height: 1.1; /* Super tight line height */
+      color: #FAF0E6; 
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
-    .hero-lead {
-      max-width: 62ch;
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      line-height: 1.6;
-      margin: 0 0 28px;
+    /* Enhanced Weight Configuration to Prevent Dimmest Layer Fading */
+    .sidebar-logo .logo-sub { 
+      font-family: var(--font-body); 
+      font-size: 0.75rem; 
+      font-weight: 700; 
+      color: #FAF4ED;
+      opacity: 0.90; 
+      margin-top: 0.15rem; /* Crushed space below main title */
+      line-height: 1.4;    /* Tightened line spacing */
+      letter-spacing: 0.04em;
+    }
+    .sidebar-logo .logo-tag { 
+      font-family: var(--font-body); 
+      font-size: 0.8rem; 
+      font-weight: 600; 
+      color: #FAF4ED; 
+      opacity: 0.80; 
+      margin-top: 0.4rem; /* Reduced gap before the tag line */
+      line-height: 1.3;   /* Tightened spacing for the two-line wrap */
+      text-wrap: balance;
     }
 
-    /* ═══ 3D GLOSS BUTTONS ════════════════════════════════════════════ */
+    /* Sticky Mobile Control Header Strip */
+    .sidebar-mobile-bar {
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      padding: 0.875rem; 
+      background: rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+    .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+    .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+    
+    .sidebar-mobile-bar .brand { 
+      font-family: var(--font-body); 
+      font-size: 0.95rem; 
+      font-weight: 900; 
+      color: #FAF4ED; 
+      letter-spacing: 0.01em; 
+    }
+
+    /* Mobile Menu Dropdown Toggle Triggers */
+    .menu-toggle {
+      background: rgba(255,255,255,0.08); 
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 0.5rem; 
+      padding: 0.45rem 0.85rem;
+      font-size: 0.75rem; 
+      font-weight: 800; 
+      color: #FAF4ED; 
+      cursor: pointer;
+      display: flex; 
+      align-items: center; 
+      gap: 0.375rem;
+      transition: background 0.15s, transform 0.1s;
+      font-family: var(--font-body);
+    }
+    .menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
+    .menu-toggle svg { width: 1.1rem; height: 1.1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
+    .menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
+    
+    .menu-toggle .toggle-label-open  { display: inline; }
+    .menu-toggle .toggle-label-close { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+
+    /* Navigation Menu Links Framework Layout */
+    .nav-menu {
+      display: flex; 
+      flex-direction: column; 
+      gap: 0.95rem; 
+      padding: 0 0.75rem; 
+      overflow: hidden;
+      max-height: 0; 
+      opacity: 0; 
+      pointer-events: none;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-menu.is-open { 
+      max-height: 95vh; 
+      opacity: 1; 
+      pointer-events: auto; 
+      padding: 1.5rem 0.75rem; 
+      overflow-y: auto;
+    }
+    
+    @media (min-width: 768px) {
+      .nav-menu {
+        display: flex !important; 
+        max-height: none !important; 
+        opacity: 1 !important;
+        pointer-events: auto !important; 
+        padding: 1.5rem 0.75rem !important; 
+        overflow-y: auto;
+        flex-grow: 1;
+      }
+    }
+
+    /* Calibrated Category Headings Typography System */
+    .nav-section-label {
+      font-family: var(--font-body); 
+      font-size: 0.7rem; 
+      font-weight: 900; 
+      letter-spacing: 0.14em; 
+      text-transform: uppercase; 
+      color: #FAF4ED;
+      opacity: 0.45; 
+      padding: 0 0.5rem; 
+      margin-bottom: 0.22rem; 
+    }
+
+    /* Core Architectural Sidebar Navigation Anchor Tokens */
+.nav-link {
+      font-family: var(--font-body); 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem; 
+      border-radius: 0.5rem;
+      font-size: 0.875rem; 
+      font-weight: 600; 
+      color: #FAF4ED;          /* <-- CHANGE THIS */
+      line-height: 1.35; 
+      letter-spacing: 0.025em; 
+      transition: background 0.15s, color 0.15s;
+      text-decoration: none; 
+    }
+    .nav-link:hover { background: rgba(255,255,255,0.08); }
+    .nav-link.active { 
+      background: rgba(255,255,255,0.17); 
+      color: #FAF4ED; 
+      border-left: 3px solid #FAF4ED; 
+      opacity: 0.92; 
+      padding-left: calc(0.75rem - 3px); 
+    }
+    
+    .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0.05rem; }
+    
+    /* Muted Tastefully Dimmed Secondary Links Sublabels */
+    .nav-link-sub .nav-sublabel { 
+      padding-left: 0; 
+      font-size: 0.82rem; 
+      font-weight: 500; 
+      letter-spacing: 0.03em;
+      color: #FAF0E6; 
+      opacity: 0.55;  
+    }
+
+    #scroll-progress-track { 
+      position: absolute; 
+      top: 0; left: 0; right: 0; 
+      height: 3px; 
+      background: rgba(255,255,255,0.06); 
+      z-index: 100; 
+      display: none; 
+    }
+    @media (min-width: 768px) { #scroll-progress-track { display: block; } }
+    
+    #scroll-progress { 
+      height: 100%; 
+      width: 0%; 
+      background: linear-gradient(90deg, var(--color-sage) 0%, var(--color-leaf) 100%); 
+      transition: width 0.1s linear; 
+    }
+
+    /* =====================================================
+       5. 3D GLOSS ACTION BUTTON SYSTEMS
+    ===================================================== */
     .hero-actions {
       display: flex;
       gap: 16px;
@@ -308,7 +495,7 @@
         inset 0 1px 0 #FFFFFF;
     }
 
-    /* Hero Bullet Elements */
+    /* Inline Feature Grid Bullet Proof Points */
     .hero-proof {
       display: flex;
       gap: 10px 20px;
@@ -339,7 +526,9 @@
       margin: 0 0 24px;
     }
 
-    /* ═══ WHY MEMBERS LOVE THE GROUP (PARENT & NESTED CARD) ════════════ */
+    /* =====================================================
+       6. PARENT COMPONENT CARD LAYOUTS
+    ===================================================== */
     .why-community-card {
       background: var(--surface);
       border: 1px solid var(--border-light);
@@ -361,7 +550,6 @@
       gap: 32px;
     }
 
-    /* Inner Benefit Block Headers - Increased size & weight */
     .benefit-block h3 {
       margin: 0 0 12px;
       color: var(--blue);
@@ -377,7 +565,7 @@
       line-height: 1.6;
     }
 
-    /* Split Content Area */
+    /* Content Splitting Flex Grid Block Layout */
     .community-layout {
       display: grid;
       grid-template-columns: 1.3fr 0.9fr;
@@ -418,7 +606,6 @@
       font-weight: 800;
     }
 
-    /* Inner Step List Headers - Increased size, weight, and changed to blue */
     .step-content h3 {
       margin: 0 0 4px;
       font-size: 1.25rem; 
@@ -447,7 +634,7 @@
 
     .resource-note a:hover { text-decoration: underline; }
 
-    /* Signup Form Card */
+    /* Signup Card Form */
     .signup-card {
       background: var(--surface);
       border: 1px solid var(--border-light);
@@ -457,7 +644,6 @@
       top: 32px;
     }
 
-    /* Sidebar Form Title Header - Increased size & weight */
     .signup-title {
       font-size: 1.75rem; 
       font-weight: 900; 
@@ -536,7 +722,7 @@
       font-weight: 700;
     }
 
-    /* Footer */
+    /* Global Metadata Regional Chapter Footer */
     .site-footer {
       margin-top: 40px;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -560,13 +746,15 @@
     
     .site-footer a:hover { text-decoration: underline; }
 
-    /* Honeypot Form Anti-Spam Styling */
+    /* Invisible Form Honeypot Protection Anti-Spam Styling */
     .hidden-field {
       position: absolute; 
       left: -5000px;
     }
 
-    /* ═══ RESPONSIVE BREAKPOINTS ══════════════════════════════════════ */
+    /* =====================================================
+       7. RESPONSIVE BREAKPOINTS
+    ===================================================== */
     @media (max-width: 860px) {
       .community-layout {
         grid-template-columns: 1fr;
@@ -576,130 +764,89 @@
         top: auto;
       }
     }
-
-    @media (max-width: 750px) {
-      .layout { flex-direction: column; }
-      aside { width: 100%; height: auto; position: relative; }
-      .nav-brand { display: none; }
-      
-      .mobile-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px;
-        background: var(--green);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      
-      .mobile-brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-      }
-      
-      .mobile-logo { width: 34px; height: auto; }
-      .mobile-title { font-size: 0.95rem; font-weight: 800; color: #FFFFFF; }
-      
-      nav { display: none; padding: 8px 0; }
-      nav.open { display: flex; }
-      nav a { padding: 10px 20px; margin-left: 0; }
-      .nav-group-label { padding: 12px 20px 4px; }
-      
-      .hamburger {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 6px;
-        padding: 6px 12px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        color: #FFFFFF;
-        cursor: pointer;
-      }
-      
-      .hamburger svg { width: 16px; height: 16px; stroke: #FFFFFF; fill: none; }
-      .page { padding: 32px 20px; }
-    }
   </style>
 </head>
 
 <body>
-<div class="layout">
+<div class="page-wrapper">
 
-  <!-- Sidebar -->
-  <aside>
-    <a href="index.html" class="nav-brand">
-      <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
-      <span class="site-title">Golden Gate Chapter</span>
-      <span class="site-crfg">EST 1987 • CRFG.org</span>
-      <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
+  <!-- Adaptive Sidebar Layout Navigation Panel -->
+  <aside class="sidebar">
+    <div id="scroll-progress-track"><div id="scroll-progress"></div></div>
+    
+    <!-- Unified Sidebar Logo Block Structure (Optimized Uniform State) -->
+    <a href="index.html" class="sidebar-logo">
+      <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="136" height="136">
+      <span class="logo-name">Golden Gate Chapter</span>
+      <span class="logo-sub">EST 1987 • CRFG.org</span>
+      <span class="logo-tag">Growing unusual edibles<br>in the SF Bay Area</span>
     </a>
 
-    <div class="mobile-header">
-      <a href="index.html" class="mobile-brand">
-        <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
-        <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+    <!-- Sticky Mobile Navigation Top Bar Layout Component -->
+    <div class="sidebar-mobile-bar">
+      <a href="index.html">
+        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
+        <span class="brand">Golden Gate · CRFG</span>
       </a>
-      <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        <span>Menu</span>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
       </button>
     </div>
 
-    <nav id="navMenu">
-      <div class="nav-group">
-        <span class="nav-group-label">Start Here</span>
-        <a href="index.html">About Us</a>
-        <a href="golden-gate-history.html">Our Historical Roots</a>
+    <!-- Active High-Design Menu Links Navigation Map -->
+    <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
+      <div>
+        <p class="nav-section-label">Start Here</p>
+        <a href="index.html" class="nav-link">About Us</a>
+        <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
       </div>
-
-      <div class="nav-group">
-        <span class="nav-group-label">Grow Fruit</span>
-        <a href="bay-area-zone-favorites.html">Bay Area Favorites</a>
-        <a href="member-guides.html">Member Written Guides</a>
-        <a href="fruity-resources.html">Fruity Resources</a>
+      <div>
+        <p class="nav-section-label">Grow Fruit</p>
+        <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
+          <span>Bay Area Favorites</span>
+          <span class="nav-sublabel">by Climate Zone</span>
+        </a>
+        <a href="member-guides.html" class="nav-link nav-link-sub" style="margin-top:0.25rem;">
+          <span>Member Guides</span>
+          <span class="nav-sublabel">What Thrives Locally</span>
+        </a>
+        <a href="fruity-resources.html" class="nav-link" style="margin-top:0.25rem;">Fruity Resources</a>
       </div>
-
-      <div class="nav-group">
-        <span class="nav-group-label">Community</span>
-        <a href="meetings.html">Meetings</a>
-        <a href="online-community.html" class="active">Online Community</a>
+      <div>
+        <p class="nav-section-label">Community</p>
+        <a href="meetings.html" class="nav-link">Meetings</a>
+        <a href="online-community.html" class="nav-link active">Online Community</a>
       </div>
-
-      <div class="nav-group">
-        <span class="nav-group-label">Membership</span>
-        <a href="join-renew.html">Join Renew</a>
+      <div>
+        <p class="nav-section-label">Membership</p>
+        <a href="join-renew.html" class="nav-link">Join / Renew</a>
       </div>
-
-      <div class="nav-group">
-        <span class="nav-group-label">Events</span>
-        <a href="gg-scionexchange.html">Scion Exchange</a>
+      <div>
+        <p class="nav-section-label">Events</p>
+        <a href="gg-scionExchange.html" class="nav-link">Scion Exchange</a>
       </div>
-
-      <div class="nav-group">
-        <span class="nav-group-label">Find Plants</span>
-        <a href="where-to-buy.html">Where to Buy</a>
+      <div>
+        <p class="nav-section-label">Get Plants</p>
+        <a href="where-to-buy.html" class="nav-link">Where to Buy</a>
       </div>
     </nav>
   </aside>
 
-  <!-- Main Content Area -->
-  <div class="page">
+  <!-- Main View Container Block Area -->
+  <div class="main-wrapper">
     <main>
 
-      <!-- Hero Section -->
+      <!-- Contextual Header Introduction Hero Layout -->
       <section class="hero">
         <div class="eyebrow">Stay Connected Between Meetings</div>
         <h1>Join the Conversation.<br>Grow Better Fruit.</h1>
         <p class="hero-lead">
-          The Golden Gate Chapter online community is where Bay Area fruit growers swap advice, celebrate harvests, troubleshoot problems, and <strong>stay connected all year long</strong>.<br> Whether you’re growing citrus on a patio, experimenting with subtropicals, or tending an established orchard, there’s always someone in the group eager to share what they’ve learned.
+          Can't wait until the next meeting to talk fruit? Join our digital space to trade cultivation experiences, troubleshoot challenges, share extra harvest yields, and chat with fellow growers across the entire San Francisco Bay Area region—all year long. Whether you’re growing citrus on a patio, experimenting with subtropicals, or tending an established orchard, there’s always someone to help.
         </p>
 
         <div class="hero-actions">
-          <a class="button" href="#community-card">Request Access</a>
+          <a class="button" href="#join-community">Request Access</a>
           <a class="button secondary" href="member-guides.html">Explore Member Guides</a>
         </div>
 
@@ -711,13 +858,14 @@
         </div>
       </section>
 
-      <!-- Reconfigured Value Prop: Main card with a nested inner card -->
+      <!-- Primary Core Proposition Parent Card -->
       <section class="why-community-card">
-        <h2>Growing Fruit is Better Together</h2>
+        <h2>Growing Fruit is Better&nbsp;Together</h2>
         <p class="section-intro">
           Think of it as your <strong>year-round fruit growing support network</strong> — a place to ask questions, compare notes, and learn from people growing the same plants in the same Bay Area conditions.<br>
         </p>
 
+        <!-- Structured Nested Informational Component Grid -->
         <div class="benefits-nested-card">
           <div class="benefits-inner-layout">
             <div class="benefit-block">
@@ -738,7 +886,7 @@
         </div>
       </section>
 
-      <!-- Step Content & Sidebar Join Split Layout -->
+      <!-- Secondary Structural Split Dynamic Columns Grid Layout -->
       <div class="community-layout">
         <section class="community-card">
           <div class="card-eyebrow">Getting Started</div>
@@ -775,7 +923,7 @@
           </div>
         </section>
 
-        <!-- Dynamic Form Sticky Card -->
+        <!-- Access Registration Embedded Form Card Component -->
         <section class="signup-card" id="join-community">
           <div class="card-eyebrow">Join the Community</div>
           <h2 class="signup-title">Join the Conversation</h2>
@@ -785,7 +933,7 @@
             <label for="email">Email address</label>
             <input id="email" name="email" type="email" required placeholder="your@email.com">
 
-            <!-- Anti-Spam Honeypot Field -->
+            <!-- Anti-Spam Hidden Form Field Honeypot -->
             <div class="hidden-field" aria-hidden="true">
               <input tabindex="-1" name="b_7714720136544229230" type="text" value="">
             </div>
@@ -800,7 +948,7 @@
         </section>
       </div>
 
-      <!-- Global Footer -->
+      <!-- Chapter Global Layout Footer Metadata -->
       <footer class="site-footer">
         <p>Questions or comments?<br>Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
         <p>Copyright &copy; 2026. All rights reserved.<br>California Rare Fruit Growers Inc. | <a href="https://crfg.org" target="_blank">CRFG.org</a></p>
@@ -810,15 +958,27 @@
 </div>
 
 <script>
-(function () {
-  var p = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("#navMenu a").forEach(function (a) {
-    if (a.getAttribute("href") === p) a.classList.add("active");
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('is-open', !isExpanded);
+      });
+    }
+
+    // Top Dynamic Reading Progress Tracker Computation
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      const progressBar = document.getElementById('scroll-progress');
+      if (progressBar) progressBar.style.width = scrolled + '%';
+    });
   });
-  document.querySelectorAll("#navMenu a").forEach(link => {
-    link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('open'));
-  });
-}());
 </script>
 </body>
 </html>
