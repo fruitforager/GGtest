@@ -6,26 +6,40 @@
 <title>Meetings Golden Gate Chapter CRFG</title>
 <style>
 :root {
-  --bg: #FAF0E6;
-  --text: #222;
-  --green: #274D31;
-  --green-dark: #21452c;
-  --blue: #2f5d8f;
-  --blue-dark: #21425c;
-  --burgundy: #6b4c6e;
-  --color-leaf: #2d5e3a;
-  --color-crimson: #9b1c2e;
-  --border: #d8ccb6;
-  --sidebar: 220px;
-  --content-width: 1200px;
-}
+      --bg: #FAF0E6;
+      --text: #222;
+      --green: #274D31;
+      --green-dark: #21452c;
+      --blue: #2f5d8f;
+      --blue-dark: #21425c;
+      --border: #d8ccb6;
+      --sidebar-width: 14rem;
+      --max-container: 1380px;
 
+      /* Brand Typography Palette */
+      --color-forest:    #1e3d28;
+      --color-leaf:      #2d5e3a;
+      --color-sage:      #5a7d5f;
+      --color-mist:      #e8f0e9;
+      --color-parchment: #faf6ef;
+      --color-crimson:   #9b1c2e;
+      --color-gold:      #c8882a;
+      --color-ink:       #1a1a18;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      /* Standardized Shadow Tokens */
+      --shadow-btn-base: 0 4px 12px rgba(47,93,143,0.28), 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15);
+      --shadow-btn-hover: 0 8px 20px rgba(47,93,143,0.32), 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
+      --shadow-btn-active: 0 2px 6px rgba(47,93,143,0.22), inset 0 2px 6px rgba(0,0,0,0.10);
+}
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -39,11 +53,15 @@ strong, b {
   font-weight: 800;
 }
 
-.layout {
-  display: flex;
+.page-wrapper {
+  max-width: var(--max-container); 
+  margin: 0 auto;
+  display: flex; 
+  flex-direction: column; 
   min-height: 100vh;
-  max-width: var(--content-width);
-  margin: auto;
+}
+@media (min-width: 768px) { 
+  .page-wrapper { flex-direction: row; } 
 }
 
 .eyebrow, .card-eyebrow {
@@ -57,134 +75,181 @@ strong, b {
   opacity: 0.9;
 }
 
-aside {
-  width: var(--sidebar);
-  flex-shrink: 0;
-  background: var(--green);
-  display: flex;
-  flex-direction: column;
-  position: sticky;
+/* =====================================================
+   ADAPTIVE SIDEBAR NAVIGATION SYSTEM
+===================================================== */
+.sidebar {
+  width: 100%; 
+  background-color: var(--color-forest); 
+  color: #fff;
+  flex-shrink: 0; 
+  z-index: 50;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: sticky; 
   top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+@media (min-width: 768px) {
+  .sidebar { 
+    width: var(--sidebar-width); 
+    position: sticky; 
+    top: 0; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  }
+}
+@media (min-width: 1024px) { 
+  .sidebar { width: 15rem; } 
 }
 
-.nav-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.sidebar-logo {
+  display: none; 
+  flex-direction: column; 
+  align-items: center; 
   text-align: center;
-  padding: 20px 16px 16px;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  margin-bottom: 4px;
+  padding: 1.5rem 1.25rem; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.15s ease;
+  text-decoration: none; 
+}
+.sidebar-logo:hover { background: rgba(255,255,255,0.04); }
+@media (min-width: 768px) { .sidebar-logo { display: flex; } }
+
+.sidebar-logo img { 
+  width: 4.5rem; 
+  height: auto; 
+  margin-bottom: 0.875rem; 
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
 }
 
-.logo {
-  width: 134px;
-  height: auto;
-  display: block;
-  margin: 0 auto 14px;
-  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, .22));
-}
+.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 1rem; font-weight: 900; line-height: 1.25; color: #FAF0E6; }
+.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; }
+.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.625rem; line-height: 1.4; }
 
-.site-title {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: white;
-  line-height: 1.3;
-  display: block;
+/* Sticky Mobile Control Header Strip */
+.sidebar-mobile-bar {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0.875rem; 
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
+@media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+.sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+.sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+.sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
-.site-crfg {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.3;
-  display: block;
-  text-align: center;
-  margin-top: 2px;
+/* Menu Drop Shade Trigger Toggle */
+.menu-toggle {
+  background: rgba(255,255,255,0.08); 
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 0.5rem; 
+  padding: 0.45rem 0.85rem;
+  font-size: 0.75rem; 
+  font-weight: 800; 
+  color: #fff; 
+  cursor: pointer;
+  display: flex; 
+  align-items: center; 
+  gap: 0.375rem;
+  transition: background 0.15s, transform 0.1s;
+  font-family: var(--font-body);
 }
+.menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
+.menu-toggle svg { width: 1.1rem; height: 1.1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
+.menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
 
-.site-sub {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.3;
-  margin-top: 4px;
-  display: block;
-  text-align: center;
-}
+.menu-toggle .toggle-label-open  { display: inline; }
+.menu-toggle .toggle-label-close { display: none; }
+.menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+.menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
 
-nav {
-  display: flex;
-  flex-direction: column;
-  padding: 4px 0 120px;
-}
-
-.nav-group {
-  margin-top: 6px;
-}
-
-.nav-group-label {
-  font-size: 0.76rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 16px 16px 5px;
-  display: block;
-  margin-top: 4px;
-  text-align: left;
-}
-
-.nav-group:first-child .nav-group-label {
-  margin-top: 0;
-  padding-top: 10px;
-}
-
-nav a {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--bg);
-  text-decoration: none;
-  padding: 5px 16px 5px 16px;
-  border-left: 3px solid transparent;
-  display: block;
-  line-height: 1.3;
-  white-space: nowrap;
+/* Navigation Panel Link Layout */
+.nav-menu {
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.15rem;
+  padding: 0 0.75rem; 
   overflow: hidden;
-  text-overflow: ellipsis;
-  transition: background 0.12s, color 0.12s, border-color 0.12s, transform 0.12s;
-  text-align: left;
-  margin-left: 18px;
+  max-height: 0; 
+  opacity: 0; 
+  pointer-events: none;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-menu.is-open { 
+  max-height: 95vh; 
+  opacity: 1; 
+  pointer-events: auto; 
+  padding: 1.5rem 0.75rem; 
+  overflow-y: auto;
 }
 
-nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex !important; 
+    max-height: none !important; 
+    opacity: 1 !important;
+    pointer-events: auto !important; 
+    padding: 1.5rem 0.75rem !important; 
+    overflow-y: auto;
+    flex-grow: 1;
+  }
 }
 
-nav a.active {
-  background: rgba(255, 255, 255, 0.14);
-  color: white;
-  border-left-color: rgba(255, 255, 255, 0.75);
+.nav-section-label {
+  font-family: var(--font-body); font-size: 0.65rem; font-weight: 900; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.45);
+  padding: 0 0.5rem; margin-bottom: 0.375rem;
+}
+.nav-link {
+  font-family: var(--font-body); display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.45rem 0.75rem; border-radius: 0.5rem;
+  font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.85);
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none; 
+}
+.nav-link:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.nav-link.active { background: rgba(255,255,255,0.17); color: #fff; border-left: 3px solid #ffffff; opacity: 0.88; padding-left: calc(0.75rem - 3px); }
+.nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
+.nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.8; font-weight: 400; }
+
+#scroll-progress-track { 
+  position: absolute; 
+  top: 0; left: 0; right: 0; 
+  height: 3px; 
+  background: rgba(255,255,255,0.06); 
+  z-index: 100; 
+  display: none; 
+}
+@media (min-width: 768px) { #scroll-progress-track { display: block; } }
+
+#scroll-progress { 
+  height: 100%; 
+  width: 0%; 
+  background: linear-gradient(90deg, var(--color-sage) 0%, var(--color-leaf) 100%); 
+  transition: width 0.1s linear; 
 }
 
-.hamburger {
-  display: none;
+/* =====================================================
+   MAIN PAGE PACKAGING
+===================================================== */
+.main-wrapper { 
+  flex: 1; 
+  min-width: 0; 
+  padding: 2rem 1.25rem; 
+}
+@media (min-width: 768px) { 
+  .main-wrapper { padding: 2.5rem 2.5rem 2.5rem 4rem; } 
+}
+@media (min-width: 1024px) { 
+  .main-wrapper { padding: 2.5rem 4rem 2.5rem 5rem; } 
 }
 
-.mobile-header {
-  display: none;
-}
-
-.page {
-  flex: 1;
-  padding: 40px 44px 40px 52px;
-  min-width: 0;
+main { 
+  max-width: 56rem; 
+  margin: 0 auto; 
 }
 
 .hero {
@@ -192,7 +257,7 @@ nav a.active {
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
   line-height: 1.18;
   margin: 0 0 28px;
   max-width: 800px;
@@ -222,7 +287,7 @@ h3 {
 }
 
 p {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   font-size: 1.1rem;
   line-height: 1.55;
   orphans: 2;
@@ -235,34 +300,6 @@ p {
   max-width: 52ch;
 }
 
-.member-title {
-  font-size: 1.85rem;
-  font-weight: 900;
-  line-height: 1.18;
-  margin-bottom: 12px;
-}
-
-.step {
-  margin: 20px 0;
-  padding-left: 22px;
-  max-width: 46ch;
-}
-
-.step + .step {
-  margin-top: 30px;
-}
-
-.step p strong {
-  display: inline;
-  margin-bottom: 0;
-  line-height: 1.4;
-}
-
-.step p {
-  margin: 0;
-  line-height: 1.5;
-}
-
 /* Compact dimensional 3D pill button config */
 .button {
   display: inline-flex;
@@ -272,10 +309,10 @@ p {
   background: linear-gradient(to bottom, #5385ba 0%, #3a6f9f 50%, #244b75 100%);
   color: white;
   text-decoration: none;
-    padding: 9px 20px;
-  border-radius: 50px; /* Completely round ends */
+  padding: 9px 20px;
+  border-radius: 50px; 
   font-weight: 900;
-  font-size: 0.95rem;  /* Scales down the button text size slightly */
+  font-size: 0.95rem;  
   letter-spacing: 0.03em;
   white-space: nowrap;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -301,86 +338,21 @@ p {
   filter: brightness(0.95);
 }
 
-.button:focus-visible {
-  outline: 3px solid rgba(47, 93, 143, 0.45);
-  outline-offset: 2px;
-}
-
-.step .button {
-  display: flex;
-  width: 100%;
-  max-width: 35ch;
-  text-align: center;
-  margin-top: 14px;
-}
-
-/* Forces alignment grid match with details grid value columns */
 .meeting-card .button {
   margin-top: 18px;
   display: inline-flex;
   width: auto;
-  margin-left: 98px; /* Perfectly offsets past the 86px label width + 12px gap */
+  margin-left: 98px; 
 }
 
-.pay-logos {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  padding: 10px 6px;
-  width: 100%;
-  max-width: 35ch;
-}
-
-.pay-logos img {
-  flex: 0 0 auto;
-  max-height: 22px;
-  width: auto;
-}
-
-.pay-card {
-  margin-top: 14px;
-  background: #f6e3d1;
-  border-radius: 7px;
-  padding: 12px 16px;
-  display: block;
-  font-size: 0.9rem;
-  line-height: 1.45;
-  color: #555;
-  max-width: 48ch;
-  clear: both;
-}
-
-.pay-card a {
-  transition: color 0.18s ease, text-decoration-color 0.18s ease;
-}
-
-.pay-card a:hover {
-  color: var(--blue-dark);
-  text-decoration: underline;
-}
-
-.mail-line {
-  white-space: nowrap;
-}
-
-ul {
-  padding-left: 26px;
-  margin: 0;
-}
-
-li {
-  margin-bottom: 6px;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  orphans: 3;
-  widows: 3;
+hr { 
+  border: none; 
+  border-top: 1px solid var(--border); 
+  margin: 40px 0; 
 }
 
 /* =====================================================
-        FOOTER SCHEMATICS (Fixed CSS comment trap)
+        FOOTER SCHEMATICS
 ===================================================== */
 .site-footer {
   max-width: 56rem; 
@@ -388,7 +360,7 @@ li {
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08); 
   font-size: 0.72rem;
-  color: rgba(26, 26, 24, 0.5); 
+  color: rgba(26, 26, 24, 0.6); 
   font-weight: 500;
   text-align: left;
   line-height: 1.65;
@@ -401,7 +373,7 @@ li {
 
 .site-footer a { 
   color: var(--color-leaf); 
-  font-weight: 600; 
+  font-weight: 700; 
   text-decoration: none; 
 }
 
@@ -409,88 +381,7 @@ li {
   text-decoration: underline; 
 }
 
-.bottom-tagline {
-  line-height: 1.35;
-  margin-top: 44px;
-  margin-bottom: 0;
-}
-
-@media (max-width: 750px) {
-  .layout {
-    flex-direction: column;
-  }
-  aside {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .nav-brand {
-    display: none;
-  }
-  .mobile-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-  }
-  .mobile-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-  .mobile-logo {
-    width: 36px;
-    height: auto;
-  }
-  .mobile-title {
-    font-size: 0.88rem;
-    font-weight: 800;
-    color: white;
-    line-height: 1.2;
-  }
-  nav {
-    display: none;
-    padding: 0 0 10px;
-  }
-  nav.open {
-    display: flex;
-  }
-  nav a {
-    padding: 8px 20px;
-    border-left: none;
-    font-size: 0.95rem;
-    margin-left: 0;
-  }
-  .nav-group-label {
-    padding: 10px 20px 3px;
-  }
-  .hamburger {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 7px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-    font-family: inherit;
-  }
-  .hamburger svg {
-    width: 16px;
-    height: 16px;
-    stroke: white;
-    fill: none;
-  }
-  .page {
-    padding: 24px 16px;
-  }
-  .hero h1 {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
+@media (max-width: 767px) {
   .button {
     display: inline-flex;
     width: auto;
@@ -501,40 +392,8 @@ li {
     padding: 8px 18px;
   }
   .meeting-card .button {
-    margin-left: 0; /* Drops grid indentation offset cleanly on single stack screens */
+    margin-left: 0; 
     margin-top: 14px;
-  }
-  .step {
-    padding-left: 0;
-    max-width: none;
-  }
-  .step .button {
-    display: flex;
-    width: 100%;
-  }
-  .pay-logos,
-  .pay-card {
-    max-width: none;
-    width: 100%;
-  }
-  .pay-logos {
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 12px 6px;
-  }
-  .pay-logos img {
-    max-height: 20px;
-  }
-  .bottom-tagline {
-    line-height: 1.42;
-  }
-}
-
-@media (hover: hover) {
-  .pay-card a:hover {
-    color: var(--blue-dark);
-    text-decoration: underline;
   }
 }
 
@@ -561,148 +420,161 @@ li {
 .meeting-detail .value {
   flex: 1;
 }
-.agenda-item {
-  margin: 6px 0 0;
-}
 </style>
 </head>
 <body>
 
-<div class="layout">
+<div class="page-wrapper">
 
-<aside>
-  <a href="index.html" class="nav-brand">
-    <img class="logo" src="images/CRFG-logo-transparent-web.svg" alt="Golden Gate Chapter CRFG Logo">
-    <span class="site-title">Golden Gate Chapter</span>
-    <span class="site-crfg">EST • CRFG.org</span>
-    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
-  </a>
-
-  <div class="mobile-header">
-    <a href="index.html" class="mobile-brand">
-      <img class="mobile-logo" src="images/CRFG-logo-transparent-web.svg" alt="CRFG Logo">
-      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+  <aside class="sidebar">
+    <div id="scroll-progress-track"><div id="scroll-progress"></div></div>
+    
+    <a href="index.html" class="sidebar-logo">
+      <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
+      <span class="logo-name">Golden Gate Chapter</span>
+      <span class="logo-sub">EST 1987 • CRFG.org</span>
+      <span class="logo-tag">Growing unusual edibles<br>in the SF Bay Area</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <span>Menu</span>
-    </button>
-  </div>
 
-  <nav id="navMenu">
-    <div class="nav-group">
-      <span class="nav-group-label">🏠 Start Here</span>
-      <a href="index.html">About Us</a>
-      <a href="golden-gate-history.html">Our Historical Roots</a>
+    <div class="sidebar-mobile-bar">
+      <a href="index.html">
+        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
+        <span class="brand">Golden Gate · CRFG</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
+      </button>
     </div>
 
-    <div class="nav-group">
-      <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
-      <a href="fruity-resources.html">Fruity Resources</a>
-    </div>
+    <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
+      <div>
+        <p class="nav-section-label">Start Here</p>
+        <a href="index.html" class="nav-link">About Us</a>
+        <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Grow Fruit</p>
+        <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
+          <span>Bay Area Favorites</span>
+          <span class="nav-sublabel">by Climate Zone</span>
+        </a>
+        <a href="member-guides.html" class="nav-link nav-link-sub" style="margin-top:0.25rem;">
+          <span>Member Guides</span>
+          <span class="nav-sublabel">What Thrives Locally</span>
+        </a>
+        <a href="fruity-resources.html" class="nav-link" style="margin-top:0.25rem;">Fruity Resources</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Community</p>
+        <a href="meetings.html" class="nav-link active">Meetings</a>
+        <a href="online-community.html" class="nav-link" style="margin-top:0.25rem;">Online Community</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Membership</p>
+        <a href="join-renew.html" class="nav-link">Join / Renew</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Events</p>
+        <a href="gg-scionExchange.html" class="nav-link">Scion Exchange</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Get Plants</p>
+        <a href="where-to-buy.html" class="nav-link">Where to Buy</a>
+      </div>
+    </nav>
+  </aside>
 
-    <div class="nav-group">
-      <span class="nav-group-label">🤝 Community</span>
-      <a href="meetings.html" class="active" style="white-space:normal;">Meetings</a>
-      <a href="online-community.html">Online Community</a>
-    </div>
+  <div class="main-wrapper">
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Come curious—leave with possibilities</div>
+        <h1>Golden Gate Chapter&nbsp;Meetings</h1>
+        <p>Meetings are <strong>free and open to the public</strong>. You don't need to be a CRFG member to attend — just bring your curiosity and enthusiasm for fruit.</p>
+        <p class="small">Meetings may include an expert speaker, fresh fruit tastings from members' gardens, members only orchard tours and field trips, plant and scion sharing, and great conversation with local growers.</p>
+      </section>
 
-    <div class="nav-group">
-      <span class="nav-group-label">✨ Membership</span>
-      <a href="join-renew.html">Join / Renew</a>
-    </div>
+      <h2>🌿 2026 Meetings</h2>
 
-    <div class="nav-group">
-      <span class="nav-group-label">🍋 Events</span>
-      <a href="gg-scionexchange.html">Scion Exchange</a>
-    </div>
+      <div class="meeting-card" role="region" aria-labelledby="april-meeting-title">
+        <h3 id="april-meeting-title" style="margin-top:0;">April Meeting</h3>
 
-    <div class="nav-group">
-      <span class="nav-group-label">🌱 Get Plants</span>
-      <a href="where-to-buy.html">Where to Buy</a>
-    </div>
-  </nav>
-</aside>
+        <div class="meeting-detail">
+          <span class="label">Date:</span>
+          <span class="value">Saturday, April 4, 2026</span>
+        </div>
 
-<div class="page">
-<main>
-<section class="hero">
-<div class="eyebrow">Come curious—leave with possibilities</div>
-<h1 style="color:var(--color-crimson);">Golden Gate Chapter&nbsp;Meetings</h1>
-<p>Meetings are <strong>free and open to the public</strong>. You don't need to be a CRFG member to attend — just bring your curiosity and enthusiasm for fruit.</p>
-<p class="small">Meetings may include an expert speaker, fresh fruit tastings from members' gardens, members only orchard tours and field trips, plant and scion sharing, and great conversation with local growers.</p>
-</section>
+        <div class="meeting-detail">
+          <span class="label">Time:</span>
+          <span class="value">12:00 PM – 3:00 PM</span>
+        </div>
 
-<h2>🌿 2026 Meetings</h2>
+        <div class="meeting-detail">
+          <span class="label">Program:</span>
+          <span class="value">Talk by Rose Loveall, owner of MorningSun Herb Farm</span>
+        </div>
 
-<div class="meeting-card" role="region" aria-labelledby="april-meeting-title">
-<h3 id="april-meeting-title">April Meeting</h3>
+        <div class="meeting-detail">
+          <span class="label">Location:</span>
+          <span class="value">
+            MorningSun Herb Farm<br>
+            6137 Pleasants Valley Road<br>
+            Vacaville, CA 95687<br>
+            <em>Parking: please use the neighboring property to the south and follow posted signs.</em>
+          </span>
+        </div>
 
-<div class="meeting-detail">
-<span class="label">Date:</span>
-<span class="value">Saturday, April 4, 2026</span>
-</div>
+        <h3 style="margin-top:28px;">Schedule</h3>
+        <div class="meeting-detail">
+          <span class="label">12:00 pm:</span>
+          <span class="value">Potluck. Please bring fruit and/or vegetables from your garden.</span>
+        </div>
+        <div class="meeting-detail">
+          <span class="label">1:00 pm:</span>
+          <span class="value">Talk by Rose Loveall. Rose Loveall is the owner of MorningSun Herb Farm, a family-run nursery specializing in culinary, medicinal, and specialty herbs; she has more than 30 years of experience growing hundreds of varieties of herbs, perennials, heirloom vegetables, and fruiting plants such as bananas, pineapple guava, figs, and passion fruit.</span>
+        </div>
+        <a class="button" href="https://morningsunherbfarm.com" target="_blank" rel="noopener">Visit MorningSun Herb Farm</a>
+      </div>
 
-<div class="meeting-detail">
-<span class="label">Time:</span>
-<span class="value">12:00 PM – 3:00 PM</span>
-</div>
+      <h3 style="margin-top:34px;">About Our Meetings 🍑</h3>
+      <p>The Golden Gate Chapter hosts gatherings around the Bay Area to hear expert talks, taste members' fruit, and trade plants, scions, and seeds.</p>
+      <p>Membership adds benefits like garden tours, the <strong><em>Fruit Gardener</em> magazine</strong>, and our <strong>Festival of Fruit state conference.</strong></p>
+      
+      <p><a class="button" href="join-renew.html">Join or Renew Membership</a></p>
 
-<div class="meeting-detail">
-<span class="label">Program:</span>
-<span class="value">Talk by Rose Loveall, owner of MorningSun Herb Farm</span>
-</div>
-
-<div class="meeting-detail">
-<span class="label">Location:</span>
-<span class="value">
-MorningSun Herb Farm<br>
-6137 Pleasants Valley Road<br>
-Vacaville, CA 95687
-<br>
-<em>Parking: please use the neighboring property to the south and follow posted signs.</em>
-</span>
-</div>
-
-<h3 style="margin-top:28px;">Schedule</h3>
-<div class="meeting-detail">
-<span class="label">12:00 pm:</span>
-<span class="value">Potluck. Please bring fruit and/or vegetables from your garden.</span>
-</div>
-<div class="meeting-detail">
-<span class="label">1:00 pm:</span>
-<span class="value">Talk by Rose Loveall. Rose Loveall is the owner of MorningSun Herb Farm, a family-run nursery specializing in culinary, medicinal, and specialty herbs; she has more than 30 years of experience growing hundreds of varieties of herbs, perennials, heirloom vegetables, and fruiting plants such as bananas, pineapple guava, figs, and passion fruit.</span>
-</div>
-<a class="button" href="https://morningsunherbfarm.com" target="_blank" rel="noopener">Visit MorningSun Herb Farm</a>
-</div>
-
-<h3 style="margin-top:34px;">About Our Meetings 🍑</h3>
-<p>The Golden Gate Chapter hosts gatherings around the Bay Area to hear expert talks, taste members' fruit, and trade plants, scions, and seeds.</p>
-<p>Membership adds benefits like garden tours, the <strong><em>Fruit Gardener</em> magazine</strong>, and our <strong>Festival of Fruit state conference.</strong></p>
-<p></p>
-<a class="button" href="join.html">Join or Renew Membership</a>
-
-<hr><p></p>
-  <footer class="site-footer">
+      <footer class="site-footer">
         <p>Questions or comments?<br>
         Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
         <p>Copyright &copy; 2026. All rights reserved.<br>
         California Rare Fruit Growers Inc. | <a href="https://crfg.org" target="_blank">CRFG.org</a></p>
       </footer>
-</main>
-</div>
+    </main>
+  </div>
 
 </div>
 
 <script>
-(function(){
-var p=window.location.pathname.split("/").pop()||"index.html";
-document.querySelectorAll("#navMenu a").forEach(function(a){
-if(a.getAttribute("href")===p) a.style.background="rgba(47,93,59,0.13)";
-});
-})();
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('is-open', !isExpanded);
+      });
+    }
+
+    // Dynamic Top Scroll Tracker Calculations
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      const progressBar = document.getElementById('scroll-progress');
+      if (progressBar) progressBar.style.width = scrolled + '%';
+    });
+  });
 </script>
 </body>
 </html>
