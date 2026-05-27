@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join or Renew — Golden Gate Chapter CRFG</title>
+<title>Scion Exchange — Golden Gate Chapter CRFG</title>
 <meta name="description" content="Join the Golden Gate Chapter of the California Rare Fruit Growers. Connect with Bay Area growers, attend orchard tours, tastings, and scion exchanges.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Join or Renew — Golden Gate Chapter CRFG">
@@ -110,105 +110,296 @@
     }
     @media (min-width: 768px) { .page-wrapper { flex-direction: row; } }
 
-    /* =====================================================
-       SIDEBAR
-    ===================================================== */
-    .sidebar {
-      width: 100%; background-color: var(--color-forest); color: #fff;
-      flex-shrink: 0; z-index: 50;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-            position: sticky; top: 0;
-    }
-    @media (min-width: 768px) {
-      .sidebar { width: 14rem; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; }
-    }
-    @media (min-width: 1024px) { .sidebar { width: 15rem; } }
+/* =====================================================
+   ADAPTIVE SIDEBAR NAVIGATION SYSTEM
+===================================================== */
+.sidebar {
+  width: 100%; 
+  background-color: var(--color-forest); 
+  color: #fff;
+  flex-shrink: 0; 
+  z-index: 50;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: sticky; 
+  top: 0;
+}
 
-    .sidebar-logo {
-      display: none; flex-direction: column; align-items: center; text-align: center;
-      padding: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1);
-      text-decoration: none; transition: background 0.15s;
-    }
-    .sidebar-logo:hover { background: rgba(255,255,255,0.05); }
-    @media (min-width: 768px) { .sidebar-logo { display: flex; } }
-    .sidebar-logo img      { width: 5rem; height: auto; margin-bottom: 0.75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
-    .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 1rem; font-weight: 900; line-height: 1.25; }
-    .sidebar-logo .logo-sub  { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-top: 0.125rem; }
-    .sidebar-logo .logo-tag  { font-size: 0.7875rem; font-weight: 700; color: rgba(255,255,255,0.6); margin-top: 0.5rem; line-height: 1.4; }
+@media (min-width: 768px) {
+  .sidebar { 
+    width: var(--sidebar-width, 12.5rem); 
+    position: sticky; 
+    top: 0; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    overflow-y: auto; 
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+  }
 
-    .sidebar-mobile-bar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.875rem; background: rgba(0,0,0,0.2);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
-    .sidebar-mobile-bar a     { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
-    .sidebar-mobile-bar img   { width: 2rem; height: auto; }
-    .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.875rem; font-weight: 900; color: #fff; }
+  .sidebar::-webkit-scrollbar {
+    width: 2px !important; 
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22) !important; 
+    border-radius: 10px !important;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
+}
 
-    .menu-toggle {
-      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 0.5rem; padding: 0.375rem 0.75rem;
-      font-size: 0.75rem; font-weight: 700; color: #fff; cursor: pointer;
-      display: flex; align-items: center; gap: 0.375rem;
-      transition: background 0.15s, transform 0.1s;
-    }
-    .menu-toggle:hover  { background: rgba(255,255,255,0.2); }
-    .menu-toggle:active { transform: scale(0.95); }
-    .menu-toggle svg { width: 1rem; height: 1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
-    .menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
-    .menu-toggle .toggle-label-open  { display: inline; }
-    .menu-toggle .toggle-label-close { display: none; }
-    .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
-    .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+@media (min-width: 1024px) { 
+  .sidebar { width: 13.5rem; } 
+}
 
-    /* --- Window-shade nav (mobile) --- */
-    .nav-menu {
-      flex-direction: column; gap: 1rem;
-      padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
+.sidebar-logo {
+  display: none; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  padding: 1.15rem 0.75rem; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.15s ease;
+  text-decoration: none; 
+}
 
-      /* Shade mechanics: collapsed by default on mobile */
-      max-height: 0;
-      opacity: 0;
-      pointer-events: none;
-      transition:
-        max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity    0.30s ease,
-        padding    0.42s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .nav-menu.is-open {
-      max-height: 800px;   /* large enough for any nav content */
-      opacity: 1;
-      pointer-events: auto;
-      padding: 1.25rem 0.75rem;
-    }
-    @media (min-width: 768px) {
-      .nav-menu {
-        /* On desktop sidebar: always open, no animation */
-        display: flex;
-        max-height: none !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        padding: 1.25rem 0.75rem !important;
-        overflow-y: auto;
-      }
-    }
+.sidebar-logo:hover { background: rgba(255,255,255,0.04); }
 
-    .nav-section-label {
-      font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,255,255,0.4);
-      padding: 0 0.5rem; margin-bottom: 0.375rem;
-    }
-    .nav-link {
-      display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.45rem 0.75rem; border-radius: 0.5rem;
-      font-size: 0.8125rem; font-weight: 600; color: rgba(232,240,233,0.8);
-      transition: background 0.15s, color 0.15s; text-decoration: none;
-    }
-    .nav-link:hover  { background: rgba(255,255,255,0.1); color: #fff; }
-    .nav-link.active { background: rgba(255,255,255,0.15); color: #fff; border-left: 3px solid var(--color-sage); padding-left: calc(0.75rem - 3px); }
-    .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
-    .nav-link-sub .nav-sublabel { padding-left: 1.5rem; font-size: 0.78rem; opacity: 0.85; font-weight: 400; }
+@media (min-width: 768px) { .sidebar-logo { display: flex; } }
+
+.sidebar-logo img { 
+  width: 7.5rem;  
+  height: 7.5rem; 
+  margin-bottom: 0.6rem; 
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+  transition: transform 0.2s ease;
+}
+
+.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
+.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
+.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
+
+/* Sticky Mobile Control Header Strip */
+.sidebar-mobile-bar {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0.875rem; 
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+
+.sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+.sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+.sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+
+/* Menu Toggle Button Base */
+.menu-toggle {
+  background: rgba(255,255,255,0.08); 
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 0.5rem; 
+  padding: 0.45rem 0.85rem;
+  font-size: 0.75rem; 
+  font-weight: 800; 
+  color: #fff; 
+  cursor: pointer;
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem;
+  transition: background 0.15s, transform 0.1s;
+  font-family: var(--font-body);
+}
+
+.menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
+
+/* Minimalist Twin Animated Icon Setup */
+.twin-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.twin-icon span {
+  position: absolute;
+  height: 2.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              top 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.twin-icon .line-1 {
+  top: 30%;
+  width: 100%;
+  left: 0;
+}
+
+.twin-icon .line-2 {
+  top: 65%;
+  width: 65%;
+  right: 0;
+}
+
+/* Minimalist Twin Active State Adjustments */
+.menu-toggle[aria-expanded="true"] .twin-icon .line-1 {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .twin-icon .line-2 {
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.menu-toggle .toggle-label-open  { display: inline; }
+.menu-toggle .toggle-label-close { display: none; }
+.menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+.menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+
+/* Navigation Panel Link Layout */
+.nav-menu {
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.15rem;
+  padding: 0 0.75rem; 
+  overflow: hidden;
+  max-height: 0; 
+  opacity: 0; 
+  pointer-events: none;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu div {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.nav-menu.is-open { 
+  max-height: 95vh; 
+  opacity: 1; 
+  pointer-events: auto; 
+  padding: 0.5rem 0.75rem; 
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex !important; 
+    max-height: none !important; 
+    opacity: 1 !important;
+    pointer-events: auto !important; 
+    padding: 0.5rem 0.5rem !important; 
+    flex-grow: 1;
+    overflow-y: visible;
+  }
+}
+
+.nav-section-label {
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,0.55);
+  padding: 0 0.5rem; 
+  margin-top: 0.45rem;
+  margin-bottom: 0.05rem;
+}
+
+.nav-link {
+  font-family: var(--font-body); 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  letter-spacing: 0.04em;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600; 
+  color: #D1D8D3;
+  text-decoration: none; 
+  border-left: 3px solid transparent;
+  transform: translateX(0);
+  margin-left: 0.75rem;
+  margin-right: 0.6rem; 
+  padding: 0.55rem 0.6rem;
+  line-height: 1.25; 
+  font-size: 0.8rem; 
+  transition: 
+    background 0.2s ease, 
+    color 0.2s ease, 
+    border-color 0.2s ease, 
+    box-shadow 0.2s ease, 
+    transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover { 
+  background: rgba(255,255,255,0.08); 
+  color: #fff;
+  border-left-color: #8FA2A0; 
+  opacity: 0.95; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateX(2px);
+}
+
+.nav-link.active { 
+  background: rgba(255,255,255,0.14); 
+  color: #FAF0E6;  
+  border-left-color: var(--color-parchment); 
+  opacity: 1; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active:hover {
+  transform: translateX(0);
+}
+
+/* Two-Line Sublink Text Alignment and Scaling Adjustments */
+.nav-link-sub { 
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 0; 
+}
+
+.nav-link-sub span:first-child {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.nav-link-sub .nav-sublabel { 
+  padding-left: 0; 
+  font-size: 0.72rem; 
+  opacity: 0.8; 
+  font-weight: 400; 
+  letter-spacing: 0.04em;
+}
+
+/* Mobile Link Adaptive Specification Overrides */
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 0.45rem 1rem;
+    line-height: 1.3;
+    font-size: 0.95rem;
+    margin-left: 0.85rem; 
+    margin-right: 0;
+  }
+  .nav-link-sub span:first-child {
+    font-size: 0.95rem;
+  }
+  .nav-link-sub .nav-sublabel {
+    font-size: 0.82rem !important;
+    margin-top: 0.15rem;
+  }
+}
 
     /* =====================================================
        MAIN CONTENT AREA
@@ -922,62 +1113,61 @@
 
 <div class="page-wrapper">
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
-    <!-- Scroll progress bar -->
     <div id="scroll-progress-track"><div id="scroll-progress"></div></div>
+    
     <a href="index.html" class="sidebar-logo">
       <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
       <span class="logo-name">Golden Gate Chapter</span>
-      <span class="logo-sub">EST 1987 • CRFG.org</span>
-      <span class="logo-tag">Growing unusual edibles<br> in the SF Bay Area</span>
+      <span class="logo-sub">EST <span style="letter-spacing: -0.06em;">1</span>987 • CRFG.org</span>
+      <span class="logo-tag">Growing unusual edibles in<br> the San Francisco Bay Area</span>
     </a>
 
     <div class="sidebar-mobile-bar">
       <a href="index.html">
-        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="32" height="32">
+        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
         <span class="brand">Golden Gate · CRFG</span>
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
-        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <div class="twin-icon">
+          <span class="line-1"></span>
+          <span class="line-2"></span>
+        </div>
         <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
       </button>
     </div>
 
     <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
       <div>
-        <p class="nav-section-label">Start Here</p>
-        <a href="index.html" class="nav-link">🏠 About Us</a>
+        <p class="nav-section-label">START HERE</p>
+        <a href="index.html" class="nav-link">About Us</a>
         <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
       </div>
       <div>
-        <p class="nav-section-label">Grow Fruit</p>
+        <p class="nav-section-label">GET INVOLVED</p>
+        <a href="meetings.html" class="nav-link">Chapter Meetings</a>
+        <a href="online-community.html" class="nav-link">Connect Online</a>
+        <a href="gg-scionExchange.html" class="nav-link active">Scion Exchange</a>
+        <a href="join-renew.html" class="nav-link">Join / Renew</a>
+      </div>
+      <div>
+        <p class="nav-section-label">GROW FRUIT</p>
         <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
-          <span>🌿 Bay Area Favorites</span>
+          <span>Bay Area Favorites</span>
           <span class="nav-sublabel">by Climate Zone</span>
         </a>
-        <a href="member-guides.html" class="nav-link nav-link-sub" style="margin-top:0.25rem;">
-          <span>📖 Member Guides</span>
+        <a href="bay-area-orchard-supplies.html" class="nav-link nav-link-sub">
+          <span>Orchard Supplies</span>
+          <span class="nav-sublabel">Bay Area Sources</span>
+        </a>
+        <a href="member-guides.html" class="nav-link nav-link-sub">
+          <span>Member Guides</span>
           <span class="nav-sublabel">What Thrives Locally</span>
         </a>
-        <a href="fruity-resources.html" class="nav-link" style="margin-top:0.25rem;">🔗 Fruity Resources</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Community</p>
-        <a href="meetings.html" class="nav-link">🤝 Meetings</a>
-        <a href="online-community.html" class="nav-link" style="margin-top:0.25rem;">💬 Online Community</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Membership</p>
-        <a href="join-renew.html" class="nav-link">✨ Join / Renew</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Events</p>
-        <a href="gg-scionExchange.html" class="nav-link active">🍋 Scion Exchange</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Orchard Supplies</p>
-        <a href="where-to-buy.html" class="nav-link">Bay Area Sources</a>
+        <a href="growers-portal.html" class="nav-link nav-link-sub">
+          <span>Grower's Portal</span>
+          <span class="nav-sublabel">Digital Classroom</span>
+        </a>
       </div>
     </nav>
   </aside>
@@ -988,7 +1178,7 @@
 
       <!-- HERO -->
       <section id="sec-hero" class="fade-up">
-        <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.18);">36th Annual · 2026 CRFG</p>
+        <p style="font-size:1.2rem; font-weight:900; text-transform:uppercase; letter-spacing:0.09em; color:var(--color-sage); margin-bottom:0.75rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.18);">36th Annual · 2026 CRFG</p>
         <h1 class="shadow-text" style="font-size:clamp(2.75rem,8vw,4.5rem); font-weight:900; line-height:1.05; color:var(--color-crimson); margin-bottom:1.25rem; text-shadow:1px 2px 3px rgba(0,0,0,0.12);">
           Golden Gate<br>Scion Exchange
         </h1>
@@ -1552,19 +1742,17 @@
   }());
 
   /* ── 2. MOBILE NAV TOGGLE ── */
-  var toggle  = document.getElementById('menuToggle');
-  var navMenu = document.getElementById('navMenu');
-
-  toggle.addEventListener('click', function () {
-    var open = navMenu.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-  navMenu.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      navMenu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+  (function () {
+    var menuToggle = document.getElementById('menuToggle');
+    var navMenu    = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', function () {
+        var isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('is-open', !isExpanded);
+      });
+    }
+  }());
 
   /* ── 3. SCROLL FADE-UP ── */
   var fadeEls = document.querySelectorAll('.fade-up');

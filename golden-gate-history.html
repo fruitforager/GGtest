@@ -140,130 +140,185 @@
     }
 
     /* =====================================================
-       SIDEBAR — from gg-scionExchange.html
+       ADAPTIVE SIDEBAR NAVIGATION SYSTEM
     ===================================================== */
     .sidebar {
       width: 100%;
-      background-color: #1e3d28;
+      background-color: var(--color-forest, #1e3d28);
       color: #fff;
       flex-shrink: 0;
       z-index: 50;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-      position: sticky; top: 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
     }
-    @media (min-width: 768px) {
-      .sidebar { width: 14rem; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; }
-    }
-    @media (min-width: 1024px) { .sidebar { width: 15rem; } }
 
-    /* Desktop logo block */
+    @media (min-width: 768px) {
+      .sidebar {
+        width: 12.5rem;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+      }
+
+      .sidebar::-webkit-scrollbar { width: 2px !important; }
+      .sidebar::-webkit-scrollbar-track { background: transparent !important; }
+      .sidebar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.22) !important; border-radius: 10px !important; }
+      .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4) !important; }
+    }
+
+    @media (min-width: 1024px) { .sidebar { width: 13.5rem; } }
+
     .sidebar-logo {
       display: none;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 1.25rem;
+      padding: 1.15rem 0.75rem;
       border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.15s ease;
       text-decoration: none;
-      transition: background 0.15s;
     }
-    .sidebar-logo:hover { background: rgba(255,255,255,0.05); }
+    .sidebar-logo:hover { background: rgba(255,255,255,0.04); }
     @media (min-width: 768px) { .sidebar-logo { display: flex; } }
-    .sidebar-logo img        { width: 5rem; height: auto; margin-bottom: 0.75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
-    .sidebar-logo .logo-name { font-size: 1rem; font-weight: 900; line-height: 1.25; }
-    .sidebar-logo .logo-sub  { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-top: 0.125rem; }
-    .sidebar-logo .logo-tag  { font-size: 0.7875rem; font-weight: 700; color: rgba(255,255,255,0.6); margin-top: 0.5rem; line-height: 1.4; }
+    .sidebar-logo img { width: 7.5rem; height: 7.5rem; margin-bottom: 0.6rem; filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); transition: transform 0.2s ease; }
+    .sidebar-logo .logo-name { font-family: var(--font-body, sans-serif); font-size: 0.95rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em; }
+    .sidebar-logo .logo-sub  { font-family: var(--font-body, sans-serif); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em; }
+    .sidebar-logo .logo-tag  { font-family: var(--font-body, sans-serif); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em; }
 
-    /* Mobile bar */
+    /* Sticky Mobile Control Header Strip */
     .sidebar-mobile-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0.875rem;
-      background: rgba(0,0,0,0.2);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
-    .sidebar-mobile-bar a     { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
-    .sidebar-mobile-bar img   { width: 2rem; height: auto; }
-    .sidebar-mobile-bar .brand { font-size: 0.875rem; font-weight: 900; color: #fff; }
+    .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+    .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+    .sidebar-mobile-bar .brand { font-family: var(--font-body, sans-serif); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
-    /* Hamburger button */
+    /* Menu Toggle Button Base */
     .menu-toggle {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 0.5rem;
-      padding: 0.375rem 0.75rem;
-      font-size: 0.75rem; font-weight: 700; color: #fff;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #fff;
       cursor: pointer;
-      display: flex; align-items: center; gap: 0.375rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       transition: background 0.15s, transform 0.1s;
+      font-family: var(--font-body, sans-serif);
     }
-    .menu-toggle:hover  { background: rgba(255,255,255,0.2); }
-    .menu-toggle:active { transform: scale(0.95); }
-    .menu-toggle svg { width: 1rem; height: 1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
-    .menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
-    .menu-toggle .lbl-open  { display: inline; }
-    .menu-toggle .lbl-close { display: none; }
-    .menu-toggle[aria-expanded="true"] .lbl-open  { display: none; }
-    .menu-toggle[aria-expanded="true"] .lbl-close { display: inline; }
+    .menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
 
-    /* Nav — window-shade on mobile, always open on desktop */
-    .nav-menu {
-      flex-direction: column; gap: 1rem;
-      padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
-      max-height: 0; opacity: 0; pointer-events: none;
-      transition:
-        max-height 0.42s cubic-bezier(0.4,0,0.2,1),
-        opacity    0.30s ease,
-        padding    0.42s cubic-bezier(0.4,0,0.2,1);
+    /* Minimalist Twin Animated Icon */
+    .twin-icon { width: 1.1rem; height: 1.1rem; position: relative; display: inline-block; }
+    .twin-icon span {
+      position: absolute; height: 2.5px; background: currentColor; border-radius: 2px;
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), top 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     }
+    .twin-icon .line-1 { top: 30%; width: 100%; left: 0; }
+    .twin-icon .line-2 { top: 65%; width: 65%; right: 0; }
+    .menu-toggle[aria-expanded="true"] .twin-icon .line-1 { top: 50%; transform: translateY(-50%) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .twin-icon .line-2 { top: 50%; width: 100%; transform: translateY(-50%) rotate(-45deg); }
+
+    .menu-toggle .toggle-label-open  { display: inline; }
+    .menu-toggle .toggle-label-close { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+
+    /* Navigation Panel Link Layout */
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0 0.75rem;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-menu div { display: flex; flex-direction: column; gap: 0px; }
     .nav-menu.is-open {
-      max-height: 800px; opacity: 1; pointer-events: auto;
-      padding: 1.25rem 0.75rem;
+      max-height: 95vh; opacity: 1; pointer-events: auto;
+      padding: 0.5rem 0.75rem; overflow-y: auto;
     }
     @media (min-width: 768px) {
       .nav-menu {
-        display: flex;
-        max-height: none !important; opacity: 1 !important;
+        display: flex !important;
+        max-height: none !important;
+        opacity: 1 !important;
         pointer-events: auto !important;
-        padding: 1.25rem 0.75rem !important;
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(255,255,255,0.2) transparent;
+        padding: 0.5rem 0.5rem !important;
+        flex-grow: 1;
+        overflow-y: visible;
       }
     }
 
     .nav-section-label {
-      font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,255,255,0.4);
-      padding: 0 0.5rem; margin-bottom: 0.375rem;
+      font-family: var(--font-body, sans-serif); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      padding: 0 0.5rem;
+      margin-top: 0.45rem;
+      margin-bottom: 0.05rem;
     }
     .nav-link {
+      font-family: var(--font-body, sans-serif);
       display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.45rem 0.75rem; border-radius: 0.5rem;
-      font-size: 0.8125rem; font-weight: 600; color: rgba(232,240,233,0.8);
-      transition: background 0.15s, color 0.15s; text-decoration: none;
+      letter-spacing: 0.04em; border-radius: 0.5rem;
+      font-weight: 600; color: #D1D8D3;
+      text-decoration: none; border-left: 3px solid transparent;
+      transform: translateX(0);
+      margin-left: 0.75rem; margin-right: 0.6rem;
+      padding: 0.55rem 0.6rem; line-height: 1.25; font-size: 0.8rem;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     }
-    .nav-link:hover  { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-link:hover {
+      background: rgba(255,255,255,0.08); color: #fff;
+      border-left-color: #8FA2A0; opacity: 0.95;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transform: translateX(2px);
+    }
     .nav-link.active {
-      background: rgba(255,255,255,0.15); color: #fff;
-      border-left: 3px solid #5a7d5f; padding-left: calc(0.75rem - 3px);
+      background: rgba(255,255,255,0.14); color: #FAF0E6;
+      border-left-color: #faf6ef; opacity: 1;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.08);
     }
+    .nav-link.active:hover { transform: translateX(0); }
     .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
-    .nav-link-sub .nav-sublabel { padding-left: 1.5rem; font-size: 0.78rem; opacity: 0.85; font-weight: 400; }
+    .nav-link-sub span:first-child { font-size: 0.82rem; font-weight: 700; }
+    .nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.72rem; opacity: 0.8; font-weight: 400; letter-spacing: 0.04em; }
 
-    /* Scroll progress bar (inside sidebar top edge, desktop only) */
+    @media (max-width: 767px) {
+      .nav-link { padding: 0.45rem 1rem; line-height: 1.3; font-size: 0.95rem; margin-left: 0.85rem; margin-right: 0; }
+      .nav-link-sub span:first-child { font-size: 0.95rem; }
+      .nav-link-sub .nav-sublabel { font-size: 0.82rem !important; margin-top: 0.15rem; }
+    }
+
+    /* Scroll progress bar */
     #scroll-progress-track {
       position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: rgba(255,255,255,0.08); z-index: 100; display: none;
+      background: rgba(255,255,255,0.06); z-index: 100; display: none;
     }
     @media (min-width: 768px) { #scroll-progress-track { display: block; } }
     #scroll-progress {
       height: 100%; width: 0%;
-      background: linear-gradient(90deg, #5a7d5f 0%, #8ecf9a 100%);
+      background: linear-gradient(90deg, #5a7d5f 0%, #2d5e3a 100%);
       transition: width 0.1s linear;
-      border-radius: 0 2px 2px 0;
     }
 
     /* =====================================================
@@ -341,70 +396,61 @@
 
   <div class="page-wrapper">
 
-    <!-- ═══════════════════════════════════════════════════
-         SIDEBAR — from gg-scionExchange.html
-    ════════════════════════════════════════════════════ -->
     <aside class="sidebar">
       <div id="scroll-progress-track"><div id="scroll-progress"></div></div>
 
-      <!-- Desktop logo -->
-      <a href="index.html" class="sidebar-logo" aria-label="Golden Gate Chapter CRFG — Home">
-        <img src="images/CRFG-logo-transparent-web.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
+      <a href="index.html" class="sidebar-logo">
+        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
         <span class="logo-name">Golden Gate Chapter</span>
-        <span class="logo-sub">EST 1987 • CRFG.org</span>
-        <span class="logo-tag">Growing unusual edibles<br>in the SF Bay Area</span>
+        <span class="logo-sub">EST <span style="letter-spacing: -0.06em;">1</span>987 • CRFG.org</span>
+        <span class="logo-tag">Growing unusual edibles in<br> the San Francisco Bay Area</span>
       </a>
 
-      <!-- Mobile bar -->
       <div class="sidebar-mobile-bar">
-        <a href="index.html" aria-label="Golden Gate Chapter CRFG — Home">
-          <img src="images/CRFG-logo-transparent-web.svg" alt="CRFG Logo" width="32" height="32">
+        <a href="index.html">
+          <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
           <span class="brand">Golden Gate · CRFG</span>
         </a>
-        <button class="menu-toggle" id="menuToggle"
-                aria-label="Toggle primary navigation menu"
-                aria-expanded="false"
-                aria-controls="navMenu">
-          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-          <span class="lbl-open">Menu</span><span class="lbl-close">Close</span>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+          <div class="twin-icon">
+            <span class="line-1"></span>
+            <span class="line-2"></span>
+          </div>
+          <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
         </button>
       </div>
 
-      <!-- Nav -->
-      <nav id="navMenu" class="nav-menu" aria-label="Primary site navigation">
+      <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
         <div>
-          <p class="nav-section-label">🏠 Start Here</p>
+          <p class="nav-section-label">START HERE</p>
           <a href="index.html" class="nav-link">About Us</a>
           <a href="golden-gate-history.html" class="nav-link active" aria-current="page">Our Historical Roots</a>
         </div>
         <div>
-          <p class="nav-section-label">🌿 Grow Fruit</p>
+          <p class="nav-section-label">GET INVOLVED</p>
+          <a href="meetings.html" class="nav-link">Chapter Meetings</a>
+          <a href="online-community.html" class="nav-link">Connect Online</a>
+          <a href="gg-scionExchange.html" class="nav-link">Scion Exchange</a>
+          <a href="join-renew.html" class="nav-link">Join / Renew</a>
+        </div>
+        <div>
+          <p class="nav-section-label">GROW FRUIT</p>
           <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
             <span>Bay Area Favorites</span>
             <span class="nav-sublabel">by Climate Zone</span>
           </a>
-          <a href="member-guides.html" class="nav-link nav-link-sub" style="margin-top:0.25rem;">
-            <span>Member Written Guides</span>
+          <a href="bay-area-orchard-supplies.html" class="nav-link nav-link-sub">
+            <span>Orchard Supplies</span>
+            <span class="nav-sublabel">Bay Area Sources</span>
+          </a>
+          <a href="member-guides.html" class="nav-link nav-link-sub">
+            <span>Member Guides</span>
             <span class="nav-sublabel">What Thrives Locally</span>
           </a>
-          <a href="fruity-resources.html" class="nav-link" style="margin-top:0.25rem;">Fruity Resources</a>
-        </div>
-        <div>
-          <p class="nav-section-label">🤝 Community</p>
-          <a href="meetings.html" class="nav-link">Meetings</a>
-          <a href="online-community.html" class="nav-link" style="margin-top:0.25rem;">Online Community</a>
-        </div>
-        <div>
-          <p class="nav-section-label">✨ Membership</p>
-          <a href="join-renew.html" class="nav-link">Join / Renew</a>
-        </div>
-        <div>
-          <p class="nav-section-label">🍋 Events</p>
-          <a href="gg-scionexchange.html" class="nav-link">Scion Exchange</a>
-        </div>
-        <div>
-          <p class="nav-section-label">Orchard Supplies</p>
-        <a href="where-to-buy.html" class="nav-link">Bay Area Sources</a>
+          <a href="growers-portal.html" class="nav-link nav-link-sub">
+            <span>Grower's Portal</span>
+            <span class="nav-sublabel">Digital Classroom</span>
+          </a>
         </div>
       </nav>
     </aside>
@@ -581,40 +627,17 @@
   </div><!-- /.page-wrapper -->
 
   <script>
-    /* ── Active nav link: match current filename ── */
-    (function () {
-      var p = window.location.pathname.split("/").pop() || "index.html";
-      document.querySelectorAll("#navMenu a").forEach(function (a) {
-        if (a.getAttribute("href") === p && !a.classList.contains("active")) {
-          a.classList.add("active");
-          a.setAttribute("aria-current", "page");
-        }
-      });
-    }());
-
     /* ── Mobile nav toggle ── */
     (function () {
-      var btn = document.getElementById("menuToggle");
-      var nav = document.getElementById("navMenu");
-      if (!btn || !nav) return;
-
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var open = nav.classList.toggle("is-open");
-        btn.setAttribute("aria-expanded", String(open));
-      });
-      nav.querySelectorAll("a").forEach(function (a) {
-        a.addEventListener("click", function () {
-          nav.classList.remove("is-open");
-          btn.setAttribute("aria-expanded", "false");
+      var menuToggle = document.getElementById('menuToggle');
+      var navMenu    = document.getElementById('navMenu');
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function () {
+          var isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          navMenu.classList.toggle('is-open', !isExpanded);
         });
-      });
-      document.addEventListener("click", function (e) {
-        if (!nav.contains(e.target) && !btn.contains(e.target)) {
-          nav.classList.remove("is-open");
-          btn.setAttribute("aria-expanded", "false");
-        }
-      });
+      }
     }());
 
     /* ── Scroll progress bar ── */

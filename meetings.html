@@ -13,7 +13,7 @@
       --blue: #2f5d8f;
       --blue-dark: #21425c;
       --border: #d8ccb6;
-      --sidebar-width: 14rem;
+      --sidebar-width: 12.5rem; 
       --max-container: 1380px;
 
       /* Brand Typography Palette */
@@ -33,6 +33,7 @@
       --shadow-btn-hover: 0 8px 20px rgba(47,93,143,0.32), 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
       --shadow-btn-active: 0 2px 6px rgba(47,93,143,0.22), inset 0 2px 6px rgba(0,0,0,0.10);
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -60,6 +61,7 @@ strong, b {
   flex-direction: column; 
   min-height: 100vh;
 }
+
 @media (min-width: 768px) { 
   .page-wrapper { flex-direction: row; } 
 }
@@ -88,6 +90,7 @@ strong, b {
   position: sticky; 
   top: 0;
 }
+
 @media (min-width: 768px) {
   .sidebar { 
     width: var(--sidebar-width); 
@@ -97,10 +100,36 @@ strong, b {
     display: flex; 
     flex-direction: column; 
     box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    
+    /* Permits scrolling only when sidebar height overflows viewport */
+    overflow-y: auto; 
+    
+    /* Modern W3C Standard Scrollbar Rules */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+  }
+
+  /* Ultra-Thin 2pt Cross-Browser WebKit Scrollbar Blueprint */
+  .sidebar::-webkit-scrollbar {
+    width: 2px !important; 
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22) !important; 
+    border-radius: 10px !important;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
   }
 }
+
 @media (min-width: 1024px) { 
-  .sidebar { width: 15rem; } 
+  .sidebar { width: 13.5rem; } 
 }
 
 .sidebar-logo {
@@ -108,24 +137,27 @@ strong, b {
   flex-direction: column; 
   align-items: center; 
   text-align: center;
-  padding: 1.5rem 1.25rem; 
+  padding: 1.15rem 0.75rem; 
   border-bottom: 1px solid rgba(255,255,255,0.1);
   transition: background 0.15s ease;
   text-decoration: none; 
 }
+
 .sidebar-logo:hover { background: rgba(255,255,255,0.04); }
+
 @media (min-width: 768px) { .sidebar-logo { display: flex; } }
 
 .sidebar-logo img { 
-  width: 4.5rem; 
-  height: auto; 
-  margin-bottom: 0.875rem; 
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
+  width: 7.5rem;  
+  height: 7.5rem; 
+  margin-bottom: 0.6rem; 
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+  transition: transform 0.2s ease;
 }
 
-.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 1rem; font-weight: 900; line-height: 1.25; color: #FAF0E6; }
-.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; }
-.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.625rem; line-height: 1.4; }
+.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
+.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
+.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
 
 /* Sticky Mobile Control Header Strip */
 .sidebar-mobile-bar {
@@ -136,12 +168,14 @@ strong, b {
   background: rgba(0,0,0,0.15);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
+
 @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+
 .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
 .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
 .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
-/* Menu Drop Shade Trigger Toggle */
+/* Menu Toggle Button Base */
 .menu-toggle {
   background: rgba(255,255,255,0.08); 
   border: 1px solid rgba(255,255,255,0.18);
@@ -153,13 +187,54 @@ strong, b {
   cursor: pointer;
   display: flex; 
   align-items: center; 
-  gap: 0.375rem;
+  gap: 0.5rem;
   transition: background 0.15s, transform 0.1s;
   font-family: var(--font-body);
 }
+
 .menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
-.menu-toggle svg { width: 1.1rem; height: 1.1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
-.menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
+
+/* Minimalist Twin Animated Icon Setup */
+.twin-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.twin-icon span {
+  position: absolute;
+  height: 2.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              top 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.twin-icon .line-1 {
+  top: 30%;
+  width: 100%;
+  left: 0;
+}
+
+.twin-icon .line-2 {
+  top: 65%;
+  width: 65%;
+  right: 0;
+}
+
+/* Minimalist Twin Active State Adjustments */
+.menu-toggle[aria-expanded="true"] .twin-icon .line-1 {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .twin-icon .line-2 {
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%) rotate(-45deg);
+}
 
 .menu-toggle .toggle-label-open  { display: inline; }
 .menu-toggle .toggle-label-close { display: none; }
@@ -170,7 +245,7 @@ strong, b {
 .nav-menu {
   display: flex; 
   flex-direction: column; 
-  gap: 1.15rem;
+  gap: 0.15rem; /* Reduced Spacing Between Outer Sections */
   padding: 0 0.75rem; 
   overflow: hidden;
   max-height: 0; 
@@ -178,11 +253,18 @@ strong, b {
   pointer-events: none;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.nav-menu div {
+  display: flex;
+  flex-direction: column;
+  gap: 0px; /* Eliminated spacing between sibling links completely */
+}
+
 .nav-menu.is-open { 
   max-height: 95vh; 
   opacity: 1; 
   pointer-events: auto; 
-  padding: 1.5rem 0.75rem; 
+  padding: 0.5rem 0.75rem; 
   overflow-y: auto;
 }
 
@@ -192,28 +274,107 @@ strong, b {
     max-height: none !important; 
     opacity: 1 !important;
     pointer-events: auto !important; 
-    padding: 1.5rem 0.75rem !important; 
-    overflow-y: auto;
+    padding: 0.5rem 0.5rem !important; 
     flex-grow: 1;
+    overflow-y: visible;
   }
 }
 
 .nav-section-label {
-  font-family: var(--font-body); font-size: 0.65rem; font-weight: 900; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.45);
-  padding: 0 0.5rem; margin-bottom: 0.375rem;
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,0.55);
+  padding: 0 0.5rem; 
+  margin-top: 0.45rem; /* Space added above sections to establish clarity */
+  margin-bottom: 0.05rem; /* Tightened gap below header to links */
 }
+
 .nav-link {
-  font-family: var(--font-body); display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.45rem 0.75rem; border-radius: 0.5rem;
-  font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.85);
-  transition: background 0.15s, color 0.15s;
+  font-family: var(--font-body); 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  letter-spacing: 0.04em;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600; 
+  color: #D1D8D3;
   text-decoration: none; 
+  border-left: 3px solid transparent;
+  transform: translateX(0);
+  
+  /* Indentation & Scrollbar Buffer Configurations */
+  margin-left: 0.75rem;
+  margin-right: 0.6rem; 
+  
+  padding: 0.55rem 0.6rem; /* Restored original link padding for pristine background heights */
+  line-height: 1.25; 
+  font-size: 0.8rem; 
+  transition: 
+    background 0.2s ease, 
+    color 0.2s ease, 
+    border-color 0.2s ease, 
+    box-shadow 0.2s ease, 
+    transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.nav-link:hover { background: rgba(255,255,255,0.08); color: #fff; }
-.nav-link.active { background: rgba(255,255,255,0.17); color: #fff; border-left: 3px solid #ffffff; opacity: 0.88; padding-left: calc(0.75rem - 3px); }
-.nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
-.nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.8; font-weight: 400; }
+
+.nav-link:hover { 
+  background: rgba(255,255,255,0.08); 
+  color: #fff;
+  border-left-color: #8FA2A0; 
+  opacity: 0.95; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateX(2px);
+}
+
+.nav-link.active { 
+  background: rgba(255,255,255,0.14); 
+  color: #FAF0E6;  
+  border-left-color: var(--color-parchment); 
+  opacity: 1; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active:hover {
+  transform: translateX(0);
+}
+
+/* Two-Line Sublink Text Alignment and Scaling Adjustments */
+.nav-link-sub { 
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 0; 
+}
+
+.nav-link-sub span:first-child {
+  font-size: 0.82rem; /* Boosted slightly to match the optical presence of single-line links */
+  font-weight: 700;   /* Strengthens the primary header title */
+}
+
+.nav-link-sub .nav-sublabel { 
+  padding-left: 0; 
+  font-size: 0.72rem; 
+  opacity: 0.8; 
+  font-weight: 400; 
+  letter-spacing: 0.04em;
+}
+
+/* Mobile Link Adaptive Specification Overrides */
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 0.45rem 1rem; /* Restored original mobile padding */
+    line-height: 1.3;
+    font-size: 0.95rem;
+    margin-left: 0.85rem; 
+    margin-right: 0;
+  }
+  .nav-link-sub span:first-child {
+    font-size: 0.95rem; /* Resets to base mobile size nicely */
+  }
+  .nav-link-sub .nav-sublabel {
+    font-size: 0.82rem !important;
+    margin-top: 0.15rem;
+  }
+}
 
 #scroll-progress-track { 
   position: absolute; 
@@ -223,6 +384,7 @@ strong, b {
   z-index: 100; 
   display: none; 
 }
+
 @media (min-width: 768px) { #scroll-progress-track { display: block; } }
 
 #scroll-progress { 
@@ -240,11 +402,12 @@ strong, b {
   min-width: 0; 
   padding: 2rem 1.25rem; 
 }
+
 @media (min-width: 768px) { 
-  .main-wrapper { padding: 2.5rem 2.5rem 2.5rem 4rem; } 
+  .main-wrapper { padding: 2.5rem 2.5rem 2.5rem 3.5rem; } 
 }
 @media (min-width: 1024px) { 
-  .main-wrapper { padding: 2.5rem 4rem 2.5rem 5rem; } 
+  .main-wrapper { padding: 2.5rem 4rem 2.5rem 4.5rem; } 
 }
 
 main { 
@@ -252,9 +415,7 @@ main {
   margin: 0 auto; 
 }
 
-.hero {
-  margin-top: 10px;
-}
+.hero { margin-top: 10px; }
 
 .hero h1 {
   font-size: clamp(2.2rem, 3.8vw, 3.6rem);
@@ -377,9 +538,7 @@ hr {
   text-decoration: none; 
 }
 
-.site-footer a:hover { 
-  text-decoration: underline; 
-}
+.site-footer a:hover { text-decoration: underline; }
 
 @media (max-width: 767px) {
   .button {
@@ -399,24 +558,27 @@ hr {
 
 /* Content framework blocks */
 .meeting-card {
-  background: #FCF8EE;
-  border: 1px solid #D7C9B2;
+  background: #f4f7f9;
+  border: 1px solid #d7e2e8;
   padding: 22px;
   border-radius: 10px;
   max-width: 900px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
 }
+
 .meeting-detail {
   display: flex;
   gap: 12px;
   margin: 6px 0;
   align-items: flex-start;
 }
+
 .meeting-detail .label {
   min-width: 86px;
   font-weight: 800;
   color: var(--green-dark);
 }
+
 .meeting-detail .value {
   flex: 1;
 }
@@ -432,8 +594,8 @@ hr {
     <a href="index.html" class="sidebar-logo">
       <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
       <span class="logo-name">Golden Gate Chapter</span>
-      <span class="logo-sub">EST 1987 • CRFG.org</span>
-      <span class="logo-tag">Growing unusual edibles<br>in the SF Bay Area</span>
+      <span class="logo-sub">EST <span style="letter-spacing: -0.06em;">1</span>987 • CRFG.org</span>
+      <span class="logo-tag">Growing unusual edibles in<br> the San Francisco Bay Area</span>
     </a>
 
     <div class="sidebar-mobile-bar">
@@ -442,45 +604,45 @@ hr {
         <span class="brand">Golden Gate · CRFG</span>
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
-        <svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <div class="twin-icon">
+          <span class="line-1"></span>
+          <span class="line-2"></span>
+        </div>
         <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
       </button>
     </div>
 
     <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
       <div>
-        <p class="nav-section-label">Start Here</p>
+        <p class="nav-section-label">START HERE</p>
         <a href="index.html" class="nav-link">About Us</a>
         <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
       </div>
       <div>
-        <p class="nav-section-label">Grow Fruit</p>
+        <p class="nav-section-label">GET INVOLVED</p>
+        <a href="meetings.html" class="nav-link active">Chapter Meetings</a>
+        <a href="online-community.html" class="nav-link">Connect Online</a>
+        <a href="gg-scionExchange.html" class="nav-link">Scion Exchange</a>
+        <a href="join-renew.html" class="nav-link">Join / Renew</a>
+      </div>
+      <div>
+        <p class="nav-section-label">GROW FRUIT</p>
         <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
           <span>Bay Area Favorites</span>
           <span class="nav-sublabel">by Climate Zone</span>
         </a>
-        <a href="member-guides.html" class="nav-link nav-link-sub" style="margin-top:0.25rem;">
+        <a href="bay-area-orchard-supplies.html" class="nav-link nav-link-sub">
+          <span>Orchard Supplies</span>
+          <span class="nav-sublabel">Bay Area Sources</span>
+        </a>
+        <a href="member-guides.html" class="nav-link nav-link-sub">
           <span>Member Guides</span>
           <span class="nav-sublabel">What Thrives Locally</span>
         </a>
-        <a href="fruity-resources.html" class="nav-link" style="margin-top:0.25rem;">Fruity Resources</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Community</p>
-        <a href="meetings.html" class="nav-link active">Meetings</a>
-        <a href="online-community.html" class="nav-link" style="margin-top:0.25rem;">Online Community</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Membership</p>
-        <a href="join-renew.html" class="nav-link">Join / Renew</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Events</p>
-        <a href="gg-scionExchange.html" class="nav-link">Scion Exchange</a>
-      </div>
-      <div>
-        <p class="nav-section-label">Orchard Supplies</p>
-        <a href="where-to-buy.html" class="nav-link">Bay Area Sources</a>
+        <a href="growers-portal.html" class="nav-link nav-link-sub">
+          <span>Grower’s Portal</span>
+          <span class="nav-sublabel">Digital Classroom</span>
+        </a>
       </div>
     </nav>
   </aside>
