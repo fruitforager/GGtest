@@ -87,6 +87,7 @@ body {
 
 strong, b { font-weight: 800; }
 
+
 /* =====================================================
    LAYOUT CONTAINER MECHANICS
 ===================================================== */
@@ -250,6 +251,16 @@ main { max-width: 56rem; margin: 0 auto; }
   letter-spacing: -0.005em; 
 }
 .hero h1 span { display: block; }
+
+.eyebrow, .card-eyebrow {
+  font-size: 0.98rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
 
 .member-title {
   font-size: clamp(2.05rem, 3.2vw, 3.25rem) !important;
@@ -537,11 +548,16 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
     <main id="main-content">
 
       <section class="hero">
+      
         <h1>
-          <span>Grow better fruit.</span>
-          <span>Eat what you grow.</span>
-          <span>Share your abundance.</span>
-        </h1>
+          <p class="eyebrow">GROW BETTER FRUIT — TOGETHER</p>
+
+  <h1>
+    <span>Grow better fruit.</span>
+    <span>Eat what you grow.</span>
+    <span>Share your abundance.</span>
+  </h1>
+
         <h2 class="member-title">Become a Chapter Member</h2>
         <p class="small">Join the Golden Gate Chapter of the California Rare Fruit Growers and <strong>connect with people who grow, taste, and share unusual fruit across the Bay Area</strong>.</p>
       </section>
