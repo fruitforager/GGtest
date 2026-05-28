@@ -36,7 +36,7 @@
 </script><style>
 :root {
   --bg: #FAF0E6;
-  --text: #222;
+  --text: #5A3F5D;
   --green: #274D31;
   --green-light: #3a6b47;
   --blue: #2f5d8f;
@@ -47,6 +47,20 @@
   --burgundy: #6b4c6e;
   --muted: #666;
   --tag-bg: #eef3f0;
+
+  /* Sidebar system tokens (from meetings.html) */
+  --sidebar-width: 12.5rem;
+  --max-container: 1380px;
+  --color-forest:    #1e3d28;
+  --color-leaf:      #2d5e3a;
+  --color-sage:      #5a7d5f;
+  --color-mist:      #e8f0e9;
+  --color-parchment: #faf6ef;
+  --color-crimson:   #9b1c2e;
+  --color-gold:      #c8882a;
+  --color-ink:       #1a1a18;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -63,9 +77,10 @@ body {
 
 /* ── Page shell ── */
 .page-wrap {
-  max-width: 960px;
-  margin: 0 auto;
+  flex: 1;
+  min-width: 0;
   padding: 48px 32px 80px;
+  overflow-y: auto;
 }
 
 /* ── Header ── */
@@ -240,104 +255,8 @@ body {
   text-wrap: balance;
 }
 
-@media(max-width:750px){
-  .layout{flex-direction:column;}
-  aside{
-    width:100%;
-    height:auto;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    overflow:visible;
-  }
 
-  .nav-brand{display:none;}
 
-  .mobile-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:10px 12px;
-    min-height:56px;
-  }
-
-  .mobile-brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-  }
-
-  .mobile-logo{width:36px;height:auto;}
-
-  .mobile-title{
-    font-weight:800;
-    font-size:0.9rem;
-    color:white;
-    line-height:1.2;
-  }
-
-  nav{
-    position:absolute;
-    top:56px;
-    left:0;
-    right:0;
-    background:var(--green);
-    flex-direction:column;
-    max-height:0;
-    opacity:0;
-    transform:translateY(-10px);
-    overflow:hidden;
-    transition:
-      max-height 0.35s ease,
-      opacity 0.25s ease,
-      transform 0.35s ease;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
-    border-top:1px solid rgba(255,255,255,0.15);
-  }
-
-  nav.open{
-    max-height:70vh;
-    opacity:1;
-    transform:translateY(0);
-    overflow-y:auto;
-  }
-
-  nav a{
-    padding:14px 18px;
-    font-size:1rem;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    margin-left:0;
-    border-left:none;
-    white-space:normal;
-  }
-
-  nav a:last-child{
-    border-bottom:none;
-  }
-
-  .hamburger{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:44px;
-    padding:6px 12px;
-    border-radius:8px;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.25);
-    color:white;
-    cursor:pointer;
-    font-family:inherit;
-    gap:6px;
-  }
-
-  .hamburger svg{
-    width:16px;
-    height:16px;
-    stroke:white;
-    fill:none;
-  }
-}
 
 
 /* ── Controls ── */
@@ -391,7 +310,7 @@ body {
   background-repeat: no-repeat;
   background-position: right 12px center;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 10px 36px 10px 14px;
   appearance: none;
   -webkit-appearance: none;
@@ -424,6 +343,32 @@ body {
   margin-bottom: 14px;
 }
 
+/* ── Fruit sections ── */
+.fruit-section {
+  margin-bottom: 36px;
+}
+.fruit-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--border);
+}
+.fruit-name {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.fruit-total {
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
 
 /* ── Variety rows ── */
 .variety-list {
@@ -456,7 +401,6 @@ body {
 }
 .variety-inline .v-name {
   font-weight: 700;
-  color: var(--burgundy);
 }
 .variety-inline .v-votes {
   font-weight: 400;
@@ -530,164 +474,353 @@ body {
   }
 }
 
-/* ── Sidebar / Layout ── */
-.layout{
-  display:flex;
-  min-height:100vh;
-  max-width:1200px;
-  margin:auto;
+/* =====================================================
+        FOOTER SCHEMATICS
+===================================================== */
+.site-footer {
+  max-width: 56rem; 
+  margin: 5rem 0 0; 
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08); 
+  font-size: 0.72rem;
+  color: rgba(26, 26, 24, 0.6); 
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.65;
 }
-aside{
-  width:220px;
-  flex-shrink:0;
-  background:var(--green);
-  display:flex;
-  flex-direction:column;
-  position:sticky;
-  top:0;
-  height:100vh;
-  overflow-y:auto;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(255,255,255,0.2) transparent;
-}
-.nav-brand{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding:20px 16px 16px;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.15);
-  margin-bottom:4px;
-}
-.logo{
-  width:134px;
-  height:auto;
-  display:block;
-  margin:0 auto 14px;
-  filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));
-}
-.site-title{
-  font-size:1.05rem;
-  font-weight:800;
-  color:white;
-  line-height:1.3;
-  display:block;
-}
-.site-crfg{
-  font-size:0.9rem;
-  font-weight:700;
-  color:rgba(255,255,255,0.75);
-  line-height:1.3;
-  display:block;
-  text-align:center;
-  margin-top:2px;
-}
-.site-sub{
-  font-size:0.78rem;
-  font-weight:700;
-  color:rgba(255,255,255,0.85);
-  line-height:1.3;
-  margin-top:4px;
-  display:block;
-  text-align:center;
-}
-nav{
-  display:flex;
-  flex-direction:column;
-  padding:4px 0 120px;
-}
-.nav-group{margin-top:6px;}
-.nav-group-label{
-  font-size:0.76rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:0.12em;
-  color:rgba(255,255,255,0.85);
-  padding:16px 16px 5px;
-  display:block;
-  margin-top:4px;
-  text-align:left;
-}
-.nav-group:first-child .nav-group-label{
-  margin-top:0;
-  padding-top:10px;
-}
-nav a{
-  font-size:0.82rem;
-  font-weight:700;
-  color:#FAF0E6;
-  text-decoration:none;
-  padding:5px 16px 5px 16px;
-  border-left:3px solid transparent;
-  display:block;
-  line-height:1.3;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  transition:background 0.12s,color 0.12s,border-color 0.12s;
-  text-align:left;
-  margin-left:18px;
-}
-nav a:hover{
-  background:rgba(255,255,255,0.1);
-  color:white;
-}
-nav a.active{
-  background:rgba(255,255,255,0.14);
-  color:white;
-  border-left-color:rgba(255,255,255,0.75);
-}
-.hamburger{display:none;}
-.mobile-header{display:none;}
 
-@media(max-width:750px){
-  .layout{flex-direction:column;}
-  aside{width:100%;height:auto;position:sticky;top:0;z-index:100;}
-  .nav-brand{display:none;}
-  .mobile-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 16px;
+.site-footer p {
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+}
+
+.site-footer a { 
+  color: var(--color-leaf); 
+  font-weight: 700; 
+  text-decoration: none; 
+}
+
+.site-footer a:hover { text-decoration: underline; }
+
+/* =====================================================
+   ADAPTIVE SIDEBAR NAVIGATION SYSTEM
+===================================================== */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: var(--max-container);
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
   }
-  .mobile-brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
+}
+
+.sidebar {
+  width: 100%; 
+  background-color: var(--color-forest); 
+  color: #fff;
+  flex-shrink: 0; 
+  z-index: 50;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: sticky; 
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .sidebar { 
+    width: var(--sidebar-width); 
+    position: sticky; 
+    top: 0; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    overflow-y: auto; 
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
   }
-  .mobile-logo{width:36px;height:auto;}
-  .mobile-title{
-    font-size:0.88rem;
-    font-weight:800;
-    color:white;
-    line-height:1.2;
+
+  .sidebar::-webkit-scrollbar {
+    width: 2px !important; 
   }
-  nav{display:none;padding:0 0 10px;}
-  nav.open{display:flex;}
-  nav a{
-    padding:8px 20px;
-    border-left:none;
-    font-size:0.95rem;
-    margin-left:0;
+  
+  .sidebar::-webkit-scrollbar-track {
+    background: transparent !important;
   }
-  .nav-group-label{padding:10px 20px 3px;}
-  .hamburger{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.3);
-    border-radius:7px;
-    padding:6px 10px;
-    font-size:0.8rem;
-    font-weight:700;
-    color:white;
-    cursor:pointer;
-    font-family:inherit;
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22) !important; 
+    border-radius: 10px !important;
   }
-  .hamburger svg{width:16px;height:16px;stroke:white;fill:none;}
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
+}
+
+@media (min-width: 1024px) { 
+  .sidebar { width: 13.5rem; } 
+}
+
+.sidebar-logo {
+  display: none; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  padding: 1.15rem 0.75rem; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.15s ease;
+  text-decoration: none; 
+}
+
+.sidebar-logo:hover { background: rgba(255,255,255,0.04); }
+
+@media (min-width: 768px) { .sidebar-logo { display: flex; } }
+
+.sidebar-logo img { 
+  width: 7.5rem;  
+  height: 7.5rem; 
+  margin-bottom: 0.6rem; 
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+  transition: transform 0.2s ease;
+}
+
+.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
+.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
+.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
+
+/* Sticky Mobile Control Header Strip */
+.sidebar-mobile-bar {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0.875rem; 
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+
+.sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+.sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+.sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+
+/* Menu Toggle Button Base */
+.menu-toggle {
+  background: rgba(255,255,255,0.08); 
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 0.5rem; 
+  padding: 0.45rem 0.85rem;
+  font-size: 0.75rem; 
+  font-weight: 800; 
+  color: #fff; 
+  cursor: pointer;
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem;
+  transition: background 0.15s, transform 0.1s;
+  font-family: var(--font-body);
+}
+
+.menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
+
+/* Minimalist Twin Animated Icon Setup */
+.twin-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.twin-icon span {
+  position: absolute;
+  height: 2.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              top 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.twin-icon .line-1 {
+  top: 30%;
+  width: 100%;
+  left: 0;
+}
+
+.twin-icon .line-2 {
+  top: 65%;
+  width: 65%;
+  right: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .twin-icon .line-1 {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .twin-icon .line-2 {
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.menu-toggle .toggle-label-open  { display: inline; }
+.menu-toggle .toggle-label-close { display: none; }
+.menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+.menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+
+/* Navigation Panel Link Layout */
+.nav-menu {
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.15rem;
+  padding: 0 0.75rem; 
+  overflow: hidden;
+  max-height: 0; 
+  opacity: 0; 
+  pointer-events: none;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu div {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.nav-menu.is-open { 
+  max-height: 95vh; 
+  opacity: 1; 
+  pointer-events: auto; 
+  padding: 0.5rem 0.75rem; 
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex !important; 
+    max-height: none !important; 
+    opacity: 1 !important;
+    pointer-events: auto !important; 
+    padding: 0.5rem 0.5rem !important; 
+    flex-grow: 1;
+    overflow-y: visible;
+  }
+}
+
+.nav-section-label {
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,0.55);
+  padding: 0 0.5rem; 
+  margin-top: 0.45rem;
+  margin-bottom: 0.05rem;
+}
+
+.nav-link {
+  font-family: var(--font-body); 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  letter-spacing: 0.04em;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600; 
+  color: #D1D8D3;
+  text-decoration: none; 
+  border-left: 3px solid transparent;
+  transform: translateX(0);
+  margin-left: 0.75rem;
+  margin-right: 0.6rem; 
+  padding: 0.55rem 0.6rem;
+  line-height: 1.25; 
+  font-size: 0.8rem; 
+  transition: 
+    background 0.2s ease, 
+    color 0.2s ease, 
+    border-color 0.2s ease, 
+    box-shadow 0.2s ease, 
+    transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover { 
+  background: rgba(255,255,255,0.08); 
+  color: #fff;
+  border-left-color: #8FA2A0; 
+  opacity: 0.95; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateX(2px);
+}
+
+.nav-link.active { 
+  background: rgba(255,255,255,0.14); 
+  color: #FAF0E6; 
+  font-weight: 600; 
+  border-left-color: var(--color-parchment); 
+  opacity: 1; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active:hover {
+  transform: translateX(0);
+}
+
+.nav-link-sub { 
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 0; 
+}
+
+.nav-link-sub span:first-child {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.nav-link-sub .nav-sublabel { 
+  padding-left: 0; 
+  font-size: 0.72rem; 
+  opacity: 0.8; 
+  font-weight: 400; 
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 0.45rem 1rem;
+    line-height: 1.3;
+    font-size: 0.95rem;
+    margin-left: 0.85rem; 
+    margin-right: 0;
+  }
+  .nav-link-sub span:first-child {
+    font-size: 0.95rem;
+  }
+  .nav-link-sub .nav-sublabel {
+    font-size: 0.82rem !important;
+    margin-top: 0.15rem;
+  }
+}
+
+#scroll-progress-track { 
+  position: absolute; 
+  top: 0; left: 0; right: 0; 
+  height: 3px; 
+  background: rgba(255,255,255,0.06); 
+  z-index: 100; 
+  display: none; 
+}
+
+@media (min-width: 768px) { #scroll-progress-track { display: block; } }
+
+#scroll-progress { 
+  height: 100%; 
+  width: 0%; 
+  background: linear-gradient(90deg, var(--color-sage) 0%, var(--color-leaf) 100%); 
+  transition: width 0.1s linear; 
 }
 
 </style>
@@ -696,59 +829,77 @@ nav a.active{
 
 <div class="layout">
 
-<aside>
-  <a href="index.html" class="nav-brand">
-    <img class="logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo">
-    <span class="site-title">Golden Gate Chapter</span>
-    <span class="site-crfg">CRFG.org</span>
-    <span class="site-sub">Growing unusual edibles in the San Francisco Bay Area</span>
-  </a>
-
-  <div class="mobile-header">
-    <a href="index.html" class="mobile-brand">
-      <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
-      <span class="mobile-title">Golden Gate Chapter · CRFG</span>
+<aside class="sidebar">
+    <div id="scroll-progress-track"><div id="scroll-progress"></div></div>
+    
+    <a href="index.html" class="sidebar-logo">
+      <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
+      <span class="logo-name">Golden Gate Chapter</span>
+      <span class="logo-sub">EST <span style="letter-spacing: -0.06em;">1</span>987 • CRFG.org</span>
+      <span class="logo-tag">Growing unusual edibles in<br> the San Francisco Bay Area</span>
     </a>
-<button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">      
-<svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <span>Menu</span>
-    </button>
-  </div>
 
-  <nav id="navMenu">
-    <div class="nav-group">
-      <span class="nav-group-label">🏠 Start Here</span>
-      <a href="index.htm">About</a>
-      <a href="golden-gate-history.html">Our Historical Roots</a>
+    <div class="sidebar-mobile-bar">
+      <a href="index.html">
+        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
+        <span class="brand">Golden Gate · CRFG</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <div class="twin-icon">
+          <span class="line-1"></span>
+          <span class="line-2"></span>
+        </div>
+        <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
+      </button>
     </div>
-    <div class="nav-group">
-      <span class="nav-group-label">🌿 Grow Fruit</span>
-      <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="zone1-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
-      <a href="zone2-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
-      <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
-      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
-      <a href="fruity-resources.html">Fruity Resources</a>
-    </div>
-    <div class="nav-group">
-      <span class="nav-group-label">🤝 Community</span>
-      <a href="meetings.htm">Meetings</a>
-      <a href="online-community.html">Online Community</a>
-    </div>
-    <div class="nav-group">
-      <span class="nav-group-label">✨ Membership</span>
-      <a href="join-renew.html">Join / Renew</a>
-    </div>
-    <div class="nav-group">
-      <span class="nav-group-label">🍋 Events</span>
-      <a href="gg-scionexchange.html">Scion Exchange</a>
-    </div>
-    <div class="nav-group">
-      <span class="nav-group-label">🌱 Get Plants</span>
-      <a href="where-to-buy.html">Where to Buy</a>
-    </div>
-  </nav>
-</aside>
+
+    <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
+      <div>
+        <p class="nav-section-label">START HERE</p>
+        <a href="index.html" class="nav-link">About Us</a>
+        <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
+      </div>
+      <div>
+        <p class="nav-section-label">GET INVOLVED</p>
+        <a href="meetings.html" class="nav-link">Chapter Meetings</a>
+        <a href="online-community.html" class="nav-link">Connect Online</a>
+        <a href="gg-scionexchange.html" class="nav-link">Scion Exchange</a>
+        <a href="join-renew.html" class="nav-link">Join / Renew</a>
+      </div>
+      <div>
+        <p class="nav-section-label">GROW FRUIT</p>
+        
+        <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
+          <span>Bay Area Favorites</span>
+          <span class="nav-sublabel">by Climate Zone</span></a>
+          
+<a href="zone-favorites/zone1-favorites.html" class="nav-link nav-link-sub">
+          <span>Zone 1 Favorites</span>
+          <span class="nav-sublabel">Bay Area Sources</span></a>
+          
+          <a href="zone-favorites/zone2-favorites.html" class="nav-link nav-link-sub">
+          <span>Zone 2 Favorites</span>
+          <span class="nav-sublabel">Valleys Facing the Bay</span></a>
+          
+          <a href="zone-favorites/zone3-favorites.html" class="nav-link nav-link-sub">
+          <span>Zone 3 Favorites</span>
+          <span class="nav-sublabel">Inland Interior</span></a>
+        
+        <a href="bay-area-orchard-supplies.html" class="nav-link nav-link-sub">
+          <span>Orchard Supplies</span>
+          <span class="nav-sublabel">Bay Area Sources</span></a>
+          
+        <a href="member-guides.html" class="nav-link nav-link-sub">
+          <span>Member Guides</span>
+          <span class="nav-sublabel">What Thrives Locally</span>
+        </a>
+        <a href="growers-portal.html" class="nav-link nav-link-sub">
+          <span>Grower's Portal</span>
+          <span class="nav-sublabel">Digital Classroom</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
 
 <div class="page-wrap" style="flex:1;min-width:0;">
 
@@ -793,22 +944,38 @@ nav a.active{
   </header>
 
   <!-- Controls -->
-  <div class="controls">
-    <div class="search-wrap">
-      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="searchInput" placeholder="Search varieties or comments…" oninput="filterAll()">
-    </div>
-    <select class="filter-select" id="filterSelect" onchange="setFilter(this.value)"></select>
-  </div>
-  <div class="results-count" id="resultsCount"></div>
+      <section class="controls">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search varieties or comments" oninput="filterAll()">
+        </div>
 
   <!-- Fruit sections -->
-  <div id="fruitList"></div>
-  <div class="no-results" id="noResults">No varieties match your search.</div>
+<select class="filter-select" id="filterSelect" onchange="setFilter(this.value)"></select>
+      </section>
+
+      <div class="results-count" id="resultsCount"></div>
+      <div id="fruitList"></div>
+      <div class="no-results" id="noResults">No varieties match your search.</div>
+    
 
 <div class="data-note">
   <strong>About this list:</strong> These favorites were gathered from member recommendations of the Golden Gate Chapter, CRFG. Vote counts reflect how often each variety was suggested, and comments come from members’ notes and experiences. Last revised 12/28/2014. To add or update entries, edit the <code>FRUITS</code> array in this page's script.
 </div>
+<p>
+<hr>
+<footer>
+  <p>Questions or comments? <br>
+  Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+  <p>Copyright &copy; 2026. All rights reserved. <br>
+  California Rare Fruit Growers Inc. | <a href="https://crfg.org">CRFG.org</a></p>
+  </footer>
+
+</div>
+
 
 </div>
 
@@ -2367,7 +2534,6 @@ const FRUITS = [
 ];
 
 // ─────────────────────────────────────────────
-// RENDER// ─────────────────────────────────────────────
 // RENDER
 // ─────────────────────────────────────────────
 let activeFilter = "All";
@@ -2462,7 +2628,27 @@ function render() {
 
 buildFilterButtons();
 render();
+// Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('is-open', !isExpanded);
+    });
+  }
+
+  // Dynamic Top Scroll Tracker Calculations
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) progressBar.style.width = scrolled + '%';
+  });
 </script>
+
 </div><!-- /.layout -->
 </body>
 </html>
