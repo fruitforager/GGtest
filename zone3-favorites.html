@@ -237,14 +237,114 @@ body {
   padding-bottom: 24px;
   width: 100%;
 }
-@media (max-width: 700px) {
-  .header-with-map {
-  margin-bottom: 28px;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 24px;
-  width: 100%;
+
+.page-title-zone,
+.page-title-sub,
+.page-title-main {
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
+
+@media(max-width:750px){
+  .layout{flex-direction:column;}
+  aside{
+    width:100%;
+    height:auto;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    overflow:visible;
   }
+
+  .nav-brand{display:none;}
+
+  .mobile-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 12px;
+    min-height:56px;
+  }
+
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+  }
+
+  .mobile-logo{width:36px;height:auto;}
+
+  .mobile-title{
+    font-weight:800;
+    font-size:0.9rem;
+    color:white;
+    line-height:1.2;
+  }
+
+  nav{
+    position:absolute;
+    top:56px;
+    left:0;
+    right:0;
+    background:var(--green);
+    flex-direction:column;
+    max-height:0;
+    opacity:0;
+    transform:translateY(-10px);
+    overflow:hidden;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease,
+      transform 0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    border-top:1px solid rgba(255,255,255,0.15);
+  }
+
+  nav.open{
+    max-height:70vh;
+    opacity:1;
+    transform:translateY(0);
+    overflow-y:auto;
+  }
+
+  nav a{
+    padding:14px 18px;
+    font-size:1rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    margin-left:0;
+    border-left:none;
+    white-space:normal;
+  }
+
+  nav a:last-child{
+    border-bottom:none;
+  }
+
+  .hamburger{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:6px 12px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.25);
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+    gap:6px;
+  }
+
+  .hamburger svg{
+    width:16px;
+    height:16px;
+    stroke:white;
+    fill:none;
+  }
+}
 
 /* ── Controls ── */
 .controls {
@@ -388,7 +488,6 @@ body {
 }
 .variety-inline .v-name {
   font-weight: 700;
-  color: var(--burgandy);
 }
 .variety-inline .v-votes {
   font-weight: 400;
@@ -416,7 +515,7 @@ body {
   grid-template-columns: 1.2em 1fr;
   align-items: start;
   gap: 0 4px;
-  font-size: 0.86rem;
+  font-size: 0.93rem;
   line-height: 1.5;
   width: 100%;
 }
@@ -647,7 +746,7 @@ nav a.active{
   <nav id="navMenu">
     <div class="nav-group">
       <span class="nav-group-label">🏠 Start Here</span>
-      <a href="index.htm">About</a>
+      <a href="index.html">About</a>
       <a href="golden-gate-history.html">Our Historical Roots</a>
     </div>
     <div class="nav-group">
@@ -656,7 +755,7 @@ nav a.active{
       <a href="zone1-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
       <a href="zone2-favorites.html" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
       <a href="zone3-favorites.html" class="active" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
-      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
     <div class="nav-group">
@@ -738,12 +837,17 @@ nav a.active{
 <div class="data-note">
   <strong>About this list:</strong> These favorites were gathered from member recommendations of the Golden Gate Chapter, CRFG. Vote counts reflect how often each variety was suggested, and comments come from members’ notes and experiences. Last revised 12/28/2014. To add or update entries, edit the <code>FRUITS</code> array in this page's script.
 </div>
+<p>
+<hr>
 <footer>
   <p>Questions or comments? <br>
   Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
   <p>Copyright &copy; 2026. All rights reserved. <br>
   California Rare Fruit Growers Inc. | <a href="https://crfg.org">CRFG.org</a></p>
   </footer>
+
+</div>
+
 
 </div>
 
@@ -1202,6 +1306,7 @@ function render() {
         <div class="fruit-section-header">
           <span class="fruit-name">${fruit}</span>
           <span class="fruit-total">${varieties.length} variet${varieties.length === 1 ? "y" : "ies"} · ${totalVotes} vote${totalVotes !== 1 ? "s" : ""}</span>
+        <span class="fruit-total">${totalVotes} vote${totalVotes !== 1 ? "s" : ""}</span>
         </div>
         <div class="variety-list">${rows}</div>
       </div>`;
