@@ -258,88 +258,64 @@
 .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
 .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
 .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+  /* Sticky Mobile Control Header Strip */
+    .sidebar-mobile-bar {
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      padding: 0.875rem; 
+      background: rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-/* Sticky Mobile Control Header Strip */
-.sidebar-mobile-bar {
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between;
-  padding: 0.875rem; 
-  background: rgba(0,0,0,0.15);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+    @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
 
-@media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+    .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+    .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+    .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
-.sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
-.sidebar-mobile-bar img { width: 2.25rem; height: auto; }
-.sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+    /* Menu Drop Shade Trigger Toggle */
+    .menu-toggle {
+      background: rgba(255,255,255,0.08); 
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 0.5rem; 
+      padding: 0.45rem 0.85rem;
+      font-size: 0.75rem; 
+      font-weight: 800; 
+      color: #fff; 
+      cursor: pointer;
+      display: flex; 
+      align-items: center; 
+      gap: 0.375rem;
+      transition: background 0.15s, transform 0.1s;
+      font-family: var(--font-body);
+    }
+    .menu-toggle:hover { background: rgba(255,255,255,0.18); }
+    
+    .hamburger-clean {
+      width: 18px;
+      height: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger-clean .bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+    }
 
-/* Menu Toggle Button Base */
-.menu-toggle {
-  background: rgba(255,255,255,0.08); 
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 0.5rem; 
-  padding: 0.45rem 0.85rem;
-  font-size: 0.75rem; 
-  font-weight: 800; 
-  color: #fff; 
-  cursor: pointer;
-  display: flex; 
-  align-items: center; 
-  gap: 0.5rem;
-  transition: background 0.15s, transform 0.1s;
-  font-family: var(--font-body);
-}
-
-.menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
-
-/* Minimalist Twin Animated Icon Setup */
-.twin-icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  position: relative;
-  display: inline-block;
-}
-
-.twin-icon span {
-  position: absolute;
-  height: 2.5px;
-  background: currentColor;
-  border-radius: 2px;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-              top 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-              width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.twin-icon .line-1 {
-  top: 30%;
-  width: 100%;
-  left: 0;
-}
-
-.twin-icon .line-2 {
-  top: 65%;
-  width: 65%;
-  right: 0;
-}
-
-/* Minimalist Twin Active State Adjustments */
-.menu-toggle[aria-expanded="true"] .twin-icon .line-1 {
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] .twin-icon .line-2 {
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%) rotate(-45deg);
-}
-
-.menu-toggle .toggle-label-open  { display: inline; }
-.menu-toggle .toggle-label-close { display: none; }
-.menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
-.menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+    
+    .menu-toggle .toggle-label-open  { display: inline; }
+    .menu-toggle .toggle-label-close { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
 
 /* Navigation Panel Link Layout */
 .nav-menu {
@@ -614,16 +590,16 @@
         <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
         <span class="brand">Golden Gate · CRFG</span>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
-        <div class="twin-icon">
-          <span class="line-1"></span>
-          <span class="line-2"></span>
-        </div>
+       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-clean">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
         <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
       </button>
     </div>
 
-    <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
       <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
       <div>
         <p class="nav-section-label">START HERE</p>
