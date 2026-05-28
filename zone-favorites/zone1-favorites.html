@@ -4,10 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zone 1 Fruit Favorites · Golden Gate Chapter CRFG</title>
-<style>
+<meta name="description" content="Explore Zone 1 fruit favorites for the Bay Area, with member-recommended cultivars for cool foggy conditions and mild summers.">
+<meta name="keywords" content="Zone 1 fruit favorites, Bay Area fruit trees, CRFG, fog zone, cool summers, mild winters">
+<link rel="canonical" href="https://yourdomain.com/zone1-favorites.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zone 1 Fruit Favorites · Golden Gate Chapter CRFG">
+<meta property="og:description" content="Member-recommended cultivars for Bay Area Zone 1 gardens.">
+<meta property="og:url" content="https://yourdomain.com/zone1-favorites.html">
+<meta property="og:image" content="https://yourdomain.com/images/zone1-preview.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zone 1 Fruit Favorites · Golden Gate Chapter CRFG">
+<meta name="twitter:description" content="Member-recommended cultivars for Bay Area Zone 1 gardens.">
+<meta name="twitter:image" content="https://yourdomain.com/images/zone1-preview.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Zone 1 Fruit Favorites",
+  "description": "Member-recommended cultivars for Bay Area Zone 1 gardens with cool foggy conditions and mild summers.",
+  "url": "https://yourdomain.com/zone1-favorites.html",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Golden Gate Chapter CRFG",
+    "url": "https://yourdomain.com/"
+  }
+}
+</script><style>
 :root {
   --bg: #FAF0E6;
-  --text: #222;
+  --text: #5A3F5D;
   --green: #274D31;
   --green-light: #3a6b47;
   --blue: #2f5d8f;
@@ -15,7 +44,7 @@
   --gg-orange: #c0362c;
   --border: #d8ccb6;
   --card-bg: #fff;
-  --burgandy: #6b4c6e;
+  --burgundy: #6b4c6e;
   --muted: #666;
   --tag-bg: #eef3f0;
 }
@@ -76,12 +105,12 @@ body {
 }
 .page-title-zone {
   font-family: system-ui, sans-serif;
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
   font-weight: 900;
   color: var(--blue);
   line-height: 1.18;
   letter-spacing: 0.01em;
-  margin-top: 50px;
+  margin-top: 1px;
 }
 .page-title-sub {
   font-size: clamp(1.2rem, 1.5vw, 1.05rem);
@@ -94,11 +123,12 @@ body {
 }
 
 .zone-emoji {
-  font-size: 0.99em;
+  font-size: 3em;
   line-height: 1;
   display: inline;
   vertical-align: text-top;
-  margin-left: 10px;
+  margin-left: 2px;
+  margin-top: 60px;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
@@ -178,6 +208,17 @@ body {
 .meta-chill strong {
   color: var(--blue);
   font-size: 1.4rem;
+  
+}
+.meta-hrs {
+  font-family: system-ui, sans-serif;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--blue);
+  margin-left: -4px;
+  margin-top: 2px;
+  position: relative;
+  top: 2px;
 }
 .header-left {
   width: 100%;
@@ -199,38 +240,106 @@ body {
   text-wrap: balance;
 }
 
-@media (max-width: 600px) {
-  .page-title-zone {
-    font-size: 1.6rem;
-    line-height: 1.2;
+@media(max-width:750px){
+  .layout{flex-direction:column;}
+  aside{
+    width:100%;
+    height:auto;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    overflow:visible;
   }
 
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+  .nav-brand{display:none;}
+
+  .mobile-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 12px;
+    min-height:56px;
   }
 
-  .search-wrap {
-    width: 100%;
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
   }
 
-  .filter-select {
-    width: 100%;
-    min-width: 0;
-    margin-bottom: 4px;
+  .mobile-logo{width:36px;height:auto;}
+
+  .mobile-title{
+    font-weight:800;
+    font-size:0.9rem;
+    color:white;
+    line-height:1.2;
   }
 
-  .page-title-sub {
-    white-space: normal; /* prevents overflow */
+  nav{
+    position:absolute;
+    top:56px;
+    left:0;
+    right:0;
+    background:var(--green);
+    flex-direction:column;
+    max-height:0;
+    opacity:0;
+    transform:translateY(-10px);
+    overflow:hidden;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease,
+      transform 0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    border-top:1px solid rgba(255,255,255,0.15);
+  }
+
+  nav.open{
+    max-height:70vh;
+    opacity:1;
+    transform:translateY(0);
+    overflow-y:auto;
+  }
+
+  nav a{
+    padding:14px 18px;
+    font-size:1rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    margin-left:0;
+    border-left:none;
+    white-space:normal;
+  }
+
+  nav a:last-child{
+    border-bottom:none;
+  }
+
+  .hamburger{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:6px 12px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.25);
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+    gap:6px;
+  }
+
+  .hamburger svg{
+    width:16px;
+    height:16px;
+    stroke:white;
+    fill:none;
   }
 }
 
-p, .page-title-sub, .data-note, .variety-inline {
-  orphans: 2;
-  widows: 2;
-  text-wrap: pretty;
-}
+
 
 /* ── Controls ── */
 .controls {
@@ -626,42 +735,52 @@ nav a.active{
       <img class="mobile-logo" src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo">
       <span class="mobile-title">Golden Gate Chapter · CRFG</span>
     </a>
-    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+<button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">      
+<svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       <span>Menu</span>
     </button>
   </div>
 
   <nav id="navMenu">
     <div class="nav-group">
-      <span class="nav-group-label">🏠 Start Here</span>
-      <a href="index.htm">About</a>
+      <span class="nav-group-label">Start Here</span>
+      <a href="index.htm">About Us</a>
+      <a href="golden-gate-history.html">Our Historical Roots</a>
     </div>
     <div class="nav-group">
       <span class="nav-group-label">🌿 Grow Fruit</span>
       <a href="bay-area-zone-favorites.html" style="white-space:normal;">Bay Area Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">by Climate Zone</span></a>
-      <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
-      <a href="zone1-favorites.html" class="active" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
-      <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland</span></a>
-      <a href="memberguides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
+      <a href="zone1-favorites.html" style="white-space:normal;">Zone 1 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Fog Zone</span></a>
+      <a href="zone2-favorites.html" class="active" style="white-space:normal;">Zone 2 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Valleys Facing the Bay</span></a>
+      <a href="zone3-favorites.html" style="white-space:normal;">Zone 3 Favorites<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">Inland Interior</span></a>
+      <a href="member-guides.html" style="white-space:normal;">Member Written Guides<br><span style="padding-left:12px;font-size:0.78rem;opacity:0.85;">What Thrives Locally</span></a>
       <a href="fruity-resources.html">Fruity Resources</a>
     </div>
     <div class="nav-group">
-      <span class="nav-group-label">🤝 Community</span>
-      <a href="meetings.htm">Meetings</a>
-      <a href="online-community.html">Online Community</a>
+      <span class="nav-group-label">GET INVOLVED</span>
+      <a href="meetings.html" class="nav-link active">Chapter Meetings</a>
+        <a href="online-community.html">Connect Online</a>
+        <a href="gg-scionexchange.html">Scion Exchange</a>
+        <a href="join-renew.html">Join / Renew</a>
     </div>
     <div class="nav-group">
-      <span class="nav-group-label">✨ Membership</span>
-      <a href="join-renew.html">Join / Renew</a>
-    </div>
-    <div class="nav-group">
-      <span class="nav-group-label">🍋 Events</span>
-      <a href="gg-scionexchange.html">Scion Exchange</a>
-    </div>
-    <div class="nav-group">
-      <span class="nav-group-label">🌱 Get Plants</span>
-      <a href="where-to-buy.html">Where to Buy</a>
+      <span class="nav-group-label">GROW FRUIT</span>
+      <a href="bay-area-zone-favorites.html">
+          <span>Bay Area Favorites</span>
+          <span class="nav-sublabel">by Climate Zone</span>
+        </a>
+        <a href="bay-area-orchard-supplies.html">
+          <span>Orchard Supplies</span>
+          <span class="nav-sublabel">Bay Area Sources</span>
+        </a>
+        <a href="member-guides.html">
+          <span>Member Guides</span>
+          <span class="nav-sublabel">What Thrives Locally</span>
+        </a>
+        <a href="growers-portal.html">
+          <span>Grower’s Portal</span>
+          <span class="nav-sublabel">Digital Classroom</span>
+        </a>
     </div>
   </nav>
 </aside>
@@ -680,12 +799,26 @@ nav a.active{
           <div class="page-title-main">MEMBER FAVORITES</div>
         </div>
         <div class="page-title">
-          <div class="page-title-zone">Fog Zone ⬅ Ocean Influence <span class="zone-emoji">🌫️</span></div>
+        <div class="zone-emoji">🌫️</div>
+          <div class="page-title-zone">Fog Zone ⬅ Ocean Influence</div>
           <div class="page-title-sub">Cultivars for Cool Summers &amp; Mild Winters</div>
         </div>
         <div class="meta-row">
-          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong></span>
-          <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list"><span class="city">San Francisco</span> · <span class="city">Daly City</span> · <span class="city">Pacifica</span> · <span class="city">Half Moon Bay</span> · <span class="city">Berkeley (foggy areas)</span></span></span>
+          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong><span class="meta-hrs">hrs</span></span></span>
+          <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list">
+  <span class="city">Western San Francisco</span> · 
+  <span class="city">Western Marin</span> · 
+  <span class="city">Daly City</span> · 
+  <span class="city">Pacifica</span> · 
+  <span class="city">Half Moon Bay</span> · 
+  <span class="city">Emeryville/Berkeley</span> · 
+  <span class="city">Bolinas/Stinson Beach</span> · 
+  <span class="city">San Mateo</span> · 
+  <span class="city">Sausalito</span> · 
+  <span class="city">El Cerrito</span> · 
+  <span class="city">Richmond</span> · 
+  <span class="city">Alameda</span>
+</span>
         </div>
       </div>
 </div>
@@ -705,9 +838,20 @@ nav a.active{
   <div id="fruitList"></div>
   <div class="no-results" id="noResults">No varieties match your search.</div>
 
-  <div class="data-note">
-    <strong>About this data:</strong> Compiled from a member poll of the Golden Gate Chapter, CRFG. Vote counts reflect member recommendations. Comments are attributed by member initials. Last revised 12/28/14. To add data, edit the <code>FRUITS</code> array in this page's script.
-  </div>
+<div class="data-note">
+  <strong>About this list:</strong> These favorites were gathered from member recommendations of the Golden Gate Chapter, CRFG. Vote counts reflect how often each variety was suggested, and comments come from members’ notes and experiences. Last revised 12/28/2014. To add or update entries, edit the <code>FRUITS</code> array in this page's script.
+</div>
+<p>
+<hr>
+<footer>
+  <p>Questions or comments? <br>
+  Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+  <p>Copyright &copy; 2026. All rights reserved. <br>
+  California Rare Fruit Growers Inc. | <a href="https://crfg.org">CRFG.org</a></p>
+  </footer>
+
+</div>
+
 
 </div>
 
@@ -1064,7 +1208,12 @@ function render() {
 
 buildFilterButtons();
 render();
+function toggleMenu() {
+  const nav = document.getElementById("navMenu");
+  nav.classList.toggle("open");
+}
 </script>
+
 </div><!-- /.layout -->
 </body>
 </html>
