@@ -259,6 +259,22 @@
 .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
 .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
+/* Sticky Mobile Control Header Strip */
+.sidebar-mobile-bar {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0.875rem; 
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+
+.sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+.sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+.sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+
 /* Menu Toggle Button Base */
 .menu-toggle {
   background: rgba(255,255,255,0.08); 

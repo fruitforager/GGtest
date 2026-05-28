@@ -272,42 +272,47 @@
     }
 
     .sidebar-logo {
-      display: none; 
-      flex-direction: column; 
-      align-items: center; 
-      text-align: center;
-      padding: 1.5rem 1.25rem; 
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      transition: background 0.15s ease;
-      text-decoration: none; 
-    }
-    .sidebar-logo:hover { background: rgba(255,255,255,0.04); }
-    @media (min-width: 768px) { .sidebar-logo { display: flex; } }
-    
-    .sidebar-logo img { 
-      width: 4.5rem; 
-      height: auto; 
-      margin-bottom: 0.875rem; 
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
-    }
-    
-    .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 1rem; font-weight: 900; line-height: 1.25; color: #FAF0E6; }
-    .sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; }
-    .sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.625rem; line-height: 1.4; }
+  display: none; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  padding: 1.15rem 0.75rem; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.15s ease;
+  text-decoration: none; 
+}
 
-    /* Sticky Mobile Control Header Strip */
-    .sidebar-mobile-bar {
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between;
-      padding: 0.875rem; 
-      background: rgba(0,0,0,0.15);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
-    .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
-    .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
-    .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+.sidebar-logo:hover { background: rgba(255,255,255,0.04); }
+
+@media (min-width: 768px) { .sidebar-logo { display: flex; } }
+
+.sidebar-logo img { 
+  width: 7.5rem;  
+  height: 7.5rem; 
+  margin-bottom: 0.6rem; 
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+  transition: transform 0.2s ease;
+}
+
+.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
+.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
+.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
+
+/* Sticky Mobile Control Header Strip */
+.sidebar-mobile-bar {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0.875rem; 
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+
+.sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+.sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+.sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
     /* Menu Drop Shade Trigger Toggle */
     .menu-toggle {
@@ -781,7 +786,7 @@
         yearSpan.textContent = currentYear - foundingYear;
       }
     }());
-
+    
     /* ── Fade-Up Intersection Observer ── */
     const fadeEls = document.querySelectorAll('.fade-up');
     const fadeObserver = new IntersectionObserver((entries) => {
