@@ -89,6 +89,7 @@
       --green-dark: #21452c;
       --blue: #2f5d8f;
       --blue-dark: #21425c;
+      --color-purple: #5B4A73;
       --border: #d8ccb6;
       --sidebar-width: 14rem;
       --max-container: 1380px;
@@ -100,6 +101,7 @@
       --color-mist:      #e8f0e9;
       --color-parchment: #faf6ef;
       --color-crimson:   #9b1c2e;
+      --color-purple: #5B4A73;
       --color-gold:      #c8882a;
       --color-ink:       #1a1a18;
       --font-display: 'Playfair Display', serif;
@@ -137,22 +139,22 @@
       font-weight: 900; 
       line-height: 1.05; 
       color: var(--color-crimson); 
-      margin-bottom: 0.25rem; /* Adjusted down for tighter layout lockup */
+      margin-bottom: 0.25rem; 
       text-shadow: 1px 2px 3px rgba(0,0,0,0.12);
     }
 
     /* Standardized Clean Sans-Serif Slogan Font Rule */
     .custom-main-title {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-      font-weight: 900;
-      color: var(--blue);
-      line-height: 1.25;
-      margin: 48px 0 28px; /* 💡 Increased top margin from 24px to 48px to move it down */
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
-      letter-spacing: -0.01em;
-      max-width: 900px;
-    }
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  color: var(--color-purple); /* Updated this line */
+  line-height: 1.25;
+  margin: 48px 0 28px; 
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+  letter-spacing: -0.01em;
+  max-width: 900px;
+}
 
     h2, h3 { 
       color: var(--blue); 
@@ -196,21 +198,21 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
       opacity: 0.88;
       line-height: 1.25;  
-      margin-bottom: 2px; /* Pulls the block closer to the content below */
+      margin-bottom: 2px; 
     }
 
     .tag-chunk {
-      display: inline-block; /* Prevents internal line breaks inside text phrases */
+      display: inline-block; 
     }
 
     .back-link + .anniversary-tag {
       margin-left: 20px; 
     }
     .thin-rule {
-  border: none;
-  border-top: 1.4px solid rgba(0,0,0,0.15);
-  margin: 0.3rem 0;
-}
+      border: none;
+      border-top: 1.4px solid rgba(0,0,0,0.15);
+      margin: 0.3rem 0;
+    }
 
     /* =====================================================
        3. SITE STRUCTURE & LAYOUT ARCHITECTURE
@@ -268,30 +270,30 @@
       }
     }
     @media (min-width: 1024px) { 
-  .sidebar { width: 13.5rem; } 
-}
+      .sidebar { width: 13.5rem; } 
+    }
 
-.sidebar-logo {
-  display: none; 
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center;
-  padding: 1.15rem 0.75rem; 
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  transition: background 0.15s ease;
-  text-decoration: none; 
-}
-.sidebar-logo:hover { background: rgba(255,255,255,0.04); }
+    .sidebar-logo {
+      display: none; 
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center;
+      padding: 1.15rem 0.75rem; 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.15s ease;
+      text-decoration: none; 
+    }
+    .sidebar-logo:hover { background: rgba(255,255,255,0.04); }
 
-@media (min-width: 768px) { .sidebar-logo { display: flex; } }
+    @media (min-width: 768px) { .sidebar-logo { display: flex; } }
 
-.sidebar-logo img { 
-  width: 7.5rem;  
-  height: 7.5rem; 
-  margin-bottom: 0.6rem; 
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
-  transition: transform 0.2s ease;
-}
+    .sidebar-logo img { 
+      width: 7.5rem;  
+      height: 7.5rem; 
+      margin-bottom: 0.6rem; 
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+      transition: transform 0.2s ease;
+    }
     
     .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 1rem; font-weight: 900; line-height: 1.25; color: #FAF0E6; }
     .sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; }
@@ -311,25 +313,53 @@
     .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
     .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
-    /* Menu Drop Shade Trigger Toggle */
+    /* Menu Drop Shade Trigger Toggle Button */
     .menu-toggle {
       background: rgba(255,255,255,0.08); 
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 0.5rem; 
-      padding: 0.45rem 0.85rem;
+      padding: 0.5rem 0.85rem;
       font-size: 0.75rem; 
       font-weight: 800; 
       color: #fff; 
       cursor: pointer;
       display: flex; 
       align-items: center; 
-      gap: 0.375rem;
-      transition: background 0.15s, transform 0.1s;
+      gap: 0.5rem;
+      transition: background 0.15s;
       font-family: var(--font-body);
     }
     .menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
-    .menu-toggle svg { width: 1.1rem; height: 1.1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
-    .menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
+
+    /* 🛠️ NEW HAMBURGER SPEC: Less fancy than 180, pure clean X morph */
+    .hamburger-clean {
+      width: 18px;
+      height: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger-clean .bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 1px;
+      /* Smooth cubic-bezier for a crisp snap motion without spinning the base */
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Standard Geometric Form Changes triggered via aria-expanded state */
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(3) {
+      transform: translateY(-5px) rotate(-45deg);
+    }
     
     .menu-toggle .toggle-label-open  { display: inline; }
     .menu-toggle .toggle-label-close { display: none; }
@@ -346,7 +376,10 @@
       max-height: 0; 
       opacity: 0; 
       pointer-events: none;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      /* SLOWED WINDOWSHADE: Elegantly fluid 0.75s deceleration formula */
+      transition: max-height 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+                  opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                  padding 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .nav-menu.is-open { 
       max-height: 95vh; 
@@ -376,14 +409,14 @@
     .nav-link {
       font-family: var(--font-body); display: flex; align-items: center; gap: 0.5rem;
       padding: 0.45rem 0.75rem; border-radius: 0.5rem;
-      font-size: 0.8125rem; font-weight: 600; color: var(--color-mist); /* Changed text menu font color to a subtle light green tint */
+      font-size: 0.8125rem; font-weight: 600; color: var(--color-mist); 
       transition: background 0.15s, color 0.15s;
       text-decoration: none; 
     }
     .nav-link:hover { background: rgba(255,255,255,0.08); color: #fff; }
     .nav-link.active { background: rgba(255,255,255,0.17); color: #fff; border-left: 3px solid #ffffff; opacity: 0.88; padding-left: calc(0.75rem - 3px); }
     .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
-    .nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.8; font-weight: 400; color: var(--color-sage); /* Changed submenu descriptor label text to explicit sage green */ }
+    .nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.8; font-weight: 400; color: var(--color-sage); }
 
     /* =====================================================
        SCROLL FADE-IN
@@ -398,26 +431,17 @@
     /* =====================================================
        5. COMPONENT BUTTON SPECIFICATIONS
     ===================================================== */
-    /* Primary Blue Button with Matched Pill Shape & 3D Depth */
-    /* Anti-Aliased Primary Blue Button with Smooth Hover Depth */
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-top: 14px;
-      
-      /* ✨ HARDWARE ACCELERATION: Forces crisp, buttery-smooth anti-aliased round corners */
       transform: translateZ(0);
       backface-visibility: hidden;
-      
-      /* Base Color Structure */
       background: linear-gradient(to bottom, #4a84bc 0%, #2f5d8f 40%, #22446a 100%);
       background-color: #2f5d8f;
       background-clip: padding-box;
-      
-      /* 🧼 SUBTLE EDGE PROTECTION: A soft, translucent border to soften rasterized edge pixels */
       border: 1px solid rgba(34, 68, 106, 0.25);
-      
       color: white;
       text-decoration: none;
       padding: 12px 28px; 
@@ -427,22 +451,15 @@
       font-size: 1.05rem;
       letter-spacing: 0.03em;
       white-space: nowrap;
-      
-      /* Multi-Layer 3D Depth Shadows */
       box-shadow: 
         inset 0 3px 4px rgba(255, 255, 255, 0.28),
         inset 0 -2px 3px rgba(0, 0, 0, 0.18); 
-      
       filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12)) 
               drop-shadow(0 4px 8px rgba(47, 93, 143, 0.25));
-      
-      /* ✨ SMOOTH HOVER TRANSITION: Explicitly animates transform and shadows without paint snapping */
       transition: transform 0.2s cubic-bezier(.2,.9,.25,1), filter 0.2s ease, background-color 0.2s ease;
     }
     
     .button:hover {
-      /* ✨ REMOVED HARD HOVER GRADIENT STRIP: Uses filter brightness adjustment 
-         instead to avoid hard lines, keeping the original smooth gradient intact underneath */
       filter: brightness(1.06) 
               drop-shadow(0 2px 2px rgba(0, 0, 0, 0.08)) 
               drop-shadow(0 7px 14px rgba(47, 93, 143, 0.35));
@@ -461,16 +478,12 @@
       filter: drop-shadow(0 0 0 4px rgba(47, 93, 143, 0.35));
     }
 
-    /* Whitened Gradient Gloss Button Style */
-    /* Refined Whitened Gradient Gloss Button Style */
     .button-neutral {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-top: 8px;
       margin-bottom: 24px;
-      
-      /* 📦 DEEPER 3D GRADIENT: Stronger white top-light transitioning to a slightly denser base */
       background: linear-gradient(to bottom, 
         rgba(255, 255, 255, 0.95) 0%, 
         rgba(255, 255, 255, 0.60) 40%, 
@@ -478,11 +491,8 @@
       );
       background-color: rgba(255, 255, 255, 0.5); 
       background-clip: padding-box; 
-      
-      /* Soft, elegant border line */
       border: 1px solid rgba(90, 125, 95, 0.38); 
-      
-      color: var(--color-leaf); 
+      color: var(--color-crimson); 
       text-decoration: none;
       padding: 12px 24px;
       border-radius: 50px;
@@ -491,23 +501,17 @@
       font-size: 1.05rem;
       letter-spacing: 0em;
       white-space: nowrap;
-      
-      /* 📦 COMPARTMENT SHADOWS: Stronger internal top rim-light + subtle bottom cushion */
       box-shadow: 
         inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
         inset 0 -1px 2px rgba(0, 0, 0, 0.03); 
-      
-      /* 📦 MULTI-LAYER DROP SHADOW: Combines a tight dark shadow with a soft ambient blur */
       filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08)) 
               drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
-      
       transition: transform 0.2s cubic-bezier(.2,.9,.25,1), filter 0.2s ease, background-color 0.2s ease;
     }
 
     .button-neutral:hover {
       background-color: rgba(255, 255, 255, 0.75);
       transform: translateY(-2px);
-      /* Intensifies depth profile on hover action */
       filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06)) 
               drop-shadow(0 7px 14px rgba(0, 0, 0, 0.11));
     }
@@ -515,7 +519,6 @@
     .button-neutral:active {
       transform: translateY(1px);
       background-color: rgba(255, 255, 255, 0.55);
-      /* flattens drop shadow cleanly to look physically pressed down */
       filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05)) 
               drop-shadow(0 2px 3px rgba(0, 0, 0, 0.04));
     }
@@ -639,8 +642,13 @@
         <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
         <span class="brand">Golden Gate · CRFG</span>
       </a>
+      
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
-        <svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span class="hamburger-clean">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
         <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
       </button>
     </div>
@@ -690,20 +698,18 @@
       </div>
 
       <section id="sec-hero" class="fade-up">
-      <p style="font-size:0.96rem; font-weight:500; letter-spacing:0.0em; color:var(--color-crimson); margin-top: 24px; margin-bottom: 1px; opacity: 0.83; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.12);">Celebrating <span id="crfg-years">39</span> Years of Rare Fruit Curiosity & Passion</p>
+        <p style="font-size:0.96rem; font-weight:500; letter-spacing:0.0em; color:var(--color-crimson); margin-top: 24px; margin-bottom: 1px; opacity: 0.83; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.12);">Celebrating <span id="crfg-years">39</span> Years of Rare Fruit Curiosity & Passion</p>
         <hr class="thin-rule">
         <p style="font-size:1.06rem; font-weight:700; letter-spacing:0.02em; color:var(--color-crimson); margin-top: 1px; margin-bottom:0.25rem; text-rendering:geometricPrecision; text-shadow:0 1px 3px rgba(0,0,0,0.12);">California Rare Fruit Growers</p>
         <h1 class="shadow-text">Golden Gate Chapter</h1>
-        
       </section>
       
       <h1 class="custom-main-title">Rare fruit.<br>Real community.<br>Right here in&nbsp;the&nbsp;Bay&nbsp;Area.</h1>
 
-      <p><strong>California Rare Fruit Growers</strong> (CRFG.org) is a non-profit organization with chapters throughout California and members around the world. Our members &mdash; professionals and amateurs alike &mdash; are dedicated to growing, sharing, and learning about unusual fruits and edible plants.</p>
+<p>Welcome to the <strong style="color: var(--color-crimson);">Golden Gate Chapter</strong>. Our chapter is part of <strong>California Rare Fruit Growers</strong> (CRFG.org), a nonprofit organization connecting fruit enthusiasts across California and beyond—with members in 48 U.S. states and over 35 countries. We're a community of amateurs and professionals dedicated to sharing the joy of rare fruit cultivation.</p>
 
-      <p>Our <strong>Golden Gate Chapter</strong> holds meetings <strong>across the San Francisco Bay Area</strong> featuring guest speakers, fruit tastings, shared potlucks, orchard tours, hands-on learning, and great conversation with people who share your passion for growing.</p>
-
-     <p><a href="golden-gate-history.html" class="button-neutral">Read about our Chapter's history <span class="arrow">&rarr;</span></a></p>
+<p>You don’t need to be an expert or even own a single tree to join us. Whether you’re growing on a balcony, in a backyard, or on acreage, there’s room for you here. No experience required — just curiosity, enthusiasm, and a love of growing.</p>
+      <p><a href="golden-gate-history.html" class="button-neutral">Read about our Chapter's history <span class="arrow">&rarr;</span></a></p>
       <h2>🍋 🍇 🌳 🍒 🥭</h2>
 
       <h3>What Happens at Meetings</h3>
