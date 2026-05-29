@@ -272,6 +272,18 @@
     @media (min-width: 1024px) { 
       .sidebar { width: 13.5rem; } 
     }
+    
+    @media (max-width: 768px) {
+  .sidebar-mobile-bar { background: var(--green); padding: 12px 16px; }
+  .main-wrapper { padding: 24px 16px 24px 24px; }
+  .map-wrap { margin: 45px 0 24px; }
+  .hero h1 { text-wrap: wrap; }
+  .step { padding-left: 0; max-width: none; }
+  .step .button, .pay-card { max-width: none; width: 100%; }
+  .pay-logos { max-width: none; width: 100%; padding: 6px 36px; }
+  .footer-copyright { display: none; }
+  .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
+}
 
     .sidebar-logo {
   display: none; 
