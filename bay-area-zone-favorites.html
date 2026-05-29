@@ -49,7 +49,6 @@
       --color-mist:      #e8f0e9;
       --color-parchment: #faf6ef;
       --color-crimson:   #9b1c2e;
-      --color-purple: #5B4A73;
       --color-gold:      #c8882a;
       --color-ink:       #1a1a18;
       --font-display: 'Playfair Display', serif;
@@ -124,20 +123,20 @@
 
     /* ── Anniversary Tagline Component ── */
     .anniversary-tag {
-      display: inline-flex;
-      flex-wrap: wrap; 
-      align-items: center;
-      gap: 4px 10px;      
-      font-family: var(--font-body);
-      font-size: 0.93rem;
-      font-weight: 900;
-      color: var(--green); 
-      letter-spacing: 0.09em; 
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
-      opacity: 0.88;
-      line-height: 1.25;  
-      margin-bottom: 2px; 
-    }
+  display: inline-flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  gap: 4px 10px;      
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  font-weight: 900;
+  color: var(--green); 
+  letter-spacing: 0.09em; 
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+  opacity: 0.88;
+  line-height: 1.25;  
+  margin-bottom: 24px; /* <--- Increased from 2px to 24px for extra breathing room */
+}
 
     .tag-chunk {
       display: inline-block; 
@@ -207,30 +206,30 @@
     }
 
     .sidebar-logo {
-  display: none; 
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center;
-  padding: 1.15rem 0.75rem; 
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  transition: background 0.15s ease;
-  text-decoration: none; 
-}
+      display: none; 
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center;
+      padding: 1.15rem 0.75rem; 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.15s ease;
+      text-decoration: none; 
+    }
     .sidebar-logo:hover { background: rgba(255,255,255,0.04); }
 
     @media (min-width: 768px) { .sidebar-logo { display: flex; } }
 
     .sidebar-logo img { 
-  width: 7.5rem;  
-  height: 7.5rem; 
-  margin-bottom: 0.6rem; 
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
-  transition: transform 0.2s ease;
-}
+      width: 7.5rem;  
+      height: 7.5rem; 
+      margin-bottom: 0.6rem; 
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+      transition: transform 0.2s ease;
+    }
     
-.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.88rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
-.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
-.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
+    .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.88rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
+    .sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
+    .sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
 
     /* Sticky Mobile Control Header Strip */
     .sidebar-mobile-bar {
@@ -245,8 +244,8 @@
     .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
     .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
     .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
-  .footer-copyright { display: none; }
-  .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
+    .footer-copyright { display: none; }
+    .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
 
     /* Menu Drop Shade Trigger Toggle Button */
     .menu-toggle {
@@ -300,77 +299,72 @@
     .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
 
     /* Navigation Panel Link Layout */
-   /* Navigation Shade Link Mechanics */
-.nav-menu {
-  display: flex; flex-direction: column; gap: 1rem;
-  padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
-  max-height: 0; opacity: 0; pointer-events: none;
-  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.30s ease, padding 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav-menu.is-open { max-height: 800px; opacity: 1; pointer-events: auto; padding: 1.25rem 0.75rem; }
-@media (min-width: 768px) {
-  .nav-menu {
-    display: flex !important; max-height: none !important; opacity: 1 !important;
-    pointer-events: auto !important; padding: 1.25rem 0.75rem !important; overflow-y: auto;
-  }
-}
+    .nav-menu {
+      display: flex; flex-direction: column; gap: 1rem;
+      padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
+      max-height: 0; opacity: 0; pointer-events: none;
+      transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.30s ease, padding 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-menu.is-open { max-height: 800px; opacity: 1; pointer-events: auto; padding: 1.25rem 0.75rem; }
+    @media (min-width: 768px) {
+      .nav-menu {
+        display: flex !important; max-height: none !important; opacity: 1 !important;
+        pointer-events: auto !important; padding: 1.25rem 0.75rem !important; overflow-y: auto;
+      }
+    }
 
-.nav-section-label {
-  font-family: var(--font-body); font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.5);
-  padding: 0 0.5rem; margin-bottom: 0.375rem;
-}
-.nav-link {
-  font-family: var(--font-body);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-mist);
-  text-decoration: none;
+    .nav-section-label {
+      font-family: var(--font-body); font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      padding: 0 0.5rem; margin-bottom: 0.375rem;
+    }
+    .nav-link {
+      font-family: var(--font-body);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-mist);
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transform: translateX(0);
+      will-change: transform, background-color, box-shadow;
+      transition:
+        transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-  border-left: 3px solid transparent;
+    .nav-link:hover {
+      background: rgba(255,255,255,0.075);
+      color: var(--color-mist);
+      text-decoration: none;
+      border-left: 3px solid #5F7D92;
+      transform: translateX(4px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025),
+        inset 0 -1px 0 rgba(0,0,0,0.04);
+    }
+    .nav-link.active { 
+      background: rgba(255,255,255,0.15); 
+      color: #fff; 
+      border-left: 3px solid rgba(255, 255, 255, 0.85);
+      padding-left: calc(0.75rem - 3px); 
+    }
+    .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
+    .nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.9; font-weight: 400; }
 
-  transform: translateX(0);
-  will-change: transform, background-color, box-shadow;
+    .nav-link svg {
+      width: 1rem;
+      height: 1rem;
+      opacity: 0.6;
+      transition: opacity 0.15s;
+    }
 
-  transition:
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.nav-link:hover {
-  background: rgba(255,255,255,0.075);
-  color: var(--color-mist);
-  text-decoration: none;
-  border-left: 3px solid #5F7D92;
-
-  transform: translateX(4px);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.025),
-    inset 0 -1px 0 rgba(0,0,0,0.04);
-}
-.nav-link.active { 
-  background: rgba(255,255,255,0.15); 
-  color: #fff; 
-  border-left: 3px solid rgba(255, 255, 255, 0.85);
-  padding-left: calc(0.75rem - 3px); 
-}
-.nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
-.nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.9; font-weight: 400; }
-
-.nav-link svg {
-  width: 1rem;
-  height: 1rem;
-  opacity: 0.6;
-  transition: opacity 0.15s;
-}
     /* =====================================================
        SCROLL FADE-IN
     ===================================================== */
@@ -387,6 +381,8 @@
       gap: 24px;
       margin-top: 8px;
     }
+    
+    /* Applied Step B: Staggered Fade In & Smooth Motion Preparation */
     .zone-card {
       background: #fff;
       border: 1.5px solid var(--border);
@@ -396,12 +392,27 @@
       flex-direction: column;
       gap: 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      transition: box-shadow 0.18s, transform 0.18s;
+      opacity: 0;
+      transform: translateY(24px);
+      will-change: opacity, transform;
+      transition: opacity 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                  transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1),
+                  box-shadow 0.18s ease;
+    }
+    .zone-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .zone-card:hover {
       box-shadow: 0 6px 22px rgba(0,0,0,0.11);
       transform: translateY(-2px);
     }
+    
+    /* Card Transition Sequential Delay Staggering Hooks */
+    .zone-cards .zone-card:nth-child(1) { transition-delay: 100ms; }
+    .zone-cards .zone-card:nth-child(2) { transition-delay: 250ms; }
+    .zone-cards .zone-card:nth-child(3) { transition-delay: 400ms; }
+
     .zone-label {
       display: inline-block;
       background: #3a6b47;
@@ -494,7 +505,7 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.14);
     }
 
-    /* ── Map Frame ── */
+    /* ── Map Frame Skeleton Styling ── */
     .map-frame {
       width: 100%;
       max-width: 100%; 
@@ -505,9 +516,17 @@
       overflow: hidden;
       position: relative;
       margin: 0 0 20px 0; 
-      background: rgba(39, 77, 49, 0.04);
+      /* Clean background layout skeleton pulse */
+      background: linear-gradient(110deg, #eae1d4 8%, #f3ebdf 18%, #eae1d4 33%);
+      background-size: 200% 100%;
+      animation: mapSkeleton 1.5s infinite linear;
       touch-action: manipulation;
     }
+
+    @keyframes mapSkeleton {
+      to { background-position-x: -200%; }
+    }
+
     .map-frame iframe {
       position: absolute;
       top: 0;
@@ -517,12 +536,13 @@
       border: 0;
       display: block;
       opacity: 0;
-      transition: opacity 0.4s ease-out, transform 0.3s ease-out;
-      transform: scale(0.98);
+      will-change: opacity, transform;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.97) translateY(4px);
     }
     .map-frame iframe.loaded {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1) translateY(0);
     }
     .map-frame:hover iframe.loaded {
       transform: scale(1.03);
@@ -689,11 +709,11 @@
       </section>
 
       <h2 class="fade-up">🌦️ Find Your Microclimate&nbsp;Zone</h2>
-      <p class="fade-up" style="margin:-8px 0 24px;font-size:1rem;color:#555;max-width:62ch;text-wrap:pretty;">The Bay Area's microclimates vary dramatically over short distances. <strong>Pick the zone that best matches</strong> where you garden — <strong>your chill hours and summer heat will shape almost every fruit decision you make.</strong></p>
+      <p class="fade-up" style="margin: 8px 0 40px; font-size: 1rem; color:#555; max-width: 62ch; text-wrap: pretty;">The Bay Area's microclimates vary dramatically over short distances. <strong>Pick the zone that best matches</strong> where you garden — <strong>your chill hours and summer heat will shape almost every fruit decision you make.</strong></p>
 
-      <div class="zone-cards fade-up">
+      <div class="zone-cards">
 
-        <div class="zone-card">
+        <div class="zone-card fade-up">
           <div class="zone-label">Zone 1</div>
           <h3>🌫️ Fog Zone</h3>
           <p class="zone-chill"><strong>‎‎ ‎❄️‎ ‎  100–400 Chill hours</strong></p>
@@ -716,7 +736,7 @@
           <a class="card-link" href="zone1-favorites.html">Member's Fog Zone Favorites →</a>
         </div>
 
-        <div class="zone-card">
+        <div class="zone-card fade-up">
           <div class="zone-label">Zone 2</div>
           <h3>🌊 Facing the Bay</h3>
           <p class="zone-chill"><strong>‎ ❄️‎  ‎ 400–900 Chill hours</strong></p>
@@ -739,7 +759,7 @@
           <a class="card-link" href="zone2-favorites.html">Member's Bay-Facing Favorites →</a>
         </div>
 
-        <div class="zone-card">
+        <div class="zone-card fade-up">
           <div class="zone-label">Zone 3</div>
           <h3>☀️ Inland</h3>
           <p class="zone-chill"><strong>‎ ‎‎❄️‎‎  ‎  600–1,500 Chill hours</strong></p>
@@ -755,7 +775,7 @@
           <hr class="zone-rule">
           <p class="zone-desc-short"><strong>Sunset Zone:</strong> Primarily Zone 14 and Zone 15, with pockets of Zone 7 in higher elevations.</p>
           <hr class="zone-rule">
-          <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> 600–1,500, the highest chill hours in the chapter, means standard and high-chill deciduous varieties that struggle on the coast can genuinely thrive here. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat accumulation fully ripens all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
+          <p class="zone-detail"><strong>Real winters and real summers — the Bay's moderating influence barely reaches here.</strong> 600–1,500, the highest chill hours in the chapter, means standard and high-chill deciduous varieties that struggle on the coast can genuinely thrive here. Cold winters can damage frost-sensitive subtropicals requiring protection. Summer heat accumulation fully rips all heat-loving fruits, and the long warm season lets growers push into varieties coastal members simply can't attempt.</p>
           <hr class="zone-rule">
           <p class="zone-desc-short"><strong>Fruit Suitability:</strong> Supports <strong>moderate-to-high-chill</strong> varieties (500–1,000+ hours). Ideal for traditional temperate fruits like cherries, apples, pears, jujubes and walnuts, as well as heat-loving varieties of grapes and stone fruit.</p>
           <p class="zone-examples"><span class="star-bullet">✦</span> Members love: <br>apricots, cherries, figs, grapes, jujubes, peaches, persimmons, pomegranates</p>
@@ -810,7 +830,7 @@
     }, { threshold: 0.1 });
     fadeEls.forEach(el => fadeObserver.observe(el));
 
-    // Lazy Loading Map Iframe Strategy
+    // Step C: Optimized Lazy Loading Map Iframe Strategy
     var mapIframes = document.querySelectorAll(".map-frame iframe");
     if ("IntersectionObserver" in window) {
       var mapObserver = new IntersectionObserver(function (entries, observer) {
@@ -819,13 +839,18 @@
             var iframe = entry.target;
             iframe.addEventListener('load', function() {
               iframe.classList.add('loaded');
+              // Instantly strip the skeleton animations once code layers have safely painted
+              if(iframe.parentElement) {
+                iframe.parentElement.style.animation = 'none';
+                iframe.parentElement.style.background = 'transparent';
+              }
             });
             iframe.src = iframe.getAttribute("data-src");
             mapObserver.unobserve(iframe);
           }
         });
       }, {
-        rootMargin: "350px 0px"
+        rootMargin: "200px 0px" // Adjusted viewport headroom margin
       });
       mapIframes.forEach(function (iframe) {
         mapObserver.observe(iframe);
