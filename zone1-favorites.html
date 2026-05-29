@@ -7,6 +7,9 @@
 <meta name="description" content="Explore Zone 1 fruit favorites for the Bay Area, with member-recommended cultivars for cool foggy conditions and mild summers.">
 <meta name="keywords" content="Zone 1 fruit favorites, Bay Area fruit trees, CRFG, fog zone, cool summers, mild winters">
 <link rel="canonical" href="https://yourdomain.com/zone1-favorites.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Zone 1 Fruit Favorites · Golden Gate Chapter CRFG">
@@ -33,7 +36,8 @@
     "url": "https://yourdomain.com/"
   }
 }
-</script><style>
+</script>
+<style>
 :root {
   --bg: #FAF0E6;
   --text: #5A3F5D;
@@ -48,8 +52,8 @@
   --muted: #666;
   --tag-bg: #eef3f0;
 
-  /* Sidebar system tokens (from meetings.html) */
-  --sidebar-width: 12.5rem;
+  /* Sidebar system tokens */
+  --sidebar-width: 14rem;
   --max-container: 1380px;
   --color-forest:    #1e3d28;
   --color-leaf:      #2d5e3a;
@@ -65,15 +69,15 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
 /* ── Page shell ── */
 .page-wrap {
@@ -223,7 +227,6 @@ body {
 .meta-chill strong {
   color: var(--blue);
   font-size: 1.4rem;
-  
 }
 .meta-hrs {
   font-family: system-ui, sans-serif;
@@ -241,7 +244,6 @@ body {
   margin: 0;
 }
 
-
 .header-with-map {
   max-width: 100%;
 }
@@ -254,10 +256,6 @@ body {
   overflow-wrap: anywhere;
   text-wrap: balance;
 }
-
-
-
-
 
 /* ── Controls ── */
 .controls {
@@ -468,10 +466,9 @@ body {
 
 @media (max-width: 600px) {
   .page-wrap { padding: 28px 16px 60px; }
-
-  .results-count {
-    margin-top: 14px;
-  }
+  .results-count { margin-top: 14px; }
+    .footer-copyright { display: none; }
+  .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
 }
 
 /* =====================================================
@@ -488,18 +485,8 @@ body {
   text-align: left;
   line-height: 1.65;
 }
-
-.site-footer p {
-  margin-bottom: 6px;
-  font-size: 0.72rem;
-}
-
-.site-footer a { 
-  color: var(--color-leaf); 
-  font-weight: 700; 
-  text-decoration: none; 
-}
-
+.site-footer p { margin-bottom: 6px; font-size: 0.72rem; }
+.site-footer a { color: var(--color-leaf); font-weight: 700; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 
 /* =====================================================
@@ -514,9 +501,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .layout {
-    flex-direction: row;
-  }
+  .layout { flex-direction: row; }
 }
 
 .sidebar {
@@ -544,23 +529,10 @@ body {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
   }
-
-  .sidebar::-webkit-scrollbar {
-    width: 2px !important; 
-  }
-  
-  .sidebar::-webkit-scrollbar-track {
-    background: transparent !important;
-  }
-  
-  .sidebar::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.22) !important; 
-    border-radius: 10px !important;
-  }
-  
-  .sidebar::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4) !important;
-  }
+  .sidebar::-webkit-scrollbar { width: 2px !important; }
+  .sidebar::-webkit-scrollbar-track { background: transparent !important; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.22) !important; border-radius: 10px !important; }
+  .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4) !important; }
 }
 
 @media (min-width: 1024px) { 
@@ -577,9 +549,7 @@ body {
   transition: background 0.15s ease;
   text-decoration: none; 
 }
-
 .sidebar-logo:hover { background: rgba(255,255,255,0.04); }
-
 @media (min-width: 768px) { .sidebar-logo { display: flex; } }
 
 .sidebar-logo img { 
@@ -589,11 +559,21 @@ body {
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
   transition: transform 0.2s ease;
 }
-
 .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
 .sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
 .sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
 
+/* Footer */
+.footer-copyright {
+  padding: 1rem 1rem 1.5rem;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-body);
+  letter-spacing: 0.02em;
+}
+
 /* Sticky Mobile Control Header Strip */
 .sidebar-mobile-bar {
   display: flex; 
@@ -603,25 +583,7 @@ body {
   background: rgba(0,0,0,0.15);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-
 @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
-
-.sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
-.sidebar-mobile-bar img { width: 2.25rem; height: auto; }
-.sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
-
-/* Sticky Mobile Control Header Strip */
-.sidebar-mobile-bar {
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between;
-  padding: 0.875rem; 
-  background: rgba(0,0,0,0.15);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-@media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
-
 .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
 .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
 .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
@@ -645,164 +607,113 @@ body {
 
 .menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
 
-/* Minimalist Twin Animated Icon Setup */
-.twin-icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  position: relative;
-  display: inline-block;
-}
-
-.twin-icon span {
-  position: absolute;
-  height: 2.5px;
-  background: currentColor;
-  border-radius: 2px;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-              top 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-              width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.twin-icon .line-1 {
-  top: 30%;
-  width: 100%;
-  left: 0;
-}
-
-.twin-icon .line-2 {
-  top: 65%;
-  width: 65%;
-  right: 0;
-}
-
-.menu-toggle[aria-expanded="true"] .twin-icon .line-1 {
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] .twin-icon .line-2 {
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%) rotate(-45deg);
-}
 
 .menu-toggle .toggle-label-open  { display: inline; }
 .menu-toggle .toggle-label-close { display: none; }
 .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
 .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
 
-/* Navigation Panel Link Layout */
-.nav-menu {
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.15rem;
-  padding: 0 0.75rem; 
-  overflow: hidden;
-  max-height: 0; 
-  opacity: 0; 
-  pointer-events: none;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-menu div {
+.hamburger-clean {
+  width: 18px;
+  height: 12px;
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  justify-content: space-between;
 }
 
-.nav-menu.is-open { 
-  max-height: 95vh; 
-  opacity: 1; 
-  pointer-events: auto; 
-  padding: 0.5rem 0.75rem; 
-  overflow-y: auto;
+.hamburger-clean .bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Geometric transforms triggered via aria-expanded state */
+.menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* Navigation Panel Link Layout */
+.nav-menu {
+  display: flex; flex-direction: column; gap: 1rem;
+  padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
+  max-height: 0; opacity: 0; pointer-events: none;
+  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.30s ease, padding 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-menu.is-open { max-height: 800px; opacity: 1; pointer-events: auto; padding: 1.25rem 0.75rem; }
 @media (min-width: 768px) {
   .nav-menu {
-    display: flex !important; 
-    max-height: none !important; 
-    opacity: 1 !important;
-    pointer-events: auto !important; 
-    padding: 0.5rem 0.5rem !important; 
-    flex-grow: 1;
-    overflow-y: visible;
+    display: flex !important; max-height: none !important; opacity: 1 !important;
+    pointer-events: auto !important; padding: 1.25rem 0.75rem !important; overflow-y: auto;
   }
 }
 
 .nav-section-label {
-  font-family: var(--font-body); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em;
-  text-transform: uppercase; color: rgba(255,255,255,0.55);
-  padding: 0 0.5rem; 
-  margin-top: 0.45rem;
-  margin-bottom: 0.05rem;
+  font-family: var(--font-body); font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+  padding: 0 0.5rem; margin-bottom: 0.375rem;
 }
-
 .nav-link {
-  font-family: var(--font-body); 
-  display: flex; 
-  align-items: center; 
-  gap: 0.5rem; 
-  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
   border-radius: 0.5rem;
   font-size: 0.8125rem;
-  font-weight: 600; 
-  color: #D1D8D3;
-  text-decoration: none; 
+  font-weight: 600;
+  color: var(--color-mist);
+  text-decoration: none;
+
   border-left: 3px solid transparent;
+
   transform: translateX(0);
-  margin-left: 0.75rem;
-  margin-right: 0.6rem; 
-  padding: 0.55rem 0.6rem;
-  line-height: 1.25; 
-  font-size: 0.8rem; 
-  transition: 
-    background 0.2s ease, 
-    color 0.2s ease, 
-    border-color 0.2s ease, 
-    box-shadow 0.2s ease, 
-    transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, background-color, box-shadow;
+
+  transition:
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.nav-link:hover { 
-  background: rgba(255,255,255,0.08); 
-  color: #fff;
-  border-left-color: #8FA2A0; 
-  opacity: 0.95; 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transform: translateX(2px);
-}
+.nav-link:hover {
+  background: rgba(255,255,255,0.075);
+  color: var(--color-mist);
+  text-decoration: none;
+  border-left: 3px solid #5F7D92;
 
+  transform: translateX(4px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.025),
+    inset 0 -1px 0 rgba(0,0,0,0.04);
+}
 .nav-link.active { 
-  background: rgba(255,255,255,0.14); 
-  color: #FAF0E6; 
-  font-weight: 600; 
-  border-left-color: var(--color-parchment); 
-  opacity: 1; 
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.15); 
+  color: #fff; 
+  border-left: 3px solid rgba(255, 255, 255, 0.85);
+  padding-left: calc(0.75rem - 3px); 
 }
+.nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
+.nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.9; font-weight: 400; }
 
-.nav-link.active:hover {
-  transform: translateX(0);
-}
-
-.nav-link-sub { 
-  flex-direction: column; 
-  align-items: flex-start; 
-  gap: 0; 
-}
-
-.nav-link-sub span:first-child {
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.nav-link-sub .nav-sublabel { 
-  padding-left: 0; 
-  font-size: 0.72rem; 
-  opacity: 0.8; 
-  font-weight: 400; 
-  letter-spacing: 0.04em;
+.nav-link svg {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.15s;
 }
 
 @media (max-width: 767px) {
@@ -820,6 +731,9 @@ body {
     font-size: 0.82rem !important;
     margin-top: 0.15rem;
   }
+    .footer-copyright { display: none; }
+  .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
+}
 }
 
 #scroll-progress-track { 
@@ -830,7 +744,6 @@ body {
   z-index: 100; 
   display: none; 
 }
-
 @media (min-width: 768px) { #scroll-progress-track { display: block; } }
 
 #scroll-progress { 
@@ -839,14 +752,13 @@ body {
   background: linear-gradient(90deg, var(--color-sage) 0%, var(--color-leaf) 100%); 
   transition: width 0.1s linear; 
 }
-
 </style>
 </head>
 <body>
 
 <div class="layout">
 
-<aside class="sidebar">
+  <aside class="sidebar">
     <div id="scroll-progress-track"><div id="scroll-progress"></div></div>
     
     <a href="index.html" class="sidebar-logo">
@@ -862,47 +774,90 @@ body {
         <span class="brand">Golden Gate · CRFG</span>
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
-        <div class="twin-icon">
-          <span class="line-1"></span>
-          <span class="line-2"></span>
-        </div>
+        <span class="hamburger-clean">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
         <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
       </button>
     </div>
 
     <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
       <div>
-        <p class="nav-section-label">START HERE</p>
-        <a href="index.html" class="nav-link">About Us</a>
-        <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
-      </div>
-      <div>
-        <p class="nav-section-label">GET INVOLVED</p>
-        <a href="meetings.html" class="nav-link">Chapter Meetings</a>
-        <a href="online-community.html" class="nav-link">Connect Online</a>
-        <a href="gg-scionexchange.html" class="nav-link">Scion Exchange</a>
-        <a href="join-renew.html" class="nav-link">Join / Renew</a>
-      </div>
-      <div>
-        <p class="nav-section-label">GROW FRUIT</p>
-        <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
-          <span>Bay Area Favorites</span>
-          <span class="nav-sublabel">by Climate Zone</span>
-        </a>
-        <a href="bay-area-orchard-supplies.html" class="nav-link nav-link-sub">
-          <span>Orchard Supplies</span>
-          <span class="nav-sublabel">Bay Area Sources</span>
-        </a>
-        <a href="member-guides.html" class="nav-link nav-link-sub">
-          <span>Member Guides</span>
-          <span class="nav-sublabel">What Thrives Locally</span>
-        </a>
-        <a href="growers-portal.html" class="nav-link nav-link-sub">
-          <span>Grower's Portal</span>
-          <span class="nav-sublabel">Digital Classroom</span>
-        </a>
-      </div>
+       <p class="nav-section-label">START HERE</p>
+<a href="index.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <span>About Us</span>
+  </span>
+</a>
+<a href="golden-gate-history.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+    <span>Our Historical Roots</span>
+  </span>
+</a>
+
+<p class="nav-section-label">GET INVOLVED</p>
+<a href="meetings.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+    <span>Meetings</span>
+  </span>
+</a>
+<a href="online-community.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4z" /></svg>
+    <span>Online Community</span>
+  </span>
+</a>
+<a href="gg-scionexchange.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+    <span>Scion Exchange</span>
+  </span>
+</a>
+<a href="join-renew.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+    <span>Join / Renew</span>
+  </span>
+</a>
+
+<p class="nav-section-label">GROW FRUIT</p>
+<a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub active">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+    <span>Bay Area Favorites</span>
+  </span>
+  <span class="nav-sublabel" style="padding-left: 1.45rem;">by Climate Zone</span>
+</a>
+<a href="bay-area-orchard-supplies.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+    <span>Orchard Supplies</span>
+  </span>
+  <span class="nav-sublabel" style="padding-left: 1.45rem;">Bay Area Sources</span>
+</a>
+<a href="member-guides.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+    <span>Member Guides</span>
+  </span>
+</a>
+<a href="growers-portal.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8v13H3V8l9-5 9 5z M12 16h0 M12 12h0 M16 16h0 M16 12h0 M8 16h0 M8 12h0" /></svg>
+    <span>Grower’s Portal</span>
+  </span>
+  <span class="nav-sublabel" style="padding-left: 1.45rem;">Digital Classroom</span>
+</a>
     </nav>
+    
+    <div class="footer-copyright">
+      © 2026 CRFG Golden Gate
+    </div>
   </aside>
 
 <div class="page-wrap">
@@ -924,57 +879,56 @@ body {
           <div class="page-title-sub">Cultivars for Cool Summers &amp; Mild Winters</div>
         </div>
         <div class="meta-row">
-          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong><span class="meta-hrs">hrs</span></span></span>
+          <span class="meta-chill"><span class="emoji-shadow">❄️</span> Chill hours: <strong>100–400</strong><span class="meta-hrs">hrs</span></span>
           <span class="meta-cities"><span class="pin-icon emoji-shadow">📍</span><span class="city-list">
-  <span class="city">Western San Francisco</span> · 
-  <span class="city">Western Marin</span> · 
-  <span class="city">Daly City</span> · 
-  <span class="city">Pacifica</span> · 
-  <span class="city">Half Moon Bay</span> · 
-  <span class="city">Emeryville/Berkeley</span> · 
-  <span class="city">Bolinas/Stinson Beach</span> · 
-  <span class="city">San Mateo</span> · 
-  <span class="city">Sausalito</span> · 
-  <span class="city">El Cerrito</span> · 
-  <span class="city">Richmond</span> · 
-  <span class="city">Alameda</span>
-</span>
+            <span class="city">Western San Francisco</span> · 
+            <span class="city">Western Marin</span> · 
+            <span class="city">Daly City</span> · 
+            <span class="city">Pacifica</span> · 
+            <span class="city">Half Moon Bay</span> · 
+            <span class="city">Emeryville/Berkeley</span> · 
+            <span class="city">Bolinas/Stinson Beach</span> · 
+            <span class="city">San Mateo</span> · 
+            <span class="city">Sausalito</span> · 
+            <span class="city">El Cerrito</span> · 
+            <span class="city">Richmond</span> · 
+            <span class="city">Alameda</span>
+          </span></span>
         </div>
       </div>
-</div>
+    </div>
   </header>
 
   <!-- Controls -->
-      <section class="controls">
-        <div class="search-wrap">
-          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="M21 21l-4.35-4.35"></path>
-          </svg>
-          <input type="text" id="searchInput" placeholder="Search varieties or comments" oninput="filterAll()">
-        </div>
+  <section class="controls">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="M21 21l-4.35-4.35"></path>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search varieties or comments" oninput="filterAll()">
+    </div>
 
-  <!-- Fruit sections -->
-<select class="filter-select" id="filterSelect" onchange="setFilter(this.value)"></select>
-      </section>
+    <!-- Fruit sections -->
+    <select class="filter-select" id="filterSelect" onchange="setFilter(this.value)"></select>
+  </section>
 
-      <div class="results-count" id="resultsCount"></div>
-      <div id="fruitList"></div>
-      <div class="no-results" id="noResults">No varieties match your search.</div>
-      
-      
-<div class="data-note">
-  <strong>About this list:</strong> These favorites were gathered from member recommendations of the Golden Gate Chapter, CRFG. Vote counts reflect how often each variety was suggested, and comments come from members’ notes and experiences. Last revised 12/28/2014. To add or update entries, edit the <code>FRUITS</code> array in this page's script.
+  <div class="results-count" id="resultsCount"></div>
+  <div id="fruitList"></div>
+  <div class="no-results" id="noResults">No varieties match your search.</div>
+  
+  <div class="data-note">
+    <strong>About this list:</strong> These favorites were gathered from member recommendations of the Golden Gate Chapter, CRFG. Vote counts reflect how often each variety was suggested, and comments come from members’ notes and experiences. Last revised 12/28/2014. To add or update entries, edit the <code>FRUITS</code> array in this page's script.
+  </div>
+  
+  <footer class="site-footer">
+    <p>Questions or comments?<br>
+    Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
+    <p>Copyright &copy; 2026. All rights reserved.<br>
+    California Rare Fruit Growers Inc. | <a href="https://crfg.org" target="_blank">CRFG.org</a></p>
+  </footer>
+
 </div>
-      <footer class="site-footer">
-        <p>Questions or comments?<br>
-        Email the <a href="mailto:golden.gate@crfg.org">Golden Gate Chapter</a>.</p>
-        <p>Copyright &copy; 2026. All rights reserved.<br>
-        California Rare Fruit Growers Inc. | <a href="https://crfg.org" target="_blank">CRFG.org</a></p>
-      </footer>
-
-</div>
-
 
 </div>
 
@@ -988,250 +942,96 @@ const FRUITS = [
   {
     "fruit": "Apple",
     "varieties": [
-      {
-        "name": "Alkmene",
-        "votes": 1
-      },
-      {
-        "name": "Ashmead's Kernel",
-        "votes": 1
-      },
-      {
-        "name": "Criterion",
-        "votes": 1
-      },
-      {
-        "name": "Hauer Pippin",
-        "votes": 1
-      },
-      {
-        "name": "Hidden Rose",
-        "votes": 1
-      },
-      {
-        "name": "Hudson's Golden Gem",
-        "votes": 1
-      },
-      {
-        "name": "Karmijn de Sonnaville",
-        "votes": 1
-      },
-      {
-        "name": "Kidd's Red Orange",
-        "votes": 1
-      },
-      {
-        "name": "Spitzenberg Esopus",
-        "votes": 1
-      },
-      {
-        "name": "State Fair",
-        "votes": 1
-      },
-      {
-        "name": "Winter White Pearmain",
-        "votes": 1
-      }
+      { "name": "Alkmene", "votes": 1 },
+      { "name": "Ashmead's Kernel", "votes": 1 },
+      { "name": "Criterion", "votes": 1 },
+      { "name": "Hauer Pippin", "votes": 1 },
+      { "name": "Hidden Rose", "votes": 1 },
+      { "name": "Hudson's Golden Gem", "votes": 1 },
+      { "name": "Karmijn de Sonnaville", "votes": 1 },
+      { "name": "Kidd's Red Orange", "votes": 1 },
+      { "name": "Spitzenberg Esopus", "votes": 1 },
+      { "name": "State Fair", "votes": 1 },
+      { "name": "Winter White Pearmain", "votes": 1 }
     ]
   },
   {
     "fruit": "Avocado",
     "varieties": [
-      {
-        "name": "Holiday",
-        "votes": 1
-      }
+      { "name": "Holiday", "votes": 1 }
     ]
   },
   {
     "fruit": "Citrus",
     "varieties": [
-      {
-        "name": "Eureka",
-        "votes": 1,
-        "subgroup": "Lemon"
-      },
-      {
-        "name": "Bearss",
-        "votes": 1,
-        "subgroup": "Lime"
-      },
-      {
-        "name": "Calamondin",
-        "votes": 1,
-        "subgroup": "Orange"
-      }
+      { "name": "Eureka", "votes": 1, "subgroup": "Lemon" },
+      { "name": "Bearss", "votes": 1, "subgroup": "Lime" },
+      { "name": "Calamondin", "votes": 1, "subgroup": "Orange" }
     ]
   },
   {
     "fruit": "Fig",
     "varieties": [
-      {
-        "name": "Desert King",
-        "votes": 1
-      },
-      {
-        "name": "Snowden",
-        "votes": 1
-      },
-      {
-        "name": "White Ischia",
-        "votes": 1
-      }
+      { "name": "Desert King", "votes": 1 },
+      { "name": "Snowden", "votes": 1 },
+      { "name": "White Ischia", "votes": 1 }
     ]
   },
   {
     "fruit": "Guava — Pineapple (Feijoa)",
     "varieties": [
-      {
-        "name": "Albert 5",
-        "votes": 1
-      },
-      {
-        "name": "Albert Supreme",
-        "votes": 1
-      },
-      {
-        "name": "Early Edendale",
-        "votes": 1
-      },
-      {
-        "name": "Nazemetz",
-        "votes": 1
-      }
+      { "name": "Albert 5", "votes": 1 },
+      { "name": "Albert Supreme", "votes": 1 },
+      { "name": "Early Edendale", "votes": 1 },
+      { "name": "Nazemetz", "votes": 1 }
     ]
   },
   {
     "fruit": "Loquat",
     "varieties": [
-      {
-        "name": "Big Jim",
-        "votes": 1
-      }
+      { "name": "Big Jim", "votes": 1 }
     ]
   },
   {
     "fruit": "Passion Fruit",
     "varieties": [
-      {
-        "name": "Passiflora mollissima",
-        "votes": 1
-      },
-      {
-        "name": "Passiflora mixta",
-        "votes": 1
-      }
+      { "name": "Passiflora mollissima", "votes": 1 },
+      { "name": "Passiflora mixta", "votes": 1 }
     ]
   },
   {
     "fruit": "Pear",
     "varieties": [
-      {
-        "name": "Nashi",
-        "votes": 1,
-        "subgroup": "Asian"
-      },
-      {
-        "name": "Abbe Fetel",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Dana Hovey",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Magness",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Seckel",
-        "votes": 2,
-        "subgroup": "European"
-      },
-      {
-        "name": "Warren",
-        "votes": 1,
-        "subgroup": "European"
-      }
+      { "name": "Nashi", "votes": 1, "subgroup": "Asian" },
+      { "name": "Abbe Fetel", "votes": 1, "subgroup": "European" },
+      { "name": "Dana Hovey", "votes": 1, "subgroup": "European" },
+      { "name": "Magness", "votes": 1, "subgroup": "European" },
+      { "name": "Seckel", "votes": 2, "subgroup": "European" },
+      { "name": "Warren", "votes": 1, "subgroup": "European" }
     ]
   },
   {
     "fruit": "Plum",
     "varieties": [
-      {
-        "name": "Prunus subcordata",
-        "votes": 1,
-        "subgroup": "American"
-      },
-      {
-        "name": "Prunus angustifolia",
-        "votes": 1,
-        "subgroup": "American"
-      },
-      {
-        "name": "Delight",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Sprite",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Gage (unknown variety)",
-        "votes": 1,
-        "subgroup": "European"
-      },
-      {
-        "name": "Beauty",
-        "votes": 1,
-        "subgroup": "Japanese"
-      },
-      {
-        "name": "Burgundy",
-        "votes": 1,
-        "subgroup": "Japanese"
-      },
-      {
-        "name": "Elephant Heart",
-        "votes": 1,
-        "subgroup": "Japanese"
-      },
-      {
-        "name": "Flavor Queen",
-        "votes": 1,
-        "subgroup": "Japanese"
-      },
-      {
-        "name": "Inca",
-        "votes": 1,
-        "subgroup": "Japanese"
-      }
+      { "name": "Prunus subcordata", "votes": 1, "subgroup": "American" },
+      { "name": "Prunus angustifolia", "votes": 1, "subgroup": "American" },
+      { "name": "Delight", "votes": 1, "subgroup": "European" },
+      { "name": "Sprite", "votes": 1, "subgroup": "European" },
+      { "name": "Gage (unknown variety)", "votes": 1, "subgroup": "European" },
+      { "name": "Beauty", "votes": 1, "subgroup": "Japanese" },
+      { "name": "Burgundy", "votes": 1, "subgroup": "Japanese" },
+      { "name": "Elephant Heart", "votes": 1, "subgroup": "Japanese" },
+      { "name": "Flavor Queen", "votes": 1, "subgroup": "Japanese" },
+      { "name": "Inca", "votes": 1, "subgroup": "Japanese" }
     ]
   },
   {
     "fruit": "Strawberry",
     "varieties": [
-      {
-        "name": "Firecracker",
-        "votes": 1
-      },
-      {
-        "name": "Mara des Bois",
-        "votes": 1
-      },
-      {
-        "name": "San Andreas",
-        "votes": 1
-      },
-      {
-        "name": "Yellow Wonder",
-        "votes": 1
-      }
+      { "name": "Firecracker", "votes": 1 },
+      { "name": "Mara des Bois", "votes": 1 },
+      { "name": "San Andreas", "votes": 1 },
+      { "name": "Yellow Wonder", "votes": 1 }
     ]
   }
 ];
@@ -1331,27 +1131,26 @@ function render() {
 
 buildFilterButtons();
 render();
-// Mobile menu toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      navMenu.classList.toggle('is-open', !isExpanded);
-    });
-  }
 
-  // Dynamic Top Scroll Tracker Calculations
-  window.addEventListener('scroll', () => {
-    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-    const progressBar = document.getElementById('scroll-progress');
-    if (progressBar) progressBar.style.width = scrolled + '%';
+// Mobile Windowshade System Mechanic
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    navMenu.classList.toggle('is-open', !isExpanded);
   });
-</script>
+}
 
-</div><!-- /.layout -->
+// Dynamic Top Scroll Tracker Calculations
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) progressBar.style.width = scrolled + '%';
+});
+</script>
 </body>
 </html>
