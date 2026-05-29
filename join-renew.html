@@ -498,18 +498,42 @@ p { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.55; }
       touch-action: manipulation;            
 }
 
+/* ── Inline Map Loading Animation ── */
+    .map-frame {
+      position: relative;
+      width: 76%;
+      max-width: 700px;
+      aspect-ratio: 3 / 4;
+      margin-top: 45px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(110deg, #eae1d4 8%, #f3ebdf 18%, #eae1d4 33%);
+      background-size: 200% 100%;
+      animation: mapSkeleton 1.5s infinite linear;
+      touch-action: manipulation;
+    }
 
-
-
-.map-wrap iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 
+.map-frame iframe {
+  width: 100%;
+  height: 100%; /* Fills the 3:4 container exactly */
+  border: none;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.map-frame iframe.loaded {
+  opacity: 1;
+}
 
 ul { padding-left: 26px; margin: 12px 0; }
 li { margin-bottom: 8px; font-size: 1.05rem; }
@@ -749,8 +773,8 @@ From first harvests to decades of experience, there’s always something new to 
         <li>Confidence to grow better fruit at home</li>
       </ul>
 
-      <div class="map-wrap">
-        <iframe src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf" title="Golden Gate Chapter CRFG member map" loading="lazy" allowfullscreen>
+      <div class="map-frame">
+        <iframe data-src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf" title="Golden Gate Chapter CRFG member map" allowfullscreen>
           <p>Your browser does not support iframes. You can view the <a href="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf" target="_blank" rel="noopener">Golden Gate Chapter member map directly here</a>.</p>
         </iframe>
       </div>
@@ -792,6 +816,38 @@ From first harvests to decades of experience, there’s always something new to 
         a.classList.add("active");
       }
     });
+    
+    // Optimized Lazy Loading Map Iframe Strategy
+    var mapIframes = document.querySelectorAll(".map-frame iframe");
+    if ("IntersectionObserver" in window) {
+      var mapObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var iframe = entry.target;
+            iframe.addEventListener('load', function() {
+              iframe.classList.add('loaded');
+              // Instantly strip the skeleton animations once code layers have safely painted
+              if(iframe.parentElement) {
+                iframe.parentElement.style.animation = 'none';
+                iframe.parentElement.style.background = 'transparent';
+              }
+            });
+            iframe.src = iframe.getAttribute("data-src");
+            mapObserver.unobserve(iframe);
+          }
+        });
+      }, {
+        rootMargin: "200px 0px" // Adjusted viewport headroom margin
+      });
+      mapIframes.forEach(function (iframe) {
+        mapObserver.observe(iframe);
+      });
+    } else {
+      mapIframes.forEach(function (iframe) {
+        iframe.src = iframe.getAttribute("data-src");
+        iframe.classList.add('loaded');
+      });
+    }
 
     /* ── Windowshade Dropdown menu toggler with morphing support ── */
     const menuToggle = document.getElementById('menuToggle');

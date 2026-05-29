@@ -132,7 +132,6 @@
       text-rendering: optimizeLegibility;
     }
     
-    /* Corrected Hero Display Selector Rule */
     .shadow-text { 
       font-family: var(--font-display); 
       font-size: clamp(2.75rem, 8vw, 4.5rem); 
@@ -143,18 +142,17 @@
       text-shadow: 1px 2px 3px rgba(0,0,0,0.12);
     }
 
-    /* Standardized Clean Sans-Serif Slogan Font Rule */
     .custom-main-title {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-  font-weight: 900;
-  color: var(--color-purple); /* Updated this line */
-  line-height: 1.25;
-  margin: 48px 0 28px; 
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
-  letter-spacing: -0.01em;
-  max-width: 900px;
-}
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--color-purple);
+      line-height: 1.25;
+      margin: 48px 0 28px; 
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+      letter-spacing: -0.01em;
+      max-width: 900px;
+    }
 
     h2, h3 { 
       color: var(--blue); 
@@ -184,7 +182,6 @@
       margin: 40px 0; 
     }
 
-    /* ── Anniversary Tagline Component ── */
     .anniversary-tag {
       display: inline-flex;
       flex-wrap: wrap; 
@@ -274,55 +271,52 @@
     }
     
     @media (max-width: 768px) {
-  .sidebar-mobile-bar { background: var(--green); padding: 12px 16px; }
-  .main-wrapper { padding: 24px 16px 24px 24px; }
-  .map-wrap { margin: 45px 0 24px; }
-  .hero h1 { text-wrap: wrap; }
-  .step { padding-left: 0; max-width: none; }
-  .step .button, .pay-card { max-width: none; width: 100%; }
-  .pay-logos { max-width: none; width: 100%; padding: 6px 36px; }
-  .footer-copyright { display: none; }
-  .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
-}
+      .sidebar-mobile-bar { background: var(--green); padding: 12px 16px; }
+      .main-wrapper { padding: 24px 16px 24px 24px; }
+      .map-frame { margin: 45px 0 24px; }
+      .hero h1 { text-wrap: wrap; }
+      .step { padding-left: 0; max-width: none; }
+      .step .button, .pay-card { max-width: none; width: 100%; }
+      .pay-logos { max-width: none; width: 100%; padding: 6px 36px; }
+      .footer-copyright { display: none; }
+      .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
+    }
 
     .sidebar-logo {
-  display: none; 
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center;
-  padding: 1.15rem 0.75rem; 
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  transition: background 0.15s ease;
-  text-decoration: none; 
-}
+      display: none; 
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center;
+      padding: 1.15rem 0.75rem; 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.15s ease;
+      text-decoration: none; 
+    }
+    .sidebar-logo:hover { background: rgba(255,255,255,0.04); }
+    @media (min-width: 768px) { .sidebar-logo { display: flex; } }
 
-.sidebar-logo:hover { background: rgba(255,255,255,0.04); }
+    .sidebar-logo img { 
+      width: 7.5rem;  
+      height: 7.5rem; 
+      margin-bottom: 0.6rem; 
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
+      transition: transform 0.2s ease;
+    }
 
-@media (min-width: 768px) { .sidebar-logo { display: flex; } }
+    .sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.88rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
+    .sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
+    .sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
 
-.sidebar-logo img { 
-  width: 7.5rem;  
-  height: 7.5rem; 
-  margin-bottom: 0.6rem; 
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3)); 
-  transition: transform 0.2s ease;
-}
-
-.sidebar-logo .logo-name { font-family: var(--font-body); font-size: 0.88rem; font-weight: 900; line-height: 1.25; color: rgba(255,255,255,0.9); letter-spacing: 0.01em}
-.sidebar-logo .logo-sub  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; letter-spacing: 0.05em;}
-.sidebar-logo .logo-tag  { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.5rem; line-height: 1.35; letter-spacing: 0.02em;}
-
-
-/* Footer */
-.footer-copyright {
-  padding: 1rem 1rem 1.5rem;
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.4);
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: var(--font-body);
-  letter-spacing: 0.02em;
-}
+    /* Footer */
+    .footer-copyright {
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-family: var(--font-body);
+      letter-spacing: 0.02em;
+    }
 
     /* Sticky Mobile Control Header Strip */
     .sidebar-mobile-bar {
@@ -338,133 +332,108 @@
     .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
     .sidebar-mobile-bar .brand { font-family: var(--font-body); font-size: 0.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
 
-/* Menu Toggle Button Base */
-.menu-toggle {
-  background: rgba(255,255,255,0.08); 
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 0.5rem; 
-  padding: 0.45rem 0.85rem;
-  font-size: 0.75rem; 
-  font-weight: 800; 
-  color: #fff; 
-  cursor: pointer;
-  display: flex; 
-  align-items: center; 
-  gap: 0.5rem;
-  transition: background 0.15s, transform 0.1s;
-  font-family: var(--font-body);
-}
+    /* Menu Toggle Button Base */
+    .menu-toggle {
+      background: rgba(255,255,255,0.08); 
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 0.5rem; 
+      padding: 0.45rem 0.85rem;
+      font-size: 0.75rem; 
+      font-weight: 800; 
+      color: #fff; 
+      cursor: pointer;
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem;
+      transition: background 0.15s, transform 0.1s;
+      font-family: var(--font-body);
+    }
+    .menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
+    .menu-toggle .toggle-label-open  { display: inline; }
+    .menu-toggle .toggle-label-close { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
 
-.menu-toggle:hover { background: rgba(255, 255, 255, 0.18); }
+    .hamburger-clean {
+      width: 18px;
+      height: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger-clean .bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
 
+    /* Navigation Shade Link Mechanics */
+    .nav-menu {
+      display: flex; flex-direction: column; gap: 1rem;
+      padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
+      max-height: 0; opacity: 0; pointer-events: none;
+      transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.30s ease, padding 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-menu.is-open { max-height: 800px; opacity: 1; pointer-events: auto; padding: 1.25rem 0.75rem; }
+    @media (min-width: 768px) {
+      .nav-menu {
+        display: flex !important; max-height: none !important; opacity: 1 !important;
+        pointer-events: auto !important; padding: 1.25rem 0.75rem !important; overflow-y: auto;
+      }
+    }
 
-.menu-toggle .toggle-label-open  { display: inline; }
-.menu-toggle .toggle-label-close { display: none; }
-.menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
-.menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+    .nav-section-label {
+      font-family: var(--font-body); font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      padding: 0 0.5rem; margin-bottom: 0.375rem;
+    }
+    .nav-link {
+      font-family: var(--font-body);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-mist);
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transform: translateX(0);
+      will-change: transform, background-color, box-shadow;
+      transition:
+        transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-.hamburger-clean {
-  width: 18px;
-  height: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.hamburger-clean .bar {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #fff;
-  border-radius: 1px;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Geometric transforms triggered via aria-expanded state */
-.menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(1) {
-  transform: translateY(5px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger-clean .bar:nth-child(3) {
-  transform: translateY(-5px) rotate(-45deg);
-}
-
-/* Navigation Shade Link Mechanics */
-.nav-menu {
-  display: flex; flex-direction: column; gap: 1rem;
-  padding: 0 0.75rem; overflow: hidden; flex-grow: 1;
-  max-height: 0; opacity: 0; pointer-events: none;
-  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.30s ease, padding 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav-menu.is-open { max-height: 800px; opacity: 1; pointer-events: auto; padding: 1.25rem 0.75rem; }
-@media (min-width: 768px) {
-  .nav-menu {
-    display: flex !important; max-height: none !important; opacity: 1 !important;
-    pointer-events: auto !important; padding: 1.25rem 0.75rem !important; overflow-y: auto;
-  }
-}
-
-.nav-section-label {
-  font-family: var(--font-body); font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.5);
-  padding: 0 0.5rem; margin-bottom: 0.375rem;
-}
-.nav-link {
-  font-family: var(--font-body);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-mist);
-  text-decoration: none;
-
-  border-left: 3px solid transparent;
-
-  transform: translateX(0);
-  will-change: transform, background-color, box-shadow;
-
-  transition:
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.nav-link:hover {
-  background: rgba(255,255,255,0.075);
-  color: var(--color-mist);
-  text-decoration: none;
-  border-left: 3px solid #5F7D92;
-
-  transform: translateX(4px);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.025),
-    inset 0 -1px 0 rgba(0,0,0,0.04);
-}
-.nav-link.active { 
-  background: rgba(255,255,255,0.15); 
-  color: #fff; 
-  border-left: 3px solid rgba(255, 255, 255, 0.85);
-  padding-left: calc(0.75rem - 3px); 
-}
-.nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
-.nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.9; font-weight: 400; }
-
-.nav-link svg {
-  width: 1rem;
-  height: 1rem;
-  opacity: 0.6;
-  transition: opacity 0.15s;
-}
+    .nav-link:hover {
+      background: rgba(255,255,255,0.075);
+      color: var(--color-mist);
+      text-decoration: none;
+      border-left: 3px solid #5F7D92;
+      transform: translateX(4px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025),
+        inset 0 -1px 0 rgba(0,0,0,0.04);
+    }
+    .nav-link.active { 
+      background: rgba(255,255,255,0.15); 
+      color: #fff; 
+      border-left: 3px solid rgba(255, 255, 255, 0.85);
+      padding-left: calc(0.75rem - 3px); 
+    }
+    .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
+    .nav-link-sub .nav-sublabel { padding-left: 0; font-size: 0.78rem; opacity: 0.9; font-weight: 400; }
+    .nav-link svg { width: 1rem; height: 1rem; opacity: 0.6; transition: opacity 0.15s; }
 
     /* =====================================================
        SCROLL FADE-IN
@@ -586,14 +555,9 @@
       max-width: 35ch;
       text-align: center;
     }
-    .step .button:hover {
-      background-image: linear-gradient(to bottom, #457bae 0%, #346694 55%, #2d5a88 100%);
-    }
 
-    /* =====================================================
-       6. INTERACTIVE MAP FRAME STYLING
-    ===================================================== */
-    .map-wrap {
+    /* ── Updated Interactive Map Frame Styling ── */
+    .map-frame {
       position: relative;
       width: 60%;
       max-width: 700px;
@@ -610,21 +574,33 @@
       touch-action: manipulation;
     }
 
-    .map-wrap iframe {
+    @keyframes mapSkeleton {
+      to { background-position-x: -200%; }
+    }
+
+    .map-frame iframe {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
       display: block;
+      opacity: 0;
+      will-change: opacity, transform;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.97) translateY(4px);
+    }
+    .map-frame iframe.loaded {
+      opacity: 1;
+      transform: scale(1) translateY(0);
     }
 
     @media (min-width: 600px) and (max-width: 1024px) {
-      .map-wrap { width: 75%; }
+      .map-frame { width: 75%; }
     }
 
     @media (max-width: 767px) {
-      .map-wrap {
+      .map-frame {
         width: 100%;
         aspect-ratio: 3 / 4;
         margin: 32px auto 20px;
@@ -797,9 +773,9 @@
       
       <h1 class="custom-main-title fade-up delay-1">Rare fruit.<br>Real community.<br>Right here in&nbsp;the&nbsp;Bay&nbsp;Area.</h1>
       
-<p>Welcome to the <strong style="color: var(--color-crimson);">Golden Gate Chapter</strong>. Our chapter is part of <strong>California Rare Fruit Growers</strong> (CRFG.org), a nonprofit organization connecting fruit enthusiasts across California and beyond—with members in 48 U.S. states and over 35 countries. We're a community of amateurs and professionals dedicated to sharing the joy of rare fruit cultivation.</p>
+      <p>Welcome to the <strong style="color: var(--color-crimson);">Golden Gate Chapter</strong>. Our chapter is part of <strong>California Rare Fruit Growers</strong> (CRFG.org), a nonprofit organization connecting fruit enthusiasts across California and beyond—with members in 48 U.S. states and over 35 countries. We're a community of amateurs and professionals dedicated to sharing the joy of rare fruit cultivation.</p>
 
-<p>You don’t need to be an expert or even own a single tree to join us. Whether you’re growing on a balcony, in a backyard, or on acreage, there’s room for you here. No experience required — just curiosity, enthusiasm, and a love of growing.</p>
+      <p>You don’t need to be an expert or even own a single tree to join us. Whether you’re growing on a balcony, in a backyard, or on acreage, there’s room for you here. No experience required — just curiosity, enthusiasm, and a love of growing.</p>
       <p><a href="golden-gate-history.html" class="button-neutral">Read about our Chapter's history <span class="arrow">&rarr;</span></a></p>
       <h2>🍋 🍇 🌳 🍒 🥭</h2>
 
@@ -826,12 +802,10 @@
       <h3>About Our Region</h3>
       <p>Members come from across the Bay Area and beyond, including <strong>Alameda, Contra Costa, Marin, San Francisco, San Mateo, Solano, and neighboring counties</strong> &mdash; with members as far away as Colorado and New York.</p>
 
-      <div class="map-wrap">
+      <div class="map-frame">
         <iframe
-          src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
-          title="Golden Gate Chapter CRFG member map"
-          loading="lazy"
-          allowfullscreen>
+          data-src="https://api.ultimaps.com/player/4a729e7a-ca2c-4c7d-b57b-82c9731ba8cf"
+          title="Golden Gate Chapter CRFG member map">
         </iframe>
       </div>
 
@@ -892,6 +866,35 @@
       });
     }, { threshold: 0.1 });
     fadeEls.forEach(el => fadeObserver.observe(el));
+
+    /* ── Map Lazy Loading Logic ── */
+    var mapIframes = document.querySelectorAll(".map-frame iframe");
+    if ("IntersectionObserver" in window) {
+      var mapObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var iframe = entry.target;
+            iframe.addEventListener('load', function() {
+              iframe.classList.add('loaded');
+              if(iframe.parentElement) {
+                iframe.parentElement.style.animation = 'none';
+                iframe.parentElement.style.background = 'transparent';
+              }
+            });
+            iframe.src = iframe.getAttribute("data-src");
+            mapObserver.unobserve(iframe);
+          }
+        });
+      }, { rootMargin: "200px 0px" });
+      mapIframes.forEach(function (iframe) {
+        mapObserver.observe(iframe);
+      });
+    } else {
+      mapIframes.forEach(function (iframe) {
+        iframe.src = iframe.getAttribute("data-src");
+        iframe.classList.add('loaded');
+      });
+    }
   });
 </script>
 </body>
