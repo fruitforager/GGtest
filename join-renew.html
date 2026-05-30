@@ -377,81 +377,116 @@ p { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.55; }
 .step-label { font-size: 1.1rem; line-height: 1.55; margin: 0 0 8px; }
 .step-label strong { display: block; margin-bottom: 2px; }
 
-/* Interactive Trigger Buttons */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-  position: relative;
-  
-  /* Seamless sequential percentages for a premium 3D sheen layout */
-  background: linear-gradient(
-    to bottom, 
-    rgba(255, 255, 255, 0.15) 0%, 
-    rgba(255, 255, 255, 0.08) 30%, 
-    rgba(255, 255, 255, 0) 45%, 
-    rgba(0, 0, 0, 0.04) 70%, 
-    rgba(0, 0, 0, 0.15) 100%
-  ), #2f5d8f;
-  
-  color: white;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 9999px;
-  font-weight: 800;
-  font-size: 1.08rem;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  
-  /* Natural depth properties using solid accent borders and shadows */
-  box-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 4px 0 #183352, 
-    0 6px 14px rgba(24, 51, 82, 0.4);
+  /* =====================================================
+       5. COMPONENT BUTTON SPECIFICATIONS
+    ===================================================== */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      background: linear-gradient(to bottom, #4a84bc 0%, #2f5d8f 40%, #22446a 100%);
+      background-color: #2f5d8f;
+      background-clip: padding-box;
+      border: 1px solid rgba(34, 68, 106, 0.25);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px; 
+      border-radius: 50px; 
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      box-shadow: 
+        inset 0 3px 4px rgba(255, 255, 255, 0.28),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.18); 
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12)) 
+              drop-shadow(0 4px 8px rgba(47, 93, 143, 0.25));
+      transition: transform 0.2s cubic-bezier(.2,.9,.25,1), filter 0.2s ease, background-color 0.2s ease;
+    }
     
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.35);
-  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.25, 1);
-}
+    .button:hover {
+      filter: brightness(1.06) 
+              drop-shadow(0 2px 2px rgba(0, 0, 0, 0.08)) 
+              drop-shadow(0 7px 14px rgba(47, 93, 143, 0.35));
+      transform: translateY(-2px);
+    }
+    
+    .button:active {
+      transform: translateY(1px);
+      filter: brightness(0.94)
+              drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08)) 
+              drop-shadow(0 2px 3px rgba(47, 93, 143, 0.15));
+    }
+    
+    .button:focus-visible {
+      outline: none;
+      filter: drop-shadow(0 0 0 4px rgba(47, 93, 143, 0.35));
+    }
 
-.button:hover {
-  background: linear-gradient(
-    to bottom, 
-    rgba(255, 255, 255, 0.2) 0%, 
-    rgba(255, 255, 255, 0.12) 30%, 
-    rgba(255, 255, 255, 0) 45%, 
-    rgba(0, 0, 0, 0.02) 70%, 
-    rgba(0, 0, 0, 0.12) 100%
-  ), #36679c;
-  box-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.3) inset,
-    0 2px 0 #183352, 
-    0 4px 18px rgba(24, 51, 82, 0.5);
-  transform: translateY(2px);
-}
+    .button-neutral {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(255, 255, 255, 0.60) 40%, 
+        rgba(245, 242, 235, 0.45) 100%
+      );
+      background-color: rgba(255, 255, 255, 0.5); 
+      background-clip: padding-box; 
+      border: 1px solid rgba(90, 125, 95, 0.38); 
+      color: var(--color-crimson); 
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0em;
+      white-space: nowrap;
+      box-shadow: 
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.03); 
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08)) 
+              drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
+      transition: transform 0.2s cubic-bezier(.2,.9,.25,1), filter 0.2s ease, background-color 0.2s ease;
+    }
 
-.button:active {
-  background: linear-gradient(
-    to bottom, 
-    rgba(0, 0, 0, 0.12) 0%, 
-    rgba(0, 0, 0, 0.04) 45%, 
-    rgba(255, 255, 255, 0) 70%, 
-    rgba(255, 255, 255, 0.08) 100%
-  ), #234870;
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.4) inset,
-    0 0 0 #183352, 
-    0 2px 4px rgba(24, 51, 82, 0.2);
-  transform: translateY(4px);
-}
+    .button-neutral:hover {
+      background-color: rgba(255, 255, 255, 0.75);
+      transform: translateY(-2px);
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06)) 
+              drop-shadow(0 7px 14px rgba(0, 0, 0, 0.11));
+    }
 
-.step .button {
-  display: flex;
-  width: 100%;
-  max-width: 35ch;
-  padding-left: 12px;
-  padding-right: 12px;
-}
+    .button-neutral:active {
+      transform: translateY(1px);
+      background-color: rgba(255, 255, 255, 0.55);
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05)) 
+              drop-shadow(0 2px 3px rgba(0, 0, 0, 0.04));
+    }
+
+    .button-neutral .arrow {
+      margin-left: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .button-neutral:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    .step .button {
+      display: flex;
+      width: 100%;
+      max-width: 35ch;
+      text-align: center;
+    }
 
 /* Payment Assets Layout - Inset slightly from button boundaries to leave pristine breathing room */
 .pay-logos {
