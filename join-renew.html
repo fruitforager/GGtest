@@ -1,51 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join or Renew — Golden Gate Chapter CRFG</title>
-<meta name="description" content="Join the Golden Gate Chapter of the California Rare Fruit Growers. Connect with Bay Area growers, attend orchard tours, tastings, and scion exchanges.">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Join or Renew — Golden Gate Chapter CRFG">
-<meta property="og:description" content="Connect with Bay Area fruit growers. Orchard tours, tastings, scion exchanges, and more.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://golden-gate.crfg.org/join-renew.html">
-<meta property="og:image" content="https://golden-gate.crfg.org/images/og-cover.jpg">
-<meta name="theme-color" content="#274D31">
-<link rel="canonical" href="https://golden-gate.crfg.org/join-renew.html">
-<link rel="preconnect" href="https://api.ultimaps.com">
+Here’s a cleaned, SEO-optimized <head> for the Join / Renew page, with the JSON-LD upgraded to include @id, WebSite, WebPage, and BreadcrumbList. I also recommend keeping areaServed on the Organization node because this page represents the chapter’s service area and membership reach.
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+xml
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Golden Gate Chapter — California Rare Fruit Growers",
-  "url": "https://golden-gate.crfg.org",
-  "description": "The Golden Gate Chapter of CRFG connects Bay Area fruit growers through orchard tours, tastings, scion exchanges, and community events.",
-  "areaServed": [
-    "Alameda County, CA",
-    "Contra Costa County, CA",
-    "Marin County, CA",
-    "San Francisco, CA",
-    "San Mateo County, CA",
-    "Solano County, CA"
-  ],
-  "memberOf": {
-    "@type": "Organization",
-    "name": "California Rare Fruit Growers",
-    "url": "https://crfg.org"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "golden.gate@crfg.org",
-    "contactType": "customer support"
+  <title>Join or Renew | Golden Gate Chapter CRFG</title>
+  <meta name="description" content="Join the Golden Gate Chapter of the California Rare Fruit Growers. Connect with Bay Area growers, attend orchard tours, tastings, and scion exchanges.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Golden Gate Chapter CRFG">
+  <meta name="theme-color" content="#274D31">
+  <meta name="keywords" content="Golden Gate Chapter CRFG, join CRFG, renew membership, Bay Area fruit growers, orchard tours, scion exchange">
+
+  <link rel="canonical" href="https://golden-gate.crfg.org/join-renew.html">
+
+  <link rel="preconnect" href="https://api.ultimaps.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <meta property="og:site_name" content="Golden Gate Chapter CRFG">
+  <meta property="og:title" content="Join or Renew | Golden Gate Chapter CRFG">
+  <meta property="og:description" content="Connect with Bay Area fruit growers. Orchard tours, tastings, scion exchanges, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://golden-gate.crfg.org/join-renew.html">
+  <meta property="og:image" content="https://golden-gate.crfg.org/images/og-cover.jpg">
+  <meta property="og:image:alt" content="Golden Gate Chapter CRFG membership and community">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join or Renew | Golden Gate Chapter CRFG">
+  <meta name="twitter:description" content="Connect with Bay Area fruit growers. Orchard tours, tastings, scion exchanges, and more.">
+  <meta name="twitter:image" content="https://golden-gate.crfg.org/images/og-cover.jpg">
+  <meta name="twitter:image:alt" content="Golden Gate Chapter CRFG membership and community">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://golden-gate.crfg.org/#organization",
+        "name": "Golden Gate Chapter — California Rare Fruit Growers",
+        "url": "https://golden-gate.crfg.org/",
+        "description": "The Golden Gate Chapter of CRFG connects Bay Area fruit growers through orchard tours, tastings, scion exchanges, and community events.",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Alameda County" },
+          { "@type": "AdministrativeArea", "name": "Contra Costa County" },
+          { "@type": "AdministrativeArea", "name": "Marin County" },
+          { "@type": "AdministrativeArea", "name": "San Francisco County" },
+          { "@type": "AdministrativeArea", "name": "San Mateo County" },
+          { "@type": "AdministrativeArea", "name": "Solano County" }
+        ],
+        "memberOf": {
+          "@type": "Organization",
+          "name": "California Rare Fruit Growers",
+          "url": "https://crfg.org/"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "golden.gate@crfg.org"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://golden-gate.crfg.org/#website",
+        "url": "https://golden-gate.crfg.org/",
+        "name": "Golden Gate Chapter CRFG",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://golden-gate.crfg.org/join-renew.html#webpage",
+        "url": "https://golden-gate.crfg.org/join-renew.html",
+        "name": "Join or Renew",
+        "description": "Join the Golden Gate Chapter of the California Rare Fruit Growers. Connect with Bay Area growers, attend orchard tours, tastings, and scion exchanges.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://golden-gate.crfg.org/#website"
+        },
+        "publisher": {
+          "@id": "https://golden-gate.crfg.org/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://golden-gate.crfg.org/join-renew.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://golden-gate.crfg.org/join-renew.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://golden-gate.crfg.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Join / Renew",
+            "item": "https://golden-gate.crfg.org/join-renew.html"
+          }
+        ]
+      }
+    ]
   }
-}
-</script>
+  </script>
 <style>
 /* =====================================================
    SIDEBAR & REVERTED BRANDING FOUNDATION
@@ -718,12 +785,12 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
     <span>Member Guides</span>
   </span>
 </a>
-<a href="growers-portal.html" class="nav-link nav-link-sub">
-  <span style="display: flex; align-items: center; gap: 0.5rem;">
-    <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8v13H3V8l9-5 9 5z M12 16h0 M12 12h0 M16 16h0 M16 12h0 M8 16h0 M8 12h0" /></svg>
-    <span>Grower’s Portal</span>
+<a href="learning-center.html" class="nav-link nav-link-sub">
+      <span style="display: flex; align-items: center; gap: 0.5rem;">
+        <svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8v13H3V8l9-5 9 5z M12 16h0 M12 12h0 M16 16h0 M16 12h0 M8 16h0 M8 12h0" /></svg>
+            <span>Learning Center</span>
   </span>
-  <span class="nav-sublabel" style="padding-left: 1.45rem;">Digital Classroom</span>
+  <span class="nav-sublabel" style="padding-left: 1.45rem;">Orchard Desk</span>
 </a>
     </nav>
     
