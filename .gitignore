@@ -10,3 +10,4 @@ server.js
 env
 .env
 env copy
+env copy
