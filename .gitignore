@@ -8,3 +8,4 @@ env
 env.*
 server.js
 env
+.env
