@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- =========================
+CORE META (DO NOT EDIT)
+========================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://goldengate.crfg.org/images/og-cover.jpg">
+<meta name="theme-color" content="#274D31">
+
+<!-- =========================
+EVENT META (EDIT THESE ONLY)
+========================= -->
+<title>EVENT TITLE — Golden Gate Chapter CRFG</title>
+
+<meta name="description" content="Short event description here (1–2 sentences).">
+
+<meta property="og:title" content="EVENT TITLE — Golden Gate Chapter CRFG">
+<meta property="og:description" content="Short event description here (1–2 sentences).">
+<meta property="og:url" content="https://goldengate.crfg.org/events/event-slug.html">
+
+<link rel="canonical" href="https://goldengate.crfg.org/events/event-slug.html">
+
+<!-- optional performance -->
+<link rel="preconnect" href="https://api.ultimaps.com">
+
+<!-- =========================
+STRUCTURED DATA
+========================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "EVENT TITLE",
+  "description": "EVENT DESCRIPTION",
+  "startDate": "YYYY-MM-DDTHH:MM",
+  "endDate": "YYYY-MM-DDTHH:MM",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "VENUE NAME",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "STREET ADDRESS",
+      "addressLocality": "CITY",
+      "addressRegion": "CA",
+      "postalCode": "ZIP",
+      "addressCountry": "US"
+    }
+  },
+  "image": [
+    "https://goldengate.crfg.org/images/og-cover.jpg"
+  ],
+  "organizer": {
+    "@type": "Organization",
+    "name": "Golden Gate Chapter — California Rare Fruit Growers",
+    "url": "https://goldengate.crfg.org"
+  }
+}
+</script>
+
+<style>
+/* =========================
+BASE EVENT STYLES (OPTIONAL)
+========================= */
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  background: #FAF0E6;
+  color: #222;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.event-header {
+  margin-bottom: 2rem;
+}
+
+.event-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #274D31;
+  margin-bottom: 0.5rem;
+}
+
+.event-meta {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #2f5b8b;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- =========================
+  HEADER
+  ========================= -->
+  <header class="event-header">
+    <h1 class="event-title">EVENT TITLE</h1>
+
+    <div class="event-meta">
+      📅 Date: MONTH DAY, YEAR<br>
+      ⏰ Time: START–END TIME<br>
+      📍 Location: VENUE NAME, CITY
+    </div>
+  </header>
+
+  <!-- =========================
+  SUMMARY
+  ========================= -->
+  <section class="card">
+    <h2 class="section-title">Overview</h2>
+    <p>
+      Short engaging description of the event. What is happening, who is hosting,
+      and what attendees can expect.
+    </p>
+  </section>
+
+  <!-- =========================
+  SCHEDULE
+  ========================= -->
+  <section class="card">
+    <h2 class="section-title">Schedule</h2>
+    <ul>
+      <li>12:00 — Arrival / Social time</li>
+      <li>12:30 — Main presentation or tour</li>
+      <li>1:30 — Tasting / Q&A</li>
+      <li>2:30 — Scion exchange / closing</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+  DETAILS
+  ========================= -->
+  <section class="card">
+    <h2 class="section-title">Details</h2>
+    <p>
+      Parking instructions, what to bring, weather notes, accessibility info, etc.
+    </p>
+  </section>
+
+  <!-- =========================
+  LOCATION
+  ========================= -->
+  <section class="card">
+    <h2 class="section-title">Location</h2>
+
+    <p>
+      VENUE NAME<br>
+      STREET ADDRESS<br>
+      CITY, CA ZIP
+    </p>
+
+    <!-- optional map embed -->
+    <div style="width:100%; height:300px; background:#ddd; border-radius:10px;">
+      Map placeholder
+    </div>
+  </section>
+
+  <!-- =========================
+  FOOTER
+  ========================= -->
+  <footer class="card">
+    <p>
+      Golden Gate Chapter — California Rare Fruit Growers<br>
+      <a href="https://goldengate.crfg.org">https://goldengate.crfg.org</a>
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>

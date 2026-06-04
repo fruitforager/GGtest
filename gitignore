@@ -1,0 +1,5 @@
+# Hide the secret configuration file from GitHub
+.env
+
+# Hide downloaded dependencies
+node_modules/

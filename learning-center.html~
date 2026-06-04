@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruity Resources | Golden Gate Chapter | California Rare Fruit Growers</title>
+
+  <meta name="description" content="Explore curated fruit growing resources, propagation guides, and local horticultural links provided by the Golden Gate Chapter of the California Rare Fruit Growers.">
+  <meta name="keywords" content="CRFG, Golden Gate Chapter, Rare Fruit Resources, Fruit Tree Guides, Grafting Resources, Pomology, Bay Area Gardening">
+  
+  <link rel="preconnect" href="https://api.ultimaps.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================================================
+       1. SYSTEM VARIABLES & DESIGN TOKENS
+    ===================================================== */
+    :root {
+      --bg: #FAF0E6;
+      --text: #1a1a18;
+      --green: #274D31;
+      --green-dark: #21452c;
+      --blue: #2f5d8f;
+      --blue-dark: #21425c;
+      --border: #d8ccb6;
+      --sidebar-width: 14rem;
+      --max-container: 1380px;
+
+      /* Brand Typography Palette */
+      --color-forest:    #1e3d28;
+      --color-leaf:      #2d5e3a;
+      --color-sage:      #5a7d5f;
+      --color-mist:      #e8f0e9;
+      --color-parchment: #faf6ef;
+      --color-crimson:   #9b1c2e;
+        --teal:#14323a;
+      --color-gold:      #c8882a;
+      --color-ink:       #1a1a18;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    /* =====================================================
+       2. GLOBAL RESET & TYPOGRAPHY SYSTEM
+    ===================================================== */
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    
+    .shadow-text { 
+      font-family: var(--font-display); 
+      font-size: clamp(2.75rem, 8vw, 4.5rem); 
+      font-weight: 900; 
+      line-height: 1.05; 
+      color: var(--color-crimson); 
+      margin-bottom: 0.25rem;
+      text-shadow: 1px 2px 3px rgba(0,0,0,0.12);
+    }
+
+    .custom-main-title {
+      font-family: var(--font-body);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1.25;
+      margin: 40px 0 24px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); 
+      letter-spacing: -0.02em;
+      max-width: 900px;
+    }
+
+    h2 { 
+      color: var(--color-forest); 
+      font-family: var(--font-display);
+      font-weight: 900; 
+      font-size: 1.85rem;
+      margin-top: 48px;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .category-intro {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 24px;
+      max-width: 760px;
+    }
+
+    p { 
+      margin: 0 0 16px; 
+      font-size: 1.05rem; 
+      color: var(--text); 
+    }
+
+    /* =====================================================
+       3. SITE STRUCTURE & GRID ARCHITECTURE
+    ===================================================== */
+    .page-wrapper {
+      max-width: var(--max-container); 
+      margin: 0 auto;
+      display: flex; 
+      flex-direction: column; 
+      min-height: 100vh;
+    }
+    @media (min-width: 768px) { 
+      .page-wrapper { flex-direction: row; } 
+    }
+
+    .main-wrapper { 
+      flex: 1; 
+      min-width: 0; 
+      padding: 2rem 1.25rem; 
+    }
+    @media (min-width: 768px) { 
+      .main-wrapper { padding: 2.5rem 2.5rem 2.5rem 4rem; } 
+    }
+    @media (min-width: 1024px) { 
+      .main-wrapper { padding: 2.5rem 4rem 2.5rem 5rem; } 
+    }
+
+    main { 
+      max-width: 64rem; 
+      margin: 0 auto; 
+    }
+
+    /* CSS Grid Layout for Resource Cards */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 640px) {
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* =====================================================
+       4. HIGH DESIGN GLOSS RESOURCE CARDS (.button-neutral style)
+    ===================================================== */
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.75rem;
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--text);
+      
+      /* Exact translation of .button-neutral 3D Gloss Tokens */
+      background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.98) 0%, 
+        rgba(255, 255, 255, 0.65) 40%, 
+        rgba(245, 242, 235, 0.50) 100
+      );
+      background-color: rgba(255, 255, 255, 0.5); 
+      background-clip: padding-box; 
+      border: 1px solid rgba(90, 125, 95, 0.35); 
+      
+      box-shadow: 
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.95), 
+        inset 0 -1px 2px rgba(0, 0, 0, 0.03),
+        0 1px 2px rgba(0, 0, 0, 0.06), 
+        0 4px 12px rgba(0, 0, 0, 0.04);
+        
+      transition: transform 0.25s cubic-bezier(.2,.9,.25,1), filter 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .resource-card:hover {
+      background-color: rgba(255, 255, 255, 0.80);
+      transform: translateY(-4px);
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.04)) drop-shadow(0 10px 20px rgba(45, 94, 58, 0.08));
+      border-color: rgba(90, 125, 95, 0.6);
+    }
+
+    .card-body h3 {
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--color-forest);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .card-link-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+    }
+    
+    .card-link-label .arrow {
+      transition: transform 0.2s ease;
+    }
+    
+    .resource-card:hover .card-link-label .arrow {
+      transform: translateX(4px);
+    }
+
+    /* Decorative Tags */
+    .anniversary-tag {
+      display: inline-flex;
+      font-size: 0.93rem;
+      font-weight: 900;
+      color: var(--green); 
+      letter-spacing: 0.09em; 
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+      margin-bottom: 2px;
+    }
+
+    .thin-rule {
+      border: none;
+      border-top: 1.4px solid rgba(0,0,0,0.15);
+      margin: 0.3rem 0;
+    }
+
+    /* =====================================================
+       5. ADAPTIVE SIDEBAR NAVIGATION SYSTEM
+    ===================================================== */
+    .sidebar {
+      width: 100%; 
+      background-color: var(--teal); 
+      color: #fff;
+      flex-shrink: 0; 
+      z-index: 50;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: sticky; 
+      top: 0;
+    }
+    @media (min-width: 768px) {
+      .sidebar { 
+        width: var(--sidebar-width); 
+        position: sticky; 
+        top: 0; 
+        height: 100vh; 
+        display: flex; 
+        flex-direction: column; 
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      }
+    }
+    @media (min-width: 1024px) { 
+      .sidebar { width: 15rem; } 
+    }
+
+    .sidebar-logo {
+      display: none; 
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center;
+      padding: 1.5rem 1.25rem; 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none; 
+    }
+    @media (min-width: 768px) { .sidebar-logo { display: flex; } }
+    
+    .sidebar-logo img { 
+      width: 4.5rem; 
+      height: auto; 
+      margin-bottom: 0.875rem; 
+    }
+    
+    .sidebar-logo .logo-name { font-size: 1rem; font-weight: 900; line-height: 1.25; color: #FAF0E6; }
+    .sidebar-logo .logo-sub  { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 0.125rem; }
+    .sidebar-logo .logo-tag  { font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-top: 0.625rem; line-height: 1.4; }
+
+    .sidebar-mobile-bar {
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      padding: 0.875rem; 
+      background: rgba(0,0,0,0.15);
+    }
+    @media (min-width: 768px) { .sidebar-mobile-bar { display: none; } }
+    .sidebar-mobile-bar a { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+    .sidebar-mobile-bar img { width: 2.25rem; height: auto; }
+    .sidebar-mobile-bar .brand { font-size: 0.9rem; font-weight: 900; color: #fff; }
+
+    .menu-toggle {
+      background: rgba(255,255,255,0.08); 
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 0.5rem; 
+      padding: 0.45rem 0.85rem;
+      font-size: 0.75rem; 
+      font-weight: 800; 
+      color: #fff; 
+      cursor: pointer;
+      display: flex; 
+      align-items: center; 
+      gap: 0.375rem;
+    }
+    .menu-toggle svg { width: 1.1rem; height: 1.1rem; stroke: currentColor; fill: none; transition: transform 0.3s ease; }
+    .menu-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
+    .menu-toggle .toggle-label-close { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-open  { display: none; }
+    .menu-toggle[aria-expanded="true"] .toggle-label-close { display: inline; }
+
+    .nav-menu {
+      display: flex; 
+      flex-direction: column; 
+      gap: 1.15rem;
+      padding: 0 0.75rem; 
+      overflow: hidden;
+      max-height: 0; 
+      opacity: 0; 
+      pointer-events: none;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-menu.is-open { 
+      max-height: 95vh; 
+      opacity: 1; 
+      pointer-events: auto; 
+      padding: 1.5rem 0.75rem; 
+    }
+    @media (min-width: 768px) {
+      .nav-menu {
+        display: flex !important; 
+        max-height: none !important; 
+        opacity: 1 !important;
+        pointer-events: auto !important; 
+        padding: 1.5rem 0.75rem !important; 
+        flex-grow: 1;
+      }
+    }
+
+    .nav-section-label {
+      font-size: 0.65rem; font-weight: 900; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      padding: 0 0.5rem; margin-bottom: 0.375rem;
+    }
+    .nav-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.45rem 0.75rem; border-radius: 0.5rem;
+      font-size: 0.8125rem; font-weight: 600; color: var(--color-mist); 
+      text-decoration: none; 
+    }
+    .nav-link:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .nav-link.active { background: rgba(255,255,255,0.17); color: #fff; border-left: 3px solid #ffffff; padding-left: calc(0.75rem - 3px); }
+    .nav-link-sub { flex-direction: column; align-items: flex-start; gap: 0; }
+    .nav-link-sub .nav-sublabel { font-size: 0.78rem; opacity: 0.8; font-weight: 400; color: var(--color-sage); }
+
+    /* Scroll animations */
+    .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* Call to Action Button */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(to bottom, #4a84bc 0%, #2f5d8f 40%, #22446a 100%);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px; 
+      border-radius: 50px; 
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: inset 0 3px 4px rgba(255, 255, 255, 0.28), inset 0 -2px 3px rgba(0, 0, 0, 0.18); 
+      filter: drop-shadow(0 4px 8px rgba(47, 93, 143, 0.25));
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .button:hover {
+      filter: brightness(1.06) drop-shadow(0 7px 14px rgba(47, 93, 143, 0.35));
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      margin: 5rem 0 0; 
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.08); 
+      font-size: 0.72rem;
+      color: rgba(26,26,24,0.75);
+    }
+    .site-footer a { color: var(--color-leaf); font-weight: 700; text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- Left Sidebar Navigation Layout Block -->
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">
+      <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="Golden Gate Chapter CRFG Logo" width="80" height="80">
+      <span class="logo-name">Golden Gate Chapter</span>
+      <span class="logo-sub">EST 1987 • CRFG.org</span>
+      <span class="logo-tag">Growing unusual edibles<br>in the SF Bay Area</span>
+    </a>
+
+    <div class="sidebar-mobile-bar">
+      <a href="index.html">
+        <img src="https://www.image2url.com/r2/default/images/1778373888607-2895f7ac-22b1-4c4b-ae07-631c0411c488.svg" alt="CRFG Logo" width="36" height="36">
+        <span class="brand">Golden Gate Chapter · CRFG</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span class="toggle-label-open">Menu</span><span class="toggle-label-close">Close</span>
+      </button>
+    </div>
+
+    <nav id="navMenu" class="nav-menu" aria-label="Site navigation">
+      <div>
+        <p class="nav-section-label">Start Here</p>
+        <a href="index.html" class="nav-link">About Us</a>
+        <a href="golden-gate-history.html" class="nav-link">Our Historical Roots</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Grow Fruit</p>
+        <a href="chill-hours.html" class="nav-link nav-link-sub">
+  <span style="display: flex; align-items: center; gap: 0.5rem;">
+<svg style="width: 0.93rem; height: 0.93rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <!-- main arms -->
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15" />
+  <!-- secondary branches -->
+  <path stroke-linecap="round" stroke-width="2"
+    d="M12 5l2-2M12 5l-2-2M12 19l2 2M12 19l-2 2" />
+  <path stroke-linecap="round" stroke-width="2"
+    d="M5 12l-2-2M5 12l-2 2M19 12l2-2M19 12l2 2" />
+</svg>
+    <span>Chill Hour Calculator</span>
+  </span>
+</a>
+        <a href="bay-area-zone-favorites.html" class="nav-link nav-link-sub">
+          <span>Bay Area Favorites</span>
+          <span class="nav-sublabel">by Climate Zone</span>
+        </a>
+        <a href="member-guides.html" class="nav-link nav-link-sub" style="margin-top:0.25rem;">
+          <span>Member Guides</span>
+          <span class="nav-sublabel">What Thrives Locally</span>
+        </a>
+        <a href="fruity-resources.html" class="nav-link active" style="margin-top:0.25rem;">Fruity Resources</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Community</p>
+        <a href="meetings.html" class="nav-link">Meetings</a>
+        <a href="online-community.html" class="nav-link" style="margin-top:0.25rem;">Online Community</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Membership</p>
+        <a href="join-renew.html" class="nav-link">Join / Renew</a>
+      </div>
+      <div>
+        <p class="nav-section-label">Events</p>
+        <a href="gg-scionexchange.html" class="nav-link">Scion Exchange</a>
+      </div>
+      <div>
+       <p class="nav-section-label">Orchard Supplies</p>
+        <a href="where-to-buy.html" class="nav-link">Bay Area Sources</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Resource Content Stream -->
+  <div class="main-wrapper">
+    <main>
+      <div class="anniversary-tag">
+        <span>ROOTED IN THE BAY SINCE 1987</span>
+      </div>
+
+      <section id="sec-hero" class="fade-up">
+        <p style="font-size:0.96rem; font-weight:700; color:var(--color-crimson); margin-top: 24px; margin-bottom: 1px;">CURATED LIBRARIAN DIRECTORY</p>
+        <hr class="thin-rule">
+        <p style="font-size:1.06rem; font-weight:700; color:var(--color-crimson); margin-top: 1px; margin-bottom:0.25rem;">California Rare Fruit Growers</p>
+        <h1 class="shadow-text">Fruity Resources</h1>
+      </section>
+      
+      <h1 class="custom-main-title">A master catalog of pomological datasets, propagation assets, and regional research engines.</h1>
+      
+      <p style="margin-bottom: 32px;">To successfully cultivate rare fruit across northern California’s microclimates, structured knowledge is essential. Below is our complete archive of recommended platforms, compatibility spreadsheets, and regional diagnostic tools to optimize your home orchard performance.</p>
+
+      <!-- ==================== CATEGORY 1 ==================== -->
+      <h2>🌐 Central CRFG Ecosystem Foundations</h2>
+      <p class="category-intro">The core data repositories managed by our parent organization form the operational base for fruit propagation and registration in California.</p>
+      
+      <div class="resource-grid">
+        <a href="https://crfg.org" target="_blank" class="resource-card">
+          <div class="card-body">
+            <h3>CRFG Parent Organization Portal</h3>
+            <p>Access the definitive state-level database containing structural announcements, registered seed-banking registries, statewide conventions, and formal pomological updates.</p>
+          </div>
+          <span class="card-link-label">Visit crfg.org <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="https://crfg.org/publications/fruit-facts/" target="_blank" class="resource-card">
+          <div class="card-body">
+            <h3>CRFG Official Fruit Facts</h3>
+            <p>A comprehensive cultural reference encyclopedia detailing botanical origins, structural soil profiles, hydration parameters, and cold thresholds for dozens of rare varieties.</p>
+          </div>
+          <span class="card-link-label">Browse Fruit Facts <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="https://crfg.org/publications/fruit-gardener/" target="_blank" class="resource-card">
+          <div class="card-body">
+            <h3>Fruit Gardener Magazine Archives</h3>
+            <p>Explore centuries of aggregated cultivation wisdom, specialized grower profiles, and deep-dive varietal trial summaries across historical bi-monthly publications.</p>
+          </div>
+          <span class="card-link-label">View Archives <span class="arrow">&rarr;</span></span>
+        </a>
+      </div>
+
+      <!-- ==================== CATEGORY 2 ==================== -->
+      <h2>✂️ Grafting, Scionwood & Propagation Assets</h2>
+      <p class="category-intro">Essential field guidelines and alignment metrics designed to help you prepare your cuts before participating in our annual winter exchanges.</p>
+
+      <div class="resource-grid">
+        <a href="gg-scionexchange.html" class="resource-card">
+          <div class="card-body">
+            <h3>Scionwood Collection Guidelines</h3>
+            <p>Master the exact parameters for choosing dynamic vegetative wood from last season's dormant growth. Covers storage, humidity protection, and sorting practices.</p>
+          </div>
+          <span class="card-link-label">Read Collection Guide <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="member-guides.html" class="resource-card">
+          <div class="card-body">
+            <h3>Stone Fruit Rootstock Compatibility</h3>
+            <p>Our localized master matrix assessing structural cross-grafting boundaries, vigor behaviors, and failure vulnerabilities across plum, peach, cherry, and apricot stocks.</p>
+          </div>
+          <span class="card-link-label">View Compatibility Matrix <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="meetings.html" class="resource-card">
+          <div class="card-body">
+            <h3>Graham Stott’s Grafting Class Media</h3>
+            <p>Review step-by-step documentation, splice dynamics, whip-and-tongue metrics, and structural training protocols demonstrated in Graham's seasonal field labs.</p>
+          </div>
+          <span class="card-link-label">View Class Assets <span class="arrow">&rarr;</span></span>
+        </a>
+      </div>
+
+      <!-- ==================== CATEGORY 3 ==================== -->
+      <h2>📈 Variety Databases & Microclimate Mapping</h2>
+      <p class="category-intro">Data tracking projects designed to align localized thermal cycles with appropriate chill requirements and varietal pollination windows.</p>
+
+      <div class="resource-grid">
+        <a href="bay-area-zone-favorites.html" class="resource-card">
+          <div class="card-body">
+            <h3>Self-Pollinating Fruit Tree Registries</h3>
+            <p>A specific indexing of solo-fruiting cultivars optimized for restricted urban footprint environments, eliminating the dependency on separate tracking partners.</p>
+          </div>
+          <span class="card-link-label">Browse Self-Fruitful List <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="https://fruitsandnuts.ucdavis.edu/" target="_blank" class="resource-card">
+          <div class="card-body">
+            <h3>UC Davis Fruit & Nut Research Center</h3>
+            <p>The academic gold standard for regional chill hour accumulation logs, precise phenology models, and deep scientific trial results for California growers.</p>
+          </div>
+          <span class="card-link-label">Explore UC Davis Portal <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="where-to-buy.html" class="resource-card">
+          <div class="card-body">
+            <h3>Bay Area Microclimate Matrix</h3>
+            <p>Compare thermal margins between the foggy coastal perimeters, marine pockets, and the warm interior foothills of the Diablo Valley to ensure variety survival.</p>
+          </div>
+          <span class="card-link-label">Analyze Climate Zones <span class="arrow">&rarr;</span></span>
+        </a>
+      </div>
+
+      <!-- ==================== CATEGORY 4 ==================== -->
+      <h2>🛡️ Field Diagnostics, Soil & Integrated Pest Management</h2>
+      <p class="category-intro">Academic tools to defend your collection against environmental stress, physiological imbalances, and seasonal vector infestations.</p>
+
+      <div class="resource-grid">
+        <a href="https://ipm.ucanr.edu/" target="_blank" class="resource-card">
+          <div class="card-body">
+            <h3>UC IPM Online Diagnostics Engine</h3>
+            <p>The comprehensive biological reference catalog to identify codling moth cycles, peach leaf curl variables, bacterial canker, and custom cultural controls.</p>
+          </div>
+          <span class="card-link-label">Launch IPM Engine <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="online-community.html" class="resource-card">
+          <div class="card-body">
+            <h3>Organic Disease Abatement Protocols</h3>
+            <p>A compilation of community-tested solutions addressing micronutrient deficiencies, copper/sulfur schedules, and summer pruning techniques for humidity control.</p>
+          </div>
+          <span class="card-link-label">View Disease Guides <span class="arrow">&rarr;</span></span>
+        </a>
+      </div>
+
+      <!-- ==================== CATEGORY 5 ==================== -->
+      <h2>📜 Historical Context & Group Roots</h2>
+      <p class="category-intro">Archives tracking our agricultural legacy in the San Francisco Bay Area since our foundational meetings in the late 1980s.</p>
+
+      <div class="resource-grid">
+        <a href="golden-gate-history.html" class="resource-card">
+          <div class="card-body">
+            <h3>Golden Gate Chapter Historical Timeline</h3>
+            <p>Trace the evolution of our regional horticultural efforts, foundational orchard site designs, and our historical milestones since 1987.</p>
+          </div>
+          <span class="card-link-label">Examine Chapter Roots <span class="arrow">&rarr;</span></span>
+        </a>
+
+        <a href="golden-gate-history.html#oral-history" class="resource-card">
+          <div class="card-body">
+            <h3>Founders Oral History Project</h3>
+            <p>Archived interviews capturing memories, rare variety re-discoveries, and core philosophical methodologies from our original chapter founders.</p>
+          </div>
+          <span class="card-link-label">Explore Oral Histories <span class="arrow">&rarr;</span></span>
+        </a>
+      </div>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 48px 0;">
+
+      <h3>Expand Your Interactive Resource Toolkit 🚀</h3>
+      <p>The finest operational resource we possess is the dynamic knowledge exchange shared directly between our active regional nurserymen. Formalize your institutional membership to unlock deep-dive regional seed shares.</p>
+      
+      <p style="margin-top: 20px;"><a href="join-renew.html" class="button">Join or Renew Chapter Membership</a></p>
+
+      <footer class="site-footer">
+        <p>Questions or resource additions?<br>
+        Email the digital manager at <a href="mailto:golden.gate@crfg.org">golden.gate@crfg.org</a>.</p>
+        <p>Copyright &copy; 2026. All rights reserved.<br>
+        California Rare Fruit Growers Inc. | <a href="https://crfg.org" target="_blank">CRFG.org</a></p>
+      </footer>
+
+    </main>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('is-open', !isExpanded);
+      });
+    }
+
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    fadeEls.forEach(el => fadeObserver.observe(el));
+  });
+</script>
+</body>
+</html>
