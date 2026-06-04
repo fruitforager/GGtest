@@ -9,3 +9,4 @@ env.*
 server.js
 env
 .env
+env copy
