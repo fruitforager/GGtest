@@ -2,4 +2,7 @@
 .env
 
 # Hide downloaded dependencies
-node_modules/
+node_modules/.env
+env
+*.env
+env.*
