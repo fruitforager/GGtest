@@ -20,7 +20,7 @@
 
 // ─── CORS: restrict to your own domain in production ──────────────────────────
 // During development you can use '*'. Before going live, change this to your
-// actual domain, e.g. 'https://your-crfg-site.org'
+// actual domain, e.g. 'https://fruitforager.github.io'
 const ALLOWED_ORIGIN = 'https://fruitforager.github.io';
 
 // ─── CIMIS data items we need ──────────────────────────────────────────────────
