@@ -34,7 +34,7 @@ export default {
         });
       }
 
-      const cimisUrl = new URL('https://et.water.ca.gov/api/data');
+      const cimisUrl = new URL('http://et.water.ca.gov/api/data');
       cimisUrl.searchParams.set('appKey', appKey);
       cimisUrl.searchParams.set('targets', targets);
       cimisUrl.searchParams.set('dataItems', dataItems);
