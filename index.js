@@ -19,8 +19,9 @@ export default {
 
     // 3. Talk to CIMIS using your securely saved key
     try {
-      const cimisUrl = new URL('https://et.cimis.water.ca.gov/api/data');
-      cimisUrl.search = url.search; // passes targets and dates along
+      // CORRECTED DOMAIN BELOW: Removed the extra 'cimis.'
+      const cimisUrl = new URL('https://et.water.ca.gov/api/data');
+      cimisUrl.search = url.search; 
       
       if (env.CIMIS_APP_KEY) {
         cimisUrl.searchParams.set('appKey', env.CIMIS_APP_KEY);
