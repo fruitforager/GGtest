@@ -24,7 +24,8 @@ export default {
         return new Response(JSON.stringify({
           error: 'Missing CIMIS app key',
           hint: 'Set CIMIS_APP_KEY in Cloudflare Worker secrets',
-        }), {
+          receivedEnv: Object.keys(env || {})
+        }, null, 2), {
           status: 500,
           headers: {
             ...corsHeaders,
@@ -53,9 +54,10 @@ export default {
         return new Response(JSON.stringify({
           ok: response.ok,
           status: response.status,
+          statusText: response.statusText,
           upstreamUrl: cimisUrl.toString(),
-          body: text,
-        }), {
+          upstreamBody: text
+        }, null, 2), {
           status: 200,
           headers: {
             ...corsHeaders,
@@ -66,7 +68,8 @@ export default {
         return new Response(JSON.stringify({
           error: 'CIMIS fetch failed',
           message: String(err),
-        }), {
+          stack: err && err.stack ? String(err.stack) : null
+        }, null, 2), {
           status: 500,
           headers: {
             ...corsHeaders,
