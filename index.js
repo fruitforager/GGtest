@@ -16,6 +16,10 @@ export default {
       return new Response('Hello from root!', { headers: corsHeaders });
     }
 
+    if (url.pathname !== '/api/cimis') {
+      return new Response('Path Not Found', { status: 404, headers: corsHeaders });
+    }
+
     try {
       const cimisUrl = new URL('https://et.water.ca.gov/api/data');
       cimisUrl.search = url.search;
