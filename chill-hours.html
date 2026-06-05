@@ -416,6 +416,9 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: .85rem;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
 }
 @media (max-width:720px) { .field-grid { grid-template-columns: 1fr; } }
 
@@ -525,7 +528,7 @@ select:focus {
     .chip.all::after{content:""}
 
     .list-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:.8rem}
-    @media (max-width:760px){.list-grid{grid-template-columns:1fr}}
+    @media (max-width:480px){.list-grid{grid-template-columns:1fr}}
     .fruit-item{border-radius:16px;background:rgba(255,255,255,.70);border:1px solid rgba(28,51,58,.12);padding:.9rem .95rem;display:grid;gap:.15rem;box-shadow:0 3px 10px rgba(0,0,0,.08)}
     .fruit-name{font-weight:900;color:var(--teal)}
     .fruit-range{font-weight:900}
@@ -725,9 +728,276 @@ select:focus {
 }
 
 #calculator .field-grid .field {
-    gap: 0.22rem !important;   /* Tighten space between label and input */
+    gap: 0.22rem !important;
 }
 
+/* =====================================================
+   CUSTOM DATE RANGE PICKER
+===================================================== */
+.date-range-wrapper {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+.date-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex: 1;
+  min-width: 0;
+}
+.date-input-box {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: 0 14px;
+  height: 46px;
+  border: 1px solid rgba(28,51,58,.14);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.06), 0 1px 0 rgba(255,255,255,.9);
+  cursor: pointer;
+  transition: border-color .18s, box-shadow .18s;
+  user-select: none;
+  overflow: hidden;
+}
+.date-input-box:hover {
+  border-color: rgba(47,93,143,.35);
+  box-shadow: 0 4px 12px rgba(0,0,0,.10), inset 0 1px 3px rgba(0,0,0,.06);
+}
+.date-input-box.active, .date-input-box:focus-within {
+  border-color: rgba(47,93,143,.55);
+  box-shadow: 0 0 0 4px rgba(47,93,143,.10), inset 0 1px 3px rgba(0,0,0,.06);
+}
+.date-input-box.has-date {
+  border-color: rgba(45,94,58,.35);
+  background: linear-gradient(180deg, rgba(235,247,241,.7), #fff);
+}
+.date-input-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.date-input-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+.date-input-label {
+  font-size: .68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--muted);
+  line-height: 1;
+}
+.date-input-value {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+.date-input-value.placeholder {
+  color: rgba(28,51,58,.38);
+  font-weight: 500;
+}
+.date-range-arrow {
+  font-size: 1rem;
+  color: var(--muted);
+  flex-shrink: 0;
+  font-weight: 900;
+}
+.date-quick-btn {
+  appearance: none;
+  border: 1px solid rgba(155,28,46,.28);
+  background: linear-gradient(180deg, rgba(155,28,46,.07), rgba(155,28,46,.03));
+  color: var(--crimson);
+  font-family: var(--font-body);
+  font-size: .82rem;
+  font-weight: 900;
+  padding: .55rem .95rem;
+  border-radius: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .18s, transform .15s, box-shadow .18s;
+  box-shadow: 0 2px 6px rgba(155,28,46,.1);
+  flex-shrink: 0;
+}
+.date-quick-btn:hover {
+  background: linear-gradient(180deg, rgba(155,28,46,.14), rgba(155,28,46,.07));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(155,28,46,.18);
+}
+.date-quick-btn:active { transform: translateY(0); }
+
+/* Calendar popup */
+.date-calendar-popup {
+  position: absolute;
+  z-index: 200;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 320px;
+  background: #fff;
+  border: 1px solid rgba(28,51,58,.13);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.18), 0 6px 12px rgba(0,0,0,.08);
+  padding: 1rem;
+  display: none;
+}
+.date-calendar-popup.open { display: block; }
+.date-range-field { position: relative; }
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .75rem;
+}
+.cal-month-label {
+  font-weight: 900;
+  font-size: 1rem;
+  color: var(--blue-deep);
+  letter-spacing: -.01em;
+}
+.cal-nav {
+  background: rgba(47,93,143,.07);
+  border: 1px solid rgba(47,93,143,.15);
+  border-radius: 9px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--blue-deep);
+  font-weight: 900;
+  transition: background .15s;
+}
+.cal-nav:hover { background: rgba(47,93,143,.16); }
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: .3rem;
+}
+.calendar-weekdays span {
+  font-size: .72rem;
+  font-weight: 900;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: .2rem 0;
+}
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  font-size: .87rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  transition: background .12s, color .12s;
+  padding: 0;
+}
+.cal-day:hover:not(.empty):not(.disabled) { background: rgba(47,93,143,.12); color: var(--blue-deep); }
+.cal-day.empty { cursor: default; }
+.cal-day.disabled { color: rgba(28,51,58,.22); cursor: default; }
+.cal-day.today { font-weight: 900; color: var(--crimson); }
+.cal-day.selected-start, .cal-day.selected-end {
+  background: var(--blue-deep);
+  color: #fff;
+  font-weight: 900;
+}
+.cal-day.in-range {
+  background: rgba(47,93,143,.12);
+  border-radius: 0;
+}
+.cal-day.selected-start { border-radius: 9px 0 0 9px; }
+.cal-day.selected-end { border-radius: 0 9px 9px 0; }
+.cal-day.selected-start.selected-end { border-radius: 9px; }
+
+.calendar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: .75rem;
+  padding-top: .65rem;
+  border-top: 1px solid rgba(28,51,58,.08);
+}
+.cal-clear-btn {
+  font-size: .78rem;
+  font-weight: 800;
+  color: var(--muted);
+  background: none;
+  border: 1px solid rgba(28,51,58,.12);
+  border-radius: 8px;
+  padding: .3rem .65rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+.cal-clear-btn:hover { background: rgba(28,51,58,.06); }
+
+/* Mobile date picker adjustments */
+@media (max-width: 540px) {
+  .date-range-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .date-range-inputs { width: 100%; }
+  .date-quick-btn { width: 100%; justify-content: center; text-align: center; }
+  .date-calendar-popup { width: calc(100vw - 2rem); left: 0; right: 0; }
+}
+
+/* Fix field-grid overflow on small screens — ensure nothing runs off */
+@media (max-width: 540px) {
+  .field-grid { grid-template-columns: 1fr !important; }
+  input, select { font-size: .88rem !important; }
+  .date-input-value { font-size: .82rem; }
+}
+/* Step 4 filter chips — responsive stacking */
+.step4-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+.step4-chip {
+  min-width: 195px;
+}
+@media (max-width: 540px) {
+  .step4-chips {
+    flex-direction: column;
+    padding-left: 12px !important;
+    padding-right: 12px;
+  }
+  .step4-chip {
+    width: 100% !important;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+  }
+  /* Also make the Show All button full width on mobile */
+  .chart-toolbar .chip.all {
+    width: 100% !important;
+  }
+}
 
     </style>
 </head>
@@ -881,6 +1151,7 @@ select:focus {
             <p>Use this tool to find out <strong>how many chill hours your local Bay Area weather station has recorded</strong> — and whether that's enough for the fruit trees you want to grow. Compare nearby stations, explore which fruits are a good fit for your yard, and <strong>bring those numbers to your nursery</strong> when you're ready to plant.</p>
             <div class="hero-actions">
               <a href="#map" class="button">Find Your Station →</a>
+              <a href="#calculator" class="button" style="background:linear-gradient(180deg,rgba(155,28,46,.72),rgba(120,20,36,.68));border-color:rgba(155,28,46,.42);">Use Calculator ↓</a>
               <a href="#chart" class="button" style="background:linear-gradient(180deg,rgba(74,122,98,.72),rgba(50,96,74,.72));border-color:rgba(74,122,98,.42);">Browse Fruit by Chill</a>
             </div>
           </div>
@@ -922,62 +1193,112 @@ select:focus {
             <div>
               <form id="calcForm">
                 <div class="field-grid">
-                  <div class="field">
+                  <div class="field" style="min-width:0;">
   <label for="target">Station ID or ZIP Code</label>
-  <input id="target" name="target" placeholder="e.g. 159 · Oakland North" required list="station-suggestions" autocomplete="off">
+  <div style="position:relative;">
+    <input id="target" name="target" placeholder="e.g. 159 · Oakland North" required list="station-suggestions" autocomplete="off" style="min-width:0;width:100%;padding-right:40px !important;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;"><path d="M1 1l6 6 6-6" stroke="#5f686f" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
   <datalist id="station-suggestions"></datalist>
   <span style="font-size:.8rem;color:var(--muted);margin-top:.25rem;display:block;padding-left:16px;">
     Use the station ID from the <a href="#map" style="color: var(--green); font-weight: 700; text-decoration: none;">map above ↑</a>, or enter your ZIP code.
   </span>
 </div>
-<div class="field">
+<div class="field" style="min-width:0;">
                     <label for="cropType">Select Type of Fruit</label>
                     <select id="cropType">
-                      <option value="almond">Almond (400 to 600 chill hours)</option>
-                      <option value="apple">Apple (700 to 1000 chill hours)</option>
-                      <option value="apricot">Apricot (500 to 800 chill hours)</option>
-                      <option value="asian pear">Asian Pear (400 to 500 chill hours)</option>
-                      <option value="blackberry">Blackberry (200 to 800 chill hours)</option>
-                      <option value="blueberry northern">Blueberry (Northern Highbush) (800 to 9999 chill hours)</option>
-                      <option value="blueberry southern">Blueberry (Southern Highbush) (200 to 300 chill hours)</option>
-                      <option value="chestnut">Chestnut (300 to 500 chill hours)</option>
-                      <option value="citrus">Citrus (0 to 100 chill hours)</option>
-                      <option value="currant">Currant (800 to 1000 chill hours)</option>
-                      <option value="european pear">European Pear (600 to 800 chill hours)</option>
-                      <option value="european plum">European Plum (700 to 1000 chill hours)</option>
-                      <option value="fig">Fig (100 to 200 chill hours)</option>
-                      <option value="filbert">Filbert (Hazelnut) (800 to 1300 chill hours)</option>
-                      <option value="generic">Generic fruit tree (300 to 900 chill hours)</option>
-                      <option value="gooseberry">Gooseberry (800 to 1000 chill hours)</option>
-                      <option value="goumi">Goumi (100 to 450 chill hours)</option>
-                      <option value="grape">Grape (150 to 9999 chill hours)</option>
-                      <option value="honeyberry">Honeyberry (750 to 1000 chill hours)</option>
-                      <option value="japanese plum">Japanese Plum (500 to 900 chill hours)</option>
-                      <option value="medlar">Medlar (200 to 400 chill hours)</option>
-                      <option value="mulberry">Mulberry (200 to 400 chill hours)</option>
-                      <option value="nectarine">Nectarine (100 to 500 chill hours)</option>
-                      <option value="olive">Olive (200 to 300 chill hours)</option>
-                      <option value="pawpaw">Pawpaw (400 to 9999 chill hours)</option>
-                      <option value="peach">Peach (600 to 1000 chill hours)</option>
-                      <option value="persimmon">Persimmon (100 to 200 chill hours)</option>
-                      <option value="pineapple guava">Pineapple Guava (50 to 100 chill hours)</option>
-                      <option value="pistachio">Pistachio (550 to 800 chill hours)</option>
-                      <option value="pluot">Pluot (400 to 800 chill hours)</option>
-                      <option value="pomegranate">Pomegranate (100 to 300 chill hours)</option>
-                      <option value="quince">Quince (200 to 500 chill hours)</option>
-                      <option value="raspberry">Raspberry (800 to 9999 chill hours)</option>
-                      <option value="strawberry">Strawberry (200 to 300 chill hours)</option>
-                      <option value="walnut">Walnut (800 to 1000 chill hours)</option>
+                      <option value="almond">Almond (400–600 chill hours)</option>
+                      <option value="apple">Apple (700–1,000 chill hours)</option>
+                      <option value="apricot">Apricot (500–800 chill hours)</option>
+                      <option value="asian pear">Asian Pear (400–500 chill hours)</option>
+                      <option value="avocado">Avocado (0 chill hours)</option>
+                      <option value="blackberry">Blackberry (200–800 chill hours)</option>
+                      <option value="blueberry northern">Blueberry (Northern Highbush) (800+ chill hours)</option>
+                      <option value="blueberry southern">Blueberry (Southern Highbush) (200–300 chill hours)</option>
+                      <option value="cherimoya">Cherimoya (50–100 chill hours)</option>
+                      <option value="cherry sweet">Cherry, Sweet (700–1,000+ chill hours)</option>
+                      <option value="chestnut">Chestnut (300–500 chill hours)</option>
+                      <option value="citrus">Citrus (0–100 chill hours)</option>
+                      <option value="currant">Currant (800–1,000 chill hours)</option>
+                      <option value="european pear">European Pear (600–800 chill hours)</option>
+                      <option value="european plum">European Plum (700–1,000 chill hours)</option>
+                      <option value="fig">Fig (100–200 chill hours)</option>
+                      <option value="filbert">Filbert (Hazelnut) (800–1,300 chill hours)</option>
+                      <option value="generic">Generic fruit tree (300–900 chill hours)</option>
+                      <option value="gooseberry">Gooseberry (800–1,000 chill hours)</option>
+                      <option value="goumi">Goumi (100–450 chill hours)</option>
+                      <option value="grape">Grape (150+ chill hours)</option>
+                      <option value="honeyberry">Honeyberry (750–1,000 chill hours)</option>
+                      <option value="japanese plum">Japanese Plum (500–900 chill hours)</option>
+                      <option value="jujube">Jujube (100–300 chill hours)</option>
+                      <option value="loquat">Loquat (100–200 chill hours)</option>
+                      <option value="macadamia">Macadamia (0 chill hours)</option>
+                      <option value="medlar">Medlar (200–400 chill hours)</option>
+                      <option value="mulberry">Mulberry (200–400 chill hours)</option>
+                      <option value="nectarine">Nectarine (100–500 chill hours)</option>
+                      <option value="olive">Olive (200–300 chill hours)</option>
+                      <option value="pawpaw">Pawpaw (400+ chill hours)</option>
+                      <option value="peach">Peach (600–1,000 chill hours)</option>
+                      <option value="persimmon">Persimmon (100–200 chill hours)</option>
+                      <option value="pineapple guava">Pineapple Guava (50–100 chill hours)</option>
+                      <option value="pistachio">Pistachio (550–800 chill hours)</option>
+                      <option value="pluot">Pluot (400–800 chill hours)</option>
+                      <option value="pomegranate">Pomegranate (100–300 chill hours)</option>
+                      <option value="quince">Quince (200–500 chill hours)</option>
+                      <option value="raspberry">Raspberry (800+ chill hours)</option>
+                      <option value="strawberry">Strawberry (200–300 chill hours)</option>
+                      <option value="surinam cherry">Surinam Cherry (0–50 chill hours)</option>
+                      <option value="walnut">Walnut (800–1,000 chill hours)</option>
+                      <option value="white sapote">White Sapote (50–150 chill hours)</option>
                     </select>
                   </div>
-                  <div class="field"><label for="startDate">Start date</label><input id="startDate" type="date" required></div>
-                  <div class="field"><label for="endDate">End date</label><input id="endDate" type="date" required></div>
+                  <!-- DATE RANGE PICKER -->
+                  <div class="field date-range-field" style="grid-column: 1 / -1;">
+                    <label style="padding-left:13px;">Date Range</label>
+                    <div class="date-range-wrapper">
+                      <div class="date-range-inputs">
+                        <div class="date-input-box" id="startDateBox">
+                          <span class="date-input-icon">📅</span>
+                          <div class="date-input-text">
+                            <span class="date-input-label">Start</span>
+                            <span class="date-input-value" id="startDateDisplay">Select date</span>
+                          </div>
+                          <input type="hidden" id="startDate" name="startDate" required>
+                        </div>
+                        <div class="date-range-arrow">→</div>
+                        <div class="date-input-box" id="endDateBox">
+                          <span class="date-input-icon">📅</span>
+                          <div class="date-input-text">
+                            <span class="date-input-label">End</span>
+                            <span class="date-input-value" id="endDateDisplay">Select date</span>
+                          </div>
+                          <input type="hidden" id="endDate" name="endDate" required>
+                        </div>
+                      </div>
+                      <button type="button" class="date-quick-btn" id="quickFillBtn" title="Auto-fill Nov 1 – Mar 1 for current chill season">
+                        ❄️ Fill Chill Season
+                      </button>
+                    </div>
+                    <!-- Calendar popup -->
+                    <div class="date-calendar-popup" id="dateCalendarPopup" aria-hidden="true">
+                      <div class="calendar-header">
+                        <button type="button" class="cal-nav" id="calPrev">‹</button>
+                        <span class="cal-month-label" id="calMonthLabel"></span>
+                        <button type="button" class="cal-nav" id="calNext">›</button>
+                      </div>
+                      <div class="calendar-weekdays">
+                        <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                      </div>
+                      <div class="calendar-days" id="calendarDays"></div>
+                      <div class="calendar-footer">
+                        <span id="calPickingLabel" style="font-size:.8rem;color:var(--muted);font-weight:700;"></span>
+                        <button type="button" class="cal-clear-btn" id="calClearBtn">Clear</button>
+                      </div>
+                    </div>
+                    <span style="font-size:.8rem;color:var(--muted);margin-top:.4rem;display:block;padding-left:13px;">Nov 1 – Mar 1 covers the key dormancy window for most fruit trees.</span>
+                  </div>
                 </div>
-                <div style="margin:.75rem 0 .85rem;padding:.75rem 1rem;border-radius:14px;background:rgba(155,28,46,.04);border:1px solid rgba(155,28,46,.12);font-size:.88rem;color:var(--muted);">
-                  <strong style="color:var(--crimson);display:block;margin-bottom:.2rem;">Recommended date range: November 1 – March 1</strong>
-                  This four-month window covers winter dormancy — the period when chill hours build up and matter most for spring blooms. If you're not sure what dates to enter, start here.
-                </div>
-                <div class="field-grid">
+                <div class="field-grid" style="margin-top:.65rem;">
                   <div class="field"><label for="baseTemp">Degree-Day Base Temp (°F)</label><input id="baseTemp" type="number" value="50" step="0.1"><span style="font-size:.8rem;color:var(--muted);margin-top:.25rem;display:block; padding-left: 16px;">50°F is standard for most fruit trees — leave this as-is if you're unsure.</span></div>
                   <div class="field">
                     <label for="dataMode">Data Source</label>
@@ -1040,11 +1361,11 @@ select:focus {
 
           <p style="margin:1rem 0 .35rem; margin-bottom: 1rem; padding-left:12px; padding-left:20px"><strong>Filter regional favorites based on average chill hour ranges:</strong></p>
           
-          <div class="chart-toolbar" style="margin-bottom: 1rem">
-            <div style="display: flex; flex-wrap: wrap; gap: .55rem; padding-left:12px">
-              <button class="chip low" onclick="filterCultivars('low', this)" style="width: 195px;">Low Chill (&lt;400 hrs)</button>
-              <button class="chip mid" onclick="filterCultivars('mid', this)">Moderate Chill (400-700 hrs)</button>
-              <button class="chip high" onclick="filterCultivars('high', this)">High Chill (&gt;700 hrs)</button>
+          <div class="chart-toolbar step4-chip-toolbar" style="margin-bottom: 1rem">
+            <div class="step4-chips" style="padding-left:12px">
+              <button class="chip low step4-chip" onclick="filterCultivars('low', this)">Low Chill (&lt;400 hrs)</button>
+              <button class="chip mid step4-chip" onclick="filterCultivars('mid', this)">Moderate Chill (400-700 hrs)</button>
+              <button class="chip high step4-chip" onclick="filterCultivars('high', this)">High Chill (&gt;700 hrs)</button>
             </div>
           </div>
           <div class="list-grid" id="fruitList"></div>
@@ -1137,18 +1458,48 @@ select:focus {
     ];
 
     const fruits=[
-      ['Almond','400–600','moderate'],['Apple','700–1000','high'],['Apricot','500–800','moderate'],
-      ['Asian Pear','400–500','moderate'],['Blackberry','200–800','moderate'],['Blueberry (Northern Highbush)','800+','high'],
-      ['Blueberry (Southern Highbush)','200–300','low'],['Chestnut','300–500','moderate'],['Citrus','0','low'],
-      ['Currant','800–1000','high'],['European Pear','600–800','high'],['European Plum','700–1000','high'],
-      ['Fig','100–200','low'],['Filbert (Hazelnut)','800–1300','high'],['Gooseberry','800–1000','high'],
-      ['Goumi','100–450','low'],['Grape','150+','low'],['Honeyberry','750–1000','high'],
-      ['Japanese Plum','500–900','moderate'],['Medlar','200–400','low'],['Mulberry','200–400','low'],
-      ['Nectarine','100–500','low'],['Olive','200–300','low'],['Pawpaw','400+','moderate'],
-      ['Peach','600–1000','high'],['Persimmon','100–200','low'],['Pineapple Guava','50–100','low'],
-      ['Pistachio','550–800','moderate'],['Pluot','400–800','moderate'],['Pomegranate','100–300','low'],
-      ['Quince','200–500','low'],['Raspberry','800+','high'],['Strawberry','200–300','low'],
-      ['Walnut','800–1000','high']
+      ['Almond','400–600','moderate'],
+      ['Apple','700–1,000','high'],
+      ['Apricot','500–800','moderate'],
+      ['Asian Pear','400–500','moderate'],
+      ['Avocado','0','low'],
+      ['Blackberry','200–800','moderate'],
+      ['Blueberry<br><span style="font-size:.82em;font-weight:700;opacity:.85">(Northern Highbush)</span>','800+','high'],
+      ['Blueberry<br><span style="font-size:.82em;font-weight:700;opacity:.85">(Southern Highbush)</span>','200–300','low'],
+      ['Cherimoya','50–100','low'],
+      ['Cherry, Sweet','700–1,000+','high'],
+      ['Chestnut','300–500','moderate'],
+      ['Citrus','0','low'],
+      ['Currant','800–1,000','high'],
+      ['European Pear','600–800','high'],
+      ['European Plum','700–1,000','high'],
+      ['Fig','100–200','low'],
+      ['Filbert (Hazelnut)','800–1,300','high'],
+      ['Gooseberry','800–1,000','high'],
+      ['Goumi','100–450','low'],
+      ['Grape','150+','low'],
+      ['Honeyberry','750–1,000','high'],
+      ['Japanese Plum','500–900','moderate'],
+      ['Jujube','100–300','low'],
+      ['Loquat','100–200','low'],
+      ['Macadamia','0','low'],
+      ['Medlar','200–400','low'],
+      ['Mulberry','200–400','low'],
+      ['Nectarine','100–500','low'],
+      ['Olive','200–300','low'],
+      ['Pawpaw','400+','moderate'],
+      ['Peach','600–1,000','high'],
+      ['Persimmon','100–200','low'],
+      ['Pineapple Guava','50–100','low'],
+      ['Pistachio','550–800','moderate'],
+      ['Pluot','400–800','moderate'],
+      ['Pomegranate','100–300','low'],
+      ['Quince','200–500','low'],
+      ['Raspberry','800+','high'],
+      ['Strawberry','200–300','low'],
+      ['Surinam Cherry','0–50','low'],
+      ['Walnut','800–1,000','high'],
+      ['White Sapote','50–150','low'],
     ];
 
     const stationA=document.getElementById('stationA'), stationB=document.getElementById('stationB'), stationList=document.getElementById('stationList'), compareGrid=document.getElementById('compareGrid'), compareSummary=document.getElementById('compareSummary');
@@ -1338,7 +1689,7 @@ select:focus {
       renderFruitList(filter);
     };
 
-    const cropProfiles={generic:{label:'Generic fruit tree',chillMin:300,chillMax:900},apple:{label:'Apple',chillMin:600,chillMax:1200},peach:{label:'Peach',chillMin:200,chillMax:700},plum:{label:'Plum',chillMin:150,chillMax:600},persimmon:{label:'Persimmon',chillMin:100,chillMax:500},almond:{label:'Almond',chillMin:400,chillMax:600},apricot:{label:'Apricot',chillMin:500,chillMax:800},'asian pear':{label:'Asian Pear',chillMin:400,chillMax:500},blackberry:{label:'Blackberry',chillMin:200,chillMax:800},'blueberry northern':{label:'Blueberry (Northern Highbush)',chillMin:800,chillMax:1300},'blueberry southern':{label:'Blueberry (Southern Highbush)',chillMin:200,chillMax:300},chestnut:{label:'Chestnut',chillMin:300,chillMax:500},citrus:{label:'Citrus',chillMin:0,chillMax:100},currant:{label:'Currant',chillMin:800,chillMax:1000},'european pear':{label:'European Pear',chillMin:600,chillMax:800},'european plum':{label:'European Plum',chillMin:700,chillMax:1000},fig:{label:'Fig',chillMin:100,chillMax:200},filbert:{label:'Filbert (Hazelnut)',chillMin:800,chillMax:1300},gooseberry:{label:'Gooseberry',chillMin:800,chillMax:1000},goumi:{label:'Goumi',chillMin:100,chillMax:450},grape:{label:'Grape',chillMin:150,chillMax:9999},honeyberry:{label:'Honeyberry',chillMin:750,chillMax:1000},'japanese plum':{label:'Japanese Plum',chillMin:500,chillMax:900},medlar:{label:'Medlar',chillMin:200,chillMax:400},mulberry:{label:'Mulberry',chillMin:200,chillMax:400},nectarine:{label:'Nectarine',chillMin:100,chillMax:500},olive:{label:'Olive',chillMin:200,chillMax:300},pawpaw:{label:'Pawpaw',chillMin:400,chillMax:9999},'pineapple guava':{label:'Pineapple Guava',chillMin:50,chillMax:100},pistachio:{label:'Pistachio',chillMin:550,chillMax:800},pluot:{label:'Pluot',chillMin:400,chillMax:800},pomegranate:{label:'Pomegranate',chillMin:100,chillMax:300},quince:{label:'Quince',chillMin:200,chillMax:500},raspberry:{label:'Raspberry',chillMin:800,chillMax:9999},strawberry:{label:'Strawberry',chillMin:200,chillMax:300},walnut:{label:'Walnut',chillMin:800,chillMax:1000}};
+    const cropProfiles={generic:{label:'Generic fruit tree',chillMin:300,chillMax:900},apple:{label:'Apple',chillMin:600,chillMax:1200},peach:{label:'Peach',chillMin:200,chillMax:700},plum:{label:'Plum',chillMin:150,chillMax:600},persimmon:{label:'Persimmon',chillMin:100,chillMax:500},almond:{label:'Almond',chillMin:400,chillMax:600},apricot:{label:'Apricot',chillMin:500,chillMax:800},'asian pear':{label:'Asian Pear',chillMin:400,chillMax:500},avocado:{label:'Avocado',chillMin:0,chillMax:50},blackberry:{label:'Blackberry',chillMin:200,chillMax:800},'blueberry northern':{label:'Blueberry (Northern Highbush)',chillMin:800,chillMax:1300},'blueberry southern':{label:'Blueberry (Southern Highbush)',chillMin:200,chillMax:300},cherimoya:{label:'Cherimoya',chillMin:50,chillMax:100},'cherry sweet':{label:'Cherry, Sweet',chillMin:700,chillMax:1300},chestnut:{label:'Chestnut',chillMin:300,chillMax:500},citrus:{label:'Citrus',chillMin:0,chillMax:100},currant:{label:'Currant',chillMin:800,chillMax:1000},'european pear':{label:'European Pear',chillMin:600,chillMax:800},'european plum':{label:'European Plum',chillMin:700,chillMax:1000},fig:{label:'Fig',chillMin:100,chillMax:200},filbert:{label:'Filbert (Hazelnut)',chillMin:800,chillMax:1300},gooseberry:{label:'Gooseberry',chillMin:800,chillMax:1000},goumi:{label:'Goumi',chillMin:100,chillMax:450},grape:{label:'Grape',chillMin:150,chillMax:9999},honeyberry:{label:'Honeyberry',chillMin:750,chillMax:1000},'japanese plum':{label:'Japanese Plum',chillMin:500,chillMax:900},jujube:{label:'Jujube',chillMin:100,chillMax:300},loquat:{label:'Loquat',chillMin:100,chillMax:200},macadamia:{label:'Macadamia',chillMin:0,chillMax:50},medlar:{label:'Medlar',chillMin:200,chillMax:400},mulberry:{label:'Mulberry',chillMin:200,chillMax:400},nectarine:{label:'Nectarine',chillMin:100,chillMax:500},olive:{label:'Olive',chillMin:200,chillMax:300},pawpaw:{label:'Pawpaw',chillMin:400,chillMax:9999},'pineapple guava':{label:'Pineapple Guava',chillMin:50,chillMax:100},pistachio:{label:'Pistachio',chillMin:550,chillMax:800},pluot:{label:'Pluot',chillMin:400,chillMax:800},pomegranate:{label:'Pomegranate',chillMin:100,chillMax:300},quince:{label:'Quince',chillMin:200,chillMax:500},raspberry:{label:'Raspberry',chillMin:800,chillMax:9999},strawberry:{label:'Strawberry',chillMin:200,chillMax:300},'surinam cherry':{label:'Surinam Cherry',chillMin:0,chillMax:50},walnut:{label:'Walnut',chillMin:800,chillMax:1000},'white sapote':{label:'White Sapote',chillMin:50,chillMax:150}};
     const form=document.getElementById('calcForm'), demoBtn=document.getElementById('demoBtn');
     const demoData=[{date:'2026-01-01',tmin:41,tmax:59,hourlyTemps:[44,43,42,41,40,39,40,42,45,47]},{date:'2026-01-02',tmin:40,tmax:61,hourlyTemps:[46,45,44,43,42,41,40,39,38,40]},{date:'2026-01-03',tmin:39,tmax:60,hourlyTemps:[45,44,43,42,41,40,39,38,37,39]}];
     function chillHoursFromTemps(temps){return temps.reduce((sum,t)=>sum+((t>=32&&t<=45)?1:0),0)}
@@ -1401,6 +1752,189 @@ select:focus {
     });
     
     loadDemo();
+
+    /* =====================================================
+       CUSTOM DATE RANGE CALENDAR PICKER
+    ===================================================== */
+    (function() {
+      const popup   = document.getElementById('dateCalendarPopup');
+      const startBox = document.getElementById('startDateBox');
+      const endBox   = document.getElementById('endDateBox');
+      const startHidden = document.getElementById('startDate');
+      const endHidden   = document.getElementById('endDate');
+      const startDisp   = document.getElementById('startDateDisplay');
+      const endDisp     = document.getElementById('endDateDisplay');
+      const calDays     = document.getElementById('calendarDays');
+      const calLabel    = document.getElementById('calMonthLabel');
+      const pickingLbl  = document.getElementById('calPickingLabel');
+      const quickBtn    = document.getElementById('quickFillBtn');
+      const prevBtn     = document.getElementById('calPrev');
+      const nextBtn     = document.getElementById('calNext');
+      const clearBtn    = document.getElementById('calClearBtn');
+
+      let viewYear, viewMonth;
+      let selStart = null, selEnd = null;
+      let picking = 'start'; // 'start' | 'end'
+
+      const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+      function toISO(y, m, d) {
+        return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      }
+      function parseISO(s) {
+        const [y,m,d] = s.split('-').map(Number);
+        return new Date(y, m-1, d);
+      }
+      function fmtDisplay(iso) {
+        if (!iso) return null;
+        const d = parseISO(iso);
+        return d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+      }
+      function updateDisplays() {
+        if (selStart) {
+          startDisp.textContent = fmtDisplay(selStart);
+          startDisp.classList.remove('placeholder');
+          startBox.classList.add('has-date');
+          startHidden.value = selStart;
+        } else {
+          startDisp.textContent = 'Select date';
+          startDisp.classList.add('placeholder');
+          startBox.classList.remove('has-date');
+          startHidden.value = '';
+        }
+        if (selEnd) {
+          endDisp.textContent = fmtDisplay(selEnd);
+          endDisp.classList.remove('placeholder');
+          endBox.classList.add('has-date');
+          endHidden.value = selEnd;
+        } else {
+          endDisp.textContent = 'Select date';
+          endDisp.classList.add('placeholder');
+          endBox.classList.remove('has-date');
+          endHidden.value = '';
+        }
+      }
+      function renderCalendar() {
+        calLabel.textContent = `${MONTHS[viewMonth]} ${viewYear}`;
+        const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+        const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
+        const today = new Date(); today.setHours(0,0,0,0);
+        const todayISO = toISO(today.getFullYear(), today.getMonth(), today.getDate());
+
+        calDays.innerHTML = '';
+        for (let i = 0; i < firstDay; i++) {
+          const el = document.createElement('button');
+          el.type = 'button';
+          el.className = 'cal-day empty';
+          el.disabled = true;
+          calDays.appendChild(el);
+        }
+        for (let d = 1; d <= daysInMonth; d++) {
+          const iso = toISO(viewYear, viewMonth, d);
+          const el = document.createElement('button');
+          el.type = 'button';
+          el.className = 'cal-day';
+          el.textContent = d;
+          if (iso === todayISO) el.classList.add('today');
+          if (selStart && selEnd) {
+            if (iso === selStart) el.classList.add('selected-start');
+            if (iso === selEnd) el.classList.add('selected-end');
+            if (iso > selStart && iso < selEnd) el.classList.add('in-range');
+          } else if (selStart && iso === selStart) {
+            el.classList.add('selected-start', 'selected-end');
+          }
+          el.addEventListener('click', () => onDayClick(iso));
+          calDays.appendChild(el);
+        }
+        // picking label
+        if (picking === 'start') {
+          pickingLbl.textContent = '← Pick start date';
+        } else {
+          pickingLbl.textContent = selStart ? `Start: ${fmtDisplay(selStart)} · Pick end →` : '← Pick start date';
+        }
+      }
+      function onDayClick(iso) {
+        if (picking === 'start') {
+          selStart = iso;
+          selEnd = null;
+          picking = 'end';
+        } else {
+          if (iso < selStart) {
+            selEnd = selStart;
+            selStart = iso;
+          } else {
+            selEnd = iso;
+          }
+          picking = 'start';
+          // Close after full range selected
+          setTimeout(() => closePopup(), 220);
+        }
+        updateDisplays();
+        renderCalendar();
+      }
+      function openPopup(mode) {
+        picking = mode;
+        // Navigate to whichever month is relevant
+        const ref = (mode === 'start' && selStart) ? parseISO(selStart)
+                  : (mode === 'end'   && selEnd)   ? parseISO(selEnd)
+                  : new Date();
+        viewYear  = ref.getFullYear();
+        viewMonth = ref.getMonth();
+        renderCalendar();
+        popup.classList.add('open');
+        popup.setAttribute('aria-hidden','false');
+        startBox.classList.toggle('active', mode === 'start');
+        endBox.classList.toggle('active', mode === 'end');
+      }
+      function closePopup() {
+        popup.classList.remove('open');
+        popup.setAttribute('aria-hidden','true');
+        startBox.classList.remove('active');
+        endBox.classList.remove('active');
+      }
+      // Quick fill: Nov 1 – Mar 1 for the current/upcoming chill season
+      function quickFill() {
+        const now = new Date();
+        const yr = now.getMonth() >= 9 ? now.getFullYear() : now.getFullYear() - 1;
+        selStart = `${yr}-11-01`;
+        selEnd   = `${yr+1}-03-01`;
+        viewYear  = yr;
+        viewMonth = 10; // November
+        picking = 'start';
+        updateDisplays();
+        renderCalendar();
+        popup.classList.add('open');
+        popup.setAttribute('aria-hidden','false');
+        setTimeout(() => closePopup(), 400);
+      }
+
+      // Init display state
+      startDisp.classList.add('placeholder');
+      endDisp.classList.add('placeholder');
+
+      // Events
+      startBox.addEventListener('click', () => popup.classList.contains('open') && picking === 'start' ? closePopup() : openPopup('start'));
+      endBox.addEventListener('click',   () => popup.classList.contains('open') && picking === 'end'   ? closePopup() : openPopup('end'));
+      prevBtn.addEventListener('click',  () => { viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; } renderCalendar(); });
+      nextBtn.addEventListener('click',  () => { viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; } renderCalendar(); });
+      clearBtn.addEventListener('click', () => { selStart = null; selEnd = null; picking = 'start'; updateDisplays(); renderCalendar(); });
+      quickBtn.addEventListener('click', quickFill);
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!popup.contains(e.target) && !startBox.contains(e.target) && !endBox.contains(e.target) && !quickBtn.contains(e.target)) {
+          closePopup();
+        }
+      });
+
+      // Also wire up the demoBtn to reset date displays
+      const origDemoHandler = demoBtn.onclick;
+      demoBtn.addEventListener('click', () => {
+        selStart = null; selEnd = null; picking = 'start';
+        updateDisplays();
+        closePopup();
+      });
+    })();
 
     function initMap() {
       var mapEl = document.getElementById('stationMap');
