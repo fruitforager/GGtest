@@ -21,7 +21,7 @@
 // ─── CORS: restrict to your own domain in production ──────────────────────────
 // During development you can use '*'. Before going live, change this to your
 // actual domain, e.g. 'https://your-crfg-site.org'
-const ALLOWED_ORIGIN = '*';
+const ALLOWED_ORIGIN = 'https://fruitforager.github.io';
 
 // ─── CIMIS data items we need ──────────────────────────────────────────────────
 // HlyAirTmp  = hourly air temperature (°F) — used for chill hour counting
