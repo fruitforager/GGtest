@@ -69,8 +69,8 @@
       --green:#4a7a62;
       --purple:#6b5a8a;
       --crimson:#9b1c2e;
-      --shadow:0 14px 26px rgba(0,0,0,.14);
-      --shadow-soft:0 8px 18px rgba(0,0,0,.08);
+      --shadow:0 6px 14px rgba(0,0,0,.10);
+      --shadow-soft:0 4px 10px rgba(0,0,0,.07);
       --radius:22px;
       --color-leaf:      #2d5e3a;
       --button-radius:14px;
@@ -116,7 +116,7 @@
       color: #fff;
       flex-shrink: 0; 
       z-index: 50;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       position: sticky; 
       top: 0;
     }
@@ -128,7 +128,7 @@
         height: 100vh; 
         display: flex; 
         flex-direction: column; 
-        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.10);
       }
     }
     @media (min-width: 1024px) { 
@@ -371,18 +371,18 @@
       backdrop-filter:blur(12px) saturate(130%);
     }
     .card.hero{background:linear-gradient(160deg, rgba(232,244,255,.92) 0%, rgba(220,237,252,.84) 55%, rgba(235,245,255,.88) 100%)}
-    .card.calc{background:linear-gradient(180deg, rgba(235,247,238,.55) 0%, rgba(245,251,246,.42) 100%)}
+    .card.calc{background:linear-gradient(160deg, rgba(232,244,255,.92) 0%, rgba(220,237,252,.84) 55%, rgba(235,245,255,.88) 100%)}
     .card.compare{background:linear-gradient(180deg, rgba(232,241,252,.55) 0%, rgba(242,247,255,.42) 100%)}
     .card.map{background:linear-gradient(180deg, rgba(242,237,252,.55) 0%, rgba(248,244,255,.42) 100%)}
     .card.chart{background:#fff}
-    .card.notes{background:linear-gradient(180deg, rgba(251,252,250,.98) 0%, rgba(247,249,246,.94) 100%)}
+    .card.notes{background:#fff}
 
     .hero{display:block}
     .kicker{display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson);margin-bottom:.5rem}
-    h1,h2,h3{color:var(--blue-deep);line-height:1.18;margin:0 0 .75rem;font-weight:900;letter-spacing:-.025em}
+    p{margin:0 0 1rem;color:rgba(36,40,44,.96);font-size:1.02rem;text-wrap:pretty}
+    h1,h2,h3{color:var(--blue-deep);line-height:1.18;margin:0 0 .75rem;font-weight:900;letter-spacing:-.025em;text-wrap:balance}
     .display-title{font-family:var(--font-display);font-size:clamp(2.2rem, 6vw, 4rem);color:var(--crimson);line-height:1.04;letter-spacing:-.02em;text-shadow:1px 2px 3px rgba(0,0,0,.09);margin-top:1.1rem;margin-bottom:1.2rem;padding-top:.35rem;padding-bottom:.75rem}
     .subtitle{font-size:clamp(1.25rem, 2.6vw, 2.05rem);color:var(--purple);line-height:1.2;letter-spacing:-.03em;max-width:35rem;margin:0 0 1rem}
-    p{margin:0 0 1rem;color:rgba(36,40,44,.96);font-size:1.02rem}
     .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
 
     .calc-metrics-footer{
@@ -400,7 +400,7 @@
       padding:1rem;
       color:var(--text);
       background:linear-gradient(180deg, rgba(255,252,247,.96), rgba(247,242,233,.92));
-      box-shadow:0 14px 30px rgba(20,50,58,.07);
+      box-shadow:0 4px 10px rgba(20,50,58,.07);
       border:1px solid rgba(28,51,58,.08)
     }
     .metric .label{font-size:.75rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(31,63,95,.74)}
@@ -448,60 +448,67 @@ label {
 /* 2. Combined Base Styles - Completely uniforming the box-model */
 input, select {
     width: 100%;
-    height: 46px !important; /* Forces explicit height */
-    box-sizing: border-box !important; /* Includes padding/border inside that 46px */
-    
-    /* Padding MUST be identical. Remove the separate 40px right padding from base */
-    padding: 0 14px !important; 
-    
-    border: 1px solid rgba(28,51,58,.14);
+    height: 46px !important;
+    box-sizing: border-box !important;
+    padding: 0 14px !important;
+    border: 1px solid rgba(28,51,58,.18);
     border-radius: 16px;
     color: #172226;
     outline: none;
-    font-size: .95rem; /* Forces identical font scaling */
-    line-height: 44px;  /* Matches the inner height (46px minus 2px borders) */
+    font-size: .95rem;
+    line-height: 44px;
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
 }
 
 input {
     background: #fff;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.06), 0 1px 0 rgba(255,255,255,.9);
+    box-shadow:
+      inset 0 2px 4px rgba(0,0,0,.06),
+      inset 0 1px 0 rgba(0,0,0,.03),
+      0 1px 0 rgba(255,255,255,.9);
 }
-input:focus { border-color: rgba(47,93,143,.55); box-shadow: 0 0 0 4px rgba(47,93,143,.10), inset 0 1px 3px rgba(0,0,0,.06); }
+input:hover { border-color: rgba(47,93,143,.32); box-shadow: inset 0 2px 4px rgba(0,0,0,.05), 0 3px 8px rgba(47,93,143,.08), 0 1px 0 rgba(255,255,255,.9); }
+input:focus { border-color: rgba(47,93,143,.6); box-shadow: 0 0 0 3px rgba(47,93,143,.12), inset 0 2px 4px rgba(0,0,0,.05); }
 
 /* 3. Dropdown specific structural overrides */
 select {
     appearance: none;
     -webkit-appearance: none;
-    -moz-appearance: none; /* Adds Firefox support */
-    
+    -moz-appearance: none;
     background-color: #fff;
     background-image:
-        linear-gradient(180deg, rgba(255,255,255,.72) 0%, rgba(240,240,240,.0) 55%, rgba(210,210,210,.18) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.9) 0%, rgba(242,244,246,.7) 100%),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%235f686f' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
-    
-    /* ONLY add right padding here so text doesn't crash into the arrow */
-    padding-right: 40px !important; 
-    
-    box-shadow: 0 2px 6px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(0,0,0,.04);
+    padding-right: 40px !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 -1px 0 rgba(0,0,0,.05) inset,
+      0 2px 4px rgba(28,51,58,.08),
+      0 1px 2px rgba(28,51,58,.05);
     cursor: pointer;
-    transition: box-shadow .18s ease, border-color .18s ease;
 }
-
 select:hover {
-    border-color: rgba(47,93,143,.35);
-    box-shadow: 0 4px 12px rgba(0,0,0,.13), 0 1px 3px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(0,0,0,.04);
+    border-color: rgba(47,93,143,.38);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 -1px 0 rgba(0,0,0,.05) inset,
+      0 4px 10px rgba(28,51,58,.12),
+      0 2px 4px rgba(28,51,58,.07);
+    background-image:
+        linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(235,240,248,.8) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%235f686f' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 select:focus {
-    border-color: rgba(47,93,143,.55);
-    box-shadow: 0 0 0 4px rgba(47,93,143,.10), 0 3px 8px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.9);
+    border-color: rgba(47,93,143,.6);
+    box-shadow: 0 0 0 3px rgba(47,93,143,.12), 0 3px 8px rgba(28,51,58,.10), inset 0 1px 0 rgba(255,255,255,.9);
 }
 
     .button-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.9rem;padding-bottom:.35rem}
     .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem}
     @media (max-width:720px){.stats{grid-template-columns:1fr}}
-    .stat{padding:1rem;border-radius:18px;background:#fff;border:1px solid rgba(28,51,58,.13);box-shadow:0 3px 10px rgba(0,0,0,.08)}
+    .stat{padding:1rem;border-radius:18px;background:#fff;border:1px solid rgba(28,51,58,.13);box-shadow:0 2px 6px rgba(0,0,0,.07)}
     .stat span{display:block;font-size:.8rem;color:var(--crimson);text-transform:uppercase;letter-spacing:.06em;font-weight:900}
     .stat strong{display:block;margin-top:.25rem;font-size:1.95rem;font-weight:900;color:var(--purple);letter-spacing:-.03em}
 
@@ -511,16 +518,16 @@ select:focus {
 
     .chart-toolbar{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;margin-bottom:1rem}
     .chip{
-      display:inline-flex;align-items:center;gap:.35rem;padding:.32rem .78rem;border-radius:12px;border:1px solid transparent;font-size:.82rem;font-weight:900;cursor:pointer;user-select:none;color:#fff;
-      box-shadow:0 8px 16px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.18);
-      position:relative;overflow:hidden;min-height:32px;
+      display:inline-flex;align-items:center;gap:.35rem;padding:.52rem .78rem;border-radius:12px;border:1px solid transparent;font-size:.82rem;font-weight:900;cursor:pointer;user-select:none;color:#fff;
+      box-shadow:0 3px 7px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.18);
+      position:relative;overflow:hidden;min-height:40px;
       transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
       outline:none !important;
     }
     .chip::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.02) 50%, rgba(0,0,0,.10));pointer-events:none}
     .chip::after{content:"▾";margin-left:.15rem;font-size:1.15em;line-height:1;opacity:.95}
-    .chip:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 12px 20px rgba(0,0,0,.18)}
-    .chip:active, .chip:focus{transform:translateY(0);box-shadow:0 6px 12px rgba(0,0,0,.14);outline:none !important;border:1px solid transparent !important}
+    .chip:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 4px 10px rgba(0,0,0,.14)}
+    .chip:active, .chip:focus{transform:translateY(0);box-shadow:0 2px 6px rgba(0,0,0,.12);outline:none !important;border:1px solid transparent !important}
     .chip.low{background:linear-gradient(180deg, #4a7a62 0%, #3d6854 52%, #315647 100%)}
     .chip.mid{background:linear-gradient(180deg, #6b5a8a 0%, #5c4d78 52%, #4d4065 100%)}
     .chip.high{background:linear-gradient(180deg, #2f5d8f 0%, #28507a 52%, #1f4061 100%)}
@@ -529,12 +536,15 @@ select:focus {
 
     .list-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:.8rem}
     @media (max-width:480px){.list-grid{grid-template-columns:1fr}}
-    .fruit-item{border-radius:16px;background:rgba(255,255,255,.70);border:1px solid rgba(28,51,58,.12);padding:.9rem .95rem;display:grid;gap:.15rem;box-shadow:0 3px 10px rgba(0,0,0,.08)}
-    .fruit-name{font-weight:900;color:var(--teal)}
+    .fruit-item{border-radius:16px;background:#fff;border:1px solid rgba(28,51,58,.12);padding:.9rem .95rem;display:grid;gap:.15rem;box-shadow:0 2px 6px rgba(0,0,0,.07);overflow:hidden}
+    .fruit-name{font-weight:900}
     .fruit-range{font-weight:900}
-    .fruit-item.low{border-left:5px solid #4a7a62;border-color:rgba(74,122,98,.28);background:linear-gradient(180deg, rgba(235,247,241,.82), rgba(255,255,255,.72))}
-    .fruit-item.moderate{border-left:5px solid #6b5a8a;border-color:rgba(107,90,138,.28);background:linear-gradient(180deg, rgba(243,240,251,.88), rgba(255,255,255,.72))}
-    .fruit-item.high{border-left:5px solid #2f5d8f;border-color:rgba(47,93,143,.28);background:linear-gradient(180deg, rgba(235,242,249,.86), rgba(255,255,255,.72))}
+    .fruit-item.low{border-left:5px solid rgba(74,122,98,.5);border-top:3px solid rgba(74,122,98,.5);border-color:rgba(74,122,98,.5);border-right-color:rgba(74,122,98,.12);border-bottom-color:rgba(74,122,98,.12)}
+    .fruit-item.low .fruit-name{color:#4a7a62}
+    .fruit-item.moderate{border-left:5px solid rgba(107,90,138,.5);border-top:3px solid rgba(107,90,138,.5);border-color:rgba(107,90,138,.5);border-right-color:rgba(107,90,138,.12);border-bottom-color:rgba(107,90,138,.12)}
+    .fruit-item.moderate .fruit-name{color:#6b5a8a}
+    .fruit-item.high{border-left:5px solid rgba(47,93,143,.5);border-top:3px solid rgba(47,93,143,.5);border-color:rgba(47,93,143,.5);border-right-color:rgba(47,93,143,.12);border-bottom-color:rgba(47,93,143,.12);background:radial-gradient(circle at 0% -10%,rgba(180,220,255,.18) 0%,rgba(255,255,255,1) 40%)}
+    .fruit-item.high .fruit-name{color:#2f5d8f}
 
     .compare-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
     @media (max-width:860px){.compare-wrap{grid-template-columns:1fr}}
@@ -554,27 +564,63 @@ select:focus {
       align-items:center;
       justify-content:center;
       gap:.45rem;
-      padding:.52rem 1.1rem;
+      padding:.6rem 1.3rem;
       border-radius:14px;
       font-weight:900;
       white-space:nowrap;
-      min-height:36px;
-      box-shadow:0 10px 18px rgba(0,0,0,.16);
+      min-height:40px;
       position:relative;
       overflow:hidden;
       color:#fff;
-      background:linear-gradient(180deg, rgba(47,93,143,.68) 0%, rgba(35,70,110,.60) 52%, rgba(25,50,80,.68) 100%);
-      border:1px solid rgba(47,93,143,.42);
-      backdrop-filter:blur(10px);
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      font-size:.95rem;
+      letter-spacing:.01em;
+      text-shadow: 0 1px 2px rgba(0,0,0,.28);
+      background: linear-gradient(170deg, #3d6faa 0%, #2f5d8f 40%, #244d78 100%);
+      border: 1px solid rgba(47,93,143,.55);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.18) inset,
+        0 -1px 0 rgba(0,0,0,.18) inset,
+        0 2px 4px rgba(36,77,120,.20),
+        0 4px 10px rgba(36,77,120,.16),
+        0 1px 2px rgba(0,0,0,.10);
+      transition: transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s ease, filter .16s ease, background .16s ease;
       outline:none !important;
     }
-    .button-neutral{
-      background:linear-gradient(180deg, rgba(58,88,118,.55) 0%, rgba(44,68,95,.50) 52%, rgba(32,52,76,.58) 100%);
-      border-color:rgba(58,88,118,.38);
+    .button::after,.button-neutral::after,button.primary::after,button.secondary::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(255,255,255,.13) 0%,transparent 55%,rgba(0,0,0,.07) 100%);
+      pointer-events:none;border-radius:inherit;
     }
-    .button:hover,.button-neutral:hover,button.primary:hover,button.secondary:hover,.menu-toggle:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 14px 22px rgba(0,0,0,.18)}
-    .button:active,.button-neutral:active,button.primary:active,button.secondary:active,.menu-toggle:active, button:focus{transform:translateY(0);box-shadow:0 6px 12px rgba(0,0,0,.14);outline:none !important}
+    .button-neutral{
+      background: linear-gradient(170deg, #4a6a8a 0%, #3a5670 40%, #2c4258 100%);
+      border-color:rgba(58,86,112,.55);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.14) inset,
+        0 -1px 0 rgba(0,0,0,.18) inset,
+        0 2px 4px rgba(44,66,88,.18),
+        0 4px 10px rgba(44,66,88,.14),
+        0 1px 2px rgba(0,0,0,.10);
+    }
+    .button:hover,.button-neutral:hover,button.primary:hover,button.secondary:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.08) saturate(1.08);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.22) inset,
+        0 -1px 0 rgba(0,0,0,.18) inset,
+        0 4px 8px rgba(36,77,120,.26),
+        0 8px 16px rgba(36,77,120,.18),
+        0 1px 3px rgba(0,0,0,.12);
+    }
+    .button:active,.button-neutral:active,button.primary:active,button.secondary:active{
+      transform:translateY(0px);
+      filter:brightness(.97);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.10) inset,
+        0 -1px 0 rgba(0,0,0,.22) inset,
+        0 1px 3px rgba(36,77,120,.14),
+        0 2px 6px rgba(36,77,120,.10);
+      outline:none !important;
+    }
 
     .map-shell{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:.75rem}
     .map-box,.station-list{border-radius:18px;border:1px solid rgba(28,51,58,.10);background:rgba(255,255,255,.66);box-shadow:var(--shadow-soft);overflow:hidden;min-height:300px}
@@ -662,15 +708,6 @@ select:focus {
     background: linear-gradient(180deg, #6b5a8a 0%, #5c4d78 52%, #4d4065 100%);
 }
 
-.fruit-item.moderate {
-    border-left: 5px solid #6b5a8a;
-    border-color: rgba(107, 90, 138, 0.28);
-    background: linear-gradient(180deg, rgba(243,240,251,.88), rgba(255,255,255,.72));
-}
-
-.fruit-item.moderate .fruit-range {
-    color: #6b5a8a;
-}
 
 /* Mobile: stack filter chips vertically */
 @media (max-width: 540px) {
@@ -734,6 +771,7 @@ select:focus {
 /* =====================================================
    CUSTOM DATE RANGE PICKER
 ===================================================== */
+/* === CUSTOM DATE RANGE PICKER — click boxes + calendar popup ============ */
 .date-range-wrapper {
   display: flex;
   align-items: center;
@@ -755,87 +793,63 @@ select:focus {
   gap: .55rem;
   padding: 0 14px;
   height: 46px;
-  border: 1px solid rgba(28,51,58,.14);
+  border: 1px solid rgba(28,51,58,.18);
   border-radius: 16px;
   background: #fff;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,.06), 0 1px 0 rgba(255,255,255,.9);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.06), 0 1px 0 rgba(255,255,255,.9);
   cursor: pointer;
   transition: border-color .18s, box-shadow .18s;
   user-select: none;
   overflow: hidden;
 }
 .date-input-box:hover {
-  border-color: rgba(47,93,143,.35);
-  box-shadow: 0 4px 12px rgba(0,0,0,.10), inset 0 1px 3px rgba(0,0,0,.06);
+  border-color: rgba(47,93,143,.32);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.05), 0 3px 8px rgba(47,93,143,.08), 0 1px 0 rgba(255,255,255,.9);
 }
-.date-input-box.active, .date-input-box:focus-within {
-  border-color: rgba(47,93,143,.55);
-  box-shadow: 0 0 0 4px rgba(47,93,143,.10), inset 0 1px 3px rgba(0,0,0,.06);
+.date-input-box.active {
+  border-color: rgba(47,93,143,.6);
+  box-shadow: 0 0 0 3px rgba(47,93,143,.12), inset 0 2px 4px rgba(0,0,0,.05);
 }
 .date-input-box.has-date {
-  border-color: rgba(45,94,58,.35);
-  background: linear-gradient(180deg, rgba(235,247,241,.7), #fff);
+  border-color: rgba(45,94,58,.38);
+  background: linear-gradient(180deg, rgba(235,247,241,.6), #fff);
 }
-.date-input-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  line-height: 1;
-}
-.date-input-text {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  overflow: hidden;
-}
-.date-input-label {
-  font-size: .68rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  color: var(--muted);
-  line-height: 1;
-}
-.date-input-value {
-  font-size: .9rem;
-  font-weight: 700;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.3;
-}
-.date-input-value.placeholder {
-  color: rgba(28,51,58,.38);
-  font-weight: 500;
-}
-.date-range-arrow {
-  font-size: 1rem;
-  color: var(--muted);
-  flex-shrink: 0;
-  font-weight: 900;
-}
+.date-input-icon { font-size: 1.1rem; flex-shrink: 0; line-height: 1; }
+.date-input-text { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+.date-input-label { font-size: .68rem; font-weight: 900; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); line-height: 1; }
+.date-input-value { font-size: .9rem; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; }
+.date-input-value.placeholder { color: rgba(28,51,58,.38); font-weight: 500; }
+.date-range-arrow { font-size: 1rem; color: var(--muted); flex-shrink: 0; font-weight: 900; }
 .date-quick-btn {
   appearance: none;
-  border: 1px solid rgba(155,28,46,.28);
-  background: linear-gradient(180deg, rgba(155,28,46,.07), rgba(155,28,46,.03));
-  color: var(--crimson);
+  border: 1px solid rgba(155,28,46,.3);
+  background: linear-gradient(170deg, #b83040 0%, #9b1c2e 50%, #80161f 100%);
+  color: #fff;
   font-family: var(--font-body);
-  font-size: .82rem;
+  font-size: .83rem;
   font-weight: 900;
-  padding: .55rem .95rem;
+  padding: .58rem 1rem;
   border-radius: 14px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background .18s, transform .15s, box-shadow .18s;
-  box-shadow: 0 2px 6px rgba(155,28,46,.1);
   flex-shrink: 0;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.18) inset,
+    0 -1px 0 rgba(0,0,0,.18) inset,
+    0 2px 5px rgba(155,28,46,.22),
+    0 4px 10px rgba(155,28,46,.14);
+  transition: transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s ease, filter .16s ease;
 }
 .date-quick-btn:hover {
-  background: linear-gradient(180deg, rgba(155,28,46,.14), rgba(155,28,46,.07));
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(155,28,46,.18);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.22) inset,
+    0 -1px 0 rgba(0,0,0,.18) inset,
+    0 4px 8px rgba(155,28,46,.28),
+    0 6px 14px rgba(155,28,46,.16);
 }
-.date-quick-btn:active { transform: translateY(0); }
+.date-quick-btn:active { transform: translateY(0); filter: brightness(.96); }
 
 /* Calendar popup */
 .date-calendar-popup {
@@ -847,7 +861,7 @@ select:focus {
   background: #fff;
   border: 1px solid rgba(28,51,58,.13);
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,.18), 0 6px 12px rgba(0,0,0,.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
   padding: 1rem;
   display: none;
 }
@@ -957,10 +971,7 @@ select:focus {
 
 /* Mobile date picker adjustments */
 @media (max-width: 540px) {
-  .date-range-wrapper {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  .date-range-wrapper { flex-direction: column; align-items: stretch; }
   .date-range-inputs { width: 100%; }
   .date-quick-btn { width: 100%; justify-content: center; text-align: center; }
   .date-calendar-popup { width: calc(100vw - 2rem); left: 0; right: 0; }
@@ -1147,18 +1158,18 @@ select:focus {
           <div class="hero-copy" style="padding: 0 0.75rem;">
             <div class="kicker">Bay Area orchard planning</div>
             <h1 class="display-title" style="line-height: 1.23 !important;">Bay Area Fruit Tree<br>Chill Hour Calculator</h1>
-            <h2 class="subtitle">Compare CIMIS stations, estimate chill, and match fruit varieties to your site.</h2>
+            <h2 class="subtitle">Compare CIMIS Stations, estimate chill, and match fruit varieties to your site.</h2>
             <p>Use this tool to find out <strong>how many chill hours your local Bay Area weather station has recorded</strong> — and whether that's enough for the fruit trees you want to grow. Compare nearby stations, explore which fruits are a good fit for your yard, and <strong>bring those numbers to your nursery</strong> when you're ready to plant.</p>
             <div class="hero-actions">
               <a href="#map" class="button">Find Your Station →</a>
-              <a href="#calculator" class="button" style="background:linear-gradient(180deg,rgba(155,28,46,.72),rgba(120,20,36,.68));border-color:rgba(155,28,46,.42);">Use Calculator ↓</a>
-              <a href="#chart" class="button" style="background:linear-gradient(180deg,rgba(74,122,98,.72),rgba(50,96,74,.72));border-color:rgba(74,122,98,.42);">Browse Fruit by Chill</a>
+              <a href="#calculator" class="button" style="background:linear-gradient(170deg,#b83040 0%,#9b1c2e 45%,#7d1522 100%);border-color:rgba(155,28,46,.6);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 -1px 0 rgba(0,0,0,.18) inset,0 2px 4px rgba(120,20,36,.22),0 4px 10px rgba(120,20,36,.16),0 1px 2px rgba(0,0,0,.10);">Use Calculator ↓</a>
+              <a href="#chart" class="button" style="background:linear-gradient(170deg,#578a6e 0%,#4a7a62 45%,#386050 100%);border-color:rgba(74,122,98,.6);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 -1px 0 rgba(0,0,0,.18) inset,0 2px 4px rgba(56,96,80,.22),0 4px 10px rgba(56,96,80,.16),0 1px 2px rgba(0,0,0,.10);">Browse Fruit by Chill</a>
             </div>
           </div>
         </section>
 
         <section class="card map" id="map">
-          <div class="section-title"><div><div class="kicker">Step 1 — Find your station</div><h2>CIMIS Weather Stations Map</h2></div><span class="pill">Tap to Explore Bay Area Stations</span></div>
+          <div class="section-title"><div><div class="kicker">Step 1 — Find your station</div><h2>CIMIS Weather Stations Map</h2></div></div>
           <p class="small">The stations on this map are part of <strong>CIMIS — the California Irrigation Management Information System</strong>, a network of over 145 automated weather stations maintained by the <strong>California Department of Water Resources</strong>. Each station records hourly temperature, humidity, wind, and solar data year-round.</p>
           <p class="small">For fruit growers, what matters most is the <strong>winter temperature record</strong>. CIMIS stations let us count how many hours each winter the temperature stayed in the <strong>32°–45°F range</strong> — the sweet spot where fruit trees accumulate "chill hours" during dormancy. Without enough of those cold hours, many trees <strong>won't bloom properly or set fruit</strong> the following spring.</p>
           <p class="small">Find the station closest to your yard below. Click any marker or card to see its chill hour total, then use the buttons to <strong>move it into the comparison tool</strong> in the next step.</p>
@@ -1169,11 +1180,11 @@ select:focus {
         </section>
 
         <section class="card compare" id="compare">
-          <div class="section-title"><div><div class="kicker">Step 2 — Compare locations</div><h2>Compare Two Stations Side by Side</h2></div></div>
+          <div class="section-title" style="padding-top:.6rem"><div><div class="kicker">Step 2 — Compare locations</div><h2>Compare Two CIMIS Stations</h2></div></div>
           <p style="font-size:.92rem;color:var(--muted);margin-bottom:.75rem;">Bay Area neighborhoods can have <strong>surprisingly different winters</strong> — a station in the fog belt may rack up far more chill hours than one just a few miles inland and warmer. Use the <strong>"Use as Station A / B"</strong> buttons on the station cards above, or pick from the dropdowns below, to see exactly how two locations compare. This helps you understand <strong>what your specific yard is likely to experience</strong>.</p>
           <div class="field-grid" style="margin-bottom:1rem">
-            <div class="field"><label for="stationA">Station A</label><select id="stationA"></select></div>
-            <div class="field"><label for="stationB">Station B</label><select id="stationB"></select></div>
+            <div class="field"><label for="stationA">CIMIS Station A</label><select id="stationA"></select></div>
+            <div class="field"><label for="stationB">CIMIS Station B</label><select id="stationB"></select></div>
           </div>
           <div class="compare-wrap" id="compareGrid"></div>
           <div class="compare-summary" id="compareSummary">Pick two stations to compare.</div>
@@ -1194,15 +1205,12 @@ select:focus {
               <form id="calcForm">
                 <div class="field-grid">
                   <div class="field" style="min-width:0;">
-  <label for="target">Station ID or ZIP Code</label>
+  <label for="target">CIMIS Station ID or ZIP Code <span style="font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:0;">— <a href="#map" style="color:var(--green);font-weight:700;text-decoration:none;">from map above&nbsp;↑</a></span></label>
   <div style="position:relative;">
     <input id="target" name="target" placeholder="e.g. 159 · Oakland North" required list="station-suggestions" autocomplete="off" style="min-width:0;width:100%;padding-right:40px !important;">
     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;"><path d="M1 1l6 6 6-6" stroke="#5f686f" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
   <datalist id="station-suggestions"></datalist>
-  <span style="font-size:.8rem;color:var(--muted);margin-top:.25rem;display:block;padding-left:16px;">
-    Use the station ID from the <a href="#map" style="color: var(--green); font-weight: 700; text-decoration: none;">map above ↑</a>, or enter your ZIP code.
-  </span>
 </div>
 <div class="field" style="min-width:0;">
                     <label for="cropType">Select Type of Fruit</label>
@@ -1261,7 +1269,7 @@ select:focus {
                           <span class="date-input-icon">📅</span>
                           <div class="date-input-text">
                             <span class="date-input-label">Start</span>
-                            <span class="date-input-value" id="startDateDisplay">Select date</span>
+                            <span class="date-input-value placeholder" id="startDateDisplay">Select date</span>
                           </div>
                           <input type="hidden" id="startDate" name="startDate" required>
                         </div>
@@ -1270,7 +1278,7 @@ select:focus {
                           <span class="date-input-icon">📅</span>
                           <div class="date-input-text">
                             <span class="date-input-label">End</span>
-                            <span class="date-input-value" id="endDateDisplay">Select date</span>
+                            <span class="date-input-value placeholder" id="endDateDisplay">Select date</span>
                           </div>
                           <input type="hidden" id="endDate" name="endDate" required>
                         </div>
@@ -1295,7 +1303,7 @@ select:focus {
                         <button type="button" class="cal-clear-btn" id="calClearBtn">Clear</button>
                       </div>
                     </div>
-                    <span style="font-size:.8rem;color:var(--muted);margin-top:.4rem;display:block;padding-left:13px;">Nov 1 – Mar 1 covers the key dormancy window for most fruit trees.</span>
+                    <span style="font-size:.8rem;color:var(--muted);margin-top:.4rem;display:block;padding-left:13px;">Nov&nbsp;1&nbsp;– Mar&nbsp;1 covers the key dormancy window for most fruit trees.</span>
                   </div>
                 </div>
                 <div class="field-grid" style="margin-top:.65rem;">
@@ -1363,9 +1371,9 @@ select:focus {
           
           <div class="chart-toolbar step4-chip-toolbar" style="margin-bottom: 1rem">
             <div class="step4-chips" style="padding-left:12px">
-              <button class="chip low step4-chip" onclick="filterCultivars('low', this)">Low Chill (&lt;400 hrs)</button>
-              <button class="chip mid step4-chip" onclick="filterCultivars('mid', this)">Moderate Chill (400-700 hrs)</button>
-              <button class="chip high step4-chip" onclick="filterCultivars('high', this)">High Chill (&gt;700 hrs)</button>
+              <button class="chip low step4-chip" onclick="filterCultivars('low', this)">Low Chill (&lt;400 hours)</button>
+              <button class="chip mid step4-chip" onclick="filterCultivars('mid', this)">Moderate Chill (400–700 hours)</button>
+              <button class="chip high step4-chip" onclick="filterCultivars('high', this)">High Chill (700 hours+)</button>
             </div>
           </div>
           <div class="list-grid" id="fruitList"></div>
@@ -1676,7 +1684,7 @@ select:focus {
       if(filtered.length === 0){
         fruitList.innerHTML = '<div style="grid-column:1/-1;padding:1.5rem;text-align:center;color:var(--muted);font-size:.95rem;border-radius:14px;background:rgba(255,255,255,.6);border:1px dashed rgba(28,51,58,.12);">No varieties found in this range for the Bay Area.</div>';
       } else {
-        fruitList.innerHTML = filtered.map(([name,range,cls])=>`<div class="fruit-item ${cls}"><div class="fruit-name">${name}</div><div class="fruit-range" style="color:${cls==='low'?'var(--green)':cls==='moderate'?'var(--purple)':'var(--blue)'}">${range}<span style="font-weight:300; font-size:0.85em; opacity:0.85; margin-left:4px;">hrs</span></div></div>`).join('');
+        fruitList.innerHTML = filtered.map(([name,range,cls])=>`<div class="fruit-item ${cls}"><div class="fruit-name">${name}</div><div class="fruit-range" style="color:${cls==='low'?'#4a7a62':cls==='moderate'?'#6b5a8a':'#2f5d8f'}">${range}<span style="font-weight:300; font-size:0.85em; opacity:0.85; margin-left:4px;">hrs</span></div></div>`).join('');
       }
     }
     renderFruitList();
@@ -1754,12 +1762,12 @@ select:focus {
     loadDemo();
 
     /* =====================================================
-       CUSTOM DATE RANGE CALENDAR PICKER
+       CUSTOM DATE RANGE CALENDAR PICKER — click-box style
     ===================================================== */
     (function() {
-      const popup   = document.getElementById('dateCalendarPopup');
-      const startBox = document.getElementById('startDateBox');
-      const endBox   = document.getElementById('endDateBox');
+      const popup      = document.getElementById('dateCalendarPopup');
+      const startBox   = document.getElementById('startDateBox');
+      const endBox     = document.getElementById('endDateBox');
       const startHidden = document.getElementById('startDate');
       const endHidden   = document.getElementById('endDate');
       const startDisp   = document.getElementById('startDateDisplay');
@@ -1774,17 +1782,14 @@ select:focus {
 
       let viewYear, viewMonth;
       let selStart = null, selEnd = null;
-      let picking = 'start'; // 'start' | 'end'
+      let picking = 'start';
 
       const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
       function toISO(y, m, d) {
         return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
       }
-      function parseISO(s) {
-        const [y,m,d] = s.split('-').map(Number);
-        return new Date(y, m-1, d);
-      }
+      function parseISO(s) { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); }
       function fmtDisplay(iso) {
         if (!iso) return null;
         const d = parseISO(iso);
@@ -1820,119 +1825,78 @@ select:focus {
         const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
         const today = new Date(); today.setHours(0,0,0,0);
         const todayISO = toISO(today.getFullYear(), today.getMonth(), today.getDate());
-
         calDays.innerHTML = '';
         for (let i = 0; i < firstDay; i++) {
           const el = document.createElement('button');
-          el.type = 'button';
-          el.className = 'cal-day empty';
-          el.disabled = true;
+          el.type = 'button'; el.className = 'cal-day empty'; el.disabled = true;
           calDays.appendChild(el);
         }
         for (let d = 1; d <= daysInMonth; d++) {
           const iso = toISO(viewYear, viewMonth, d);
           const el = document.createElement('button');
-          el.type = 'button';
-          el.className = 'cal-day';
-          el.textContent = d;
+          el.type = 'button'; el.className = 'cal-day'; el.textContent = d;
           if (iso === todayISO) el.classList.add('today');
           if (selStart && selEnd) {
             if (iso === selStart) el.classList.add('selected-start');
-            if (iso === selEnd) el.classList.add('selected-end');
+            if (iso === selEnd)   el.classList.add('selected-end');
             if (iso > selStart && iso < selEnd) el.classList.add('in-range');
           } else if (selStart && iso === selStart) {
-            el.classList.add('selected-start', 'selected-end');
+            el.classList.add('selected-start','selected-end');
           }
           el.addEventListener('click', () => onDayClick(iso));
           calDays.appendChild(el);
         }
-        // picking label
-        if (picking === 'start') {
-          pickingLbl.textContent = '← Pick start date';
-        } else {
-          pickingLbl.textContent = selStart ? `Start: ${fmtDisplay(selStart)} · Pick end →` : '← Pick start date';
-        }
+        pickingLbl.textContent = picking === 'start'
+          ? '← Pick start date'
+          : selStart ? `Start: ${fmtDisplay(selStart)} · Pick end →` : '← Pick start date';
       }
       function onDayClick(iso) {
         if (picking === 'start') {
-          selStart = iso;
-          selEnd = null;
-          picking = 'end';
+          selStart = iso; selEnd = null; picking = 'end';
         } else {
-          if (iso < selStart) {
-            selEnd = selStart;
-            selStart = iso;
-          } else {
-            selEnd = iso;
-          }
+          if (iso < selStart) { selEnd = selStart; selStart = iso; }
+          else { selEnd = iso; }
           picking = 'start';
-          // Close after full range selected
-          setTimeout(() => closePopup(), 220);
+          setTimeout(closePopup, 220);
         }
-        updateDisplays();
-        renderCalendar();
+        updateDisplays(); renderCalendar();
       }
       function openPopup(mode) {
         picking = mode;
-        // Navigate to whichever month is relevant
         const ref = (mode === 'start' && selStart) ? parseISO(selStart)
                   : (mode === 'end'   && selEnd)   ? parseISO(selEnd)
                   : new Date();
-        viewYear  = ref.getFullYear();
-        viewMonth = ref.getMonth();
+        viewYear = ref.getFullYear(); viewMonth = ref.getMonth();
         renderCalendar();
-        popup.classList.add('open');
-        popup.setAttribute('aria-hidden','false');
+        popup.classList.add('open'); popup.setAttribute('aria-hidden','false');
         startBox.classList.toggle('active', mode === 'start');
         endBox.classList.toggle('active', mode === 'end');
       }
       function closePopup() {
-        popup.classList.remove('open');
-        popup.setAttribute('aria-hidden','true');
-        startBox.classList.remove('active');
-        endBox.classList.remove('active');
+        popup.classList.remove('open'); popup.setAttribute('aria-hidden','true');
+        startBox.classList.remove('active'); endBox.classList.remove('active');
       }
-      // Quick fill: Nov 1 – Mar 1 for the current/upcoming chill season
       function quickFill() {
         const now = new Date();
         const yr = now.getMonth() >= 9 ? now.getFullYear() : now.getFullYear() - 1;
-        selStart = `${yr}-11-01`;
-        selEnd   = `${yr+1}-03-01`;
-        viewYear  = yr;
-        viewMonth = 10; // November
-        picking = 'start';
-        updateDisplays();
-        renderCalendar();
-        popup.classList.add('open');
-        popup.setAttribute('aria-hidden','false');
-        setTimeout(() => closePopup(), 400);
+        selStart = `${yr}-11-01`; selEnd = `${yr+1}-03-01`;
+        picking = 'start'; updateDisplays(); closePopup();
       }
 
-      // Init display state
-      startDisp.classList.add('placeholder');
-      endDisp.classList.add('placeholder');
-
-      // Events
-      startBox.addEventListener('click', () => popup.classList.contains('open') && picking === 'start' ? closePopup() : openPopup('start'));
-      endBox.addEventListener('click',   () => popup.classList.contains('open') && picking === 'end'   ? closePopup() : openPopup('end'));
-      prevBtn.addEventListener('click',  () => { viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; } renderCalendar(); });
-      nextBtn.addEventListener('click',  () => { viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; } renderCalendar(); });
+      startBox.addEventListener('click', () =>
+        popup.classList.contains('open') && picking === 'start' ? closePopup() : openPopup('start'));
+      endBox.addEventListener('click', () =>
+        popup.classList.contains('open') && picking === 'end' ? closePopup() : openPopup('end'));
+      prevBtn.addEventListener('click', () => { viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; } renderCalendar(); });
+      nextBtn.addEventListener('click', () => { viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; } renderCalendar(); });
       clearBtn.addEventListener('click', () => { selStart = null; selEnd = null; picking = 'start'; updateDisplays(); renderCalendar(); });
       quickBtn.addEventListener('click', quickFill);
-
-      // Close on outside click
-      document.addEventListener('click', (e) => {
-        if (!popup.contains(e.target) && !startBox.contains(e.target) && !endBox.contains(e.target) && !quickBtn.contains(e.target)) {
+      document.addEventListener('click', e => {
+        if (!popup.contains(e.target) && !startBox.contains(e.target) && !endBox.contains(e.target) && !quickBtn.contains(e.target))
           closePopup();
-        }
       });
-
-      // Also wire up the demoBtn to reset date displays
-      const origDemoHandler = demoBtn.onclick;
       demoBtn.addEventListener('click', () => {
-        selStart = null; selEnd = null; picking = 'start';
-        updateDisplays();
-        closePopup();
+        selStart = null; selEnd = null; picking = 'start'; updateDisplays(); closePopup();
       });
     })();
 
