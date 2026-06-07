@@ -725,10 +725,101 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
   .footer-copyright { display: none; }
   .sidebar:has(.nav-menu.is-open) .footer-copyright { display: block; }
   .map-frame {
-    width: 90%;       /* Takes up most of the mobile screen width */
-    max-width: none;  /* Removes the desktop restriction */
+    width: 90%;
+    max-width: none;
   }
 }
+
+/* =====================================================
+   QUICK-JOIN BANNER
+===================================================== */
+.quick-join-banner {
+  background: #f2f8f3;
+  border-radius: 0.75rem;
+  padding: 1.1rem 1.35rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(39,77,49,0.08);
+  border: 1px solid rgba(39,77,49,0.22);
+  animation: bannerSlideIn 0.45s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes bannerSlideIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.quick-join-banner.hidden {
+  display: none;
+}
+.quick-join-banner .qj-text {
+  flex: 1;
+  min-width: 140px;
+}
+.quick-join-banner .qj-text strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-royalneptune);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+.quick-join-banner .qj-text span {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  color: rgba(31,58,61,0.70);
+  font-weight: 500;
+}
+.quick-join-banner .qj-actions {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.qj-btn {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.42rem 1.1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+  letter-spacing: 0.01em;
+  color: #222;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+  border: 1px solid rgba(0,0,0,0.18);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,1);
+  transition: padding 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.qj-btn:hover {
+  padding: 0.42rem 1.55rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,1);
+  transform: translateY(-1px);
+}
+.qj-dismiss {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+  transition: color 0.15s;
+  margin-left: auto;
+  font-family: var(--font-body);
+}
+.qj-dismiss:hover { color: rgba(255,255,255,0.85); }
+@media (max-width: 600px) {
+  .quick-join-banner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .qj-dismiss { position: absolute; top: 0.75rem; right: 0.75rem; }
+  .qj-actions { width: 100%; }
+  .qj-btn { flex: 1; text-align: center; }
 }
 
 /* =====================================================
@@ -742,6 +833,95 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
 .site-footer p { margin-bottom: 4px; font-size: 0.68rem; }
 .site-footer a { color: #2d5e3a; font-weight: 700; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
+
+
+/* =====================================================
+   MOBILE BOTTOM POPUP (≤600px only)
+===================================================== */
+.mobile-join-popup {
+  display: none;
+}
+@media (max-width: 600px) {
+  .quick-join-banner {
+    display: none !important;
+  }
+  .mobile-join-popup {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f2f8f3;
+    border-top: 1px solid rgba(39,77,49,0.22);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+    padding: 1rem 1.1rem 1.4rem;
+    border-radius: 1rem 1rem 0 0;
+    z-index: 999;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  .mobile-join-popup.hidden {
+    transform: translateY(110%);
+  }
+  .mjp-drag {
+    width: 2.5rem;
+    height: 3px;
+    background: rgba(39,77,49,0.25);
+    border-radius: 2px;
+    margin: 0 auto 0.75rem;
+  }
+  .mjp-dismiss {
+    position: absolute;
+    top: 0.85rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(31,58,61,0.30);
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .mjp-text strong {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    margin-bottom: 0.3rem;
+  }
+  .mjp-text span {
+    font-family: var(--font-body);
+    font-size: 0.73rem;
+    color: #222;
+    font-weight: 500;
+  }
+  .mjp-btns {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+  }
+  .mjp-btn {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    color: #222;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+    border: 1px solid rgba(0,0,0,0.18);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,1);
+    display: block;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .mjp-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+}
 
 </style>
 </head>
@@ -870,6 +1050,19 @@ li { margin-bottom: 8px; font-size: 1.05rem; }
 
   <div class="main-wrapper">
     <main id="main-content">
+      <!-- Quick-Join Banner -->
+      <div class="quick-join-banner" id="quickJoinBanner" role="region" aria-label="Quick join shortcut">
+        <div class="qj-text">
+          <strong style="display:block; margin-bottom:0.35rem;"><span style="color:#9b1c2e;">Ready to join?</span> <span style="color:#222;">It only takes two steps.</span></strong>
+          <span style="color:#222;">Join CRFG.org first, then join the Golden Gate Chapter separately.</span>
+        </div>
+        <div class="qj-actions">
+          <a class="qj-btn" href="https://shr.pn/CRFGJoinRenew" target="_blank" rel="noopener noreferrer"><span style="color:#9b1c2e; font-weight:700;">Step 1</span> <span style="opacity:0.4;">→</span> <span style="opacity:0.85;">Join CRFG.org</span></a>
+          <a class="qj-btn" href="https://shr.pn/GGJoinRenew" target="_blank" rel="noopener noreferrer"><span style="color:#9b1c2e; font-weight:700;">Step 2</span> <span style="opacity:0.4;">→</span> <span style="opacity:0.85;">Join Golden Gate</span></a>
+        </div>
+        <button class="qj-dismiss" id="qjDismiss" aria-label="Dismiss quick-join banner">✕</button>
+      </div>
+
     <div class="anniversary-tag animate-fade">
         <span class="tag-chunk">GROW BETTER FRUIT—TOGETHER</span>
       </div>
@@ -986,6 +1179,31 @@ From first harvests to decades of experience, there’s always something new to 
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+
+    /* ── Mobile popup dismiss ── */
+    const mjpDismiss = document.getElementById('mjpDismiss');
+    const mjpPopup   = document.getElementById('mobileJoinPopup');
+    if (mjpDismiss && mjpPopup) {
+      mjpDismiss.addEventListener('click', () => {
+        mjpPopup.classList.add('hidden');
+      });
+    }
+
+    /* ── Quick-Join Banner dismiss ── */
+    const qjDismiss = document.getElementById('qjDismiss');
+    const qjBanner  = document.getElementById('quickJoinBanner');
+    if (qjDismiss && qjBanner) {
+      qjDismiss.addEventListener('click', () => {
+        qjBanner.style.transition = 'opacity 0.25s ease, max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease';
+        qjBanner.style.opacity = '0';
+        qjBanner.style.maxHeight = '0';
+        qjBanner.style.marginBottom = '0';
+        qjBanner.style.padding = '0';
+        qjBanner.style.overflow = 'hidden';
+        setTimeout(() => qjBanner.classList.add('hidden'), 320);
+      });
+    }
+
     /* ── Active navigation component matching engine ── */
     var p = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll("#navMenu a").forEach(function (a) {
@@ -1049,5 +1267,20 @@ From first harvests to decades of experience, there’s always something new to 
     });
   });
 </script>
+
+  <!-- Mobile Bottom Popup -->
+  <div class="mobile-join-popup" id="mobileJoinPopup">
+    <div class="mjp-drag"></div>
+    <button class="mjp-dismiss" id="mjpDismiss" aria-label="Dismiss">✕</button>
+    <div class="mjp-text">
+      <strong><span style="color:#9b1c2e;">Ready to join?</span> <span style="color:#222;">It only takes two steps.</span></strong>
+      <span>Join CRFG.org first, then join the Golden Gate Chapter separately.</span>
+    </div>
+    <div class="mjp-btns">
+      <a class="mjp-btn" href="https://shr.pn/CRFGJoinRenew" target="_blank" rel="noopener noreferrer"><span style="color:#9b1c2e; font-weight:700;">Step 1</span> <span style="opacity:0.4;">→</span> <span style="opacity:0.85;">Join CRFG.org</span></a>
+      <a class="mjp-btn" href="https://shr.pn/GGJoinRenew" target="_blank" rel="noopener noreferrer"><span style="color:#9b1c2e; font-weight:700;">Step 2</span> <span style="opacity:0.4;">→</span> <span style="opacity:0.85;">Join Golden Gate</span></a>
+    </div>
+  </div>
+
 </body>
 </html>
